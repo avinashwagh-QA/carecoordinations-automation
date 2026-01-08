@@ -1,0 +1,37 @@
+package utilities;
+
+
+import com.carecoordination.healthcare.constants.UserRole;
+import org.testng.annotations.DataProvider;
+
+
+public class TestDataProvider {
+
+
+    @DataProvider(name = "invalidLoginData")
+    public Object[][] invalidLoginData() {
+        return new Object[][]{
+                {"invalidEmail", "invalidPassword", "invalidEmailMsg"},
+                {"invalidEmail", "password", "invalidEmailMsg"},
+                {"email", "invalidPassword", "invalidPasswordMsg"},
+                {"", "", "blankEmailMsg"},
+                {"email", "", "blankPasswordMsg"}
+        };
+    }
+
+    @DataProvider(name = "roleBasedLogin")
+    public static Object[][] roleBasedLogin(){
+        return new Object[][]{
+                {UserRole.SUPER_ADMIN},
+                {UserRole.BRANCH_ADMIN},
+                {UserRole.MANAGER_SUPERVISOR},
+                {UserRole.CLERICAL_STAFF},
+                {UserRole.FIELD_CLINICIAN},
+                {UserRole.TRIAGE_STAFF}
+        };
+    }
+
+
+
+
+}

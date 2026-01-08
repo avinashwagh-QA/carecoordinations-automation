@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Properties>
+        <Property name="logPath">logs</Property> <!-- folder relative to project root -->
+        <Property name="pattern">%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %c{1} - %X{testName} - %msg%n%throwable</Property>
+    </Properties>
+
+    <!-- Console appender: Whatever log happens, show it in console with our format.-->
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${pattern}"/>
+        </Console>
+
+        <!-- RollingFile appender: This writes logs to a file AND rotates them when large. -->
+        <RollingFile name="RollingFile"
+                     fileName="${logPath}/automation.log"
+                     filePattern="${logPath}/automation-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="${pattern}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="14"/>
+        </RollingFile>
+
+        <!-- Optional: Async appender wraps file to reduce blocking -->
+        <Async name="AsyncFile">
+            <AppenderRef ref="RollingFile"/>
+        </Async>
+    </Appenders>
+
+    <Loggers>
+        <!-- Root logger -->
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="AsyncFile"/>
+        </Root>
+
+        <!-- Framework package fine-grained level -->
+        <Logger name="com.carecoordination.healthcare" level="debug" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="AsyncFile"/>
+        </Logger>
+    </Loggers>
+</Configuration>
