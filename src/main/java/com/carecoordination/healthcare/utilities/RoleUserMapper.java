@@ -14,6 +14,7 @@ public class RoleUserMapper {
             case CLERICAL_STAFF -> "Addison Perry";
             case FIELD_CLINICIAN -> "Ishan s Mehta";
             case TRIAGE_STAFF -> "Ellen Rogers";
+            case EXTERNAL_VENDOR -> "Jhony A Walker";
         };
     }
 

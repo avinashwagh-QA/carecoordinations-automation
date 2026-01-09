@@ -13,6 +13,7 @@ public class RoleCredentials {
             case CLERICAL_STAFF -> ConfigReader.getProperty("clerical.email");
             case FIELD_CLINICIAN -> ConfigReader.getProperty("fieldclinician.email");
             case TRIAGE_STAFF -> ConfigReader.getProperty("triagestaff.email");
+            case EXTERNAL_VENDOR -> ConfigReader.getProperty("externalVendor.email");
         };
     }
 
@@ -24,6 +25,7 @@ public class RoleCredentials {
             case CLERICAL_STAFF -> ConfigReader.getProperty("clerical.password");
             case FIELD_CLINICIAN -> ConfigReader.getProperty("fieldclinician.password");
             case TRIAGE_STAFF -> ConfigReader.getProperty("triagestaff.password");
+            case EXTERNAL_VENDOR -> ConfigReader.getProperty("externalVendor.password");
         };
     }
 
