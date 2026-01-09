@@ -50,8 +50,6 @@ public class LoginPageTest extends BaseTest {
 
         Assert.assertTrue(appDashboardPage.isUserNamePresent(), "User name does not displayed");
 
-        appDashboardPage.clickOnUserProfile();
-
         appDashboardPage.clickOnLogOut();
         Assert.assertTrue(landingPage.isHomePageTitleDisplayed(), "Home page title not displayed, user not logout");
     }
