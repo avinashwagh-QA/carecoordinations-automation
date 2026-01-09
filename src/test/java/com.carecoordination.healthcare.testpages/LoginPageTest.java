@@ -1,4 +1,4 @@
-package com.carecoordinations.healthcare.testpages;
+package com.carecoordination.healthcare.testpages;
 
 import com.carecoordination.healthcare.constants.UserRole;
 import com.carecoordination.healthcare.factory.BaseTest;
