@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="CareCoordination Automation Suite">
+
+    <listeners>
+        <listener class-name="com.carecoordination.healthcare.listeners.ExtentReportManager"/>
+    </listeners>
+
+    <test name="CareCoordination">
+        <classes>
+            <class name="com.carecoordination.healthcare.testpages.LoginPageTest"/>
+        </classes>
+    </test>
+</suite>
+
+
