@@ -4,8 +4,6 @@ import com.carecoordination.healthcare.constants.UserRole;
 
 public class RoleUserMapper {
 
-
-    // Need to remains user name
     public static String expectedUserName(UserRole role) {
         return switch (role) {
             case SUPER_ADMIN -> "Max M Thompson";

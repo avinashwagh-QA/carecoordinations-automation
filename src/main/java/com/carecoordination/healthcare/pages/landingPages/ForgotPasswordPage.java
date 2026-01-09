@@ -1,6 +1,8 @@
 package com.carecoordination.healthcare.pages.landingPages;
 
 import com.carecoordination.healthcare.actiondriver.ActionDriver;
+import com.carecoordination.healthcare.utilities.DropdownUtil;
+import com.carecoordination.healthcare.utilities.EnterOTPUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -8,7 +10,8 @@ import org.openqa.selenium.By;
 public class ForgotPasswordPage {
 
     private final ActionDriver actionDriver;
-
+    private DropdownUtil dropdownUtil;
+    private EnterOTPUtil enterOTPUtil;
 
     private static final Logger logger= LogManager.getLogger(ForgotPasswordPage.class);
 
@@ -21,6 +24,17 @@ public class ForgotPasswordPage {
     private final By lnkForgotPasswordFromLogin = By.xpath("//span[@id='spanClick' and text()='Forgot your password?']");
     private final By headingMsgForgotPsd = By.xpath("//h6[normalize-space()='Forgot Password?']");
     private final By inputPhoneNumber = By.xpath("//input[@id='phone']");
+
+   //Locators for country code
+    private final By dropDownButton = By.xpath("button[data-bs-toggle='dropdown']");
+    private final By getDropDownOptions = By.xpath(".dropdown-menu.show a.dropdown-item");
+
+    private final By inpPhoneNumber = By.id("phone");
+    private final By btnVerify = By.id("forgotPasswordBtn");
+
+    private final By errorMessage = By.xpath("//div[@class='custom-block-error-msg']");
+
+    private final By OTPInputs = By.cssSelector("div#otp input[type='text']");
 
     //method to check the forgot link present on login page
     public boolean isForgotLinkDisplayed(){
@@ -42,5 +56,45 @@ public class ForgotPasswordPage {
         actionDriver.waitForElementToVisible(inputPhoneNumber);
        return actionDriver.isDisplayed(headingMsgForgotPsd) && actionDriver.isDisplayed(inputPhoneNumber);
     }
+
+    public void selectCountryCode(String value){
+        dropdownUtil.selectDropDown(dropDownButton,getDropDownOptions, value);
+        logger.info("Selecting country code {}", value);
+    }
+
+    public void setInputPhoneNumber(String number){
+        actionDriver.waitForElementToBeClickable(inputPhoneNumber);
+        actionDriver.enterText(inputPhoneNumber, number);
+        logger.info("Add Phone number in the input field is {}", number);
+    }
+
+    public void clickOnVerifyPhoneNumber(){
+        actionDriver.waitForElementToBeClickable(btnVerify);
+        actionDriver.click(btnVerify);
+        logger.info("Click On Verify Phone number on the Forgot Password");
+    }
+
+    public String getErrorMessage(){
+        actionDriver.waitForElementToVisible(errorMessage);
+        String msg = actionDriver.getText(errorMessage);
+        logger.info("Error message on the verify phone on Forgot password is : {}", msg);
+        return msg;
+    }
+
+    public void setOTPInputs(String otp){
+        actionDriver.waitForElementToVisible(OTPInputs);
+        enterOTPUtil.enterOTP(OTPInputs, otp);
+        logger.info("OTP-Set on the field {}", otp);
+    }
+
+    public void clearOTPInput(){
+        actionDriver.waitForElementToVisible(OTPInputs);
+        enterOTPUtil.clearOtp(OTPInputs);
+        logger.info("Otp field cleared.....");
+    }
+
+
+
+
 
 }

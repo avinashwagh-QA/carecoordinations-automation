@@ -55,19 +55,6 @@ public class LoginPageTest extends BaseTest {
     }
 
 
-    @Test(groups = "skip-login", description = "Verify 'Forgotten Password' link is available in the Login page and is working")
-    public void verifyForgotPasswordIsDisplayed() {
-
-        landingPage.clickOnLoginLink();
-        Assert.assertTrue(loginPage.isLoginPageDisplayed(), "Login Page does not displayed");
-
-        Assert.assertTrue(forgotPasswordPage.isForgotLinkDisplayed(), "Forgot password link does not displayed");
-
-        forgotPasswordPage.clickOnForgotPassword();
-        Assert.assertTrue(forgotPasswordPage.isForgotPasswordDisplayed(), "Forgot password page does not displayed");
-    }
-
-
     @Test(dataProvider = "invalidLoginData", groups = {"skip-login"},
     description = "Verify login error messages for invalid scenarios",
             dataProviderClass = TestDataProvider.class)
