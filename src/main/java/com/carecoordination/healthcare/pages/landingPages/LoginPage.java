@@ -28,7 +28,6 @@ public class LoginPage {
     private final By errorMessage = By.xpath("//div[@class='custom-block-error-msg mt-3']");
 
 
-
     //method for login page displayed
     public boolean isLoginPageDisplayed(){
         actionDriver.waitForElementToVisible(loginPage);
@@ -58,8 +57,6 @@ public class LoginPage {
         logger.info("Clicking  on login button ......");
 
     }
-
-
 
     //method for get message on invalid attempts
     public String getErrorMessage(){
