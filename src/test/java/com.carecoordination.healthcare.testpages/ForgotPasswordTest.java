@@ -71,6 +71,64 @@ public class ForgotPasswordTest extends BaseTest {
 
     }
 
+    /**
+     *  Common method to navigate the Verify OTP page
+     */
+
+    public void navigateToVerificationOtpPage() {
+
+        Assert.assertTrue(forgotPasswordPage.isForgotLinkDisplayed(), "Forgot password link does not displayed");
+
+        forgotPasswordPage.clickOnForgotPassword();
+
+        Assert.assertTrue(forgotPasswordPage.isForgotPasswordDisplayed(), "Forgot password page does not displayed");
+
+        String countryCode = ConfigReader.getProperty("countryCode");
+        String phoneNumber = ConfigReader.getProperty("validPhoneNumber");
+
+        forgotPasswordPage.setPhoneNumberForgotPassword(countryCode, phoneNumber);
+
+        forgotPasswordPage.clickOnVerifyPhoneNumber();
+
+    }
+
+    @Test(groups = "skip-login",
+            description = "Verify OTP Verification page title is displayed as OTP Verification")
+    public void verifyOtpVerificationPageIsDisplayed() {
+
+        navigateToVerificationOtpPage();
+
+        Assert.assertEquals(forgotPasswordPage.getOtpVerificationTitle(),
+                "OTP Verification", "Title does not match");
+    }
+
+    @Test(groups = "skip-login",
+            description = "Verify the resent OTP-Link is displayed on the OTP verification page")
+    public void verifyResendOtpLinkIsPresent() {
+
+        navigateToVerificationOtpPage();
+
+        Assert.assertTrue(forgotPasswordPage.isResendOtpDisplayed(), "ResendOTP link is not present");
+    }
+
+    @Test(groups = "skip-login",
+            description = "Verify the message on entering an invalid-OTP in forgot password")
+    public void verifyMessageOnInvalidOtp() {
+
+        navigateToVerificationOtpPage();
+
+        forgotPasswordPage.setOTPInputs(ConfigReader.getProperty("invalidOtp"));
+
+        String actualMSg = forgotPasswordPage.getErrorMessage();
+        String expectedMsg = ConfigReader.getProperty("incorrectOtpMsg");
+
+        Assert.assertEquals(actualMSg, expectedMsg, "Message does not match");
+    }
+
+
+
+
+
 
 
 

@@ -34,9 +34,15 @@ public class ForgotPasswordPage {
     private final By inpPhoneNumber = By.id("phone");
     private final By btnVerify = By.id("forgotPasswordBtn");
 
-    private final By errorMessage = By.xpath("//div[@class='custom-block-error-msg']");
+    private final By errorMessage = By.cssSelector(".custom-block-error-msg");
+
+    private final By titleVerifyOtpPage = By.xpath("//div[@class='cc-heading-txt']");
+
+    private final By linkResendOtp = By.xpath("//a[normalize-space()='Resend OTP']");
 
     private final By OTPInputs = By.cssSelector("div#otp input[type='text']");
+
+
 
     //method to check the forgot link present on login page
     public boolean isForgotLinkDisplayed(){
@@ -99,11 +105,24 @@ public class ForgotPasswordPage {
     }
 
     //Method to set country code and phone number in forgot password
-    public void setPhoneNumberForgotPassword(String otp, String phoneNumber){
-        selectCountryCode(otp);
+    public void setPhoneNumberForgotPassword(String countryCode, String phoneNumber){
+        selectCountryCode(countryCode);
         setInputPhoneNumber(phoneNumber);
         clickOnVerifyPhoneNumber();
     }
+
+    public String getOtpVerificationTitle(){
+        actionDriver.waitForElementToVisible(titleVerifyOtpPage);
+        String title = actionDriver.getText(titleVerifyOtpPage);
+        logger.info("Title display on OTP verification page is {}", title);
+        return title;
+    }
+
+    //method to check the resend OTP is present
+    public boolean isResendOtpDisplayed(){
+        return actionDriver.waitForResendOTP(linkResendOtp);
+    }
+
 
 
 

@@ -34,7 +34,7 @@ public class TestDataProvider {
     @DataProvider(name = "invalidForgotPasswordMobileData")
     public static Object[][] invalidForgotPasswordMobileData(){
         return new Object[][]{
-                { "countryCode","otpLessThan10digit", "msgMobileLessThan10Digit"},
+                { "countryCode","mobileLessThan10Digit", "msgMobileLessThan10Digit"},
                 {"invalidCountryCode", "validPhoneNumber", "invalidCountryCodeMsg"},
                 {"countryCode", "invalidPhoneNumber", "unregisterPhone"}
         };
