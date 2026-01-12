@@ -54,14 +54,12 @@ public class LoginPageTest extends BaseTest {
         Assert.assertTrue(landingPage.isHomePageTitleDisplayed(), "Home page title not displayed, user not logout");
     }
 
-
     @Test(dataProvider = "invalidLoginData", groups = {"skip-login"},
     description = "Verify login error messages for invalid scenarios",
             dataProviderClass = TestDataProvider.class)
     public void VerifyInvalidLoginScenario(String emailKey,
                                            String passwordKey,
                                            String expectedMsgKey){
-
 
         String email = ConfigReader.getProperty(emailKey);
         String password = ConfigReader.getProperty(passwordKey);
@@ -94,6 +92,7 @@ public class LoginPageTest extends BaseTest {
         appDashboardPage.clickOnLogOut();
         Assert.assertTrue(landingPage.isHomePageTitleDisplayed(), "Home page title not displayed, user not logout");
     }
+
 
 
 }

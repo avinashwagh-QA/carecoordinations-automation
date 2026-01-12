@@ -31,7 +31,6 @@ public class DropdownUtil {
         actionDriver.waitForElementToBeClickable(dropdownButton);
         actionDriver.click(dropdownButton);
 
-
         List<WebElement> options = DriverFactory.getDriver().findElements(optionSelector);
 
         for (WebElement option : options) {

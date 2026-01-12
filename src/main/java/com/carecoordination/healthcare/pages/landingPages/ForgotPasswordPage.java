@@ -18,6 +18,8 @@ public class ForgotPasswordPage {
     //Initialize the action drive object by passing the webdriver instance
     public ForgotPasswordPage (ActionDriver actionDriver){
         this.actionDriver = actionDriver;
+        dropdownUtil = new DropdownUtil(actionDriver);
+        enterOTPUtil = new EnterOTPUtil(actionDriver);
     }
 
     //Defining locators for ForgotPassword
@@ -26,8 +28,8 @@ public class ForgotPasswordPage {
     private final By inputPhoneNumber = By.xpath("//input[@id='phone']");
 
    //Locators for country code
-    private final By dropDownButton = By.xpath("button[data-bs-toggle='dropdown']");
-    private final By getDropDownOptions = By.xpath(".dropdown-menu.show a.dropdown-item");
+    private final By dropDownButton = By.cssSelector("button[data-bs-toggle='dropdown']");
+    private final By getDropDownOptions = By.cssSelector(".dropdown-menu.show a.dropdown-item");
 
     private final By inpPhoneNumber = By.id("phone");
     private final By btnVerify = By.id("forgotPasswordBtn");
@@ -51,20 +53,23 @@ public class ForgotPasswordPage {
     }
 
     //method to check forgot password page displayed
-    public boolean isForgotPasswordDisplayed(){
+    public boolean isForgotPasswordDisplayed() {
         actionDriver.waitForElementToVisible(headingMsgForgotPsd);
         actionDriver.waitForElementToVisible(inputPhoneNumber);
-       return actionDriver.isDisplayed(headingMsgForgotPsd) && actionDriver.isDisplayed(inputPhoneNumber);
+        boolean pageForgotPassword = actionDriver.isDisplayed(headingMsgForgotPsd) && actionDriver.isDisplayed(inputPhoneNumber);
+        logger.info("Forgot Password page is displayed ......");
+        return pageForgotPassword;
     }
 
     public void selectCountryCode(String value){
+        actionDriver.waitForElementToVisible(dropDownButton);
         dropdownUtil.selectDropDown(dropDownButton,getDropDownOptions, value);
         logger.info("Selecting country code {}", value);
     }
 
     public void setInputPhoneNumber(String number){
-        actionDriver.waitForElementToBeClickable(inputPhoneNumber);
-        actionDriver.enterText(inputPhoneNumber, number);
+        actionDriver.waitForElementToBeClickable(inpPhoneNumber);
+        actionDriver.enterText(inpPhoneNumber, number);
         logger.info("Add Phone number in the input field is {}", number);
     }
 
@@ -91,6 +96,13 @@ public class ForgotPasswordPage {
         actionDriver.waitForElementToVisible(OTPInputs);
         enterOTPUtil.clearOtp(OTPInputs);
         logger.info("Otp field cleared.....");
+    }
+
+    //Method to set country code and phone number in forgot password
+    public void setPhoneNumberForgotPassword(String otp, String phoneNumber){
+        selectCountryCode(otp);
+        setInputPhoneNumber(phoneNumber);
+        clickOnVerifyPhoneNumber();
     }
 
 
