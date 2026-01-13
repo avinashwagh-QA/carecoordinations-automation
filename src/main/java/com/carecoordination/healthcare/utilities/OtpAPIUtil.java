@@ -5,31 +5,35 @@ import org.apache.logging.log4j.Logger;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
+/**
+ * Fetches the latest OTP for forgot/reset password flow
+ * by calling backend OTP API (QA environments only).
+ * <p>
+ * Flow:
+ * 1. Validates email and API enable flag
+ * 2. Calls OTP API endpoint
+ * 3. Retries OTP fetch if not immediately available
+ * 4. Extracts OTP from nested response object
+ * 5. Returns OTP for UI automation usage
+ * <p>
+ * Note:
+ * * - Designed to handle backend timing delays (async OTP generation)
+ * * - Used only to support Selenium tests, not for API validation
+ */
 
 public class OtpAPIUtil {
 
-
-    /**
-     * Fetches the latest OTP for forgot/reset password flow
-     * by calling backend OTP API (QA environments only).
-     *
-     * Flow:
-     * 1. Validates email and API enable flag
-     * 2. Calls OTP API endpoint
-     * 3. Extracts OTP from nested response object
-     * 4. Returns OTP for UI automation usage
-     *
-     * Note: Used only to support Selenium tests, not API validation.
-     */
-
-
     public static Logger logger = LogManager.getLogger(OtpAPIUtil.class);
 
-    public String getOtp(){
+    int maxAttempts = 3;
+    int attempt = 1;
+    String otp = null;
+
+    public String getOtp() throws InterruptedException {
 
         //Check Email if email is valid
         String email = ConfigReader.getProperty("otpEmail");
-        if( email==null || email.isBlank()){
+        if (email == null || email.isBlank()) {
             logger.error("OTP Email is invalid or missing");// Use ERROR level
             throw new RuntimeException("OTP Email not configured - skipping");  // Stop execution
         }
@@ -43,7 +47,7 @@ public class OtpAPIUtil {
 
         logger.info("Email and API checks passed");
 
-        String completeUrl = ConfigReader.getProperty("otp.api.base.url")+ email;
+        String completeUrl = ConfigReader.getProperty("otp.api.base.url") + email;
 
         Response response = RestAssured
                 .given()
@@ -53,29 +57,43 @@ public class OtpAPIUtil {
         int statusCode = response.getStatusCode();
         logger.info("OTP API Status Code: {}", statusCode);
 
-        if (statusCode!=200){
+        if (statusCode != 200) {
             logger.error("API fails to get the response with status 200...");
             throw new RuntimeException("API fails - 200 status code not received");
         }
 
         logger.info("API called Successfully {}", completeUrl);
 
-        String otp = response.jsonPath().getString("data.User.otp");
+        while (attempt <= maxAttempts) {
 
-        if(otp==null || otp.trim().isBlank()){
-            logger.error("OTP is missing or Blank in API Response");
-            throw new RuntimeException("OTP not found in API Response");
+            otp = response.jsonPath().getString("data.User.otp");
+
+            if (otp != null && otp.isBlank()) {
+                logger.info("OTP fetched successfully on attempt {}", attempt);
+                break;
+            }
+
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                throw new RuntimeException("Retry interrupted while waiting for OTP", e);
+            }
+            attempt++;
+
         }
 
-      logger.info("OTP received  successfully of length {}", otp.length());
+        //final validation after retry
+        if (otp == null || otp.trim().isBlank()) {
+            logger.error("OTP not received after {} attempts", maxAttempts);
+            throw new RuntimeException("OTP not available after retries");
+        }
+
+        logger.info("OTP received  successfully of length {}", otp.length());
 
         return otp;
 
-
     }
-
-
-
 
 
 }

@@ -131,7 +131,7 @@ public class ForgotPasswordTest extends BaseTest {
 
     @Test(groups = "skip-login",
     description = "Verify the entering valid OTP navigates to Rest password page")
-    public void VerifyEnteringValidOTPNavigatesToResetPassword(){
+    public void VerifyEnteringValidOTPNavigatesToResetPassword() throws InterruptedException {
 
         navigateToVerificationOtpPage();
 
