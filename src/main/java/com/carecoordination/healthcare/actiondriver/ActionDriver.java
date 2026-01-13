@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.nio.file.Paths;
 import java.time.Duration;
 import java.util.List;
+import java.util.Objects;
 
 public class ActionDriver {
 
@@ -31,7 +32,6 @@ public class ActionDriver {
         this.OtpWait = new WebDriverWait(driver, Duration.ofSeconds(OtpWait));
 
         logger.debug("ActionDriver initialized with explicitWait={} seconds", explicitWait);
-
     }
 
     // Wait for element to be clickable
@@ -43,7 +43,6 @@ public class ActionDriver {
             logger.error("Element not clickable: {}", locator);
             throw new RuntimeException("Element is not Clickable" + locator, e);
         }
-
     }
 
     // Wait for WebElement to be clickable-Used for table and list
@@ -56,7 +55,6 @@ public class ActionDriver {
             throw new RuntimeException("WebElement not clickable", e);
         }
     }
-
 
     // Wait for element to be visible
     public WebElement waitForElementToVisible(By locator) {
@@ -80,7 +78,6 @@ public class ActionDriver {
         }
     }
 
-
     // Wait for element to be Present in the Dom
     public WebElement waitForElementToBePresent(By locator) {
         try {
@@ -90,6 +87,18 @@ public class ActionDriver {
             logger.error("Element is not present: {}", locator);
             throw new RuntimeException("Element is not present" + locator, e);
         }
+    }
+
+    //wait for page to be load
+    public void waitForPageLoad() {
+        wait.until(driver ->
+                Objects.equals(((JavascriptExecutor) driver)
+                        .executeScript("return document.readyState"), "complete"));
+    }
+
+    //Navigate Back form browser
+    public void navigateToBack(){
+        DriverFactory.getDriver().navigate().back();
     }
 
     //Method to Click an element using locator

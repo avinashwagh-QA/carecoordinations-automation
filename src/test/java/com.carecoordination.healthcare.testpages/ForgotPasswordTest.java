@@ -1,7 +1,7 @@
 package com.carecoordination.healthcare.testpages;
 
 import com.carecoordination.healthcare.factory.BaseTest;
-import com.carecoordination.healthcare.pages.AppDashBoard.AppDashboardPage;
+import com.carecoordination.healthcare.factory.DriverFactory;
 import com.carecoordination.healthcare.pages.landingPages.ForgotPasswordPage;
 import com.carecoordination.healthcare.pages.landingPages.LandingPage;
 import com.carecoordination.healthcare.pages.landingPages.LoginPage;
@@ -18,7 +18,6 @@ public class ForgotPasswordTest extends BaseTest {
 
     private LandingPage landingPage;
     private LoginPage loginPage;
-    private AppDashboardPage appDashboardPage;
     private ForgotPasswordPage forgotPasswordPage;
     private OtpAPIUtil otpAPIUtil;
 
@@ -28,7 +27,6 @@ public class ForgotPasswordTest extends BaseTest {
     public void setupPages() {
         landingPage = new LandingPage(actionDriver);
         loginPage = new LoginPage(actionDriver);
-        appDashboardPage = new AppDashboardPage(actionDriver);
         forgotPasswordPage = new ForgotPasswordPage(actionDriver);
         otpAPIUtil = new OtpAPIUtil();
 
@@ -39,7 +37,6 @@ public class ForgotPasswordTest extends BaseTest {
     @Test(groups = "skip-login", description = "Verify 'Forgotten Password' link is available in the Login page and is working")
     public void verifyForgotPasswordIsDisplayed() {
 
-        landingPage.clickOnLoginLink();
         Assert.assertTrue(loginPage.isLoginPageDisplayed(), "Login Page does not displayed");
 
         Assert.assertTrue(forgotPasswordPage.isForgotLinkDisplayed(), "Forgot password link does not displayed");
@@ -128,20 +125,72 @@ public class ForgotPasswordTest extends BaseTest {
         Assert.assertEquals(actualMSg, expectedMsg, "Message does not match");
     }
 
-
     @Test(groups = "skip-login",
-    description = "Verify the entering valid OTP navigates to Rest password page")
-    public void VerifyEnteringValidOTPNavigatesToResetPassword() throws InterruptedException {
+            description = "Verify the entering valid OTP navigates to Rest password page")
+    public void verifyEnteringValidOtpNavigatesToResetPassword() {
+
+        logger.info("Verifying valid OTP navigates to reset password page");
 
         navigateToVerificationOtpPage();
 
         forgotPasswordPage.setOTPInputs(otpAPIUtil.getOtp());
 
-      String actualTitle = forgotPasswordPage.getResetPasswordPageTitle();
-      String expectedTitle = ConfigReader.getProperty("resetPasswordPageTitle");
+        String actualTitle = forgotPasswordPage.getResetPasswordPageTitle();
+        String expectedTitle = ConfigReader.getProperty("resetPasswordPageTitle");
 
-      Assert.assertEquals(actualTitle.trim().toLowerCase(), expectedTitle.toLowerCase(), "Title does not match");
+        Assert.assertEquals(actualTitle.trim().toLowerCase(), expectedTitle.toLowerCase(), "Title does not match");
 
+    }
+
+    @Test(groups = "skip-login",
+            description = "Verify old OTP becomes invalid after resend OTP")
+    public void verifyOldOtpExpiresAfterResend() {
+
+        logger.info("Verify on resend OTP the old Otp expire successfully");
+
+        navigateToVerificationOtpPage();
+
+        //Fetching 1st OTP in otp1
+        String Otp1 = otpAPIUtil.getOtp();
+
+        // Verify resend OTP link and click
+        Assert.assertTrue(forgotPasswordPage.isResendOtpDisplayed(), "ResendOTP link is not present");
+        forgotPasswordPage.clickOnResendOtp();
+
+        // Enter old OTP
+        forgotPasswordPage.setOTPInputs(Otp1);
+
+        String actualMSg = forgotPasswordPage.getErrorMessage();
+        String expectedMsg = ConfigReader.getProperty("incorrectOtpMsg");
+
+        Assert.assertEquals(actualMSg, expectedMsg, "Message does not match");
+    }
+
+
+    @Test(groups = "skip-login",
+        description = "Verify browser back from reset password navigates to home page")
+    public void verifyBrowserBackFromResetPasswordNavigatesToHomePage(){
+
+        logger.info("Verify browser back from reset password navigates to home page");
+
+        navigateToVerificationOtpPage();
+
+        forgotPasswordPage.setOTPInputs(otpAPIUtil.getOtp());
+
+        String actualTitle = forgotPasswordPage.getResetPasswordPageTitle();
+        String expectedTitle = ConfigReader.getProperty("resetPasswordPageTitle");
+
+        Assert.assertEquals(actualTitle.trim().toLowerCase(), expectedTitle.toLowerCase(), "Title does not match");
+
+        actionDriver.waitForPageLoad(); // Wait for page to be load - reset password page
+        actionDriver.navigateToBack(); // Navigating back
+        actionDriver.waitForPageLoad(); // wait for page tove load after back navigation
+
+        String actualURL = DriverFactory.getDriver().getCurrentUrl();
+        String expectedURL = ConfigReader.getProperty("url");
+
+        Assert.assertNotNull(actualURL);
+        Assert.assertTrue(actualURL.startsWith(expectedURL),"Does not navigate to Home page");
     }
 
 

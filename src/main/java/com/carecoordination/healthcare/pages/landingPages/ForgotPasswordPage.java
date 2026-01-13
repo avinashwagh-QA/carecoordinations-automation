@@ -41,7 +41,7 @@ public class ForgotPasswordPage {
     private final By OTPInputs = By.cssSelector("div#otp input[type='text']");
 
 
-    private final By titleResetPassowrd = By.xpath("//h6[normalize-space()='Reset password']");
+    private final By titleResetPassword = By.xpath("//h6[normalize-space()='Reset password']");
 
     //method to check the forgot link present on login page
     public boolean isForgotLinkDisplayed(){
@@ -122,9 +122,14 @@ public class ForgotPasswordPage {
         return actionDriver.waitForResendOTP(linkResendOtp);
     }
 
+    public void clickOnResendOtp(){
+         actionDriver.waitForResendOTP(linkResendOtp);
+         actionDriver.click(linkResendOtp);
+    }
+
     public String getResetPasswordPageTitle(){
-        actionDriver.waitForElementToVisible(titleResetPassowrd);
-        String title = actionDriver.getText(titleResetPassowrd);
+        actionDriver.waitForElementToVisible(titleResetPassword);
+        String title = actionDriver.getText(titleResetPassword);
         logger.info("Title displayed on reset password is {}", title);
         return title;
     }

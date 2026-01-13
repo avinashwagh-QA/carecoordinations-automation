@@ -29,7 +29,7 @@ public class OtpAPIUtil {
     int attempt = 1;
     String otp = null;
 
-    public String getOtp() throws InterruptedException {
+    public String getOtp() {
 
         //Check Email if email is valid
         String email = ConfigReader.getProperty("otpEmail");
