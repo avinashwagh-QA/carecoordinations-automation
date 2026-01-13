@@ -6,6 +6,7 @@ import com.carecoordination.healthcare.pages.landingPages.ForgotPasswordPage;
 import com.carecoordination.healthcare.pages.landingPages.LandingPage;
 import com.carecoordination.healthcare.pages.landingPages.LoginPage;
 import com.carecoordination.healthcare.utilities.ConfigReader;
+import com.carecoordination.healthcare.utilities.OtpAPIUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
@@ -19,6 +20,7 @@ public class ForgotPasswordTest extends BaseTest {
     private LoginPage loginPage;
     private AppDashboardPage appDashboardPage;
     private ForgotPasswordPage forgotPasswordPage;
+    private OtpAPIUtil otpAPIUtil;
 
     private static final Logger logger = LogManager.getLogger(ForgotPasswordTest.class);
 
@@ -28,6 +30,7 @@ public class ForgotPasswordTest extends BaseTest {
         loginPage = new LoginPage(actionDriver);
         appDashboardPage = new AppDashboardPage(actionDriver);
         forgotPasswordPage = new ForgotPasswordPage(actionDriver);
+        otpAPIUtil = new OtpAPIUtil();
 
         landingPage.clickOnLoginLink();
         Assert.assertTrue(loginPage.isLoginPageDisplayed(), "Login Page does not displayed");
@@ -70,6 +73,80 @@ public class ForgotPasswordTest extends BaseTest {
         Assert.assertEquals(actualMsg, expectedMsg, "Message does not match on Forgot password");
 
     }
+
+    /**
+     *  Common method to navigate the Verify OTP page
+     */
+
+    public void navigateToVerificationOtpPage() {
+
+        Assert.assertTrue(forgotPasswordPage.isForgotLinkDisplayed(), "Forgot password link does not displayed");
+
+        forgotPasswordPage.clickOnForgotPassword();
+
+        Assert.assertTrue(forgotPasswordPage.isForgotPasswordDisplayed(), "Forgot password page does not displayed");
+
+        String countryCode = ConfigReader.getProperty("countryCode");
+        String phoneNumber = ConfigReader.getProperty("validPhoneNumber");
+
+        forgotPasswordPage.setPhoneNumberForgotPassword(countryCode, phoneNumber);
+
+        forgotPasswordPage.clickOnVerifyPhoneNumber();
+
+    }
+
+    @Test(groups = "skip-login",
+            description = "Verify OTP Verification page title is displayed as OTP Verification")
+    public void verifyOtpVerificationPageIsDisplayed() {
+
+        navigateToVerificationOtpPage();
+
+        Assert.assertEquals(forgotPasswordPage.getOtpVerificationTitle(),
+                "OTP Verification", "Title does not match");
+    }
+
+    @Test(groups = "skip-login",
+            description = "Verify the resent OTP-Link is displayed on the OTP verification page")
+    public void verifyResendOtpLinkIsPresent() {
+
+        navigateToVerificationOtpPage();
+
+        Assert.assertTrue(forgotPasswordPage.isResendOtpDisplayed(), "ResendOTP link is not present");
+    }
+
+    @Test(groups = "skip-login",
+            description = "Verify the message on entering an invalid-OTP in forgot password")
+    public void verifyMessageOnInvalidOtp() {
+
+        navigateToVerificationOtpPage();
+
+        forgotPasswordPage.setOTPInputs(ConfigReader.getProperty("invalidOtp"));
+
+        String actualMSg = forgotPasswordPage.getErrorMessage();
+        String expectedMsg = ConfigReader.getProperty("incorrectOtpMsg");
+
+        Assert.assertEquals(actualMSg, expectedMsg, "Message does not match");
+    }
+
+
+    @Test(groups = "skip-login",
+    description = "Verify the entering valid OTP navigates to Rest password page")
+    public void VerifyEnteringValidOTPNavigatesToResetPassword(){
+
+        navigateToVerificationOtpPage();
+
+        forgotPasswordPage.setOTPInputs(otpAPIUtil.getOtp());
+
+      String actualTitle = forgotPasswordPage.getResetPasswordPageTitle();
+      String expectedTitle = ConfigReader.getProperty("resetPasswordPageTitle");
+
+      Assert.assertEquals(actualTitle.trim().toLowerCase(), expectedTitle.toLowerCase(), "Title does not match");
+
+    }
+
+
+
+
 
 
 

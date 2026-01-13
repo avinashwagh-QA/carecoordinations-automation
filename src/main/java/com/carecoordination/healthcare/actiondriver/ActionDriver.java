@@ -16,24 +16,29 @@ import java.util.List;
 
 public class ActionDriver {
 
-        private static final Logger logger = LogManager.getLogger(ActionDriver.class);
+    private static final Logger logger = LogManager.getLogger(ActionDriver.class);
 
-        private final WebDriver driver;
-        private final WebDriverWait wait;
+    private final WebDriver driver;
+    private final WebDriverWait wait;
+    private final WebDriverWait OtpWait;
 
-    public ActionDriver(WebDriver driver){
+    public ActionDriver(WebDriver driver) {
         this.driver = driver;
         int explicitWait = Integer.parseInt(ConfigReader.getProperty("explicitWait"));
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(explicitWait));
+
+        int OtpWait = Integer.parseInt(ConfigReader.getProperty("OtpWait"));
+        this.OtpWait = new WebDriverWait(driver, Duration.ofSeconds(OtpWait));
+
         logger.debug("ActionDriver initialized with explicitWait={} seconds", explicitWait);
 
     }
 
-        // Wait for element to be clickable
-        public WebElement waitForElementToBeClickable(By locator){
+    // Wait for element to be clickable
+    public WebElement waitForElementToBeClickable(By locator) {
         try {
             logger.debug("Waiting for element to be clickable: {}", locator);
-            return  wait.until(ExpectedConditions.elementToBeClickable(locator));
+            return wait.until(ExpectedConditions.elementToBeClickable(locator));
         } catch (Exception e) {
             logger.error("Element not clickable: {}", locator);
             throw new RuntimeException("Element is not Clickable" + locator, e);
@@ -41,8 +46,8 @@ public class ActionDriver {
 
     }
 
-        // Wait for WebElement to be clickable-Used for table and list
-        public void waitForElementToBeClickable(WebElement element) {
+    // Wait for WebElement to be clickable-Used for table and list
+    public void waitForElementToBeClickable(WebElement element) {
         try {
             logger.debug("Waiting for WebElement to be clickable");
             wait.until(ExpectedConditions.elementToBeClickable(element));
@@ -53,22 +58,22 @@ public class ActionDriver {
     }
 
 
-        // Wait for element to be visible
-        public WebElement waitForElementToVisible(By locator){
+    // Wait for element to be visible
+    public WebElement waitForElementToVisible(By locator) {
         try {
             logger.debug("Waiting for visibility of: {}", locator);
-            return  wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         } catch (Exception e) {
             logger.error("Element not visible: {}", locator);
             throw new RuntimeException("Element is not visible" + locator, e);
         }
     }
 
-        //wait for list of WebElements
-        public List<WebElement> waitForAllElementsToBeVisible(By locator){
+    //wait for list of WebElements
+    public List<WebElement> waitForAllElementsToBeVisible(By locator) {
         try {
             logger.debug("Waiting for visibility of all the elements: {}", locator);
-            return  wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
+            return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
         } catch (Exception e) {
             logger.error(" All the Elements are not visible: {}", locator);
             throw new RuntimeException("List of Elements are not visible" + locator, e);
@@ -76,19 +81,19 @@ public class ActionDriver {
     }
 
 
-        // Wait for element to be Present in the Dom
-        public WebElement waitForElementToBePresent(By locator){
+    // Wait for element to be Present in the Dom
+    public WebElement waitForElementToBePresent(By locator) {
         try {
             logger.debug("Waiting for Presence of: {}", locator);
-            return  wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+            return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
         } catch (Exception e) {
             logger.error("Element is not present: {}", locator);
             throw new RuntimeException("Element is not present" + locator, e);
         }
     }
 
-        //Method to Click an element using locator
-        public void click(By locator){
+    //Method to Click an element using locator
+    public void click(By locator) {
         try {
             logger.info("Clicking element: {}", locator);
             WebElement element = waitForElementToBeClickable(locator);
@@ -98,8 +103,8 @@ public class ActionDriver {
         }
     }
 
-        // Click using WebElement
-        public void click(WebElement element) {
+    // Click using WebElement
+    public void click(WebElement element) {
         try {
             waitForElementToBeClickable(element);
             element.click();
@@ -108,9 +113,8 @@ public class ActionDriver {
         }
     }
 
-
-        //Method to enter the value in the input
-        public void enterText(By locator, String value){
+    //Method to enter the value in the input
+    public void enterText(By locator, String value) {
         try {
             logger.info("Entering text into {}", locator);
             WebElement element = waitForElementToVisible(locator);
@@ -118,12 +122,12 @@ public class ActionDriver {
             element.sendKeys(value);
         } catch (Exception e) {
             logger.error("Unable to enter text in: {}", locator, e);
-            throw new RuntimeException("Not able to send the keys "+locator + e.getMessage());
+            throw new RuntimeException("Not able to send the keys " + locator + e.getMessage());
         }
     }
 
-        //Method to get the value for element
-        public String getText(By locator){
+    //Method to get the value for element
+    public String getText(By locator) {
         try {
             WebElement element = waitForElementToVisible(locator);
             String text = element.getText();
@@ -131,18 +135,18 @@ public class ActionDriver {
             return text;
         } catch (Exception e) {
             logger.error("Unable to get text from: {}", locator, e);
-            throw new RuntimeException("Unable to get text from "+ locator + e.getMessage());
+            throw new RuntimeException("Unable to get text from " + locator + e.getMessage());
         }
     }
 
-        //Method for clear input
-        public void clearText(By locator) {
+    //Method for clear input
+    public void clearText(By locator) {
         try {
             WebElement element = waitForElementToVisible(locator);
             element.click();
 
             // Select ALL and Delete to clear the input box
-            element.sendKeys(Keys.chord(Keys.CONTROL,"a"));
+            element.sendKeys(Keys.chord(Keys.CONTROL, "a"));
             element.sendKeys(Keys.DELETE);
         } catch (Exception e) {
             logger.error("Unable to clear text in element: {}", locator, e);
@@ -150,25 +154,8 @@ public class ActionDriver {
         }
     }
 
-        //Method to compare text
-        public boolean compareText(By locator, String expectedText) {
-        try {
-            waitForElementToVisible(locator);
-            String actualText = driver.findElement(locator).getText();
-            if (actualText.equalsIgnoreCase(expectedText)) {
-                logger.info("Comparing text. Expected='{}', Actual='{}'", expectedText, actualText);
-                return true;
-            } else {
-                logger.info("The text does not match. Expected='{}', Actual='{}'", expectedText, actualText);
-                return false;
-            }
-        } catch (Exception e) {
-            throw new RuntimeException("Unable to compare text" + e.getMessage());
-        }
-    }
-
-        // method to check if an element is displayed
-        public boolean isDisplayed(By locator) {
+    // method to check if an element is displayed
+    public boolean isDisplayed(By locator) {
         try {
             logger.debug("Checking visibility for: {}", locator);
             WebElement element = waitForElementToVisible(locator);
@@ -182,19 +169,31 @@ public class ActionDriver {
         }
     }
 
-        //method to scrollElement
-        public void scrollToElement(By locator){
+    //method to scrollElement
+    public void scrollToElement(By locator) {
         try {
             WebElement element = waitForElementToBePresent(locator);
-            ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", element );
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
         } catch (Exception e) {
-            throw new RuntimeException("Unable to get element"+ locator+ e.getMessage());
+            throw new RuntimeException("Unable to get element" + locator + e.getMessage());
         }
 
     }
 
-        // This method is used in autosuggestion wait for searching text until the list of suggestion appears
-        public List<WebElement> waitForSuggestionToLoad(By suggestionLocators, String loadingText){
+    public boolean waitForResendOTP(By locator) {
+        try {
+            logger.debug("Waiting for visibility of OTP : {}", locator);
+            OtpWait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+            return true;
+        } catch (TimeoutException e) {
+            logger.error("Resend OTP link not appeared after 40s");
+            return false;
+        }
+    }
+
+
+    // This method is used in autosuggestion wait for searching text until the list of suggestion appears
+    public List<WebElement> waitForSuggestionToLoad(By suggestionLocators, String loadingText) {
 
         //1) Wait until the list of suggestion/list-box to visible
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(suggestionLocators));
@@ -202,13 +201,13 @@ public class ActionDriver {
         //2) Wait until something other than loading text is appear
         wait.until(driver1 -> {
             List<WebElement> items = driver1.findElements(suggestionLocators);
-            if(items.isEmpty()) return false;
+            if (items.isEmpty()) return false;
 
             boolean allLoading = true;
-            for(WebElement e: items){
+            for (WebElement e : items) {
 
                 String t = e.getText().trim().toLowerCase();
-                if(!t.isEmpty() && !t.contains(loadingText.toLowerCase())){
+                if (!t.isEmpty() && !t.contains(loadingText.toLowerCase())) {
                     allLoading = false;
                     break;
                 }
@@ -220,8 +219,8 @@ public class ActionDriver {
         return DriverFactory.getDriver().findElements(suggestionLocators);
     }
 
-        //Method for upload doc using javascript
-        public void upload(By locator, String filePath) {
+    //Method for upload doc using javascript
+    public void upload(By locator, String filePath) {
 
         WebElement e = waitForElementToBePresent(locator);
 
@@ -232,13 +231,13 @@ public class ActionDriver {
         e.sendKeys(absolutePath);
     }
 
-        // common method to get the table rows and cell text from row and column
+    // common method to get the table rows and cell text from row and column
 
-        public List<WebElement> getTableRows(By tableLocator){
-        return  wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(tableLocator));
+    public List<WebElement> getTableRows(By tableLocator) {
+        return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(tableLocator));
     }
 
-        public String getCellText(WebElement rowElement, int colIndex){
+    public String getCellText(WebElement rowElement, int colIndex) {
 
         return rowElement.findElement(By.xpath(".//div[" + colIndex + "]")).getText().trim();
     }
