@@ -6,6 +6,7 @@ import com.carecoordination.healthcare.pages.landingPages.ForgotPasswordPage;
 import com.carecoordination.healthcare.pages.landingPages.LandingPage;
 import com.carecoordination.healthcare.pages.landingPages.LoginPage;
 import com.carecoordination.healthcare.utilities.ConfigReader;
+import com.carecoordination.healthcare.utilities.OtpAPIUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
@@ -19,6 +20,7 @@ public class ForgotPasswordTest extends BaseTest {
     private LoginPage loginPage;
     private AppDashboardPage appDashboardPage;
     private ForgotPasswordPage forgotPasswordPage;
+    private OtpAPIUtil otpAPIUtil;
 
     private static final Logger logger = LogManager.getLogger(ForgotPasswordTest.class);
 
@@ -28,6 +30,7 @@ public class ForgotPasswordTest extends BaseTest {
         loginPage = new LoginPage(actionDriver);
         appDashboardPage = new AppDashboardPage(actionDriver);
         forgotPasswordPage = new ForgotPasswordPage(actionDriver);
+        otpAPIUtil = new OtpAPIUtil();
 
         landingPage.clickOnLoginLink();
         Assert.assertTrue(loginPage.isLoginPageDisplayed(), "Login Page does not displayed");
@@ -123,6 +126,22 @@ public class ForgotPasswordTest extends BaseTest {
         String expectedMsg = ConfigReader.getProperty("incorrectOtpMsg");
 
         Assert.assertEquals(actualMSg, expectedMsg, "Message does not match");
+    }
+
+
+    @Test(groups = "skip-login",
+    description = "Verify the entering valid OTP navigates to Rest password page")
+    public void VerifyEnteringValidOTPNavigatesToResetPassword(){
+
+        navigateToVerificationOtpPage();
+
+        forgotPasswordPage.setOTPInputs(otpAPIUtil.getOtp());
+
+      String actualTitle = forgotPasswordPage.getResetPasswordPageTitle();
+      String expectedTitle = ConfigReader.getProperty("resetPasswordPageTitle");
+
+      Assert.assertEquals(actualTitle.trim().toLowerCase(), expectedTitle.toLowerCase(), "Title does not match");
+
     }
 
 
