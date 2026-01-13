@@ -5,6 +5,7 @@ import com.carecoordination.healthcare.factory.DriverFactory;
 import com.carecoordination.healthcare.pages.landingPages.ForgotPasswordPage;
 import com.carecoordination.healthcare.pages.landingPages.LandingPage;
 import com.carecoordination.healthcare.pages.landingPages.LoginPage;
+import com.carecoordination.healthcare.pages.landingPages.ResetPasswordPage;
 import com.carecoordination.healthcare.utilities.ConfigReader;
 import com.carecoordination.healthcare.utilities.OtpAPIUtil;
 import org.apache.logging.log4j.LogManager;
@@ -20,6 +21,7 @@ public class ForgotPasswordTest extends BaseTest {
     private LoginPage loginPage;
     private ForgotPasswordPage forgotPasswordPage;
     private OtpAPIUtil otpAPIUtil;
+    private ResetPasswordPage resetPasswordPage;
 
     private static final Logger logger = LogManager.getLogger(ForgotPasswordTest.class);
 
@@ -29,6 +31,7 @@ public class ForgotPasswordTest extends BaseTest {
         loginPage = new LoginPage(actionDriver);
         forgotPasswordPage = new ForgotPasswordPage(actionDriver);
         otpAPIUtil = new OtpAPIUtil();
+        resetPasswordPage = new ResetPasswordPage(actionDriver);
 
         landingPage.clickOnLoginLink();
         Assert.assertTrue(loginPage.isLoginPageDisplayed(), "Login Page does not displayed");
@@ -135,7 +138,7 @@ public class ForgotPasswordTest extends BaseTest {
 
         forgotPasswordPage.setOTPInputs(otpAPIUtil.getOtp());
 
-        String actualTitle = forgotPasswordPage.getResetPasswordPageTitle();
+        String actualTitle = resetPasswordPage.getResetPasswordPageTitle();
         String expectedTitle = ConfigReader.getProperty("resetPasswordPageTitle");
 
         Assert.assertEquals(actualTitle.trim().toLowerCase(), expectedTitle.toLowerCase(), "Title does not match");
@@ -177,7 +180,7 @@ public class ForgotPasswordTest extends BaseTest {
 
         forgotPasswordPage.setOTPInputs(otpAPIUtil.getOtp());
 
-        String actualTitle = forgotPasswordPage.getResetPasswordPageTitle();
+        String actualTitle = resetPasswordPage.getResetPasswordPageTitle();
         String expectedTitle = ConfigReader.getProperty("resetPasswordPageTitle");
 
         Assert.assertEquals(actualTitle.trim().toLowerCase(), expectedTitle.toLowerCase(), "Title does not match");

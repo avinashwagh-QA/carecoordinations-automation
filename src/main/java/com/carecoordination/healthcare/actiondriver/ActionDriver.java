@@ -122,6 +122,16 @@ public class ActionDriver {
         }
     }
 
+    // remains
+    public boolean isButtonEnabled(By buttonLocator){
+        try {
+            waitForElementToVisible(lo)
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        } catch (Exception e) {
+            logger.error("Element not visible: {}", locator);
+            throw new RuntimeException("Element is not visible" + locator, e);
+        }    }
+
     //Method to enter the value in the input
     public void enterText(By locator, String value) {
         try {
@@ -162,6 +172,8 @@ public class ActionDriver {
             throw new RuntimeException("Not able to clear text for: " + locator + " - " + e.getMessage(), e);
         }
     }
+
+
 
     // method to check if an element is displayed
     public boolean isDisplayed(By locator) {
