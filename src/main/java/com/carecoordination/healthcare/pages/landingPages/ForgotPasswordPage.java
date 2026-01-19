@@ -1,11 +1,13 @@
 package com.carecoordination.healthcare.pages.landingPages;
 
 import com.carecoordination.healthcare.actiondriver.ActionDriver;
+import com.carecoordination.healthcare.utilities.ConfigReader;
 import com.carecoordination.healthcare.utilities.DropdownUtil;
 import com.carecoordination.healthcare.utilities.EnterOTPUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.testng.Assert;
 
 public class ForgotPasswordPage {
 
@@ -40,8 +42,6 @@ public class ForgotPasswordPage {
     private final By linkResendOtp = By.xpath("//a[normalize-space()='Resend OTP']");
     private final By OTPInputs = By.cssSelector("div#otp input[type='text']");
 
-
-    private final By titleResetPassowrd = By.xpath("//h6[normalize-space()='Reset password']");
 
     //method to check the forgot link present on login page
     public boolean isForgotLinkDisplayed(){
@@ -122,12 +122,39 @@ public class ForgotPasswordPage {
         return actionDriver.waitForResendOTP(linkResendOtp);
     }
 
-    public String getResetPasswordPageTitle(){
-        actionDriver.waitForElementToVisible(titleResetPassowrd);
-        String title = actionDriver.getText(titleResetPassowrd);
-        logger.info("Title displayed on reset password is {}", title);
-        return title;
+    public void clickOnResendOtp(){
+         actionDriver.waitForResendOTP(linkResendOtp);
+         actionDriver.click(linkResendOtp);
     }
+
+    /**
+     *  Common method to navigate the Verify OTP page
+     */
+    public boolean navigateToVerificationOtpPage() {
+
+        if (!isForgotLinkDisplayed()) {
+            logger.error("Forgot Password link not found");
+            return false;
+        }
+        isForgotLinkDisplayed(); //checking link present on login page
+
+        clickOnForgotPassword(); // clicking on forgot password link
+
+        if (!isForgotPasswordDisplayed()) {
+            logger.error("Forgot Password page not loaded");
+            return false;
+        }
+
+        // reading country code and phone number form properties file
+        String countryCode = ConfigReader.getProperty("countryCode");
+        String phoneNumber = ConfigReader.getProperty("validPhoneNumber");
+
+        setPhoneNumberForgotPassword(countryCode, phoneNumber); // inserting data into field
+        clickOnVerifyPhoneNumber();
+
+        return actionDriver.waitForElementToVisible(titleVerifyOtpPage).isDisplayed();
+    }
+
 
 
 
