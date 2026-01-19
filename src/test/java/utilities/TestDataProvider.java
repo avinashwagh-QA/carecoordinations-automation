@@ -41,6 +41,18 @@ public class TestDataProvider {
 
     }
 
+    @DataProvider(name = "passwordValidationData")
+    public static Object[][] passwordValidationData(){
+        return new Object[][]{
+                {"Test1@", false},          // < 8 chars
+                {"password12@", false},     // No uppercase
+                {"PASSWORD1@", false},     // No lowercase
+                {"Password@", false},      // No number
+                {"Password12", false},      // No special char
+                {"Password@123", true}       // Fully valid
+        };
+    }
+
 
 
 }

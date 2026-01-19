@@ -134,6 +134,13 @@ public class ActionDriver {
         }
     }
 
+    //method to get the error message on input fields
+    public String getErrorMessage(By locator){
+        waitForElementToVisible(locator);
+        return getText(locator);
+    }
+
+
     //Method to enter the value in the input
     public void enterText(By locator, String value) {
         try {
@@ -175,7 +182,11 @@ public class ActionDriver {
         }
     }
 
-
+    //method for get attribute value
+    public String getAttribute(By locator, String attribute){
+        waitForElementToVisible(locator);
+        return driver.findElement(locator).getAttribute(attribute);
+    }
 
     // method to check if an element is displayed
     public boolean isDisplayed(By locator) {
