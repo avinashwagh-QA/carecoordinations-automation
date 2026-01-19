@@ -74,32 +74,11 @@ public class ForgotPasswordTest extends BaseTest {
 
     }
 
-    /**
-     *  Common method to navigate the Verify OTP page
-     */
-
-    public void navigateToVerificationOtpPage() {
-
-        Assert.assertTrue(forgotPasswordPage.isForgotLinkDisplayed(), "Forgot password link does not displayed");
-
-        forgotPasswordPage.clickOnForgotPassword();
-
-        Assert.assertTrue(forgotPasswordPage.isForgotPasswordDisplayed(), "Forgot password page does not displayed");
-
-        String countryCode = ConfigReader.getProperty("countryCode");
-        String phoneNumber = ConfigReader.getProperty("validPhoneNumber");
-
-        forgotPasswordPage.setPhoneNumberForgotPassword(countryCode, phoneNumber);
-
-        forgotPasswordPage.clickOnVerifyPhoneNumber();
-
-    }
-
     @Test(groups = "skip-login",
             description = "Verify OTP Verification page title is displayed as OTP Verification")
     public void verifyOtpVerificationPageIsDisplayed() {
 
-        navigateToVerificationOtpPage();
+        forgotPasswordPage.navigateToVerificationOtpPage();
 
         Assert.assertEquals(forgotPasswordPage.getOtpVerificationTitle(),
                 "OTP Verification", "Title does not match");
@@ -109,7 +88,8 @@ public class ForgotPasswordTest extends BaseTest {
             description = "Verify the resent OTP-Link is displayed on the OTP verification page")
     public void verifyResendOtpLinkIsPresent() {
 
-        navigateToVerificationOtpPage();
+        boolean otpPage = forgotPasswordPage.navigateToVerificationOtpPage(); // navigate otp page
+        Assert.assertTrue(otpPage, "OTP verification page does not displayed");
 
         Assert.assertTrue(forgotPasswordPage.isResendOtpDisplayed(), "ResendOTP link is not present");
     }
@@ -118,7 +98,8 @@ public class ForgotPasswordTest extends BaseTest {
             description = "Verify the message on entering an invalid-OTP in forgot password")
     public void verifyMessageOnInvalidOtp() {
 
-        navigateToVerificationOtpPage();
+        boolean otpPage = forgotPasswordPage.navigateToVerificationOtpPage(); // navigate otp page
+        Assert.assertTrue(otpPage, "OTP verification page does not displayed");
 
         forgotPasswordPage.setOTPInputs(ConfigReader.getProperty("invalidOtp"));
 
@@ -134,7 +115,8 @@ public class ForgotPasswordTest extends BaseTest {
 
         logger.info("Verifying valid OTP navigates to reset password page");
 
-        navigateToVerificationOtpPage();
+        boolean otpPage = forgotPasswordPage.navigateToVerificationOtpPage(); // navigate otp page
+        Assert.assertTrue(otpPage, "OTP verification page does not displayed");
 
         forgotPasswordPage.setOTPInputs(otpAPIUtil.getOtp());
 
@@ -151,7 +133,8 @@ public class ForgotPasswordTest extends BaseTest {
 
         logger.info("Verify on resend OTP the old Otp expire successfully");
 
-        navigateToVerificationOtpPage();
+        boolean otpPage = forgotPasswordPage.navigateToVerificationOtpPage(); // navigate otp page
+        Assert.assertTrue(otpPage, "OTP verification page does not displayed");
 
         //Fetching 1st OTP in otp1
         String Otp1 = otpAPIUtil.getOtp();
@@ -176,7 +159,8 @@ public class ForgotPasswordTest extends BaseTest {
 
         logger.info("Verify browser back from reset password navigates to home page");
 
-        navigateToVerificationOtpPage();
+        boolean otpPage = forgotPasswordPage.navigateToVerificationOtpPage(); // navigate otp page
+        Assert.assertTrue(otpPage, "OTP verification page does not displayed");
 
         forgotPasswordPage.setOTPInputs(otpAPIUtil.getOtp());
 

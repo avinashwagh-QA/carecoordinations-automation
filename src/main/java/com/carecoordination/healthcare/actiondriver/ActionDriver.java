@@ -123,14 +123,16 @@ public class ActionDriver {
     }
 
     // remains
-    public boolean isButtonEnabled(By buttonLocator){
+    public boolean isButtonEnabled(By buttonLocator) {
         try {
-            waitForElementToVisible(lo)
-            return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+            waitForElementToVisible(buttonLocator);
+            WebElement button = wait.until(ExpectedConditions.visibilityOfElementLocated(buttonLocator));
+            return button.isEnabled();   // true=enabled, false=disabled
         } catch (Exception e) {
-            logger.error("Element not visible: {}", locator);
-            throw new RuntimeException("Element is not visible" + locator, e);
-        }    }
+            logger.warn("Button not found or not interactable: {}", buttonLocator);
+            return false;
+        }
+    }
 
     //Method to enter the value in the input
     public void enterText(By locator, String value) {

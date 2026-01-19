@@ -7,9 +7,9 @@ import org.openqa.selenium.By;
 
 public class ResetPasswordPage {
 
-    private ActionDriver actionDriver;
+    private final ActionDriver actionDriver;
 
-    private static Logger logger = LogManager.getLogger(ResetPasswordPage.class);
+    private static final Logger logger = LogManager.getLogger(ResetPasswordPage.class);
 
     //Initialize the action drive object by passing the webdriver instance
     public ResetPasswordPage(ActionDriver actionDriver){
@@ -35,7 +35,7 @@ public class ResetPasswordPage {
     }
 
     //Subtitle is displayed for reset password
-    public String getSubtitleResetPassword(){
+    public String getSubTitleResetPassword(){
         actionDriver.waitForElementToVisible(subTitleResetPassword);
         return actionDriver.getText(subTitleResetPassword);
     }
@@ -43,7 +43,7 @@ public class ResetPasswordPage {
     public boolean isNewPasswordAndConfirmPasswordDisplayed(){
         actionDriver.waitForElementToVisible(inputNewPassword);
         actionDriver.waitForElementToVisible(inputConfirmPassword);
-        boolean password = actionDriver.isDisplayed(inputNewPassword) && actionDriver.isDisplayed(getInputConfirmPassword);
+        boolean password = actionDriver.isDisplayed(inputNewPassword) && actionDriver.isDisplayed(inputConfirmPassword);
         logger.info("On reset password page new password and confirm password field is displayed...");
         return password;
     }
@@ -58,12 +58,14 @@ public class ResetPasswordPage {
         actionDriver.enterText(inputNewPassword, confirmPassword);
     }
 
-    public boolean isButtonDisplayed(){
-
+    public boolean verifyButtonEnabled(){
         actionDriver.waitForAllElementsToBeVisible(btnSubmit);
-        actionDriver
-
+      boolean actualState  =  actionDriver.isButtonEnabled(btnSubmit);
+      logger.info("Submit button state on Reset-password is {}", actualState);
+      return  actualState;
     }
+
+
 
 
 
