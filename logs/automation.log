@@ -1,402 +1,305 @@
-2026-01-13 11:54:36.956 [main] INFO  Utils -  - [TestNG] Running:
+2026-01-19 11:07:44.750 [main] INFO  Utils -  - [TestNG] Running:
   C:\Users\DREAMWORLD\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
 
-2026-01-13 11:54:37.064 [main] INFO  BaseTest -  - ===== Starting Test Setup on thread: main =====
-2026-01-13 11:54:37.073 [main] INFO  BaseTest -  - No TestNG browser parameter provided. Falling back to config: chrome
-2026-01-13 11:54:37.077 [main] INFO  DriverFactory -  - Initiating driver on for browser chrome on threadmain
-2026-01-13 11:54:40.520 [main] INFO  DriverManager -  - Chrome Driver Instance Is Created
-2026-01-13 11:54:40.522 [main] DEBUG DriverManager -  - Driver instance created successfully: ChromeDriver: chrome on windows (7f627bf45d06fc37a0bf5a0cb7d2ecd6)
-2026-01-13 11:54:40.523 [main] DEBUG DriverFactory -  - WebDriver instance set in ThreadLocal for thread: main
-2026-01-13 11:54:40.524 [main] DEBUG BaseTest -  - WebDriver initialized successfully
-2026-01-13 11:54:40.530 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=20 seconds
-2026-01-13 11:54:40.531 [main] DEBUG BaseTest -  - ActionDriver initialized
-2026-01-13 11:54:40.531 [main] INFO  BaseTest -  - Configuring Browser Settings...
-2026-01-13 11:54:40.531 [main] DEBUG BaseTest -  - Setting implicit wait to 2 seconds
-2026-01-13 11:54:40.540 [main] INFO  BaseTest -  - Maximizing browser window
-2026-01-13 11:54:45.454 [main] INFO  BaseTest -  - Navigating to URL: https://uat.carecoordinations.com/
-2026-01-13 11:54:45.454 [main] INFO  BaseTest -  - Skip for logged for method VerifyEnteringValidOTPNavigatesToResetPassword
-2026-01-13 11:54:45.454 [main] INFO  BaseTest -  - === @BeforeMethod completed ===
-2026-01-13 11:54:45.468 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
-2026-01-13 11:54:45.589 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
-2026-01-13 11:54:45.589 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
-2026-01-13 11:54:48.968 [main] INFO  LandingPage -  - Click on log in page from landing page
-2026-01-13 11:54:48.968 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //span[@class='login100-form-title p-b-10']
-2026-01-13 11:54:49.016 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //span[@class='login100-form-title p-b-10']
-2026-01-13 11:54:49.016 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //span[@class='login100-form-title p-b-10']
-2026-01-13 11:54:49.157 [main] INFO  LoginPage -  - Login page displayed status: true
-2026-01-13 11:54:49.161 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
-2026-01-13 11:54:49.205 [main] INFO  ForgotPasswordPage -  - Forgot password link is displayed on login page...
-2026-01-13 11:54:49.206 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
-2026-01-13 11:54:49.206 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
-2026-01-13 11:54:49.270 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
-2026-01-13 11:54:49.349 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
-2026-01-13 11:54:49.350 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
-2026-01-13 11:54:52.917 [main] INFO  ForgotPasswordPage -  - Clicked on forgot password lnk from login page ....
-2026-01-13 11:54:52.918 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //h6[normalize-space()='Forgot Password?']
-2026-01-13 11:54:52.940 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //input[@id='phone']
-2026-01-13 11:54:52.963 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //h6[normalize-space()='Forgot Password?']
-2026-01-13 11:54:52.963 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //h6[normalize-space()='Forgot Password?']
-2026-01-13 11:54:52.987 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //input[@id='phone']
-2026-01-13 11:54:52.987 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //input[@id='phone']
-2026-01-13 11:54:53.015 [main] INFO  ForgotPasswordPage -  - Forgot Password page is displayed ......
-2026-01-13 11:54:53.015 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.cssSelector: button[data-bs-toggle='dropdown']
-2026-01-13 11:54:53.033 [main] INFO  DropdownUtil -  - Selecting dropdown value: +91
-2026-01-13 11:54:53.033 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.cssSelector: button[data-bs-toggle='dropdown']
-2026-01-13 11:54:53.057 [main] INFO  ActionDriver -  - Clicking element: By.cssSelector: button[data-bs-toggle='dropdown']
-2026-01-13 11:54:53.057 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.cssSelector: button[data-bs-toggle='dropdown']
-2026-01-13 11:54:53.329 [main] INFO  DropdownUtil -  - Dropdown value selected: +91
-2026-01-13 11:54:53.329 [main] INFO  ForgotPasswordPage -  - Selecting country code +91
-2026-01-13 11:54:53.329 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: phone
-2026-01-13 11:54:53.355 [main] INFO  ActionDriver -  - Entering text into By.id: phone
-2026-01-13 11:54:53.355 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: phone
-2026-01-13 11:54:53.512 [main] INFO  ForgotPasswordPage -  - Add Phone number in the input field is (998) 877-0119
-2026-01-13 11:54:53.512 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: forgotPasswordBtn
-2026-01-13 11:54:53.577 [main] INFO  ActionDriver -  - Clicking element: By.id: forgotPasswordBtn
-2026-01-13 11:54:53.577 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: forgotPasswordBtn
-2026-01-13 11:54:53.699 [main] INFO  ForgotPasswordPage -  - Click On Verify Phone number on the Forgot Password
-2026-01-13 11:54:53.700 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: forgotPasswordBtn
-2026-01-13 11:54:53.847 [main] INFO  ActionDriver -  - Clicking element: By.id: forgotPasswordBtn
-2026-01-13 11:54:53.847 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: forgotPasswordBtn
-2026-01-13 11:54:53.929 [main] INFO  ForgotPasswordPage -  - Click On Verify Phone number on the Forgot Password
-2026-01-13 11:54:53.929 [main] INFO  OtpAPIUtil -  - Email and API checks passed
-2026-01-13 11:54:58.078 [main] INFO  OtpAPIUtil -  - OTP API Status Code: 200
-2026-01-13 11:54:58.078 [main] INFO  OtpAPIUtil -  - API called Successfully https://uat.carecoordinations.com/Api/v1/getOTPCode/Carl.fs@yopmail.com
-2026-01-13 11:54:59.676 [main] ERROR OtpAPIUtil -  - OTP is missing or Blank in API Response
-2026-01-13 11:54:59.707 [main] DEBUG BaseTest -  - @AfterMethod optional cleanup for thread: main
-2026-01-13 11:54:59.708 [main] DEBUG BaseTest -  - Skipping logout because login was skipped for this test
-2026-01-13 11:54:59.709 [main] INFO  DriverFactory -  - Quitting WebDriver for thread: main
-2026-01-13 11:55:01.265 [main] DEBUG DriverFactory -  - WebDriver removed from ThreadLocal for thread: main
-2026-01-13 11:55:01.266 [main] INFO  BaseTest -  - WebDriver quit and ThreadLocal cleared
-2026-01-13 12:04:55.873 [main] INFO  Utils -  - [TestNG] Running:
+2026-01-19 11:07:44.855 [main] INFO  BaseTest -  - ===== Starting Test Setup on thread: main =====
+2026-01-19 11:07:44.861 [main] INFO  BaseTest -  - No TestNG browser parameter provided. Falling back to config: chrome
+2026-01-19 11:07:44.866 [main] INFO  DriverFactory -  - Initiating driver on for browser chrome on threadmain
+2026-01-19 11:07:48.822 [main] INFO  DriverManager -  - Chrome Driver Instance Is Created
+2026-01-19 11:07:48.823 [main] DEBUG DriverManager -  - Driver instance created successfully: ChromeDriver: chrome on windows (55c28414b65749fa4bdd9e08fb77ea62)
+2026-01-19 11:07:48.823 [main] DEBUG DriverFactory -  - WebDriver instance set in ThreadLocal for thread: main
+2026-01-19 11:07:48.823 [main] DEBUG BaseTest -  - WebDriver initialized successfully
+2026-01-19 11:07:48.830 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=20 seconds
+2026-01-19 11:07:48.830 [main] DEBUG BaseTest -  - ActionDriver initialized
+2026-01-19 11:07:48.830 [main] INFO  BaseTest -  - Configuring Browser Settings...
+2026-01-19 11:07:48.831 [main] DEBUG BaseTest -  - Setting implicit wait to 2 seconds
+2026-01-19 11:07:48.844 [main] INFO  BaseTest -  - Maximizing browser window
+2026-01-19 11:07:55.845 [main] INFO  BaseTest -  - Navigating to URL: https://uat.carecoordinations.com/
+2026-01-19 11:07:55.848 [main] INFO  BaseTest -  - Skip for logged for method validateResetPasswordFormInitialState
+2026-01-19 11:07:55.848 [main] INFO  BaseTest -  - === @BeforeMethod completed ===
+2026-01-19 11:07:55.944 [main] DEBUG BaseTest -  - @AfterMethod optional cleanup for thread: main
+2026-01-19 11:07:55.944 [main] DEBUG BaseTest -  - Skipping logout because login was skipped for this test
+2026-01-19 11:07:55.944 [main] INFO  DriverFactory -  - Quitting WebDriver for thread: main
+2026-01-19 11:07:59.941 [main] DEBUG DriverFactory -  - WebDriver removed from ThreadLocal for thread: main
+2026-01-19 11:07:59.942 [main] INFO  BaseTest -  - WebDriver quit and ThreadLocal cleared
+2026-01-19 11:12:24.637 [main] INFO  Utils -  - [TestNG] Running:
   C:\Users\DREAMWORLD\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
 
-2026-01-13 12:04:55.979 [main] INFO  BaseTest -  - ===== Starting Test Setup on thread: main =====
-2026-01-13 12:04:55.981 [main] INFO  BaseTest -  - No TestNG browser parameter provided. Falling back to config: chrome
-2026-01-13 12:04:55.985 [main] INFO  DriverFactory -  - Initiating driver on for browser chrome on threadmain
-2026-01-13 12:04:58.376 [main] INFO  DriverManager -  - Chrome Driver Instance Is Created
-2026-01-13 12:04:58.376 [main] DEBUG DriverManager -  - Driver instance created successfully: ChromeDriver: chrome on windows (0aadbf0df0c6909906ceb745049a773d)
-2026-01-13 12:04:58.377 [main] DEBUG DriverFactory -  - WebDriver instance set in ThreadLocal for thread: main
-2026-01-13 12:04:58.377 [main] DEBUG BaseTest -  - WebDriver initialized successfully
-2026-01-13 12:04:58.381 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=20 seconds
-2026-01-13 12:04:58.381 [main] DEBUG BaseTest -  - ActionDriver initialized
-2026-01-13 12:04:58.381 [main] INFO  BaseTest -  - Configuring Browser Settings...
-2026-01-13 12:04:58.381 [main] DEBUG BaseTest -  - Setting implicit wait to 2 seconds
-2026-01-13 12:04:58.387 [main] INFO  BaseTest -  - Maximizing browser window
-2026-01-13 12:05:02.348 [main] INFO  BaseTest -  - Navigating to URL: https://uat.carecoordinations.com/
-2026-01-13 12:05:02.349 [main] INFO  BaseTest -  - Skip for logged for method VerifyEnteringValidOTPNavigatesToResetPassword
-2026-01-13 12:05:02.349 [main] INFO  BaseTest -  - === @BeforeMethod completed ===
-2026-01-13 12:05:02.365 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
-2026-01-13 12:05:03.362 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
-2026-01-13 12:05:03.362 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
-2026-01-13 12:05:06.350 [main] INFO  LandingPage -  - Click on log in page from landing page
-2026-01-13 12:05:06.350 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //span[@class='login100-form-title p-b-10']
-2026-01-13 12:05:06.377 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //span[@class='login100-form-title p-b-10']
-2026-01-13 12:05:06.377 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //span[@class='login100-form-title p-b-10']
-2026-01-13 12:05:06.405 [main] INFO  LoginPage -  - Login page displayed status: true
-2026-01-13 12:05:06.410 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
-2026-01-13 12:05:06.436 [main] INFO  ForgotPasswordPage -  - Forgot password link is displayed on login page...
-2026-01-13 12:05:06.436 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
-2026-01-13 12:05:06.436 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
-2026-01-13 12:05:06.480 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
-2026-01-13 12:05:06.514 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
-2026-01-13 12:05:06.514 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
-2026-01-13 12:05:09.035 [main] INFO  ForgotPasswordPage -  - Clicked on forgot password lnk from login page ....
-2026-01-13 12:05:09.035 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //h6[normalize-space()='Forgot Password?']
-2026-01-13 12:05:09.066 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //input[@id='phone']
-2026-01-13 12:05:09.099 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //h6[normalize-space()='Forgot Password?']
-2026-01-13 12:05:09.099 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //h6[normalize-space()='Forgot Password?']
-2026-01-13 12:05:09.145 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //input[@id='phone']
-2026-01-13 12:05:09.145 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //input[@id='phone']
-2026-01-13 12:05:09.178 [main] INFO  ForgotPasswordPage -  - Forgot Password page is displayed ......
-2026-01-13 12:05:09.179 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.cssSelector: button[data-bs-toggle='dropdown']
-2026-01-13 12:05:09.205 [main] INFO  DropdownUtil -  - Selecting dropdown value: +91
-2026-01-13 12:05:09.206 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.cssSelector: button[data-bs-toggle='dropdown']
-2026-01-13 12:05:09.243 [main] INFO  ActionDriver -  - Clicking element: By.cssSelector: button[data-bs-toggle='dropdown']
-2026-01-13 12:05:09.244 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.cssSelector: button[data-bs-toggle='dropdown']
-2026-01-13 12:05:09.850 [main] INFO  DropdownUtil -  - Dropdown value selected: +91
-2026-01-13 12:05:09.850 [main] INFO  ForgotPasswordPage -  - Selecting country code +91
-2026-01-13 12:05:09.850 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: phone
-2026-01-13 12:05:09.903 [main] INFO  ActionDriver -  - Entering text into By.id: phone
-2026-01-13 12:05:09.903 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: phone
-2026-01-13 12:05:10.132 [main] INFO  ForgotPasswordPage -  - Add Phone number in the input field is (998) 877-0119
-2026-01-13 12:05:10.132 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: forgotPasswordBtn
-2026-01-13 12:05:10.177 [main] INFO  ActionDriver -  - Clicking element: By.id: forgotPasswordBtn
-2026-01-13 12:05:10.177 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: forgotPasswordBtn
-2026-01-13 12:05:10.299 [main] INFO  ForgotPasswordPage -  - Click On Verify Phone number on the Forgot Password
-2026-01-13 12:05:10.299 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: forgotPasswordBtn
-2026-01-13 12:05:10.525 [main] INFO  ActionDriver -  - Clicking element: By.id: forgotPasswordBtn
-2026-01-13 12:05:10.526 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: forgotPasswordBtn
-2026-01-13 12:05:10.782 [main] INFO  ForgotPasswordPage -  - Click On Verify Phone number on the Forgot Password
-2026-01-13 12:05:10.782 [main] INFO  OtpAPIUtil -  - Email and API checks passed
-2026-01-13 12:05:14.315 [main] INFO  OtpAPIUtil -  - OTP API Status Code: 200
-2026-01-13 12:05:14.315 [main] INFO  OtpAPIUtil -  - API called Successfully https://uat.carecoordinations.com/Api/v1/getOTPCode/Carl.fs@yopmail.com
-2026-01-13 12:05:15.472 [main] ERROR OtpAPIUtil -  - OTP is missing or Blank in API Response
-2026-01-13 12:05:15.484 [main] DEBUG BaseTest -  - @AfterMethod optional cleanup for thread: main
-2026-01-13 12:05:15.484 [main] DEBUG BaseTest -  - Skipping logout because login was skipped for this test
-2026-01-13 12:05:15.484 [main] INFO  DriverFactory -  - Quitting WebDriver for thread: main
-2026-01-13 12:05:15.912 [main] DEBUG DriverFactory -  - WebDriver removed from ThreadLocal for thread: main
-2026-01-13 12:05:15.912 [main] INFO  BaseTest -  - WebDriver quit and ThreadLocal cleared
-2026-01-13 12:06:26.764 [main] INFO  Utils -  - [TestNG] Running:
+2026-01-19 11:12:24.756 [main] INFO  BaseTest -  - ===== Starting Test Setup on thread: main =====
+2026-01-19 11:12:24.759 [main] INFO  BaseTest -  - No TestNG browser parameter provided. Falling back to config: chrome
+2026-01-19 11:12:24.763 [main] INFO  DriverFactory -  - Initiating driver on for browser chrome on threadmain
+2026-01-19 11:12:27.182 [main] INFO  DriverManager -  - Chrome Driver Instance Is Created
+2026-01-19 11:12:27.183 [main] DEBUG DriverManager -  - Driver instance created successfully: ChromeDriver: chrome on windows (9bb36b0eb8fe0ecdbc0617357cc0c73f)
+2026-01-19 11:12:27.183 [main] DEBUG DriverFactory -  - WebDriver instance set in ThreadLocal for thread: main
+2026-01-19 11:12:27.183 [main] DEBUG BaseTest -  - WebDriver initialized successfully
+2026-01-19 11:12:27.192 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=20 seconds
+2026-01-19 11:12:27.192 [main] DEBUG BaseTest -  - ActionDriver initialized
+2026-01-19 11:12:27.192 [main] INFO  BaseTest -  - Configuring Browser Settings...
+2026-01-19 11:12:27.193 [main] DEBUG BaseTest -  - Setting implicit wait to 2 seconds
+2026-01-19 11:12:27.234 [main] INFO  BaseTest -  - Maximizing browser window
+2026-01-19 11:12:28.652 [main] INFO  BaseTest -  - Navigating to URL: https://uat.carecoordinations.com/
+2026-01-19 11:12:28.652 [main] INFO  BaseTest -  - Skip for logged for method validateResetPasswordFormInitialState
+2026-01-19 11:12:28.655 [main] INFO  BaseTest -  - === @BeforeMethod completed ===
+2026-01-19 11:12:37.787 [main] DEBUG BaseTest -  - @AfterMethod optional cleanup for thread: main
+2026-01-19 11:12:37.787 [main] DEBUG BaseTest -  - Skipping logout because login was skipped for this test
+2026-01-19 11:12:37.787 [main] INFO  DriverFactory -  - Quitting WebDriver for thread: main
+2026-01-19 11:12:38.275 [main] DEBUG DriverFactory -  - WebDriver removed from ThreadLocal for thread: main
+2026-01-19 11:12:38.276 [main] INFO  BaseTest -  - WebDriver quit and ThreadLocal cleared
+2026-01-19 11:40:09.069 [main] INFO  Utils -  - [TestNG] Running:
   C:\Users\DREAMWORLD\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
 
-2026-01-13 12:06:26.876 [main] INFO  BaseTest -  - ===== Starting Test Setup on thread: main =====
-2026-01-13 12:06:26.883 [main] INFO  BaseTest -  - No TestNG browser parameter provided. Falling back to config: chrome
-2026-01-13 12:06:26.887 [main] INFO  DriverFactory -  - Initiating driver on for browser chrome on threadmain
-2026-01-13 12:06:29.165 [main] INFO  DriverManager -  - Chrome Driver Instance Is Created
-2026-01-13 12:06:29.165 [main] DEBUG DriverManager -  - Driver instance created successfully: ChromeDriver: chrome on windows (e294ea063efcdf07e77c999bd01cd322)
-2026-01-13 12:06:29.165 [main] DEBUG DriverFactory -  - WebDriver instance set in ThreadLocal for thread: main
-2026-01-13 12:06:29.165 [main] DEBUG BaseTest -  - WebDriver initialized successfully
-2026-01-13 12:06:29.169 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=20 seconds
-2026-01-13 12:06:29.170 [main] DEBUG BaseTest -  - ActionDriver initialized
-2026-01-13 12:06:29.170 [main] INFO  BaseTest -  - Configuring Browser Settings...
-2026-01-13 12:06:29.170 [main] DEBUG BaseTest -  - Setting implicit wait to 2 seconds
-2026-01-13 12:06:29.177 [main] INFO  BaseTest -  - Maximizing browser window
-2026-01-13 12:06:33.472 [main] INFO  BaseTest -  - Navigating to URL: https://uat.carecoordinations.com/
-2026-01-13 12:06:33.472 [main] INFO  BaseTest -  - Skip for logged for method VerifyEnteringValidOTPNavigatesToResetPassword
-2026-01-13 12:06:33.473 [main] INFO  BaseTest -  - === @BeforeMethod completed ===
-2026-01-13 12:06:33.550 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
-2026-01-13 12:06:34.863 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
-2026-01-13 12:06:34.864 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
-2026-01-13 12:06:38.821 [main] INFO  LandingPage -  - Click on log in page from landing page
-2026-01-13 12:06:38.821 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //span[@class='login100-form-title p-b-10']
-2026-01-13 12:06:38.861 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //span[@class='login100-form-title p-b-10']
-2026-01-13 12:06:38.862 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //span[@class='login100-form-title p-b-10']
-2026-01-13 12:06:38.896 [main] INFO  LoginPage -  - Login page displayed status: true
-2026-01-13 12:06:38.901 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
-2026-01-13 12:06:38.936 [main] INFO  ForgotPasswordPage -  - Forgot password link is displayed on login page...
-2026-01-13 12:06:38.937 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
-2026-01-13 12:06:38.937 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
-2026-01-13 12:06:39.068 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
-2026-01-13 12:06:39.099 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
-2026-01-13 12:06:39.099 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
-2026-01-13 12:06:41.703 [main] INFO  ForgotPasswordPage -  - Clicked on forgot password lnk from login page ....
-2026-01-13 12:06:41.704 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //h6[normalize-space()='Forgot Password?']
-2026-01-13 12:06:41.729 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //input[@id='phone']
-2026-01-13 12:06:41.754 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //h6[normalize-space()='Forgot Password?']
-2026-01-13 12:06:41.755 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //h6[normalize-space()='Forgot Password?']
-2026-01-13 12:06:41.788 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //input[@id='phone']
-2026-01-13 12:06:41.788 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //input[@id='phone']
-2026-01-13 12:06:41.899 [main] INFO  ForgotPasswordPage -  - Forgot Password page is displayed ......
-2026-01-13 12:06:41.899 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.cssSelector: button[data-bs-toggle='dropdown']
-2026-01-13 12:06:41.926 [main] INFO  DropdownUtil -  - Selecting dropdown value: +91
-2026-01-13 12:06:41.926 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.cssSelector: button[data-bs-toggle='dropdown']
-2026-01-13 12:06:41.958 [main] INFO  ActionDriver -  - Clicking element: By.cssSelector: button[data-bs-toggle='dropdown']
-2026-01-13 12:06:41.963 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.cssSelector: button[data-bs-toggle='dropdown']
-2026-01-13 12:06:42.316 [main] INFO  DropdownUtil -  - Dropdown value selected: +91
-2026-01-13 12:06:42.316 [main] INFO  ForgotPasswordPage -  - Selecting country code +91
-2026-01-13 12:06:42.316 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: phone
-2026-01-13 12:06:42.351 [main] INFO  ActionDriver -  - Entering text into By.id: phone
-2026-01-13 12:06:42.352 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: phone
-2026-01-13 12:06:42.539 [main] INFO  ForgotPasswordPage -  - Add Phone number in the input field is (998) 877-0119
-2026-01-13 12:06:42.539 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: forgotPasswordBtn
-2026-01-13 12:06:42.595 [main] INFO  ActionDriver -  - Clicking element: By.id: forgotPasswordBtn
-2026-01-13 12:06:42.595 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: forgotPasswordBtn
-2026-01-13 12:06:42.738 [main] INFO  ForgotPasswordPage -  - Click On Verify Phone number on the Forgot Password
-2026-01-13 12:06:42.738 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: forgotPasswordBtn
-2026-01-13 12:06:42.907 [main] INFO  ActionDriver -  - Clicking element: By.id: forgotPasswordBtn
-2026-01-13 12:06:42.907 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: forgotPasswordBtn
-2026-01-13 12:06:42.987 [main] INFO  ForgotPasswordPage -  - Click On Verify Phone number on the Forgot Password
-2026-01-13 12:06:42.987 [main] INFO  OtpAPIUtil -  - Email and API checks passed
-2026-01-13 12:06:46.397 [main] INFO  OtpAPIUtil -  - OTP API Status Code: 200
-2026-01-13 12:06:46.397 [main] INFO  OtpAPIUtil -  - API called Successfully https://uat.carecoordinations.com/Api/v1/getOTPCode/Carl.fs@yopmail.com
-2026-01-13 12:06:47.594 [main] INFO  OtpAPIUtil -  - OTP received  successfully of length 6
-2026-01-13 12:06:47.595 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.cssSelector: div#otp input[type='text']
-2026-01-13 12:06:47.686 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.cssSelector: div#otp input[type='text']
-2026-01-13 12:06:47.795 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
-2026-01-13 12:06:48.037 [main] INFO  EnterOTPUtil -  - Entered OTP digit at position 1
-2026-01-13 12:06:48.037 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
-2026-01-13 12:06:48.122 [main] INFO  EnterOTPUtil -  - Entered OTP digit at position 2
-2026-01-13 12:06:48.122 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
-2026-01-13 12:06:48.201 [main] INFO  EnterOTPUtil -  - Entered OTP digit at position 3
-2026-01-13 12:06:48.202 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
-2026-01-13 12:06:48.300 [main] INFO  EnterOTPUtil -  - Entered OTP digit at position 4
-2026-01-13 12:06:48.300 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
-2026-01-13 12:06:48.382 [main] INFO  EnterOTPUtil -  - Entered OTP digit at position 5
-2026-01-13 12:06:48.383 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
-2026-01-13 12:06:48.496 [main] INFO  EnterOTPUtil -  - Entered OTP digit at position 6
-2026-01-13 12:06:48.496 [main] INFO  ForgotPasswordPage -  - OTP-Set on the field 123401
-2026-01-13 12:06:48.497 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //h6[normalize-space()='Reset password']
-2026-01-13 12:06:50.253 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //h6[normalize-space()='Reset password']
-2026-01-13 12:06:50.283 [main] DEBUG ActionDriver -  - Text retrieved from By.xpath: //h6[normalize-space()='Reset password']: RESET PASSWORD
-2026-01-13 12:06:50.283 [main] INFO  ForgotPasswordPage -  - Title displayed on reset password is RESET PASSWORD
-2026-01-13 12:06:50.302 [main] DEBUG BaseTest -  - @AfterMethod optional cleanup for thread: main
-2026-01-13 12:06:50.302 [main] DEBUG BaseTest -  - Skipping logout because login was skipped for this test
-2026-01-13 12:06:50.303 [main] INFO  DriverFactory -  - Quitting WebDriver for thread: main
-2026-01-13 12:06:50.885 [main] DEBUG DriverFactory -  - WebDriver removed from ThreadLocal for thread: main
-2026-01-13 12:06:50.885 [main] INFO  BaseTest -  - WebDriver quit and ThreadLocal cleared
-2026-01-13 12:30:01.119 [main] INFO  Utils -  - [TestNG] Running:
+2026-01-19 11:40:09.189 [main] INFO  BaseTest -  - ===== Starting Test Setup on thread: main =====
+2026-01-19 11:40:09.192 [main] INFO  BaseTest -  - No TestNG browser parameter provided. Falling back to config: chrome
+2026-01-19 11:40:09.198 [main] INFO  DriverFactory -  - Initiating driver on for browser chrome on threadmain
+2026-01-19 11:40:11.757 [main] INFO  DriverManager -  - Chrome Driver Instance Is Created
+2026-01-19 11:40:11.757 [main] DEBUG DriverManager -  - Driver instance created successfully: ChromeDriver: chrome on windows (aae80ace60c4b1518e31715d7f181b4d)
+2026-01-19 11:40:11.757 [main] DEBUG DriverFactory -  - WebDriver instance set in ThreadLocal for thread: main
+2026-01-19 11:40:11.757 [main] DEBUG BaseTest -  - WebDriver initialized successfully
+2026-01-19 11:40:11.766 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=20 seconds
+2026-01-19 11:40:11.767 [main] DEBUG BaseTest -  - ActionDriver initialized
+2026-01-19 11:40:11.767 [main] INFO  BaseTest -  - Configuring Browser Settings...
+2026-01-19 11:40:11.767 [main] DEBUG BaseTest -  - Setting implicit wait to 2 seconds
+2026-01-19 11:40:11.784 [main] INFO  BaseTest -  - Maximizing browser window
+2026-01-19 11:40:13.162 [main] INFO  BaseTest -  - Navigating to URL: https://uat.carecoordinations.com/
+2026-01-19 11:40:13.164 [main] INFO  BaseTest -  - Skip for logged for method validateResetPasswordFormInitialState
+2026-01-19 11:40:13.165 [main] INFO  BaseTest -  - === @BeforeMethod completed ===
+2026-01-19 11:40:13.193 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
+2026-01-19 11:40:34.733 [main] ERROR ActionDriver -  -  All the Elements are not visible: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
+2026-01-19 11:40:34.804 [main] DEBUG BaseTest -  - @AfterMethod optional cleanup for thread: main
+2026-01-19 11:40:34.804 [main] DEBUG BaseTest -  - Skipping logout because login was skipped for this test
+2026-01-19 11:40:34.804 [main] INFO  DriverFactory -  - Quitting WebDriver for thread: main
+2026-01-19 11:40:36.133 [main] DEBUG DriverFactory -  - WebDriver removed from ThreadLocal for thread: main
+2026-01-19 11:40:36.133 [main] INFO  BaseTest -  - WebDriver quit and ThreadLocal cleared
+2026-01-19 11:42:51.215 [main] INFO  Utils -  - [TestNG] Running:
   C:\Users\DREAMWORLD\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
 
-2026-01-13 12:30:01.205 [main] INFO  BaseTest -  - ===== Starting Test Setup on thread: main =====
-2026-01-13 12:30:01.210 [main] INFO  BaseTest -  - No TestNG browser parameter provided. Falling back to config: chrome
-2026-01-13 12:30:01.214 [main] INFO  DriverFactory -  - Initiating driver on for browser chrome on threadmain
-2026-01-13 12:30:03.484 [main] INFO  DriverManager -  - Chrome Driver Instance Is Created
-2026-01-13 12:30:03.484 [main] DEBUG DriverManager -  - Driver instance created successfully: ChromeDriver: chrome on windows (0e40292e4dfae6f5687391949570f4c7)
-2026-01-13 12:30:03.484 [main] DEBUG DriverFactory -  - WebDriver instance set in ThreadLocal for thread: main
-2026-01-13 12:30:03.484 [main] DEBUG BaseTest -  - WebDriver initialized successfully
-2026-01-13 12:30:03.490 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=20 seconds
-2026-01-13 12:30:03.491 [main] DEBUG BaseTest -  - ActionDriver initialized
-2026-01-13 12:30:03.491 [main] INFO  BaseTest -  - Configuring Browser Settings...
-2026-01-13 12:30:03.491 [main] DEBUG BaseTest -  - Setting implicit wait to 2 seconds
-2026-01-13 12:30:03.499 [main] INFO  BaseTest -  - Maximizing browser window
-2026-01-13 12:30:10.368 [main] INFO  BaseTest -  - Navigating to URL: https://uat.carecoordinations.com/
-2026-01-13 12:30:10.368 [main] INFO  BaseTest -  - Skip for logged for method VerifyEnteringValidOTPNavigatesToResetPassword
-2026-01-13 12:30:10.368 [main] INFO  BaseTest -  - === @BeforeMethod completed ===
-2026-01-13 12:30:10.383 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
-2026-01-13 12:30:10.452 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
-2026-01-13 12:30:10.452 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
-2026-01-13 12:30:14.078 [main] INFO  LandingPage -  - Click on log in page from landing page
-2026-01-13 12:30:14.078 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //span[@class='login100-form-title p-b-10']
-2026-01-13 12:30:14.105 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //span[@class='login100-form-title p-b-10']
-2026-01-13 12:30:14.105 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //span[@class='login100-form-title p-b-10']
-2026-01-13 12:30:14.135 [main] INFO  LoginPage -  - Login page displayed status: true
-2026-01-13 12:30:14.140 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
-2026-01-13 12:30:14.170 [main] INFO  ForgotPasswordPage -  - Forgot password link is displayed on login page...
-2026-01-13 12:30:14.171 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
-2026-01-13 12:30:14.171 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
-2026-01-13 12:30:14.219 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
-2026-01-13 12:30:14.335 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
-2026-01-13 12:30:14.335 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
-2026-01-13 12:30:17.158 [main] INFO  ForgotPasswordPage -  - Clicked on forgot password lnk from login page ....
-2026-01-13 12:30:17.159 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //h6[normalize-space()='Forgot Password?']
-2026-01-13 12:30:17.201 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //input[@id='phone']
-2026-01-13 12:30:17.225 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //h6[normalize-space()='Forgot Password?']
-2026-01-13 12:30:17.226 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //h6[normalize-space()='Forgot Password?']
-2026-01-13 12:30:17.267 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //input[@id='phone']
-2026-01-13 12:30:17.267 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //input[@id='phone']
-2026-01-13 12:30:17.392 [main] INFO  ForgotPasswordPage -  - Forgot Password page is displayed ......
-2026-01-13 12:30:17.392 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.cssSelector: button[data-bs-toggle='dropdown']
-2026-01-13 12:30:17.439 [main] INFO  DropdownUtil -  - Selecting dropdown value: +91
-2026-01-13 12:30:17.439 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.cssSelector: button[data-bs-toggle='dropdown']
-2026-01-13 12:30:17.466 [main] INFO  ActionDriver -  - Clicking element: By.cssSelector: button[data-bs-toggle='dropdown']
-2026-01-13 12:30:17.466 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.cssSelector: button[data-bs-toggle='dropdown']
-2026-01-13 12:30:18.004 [main] INFO  DropdownUtil -  - Dropdown value selected: +91
-2026-01-13 12:30:18.004 [main] INFO  ForgotPasswordPage -  - Selecting country code +91
-2026-01-13 12:30:18.004 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: phone
-2026-01-13 12:30:18.058 [main] INFO  ActionDriver -  - Entering text into By.id: phone
-2026-01-13 12:30:18.058 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: phone
-2026-01-13 12:30:18.487 [main] INFO  ForgotPasswordPage -  - Add Phone number in the input field is (998) 877-0119
-2026-01-13 12:30:18.490 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: forgotPasswordBtn
-2026-01-13 12:30:18.608 [main] INFO  ActionDriver -  - Clicking element: By.id: forgotPasswordBtn
-2026-01-13 12:30:18.609 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: forgotPasswordBtn
-2026-01-13 12:30:18.737 [main] INFO  ForgotPasswordPage -  - Click On Verify Phone number on the Forgot Password
-2026-01-13 12:30:18.738 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: forgotPasswordBtn
-2026-01-13 12:30:18.900 [main] INFO  ActionDriver -  - Clicking element: By.id: forgotPasswordBtn
-2026-01-13 12:30:18.900 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: forgotPasswordBtn
-2026-01-13 12:30:19.005 [main] INFO  ForgotPasswordPage -  - Click On Verify Phone number on the Forgot Password
-2026-01-13 12:30:19.005 [main] INFO  OtpAPIUtil -  - Email and API checks passed
-2026-01-13 12:30:21.819 [main] INFO  OtpAPIUtil -  - OTP API Status Code: 200
-2026-01-13 12:30:21.819 [main] INFO  OtpAPIUtil -  - API called Successfully https://uat.carecoordinations.com/Api/v1/getOTPCode/Carl.fs@yopmail.com
-2026-01-13 12:30:23.208 [main] INFO  OtpAPIUtil -  - OTP received  successfully of length 6
-2026-01-13 12:30:23.208 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.cssSelector: div#otp input[type='text']
-2026-01-13 12:30:23.252 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.cssSelector: div#otp input[type='text']
-2026-01-13 12:30:23.546 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
-2026-01-13 12:30:23.634 [main] INFO  EnterOTPUtil -  - Entered OTP digit at position 1
-2026-01-13 12:30:23.634 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
-2026-01-13 12:30:23.721 [main] INFO  EnterOTPUtil -  - Entered OTP digit at position 2
-2026-01-13 12:30:23.723 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
-2026-01-13 12:30:23.857 [main] INFO  EnterOTPUtil -  - Entered OTP digit at position 3
-2026-01-13 12:30:23.857 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
-2026-01-13 12:30:23.927 [main] INFO  EnterOTPUtil -  - Entered OTP digit at position 4
-2026-01-13 12:30:23.927 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
-2026-01-13 12:30:24.001 [main] INFO  EnterOTPUtil -  - Entered OTP digit at position 5
-2026-01-13 12:30:24.001 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
-2026-01-13 12:30:24.147 [main] INFO  EnterOTPUtil -  - Entered OTP digit at position 6
-2026-01-13 12:30:24.147 [main] INFO  ForgotPasswordPage -  - OTP-Set on the field 383878
-2026-01-13 12:30:24.147 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //h6[normalize-space()='Reset password']
-2026-01-13 12:30:25.921 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //h6[normalize-space()='Reset password']
-2026-01-13 12:30:25.950 [main] DEBUG ActionDriver -  - Text retrieved from By.xpath: //h6[normalize-space()='Reset password']: RESET PASSWORD
-2026-01-13 12:30:25.950 [main] INFO  ForgotPasswordPage -  - Title displayed on reset password is RESET PASSWORD
-2026-01-13 12:30:25.975 [main] DEBUG BaseTest -  - @AfterMethod optional cleanup for thread: main
-2026-01-13 12:30:25.975 [main] DEBUG BaseTest -  - Skipping logout because login was skipped for this test
-2026-01-13 12:30:25.976 [main] INFO  DriverFactory -  - Quitting WebDriver for thread: main
-2026-01-13 12:30:27.194 [main] DEBUG DriverFactory -  - WebDriver removed from ThreadLocal for thread: main
-2026-01-13 12:30:27.194 [main] INFO  BaseTest -  - WebDriver quit and ThreadLocal cleared
-2026-01-13 12:31:08.488 [main] INFO  Utils -  - [TestNG] Running:
+2026-01-19 11:42:51.289 [main] INFO  BaseTest -  - ===== Starting Test Setup on thread: main =====
+2026-01-19 11:42:51.289 [main] INFO  BaseTest -  - No TestNG browser parameter provided. Falling back to config: chrome
+2026-01-19 11:42:51.289 [main] INFO  DriverFactory -  - Initiating driver on for browser chrome on threadmain
+2026-01-19 11:42:53.998 [main] INFO  DriverManager -  - Chrome Driver Instance Is Created
+2026-01-19 11:42:53.998 [main] DEBUG DriverManager -  - Driver instance created successfully: ChromeDriver: chrome on windows (097bac16be4780a3ef94a5cffb938f92)
+2026-01-19 11:42:53.999 [main] DEBUG DriverFactory -  - WebDriver instance set in ThreadLocal for thread: main
+2026-01-19 11:42:53.999 [main] DEBUG BaseTest -  - WebDriver initialized successfully
+2026-01-19 11:42:54.006 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=20 seconds
+2026-01-19 11:42:54.006 [main] DEBUG BaseTest -  - ActionDriver initialized
+2026-01-19 11:42:54.007 [main] INFO  BaseTest -  - Configuring Browser Settings...
+2026-01-19 11:42:54.007 [main] DEBUG BaseTest -  - Setting implicit wait to 2 seconds
+2026-01-19 11:42:54.014 [main] INFO  BaseTest -  - Maximizing browser window
+2026-01-19 11:42:58.034 [main] INFO  BaseTest -  - Navigating to URL: https://uat.carecoordinations.com/
+2026-01-19 11:42:58.035 [main] INFO  BaseTest -  - Skip for logged for method validateResetPasswordFormInitialState
+2026-01-19 11:42:58.035 [main] INFO  BaseTest -  - === @BeforeMethod completed ===
+2026-01-19 11:42:58.051 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-01-19 11:42:58.329 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-01-19 11:42:58.330 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-01-19 11:43:02.120 [main] INFO  LandingPage -  - Click on log in page from landing page
+2026-01-19 11:43:02.140 [main] DEBUG BaseTest -  - @AfterMethod optional cleanup for thread: main
+2026-01-19 11:43:02.140 [main] DEBUG BaseTest -  - Skipping logout because login was skipped for this test
+2026-01-19 11:43:02.141 [main] INFO  DriverFactory -  - Quitting WebDriver for thread: main
+2026-01-19 11:43:02.573 [main] DEBUG DriverFactory -  - WebDriver removed from ThreadLocal for thread: main
+2026-01-19 11:43:02.575 [main] INFO  BaseTest -  - WebDriver quit and ThreadLocal cleared
+2026-01-19 11:44:39.176 [main] INFO  Utils -  - [TestNG] Running:
   C:\Users\DREAMWORLD\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
 
-2026-01-13 12:31:08.587 [main] INFO  BaseTest -  - ===== Starting Test Setup on thread: main =====
-2026-01-13 12:31:08.589 [main] INFO  BaseTest -  - No TestNG browser parameter provided. Falling back to config: chrome
-2026-01-13 12:31:08.593 [main] INFO  DriverFactory -  - Initiating driver on for browser chrome on threadmain
-2026-01-13 12:31:10.332 [main] INFO  DriverManager -  - Chrome Driver Instance Is Created
-2026-01-13 12:31:10.333 [main] DEBUG DriverManager -  - Driver instance created successfully: ChromeDriver: chrome on windows (4d188a83246f4bb681723384527ab617)
-2026-01-13 12:31:10.333 [main] DEBUG DriverFactory -  - WebDriver instance set in ThreadLocal for thread: main
-2026-01-13 12:31:10.333 [main] DEBUG BaseTest -  - WebDriver initialized successfully
-2026-01-13 12:31:10.337 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=20 seconds
-2026-01-13 12:31:10.337 [main] DEBUG BaseTest -  - ActionDriver initialized
-2026-01-13 12:31:10.338 [main] INFO  BaseTest -  - Configuring Browser Settings...
-2026-01-13 12:31:10.338 [main] DEBUG BaseTest -  - Setting implicit wait to 2 seconds
-2026-01-13 12:31:10.343 [main] INFO  BaseTest -  - Maximizing browser window
-2026-01-13 12:31:15.378 [main] INFO  BaseTest -  - Navigating to URL: https://uat.carecoordinations.com/
-2026-01-13 12:31:15.378 [main] INFO  BaseTest -  - Skip for logged for method VerifyEnteringValidOTPNavigatesToResetPassword
-2026-01-13 12:31:15.378 [main] INFO  BaseTest -  - === @BeforeMethod completed ===
-2026-01-13 12:31:15.392 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
-2026-01-13 12:31:15.495 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
-2026-01-13 12:31:15.496 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
-2026-01-13 12:31:18.694 [main] INFO  LandingPage -  - Click on log in page from landing page
-2026-01-13 12:31:18.694 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //span[@class='login100-form-title p-b-10']
-2026-01-13 12:31:18.720 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //span[@class='login100-form-title p-b-10']
-2026-01-13 12:31:18.720 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //span[@class='login100-form-title p-b-10']
-2026-01-13 12:31:18.826 [main] INFO  LoginPage -  - Login page displayed status: true
-2026-01-13 12:31:18.833 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
-2026-01-13 12:31:18.865 [main] INFO  ForgotPasswordPage -  - Forgot password link is displayed on login page...
-2026-01-13 12:31:18.866 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
-2026-01-13 12:31:18.866 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
-2026-01-13 12:31:18.904 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
-2026-01-13 12:31:18.934 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
-2026-01-13 12:31:18.934 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
-2026-01-13 12:31:21.695 [main] INFO  ForgotPasswordPage -  - Clicked on forgot password lnk from login page ....
-2026-01-13 12:31:21.696 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //h6[normalize-space()='Forgot Password?']
-2026-01-13 12:31:21.748 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //input[@id='phone']
-2026-01-13 12:31:21.774 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //h6[normalize-space()='Forgot Password?']
-2026-01-13 12:31:21.774 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //h6[normalize-space()='Forgot Password?']
-2026-01-13 12:31:21.809 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //input[@id='phone']
-2026-01-13 12:31:21.809 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //input[@id='phone']
-2026-01-13 12:31:21.842 [main] INFO  ForgotPasswordPage -  - Forgot Password page is displayed ......
-2026-01-13 12:31:21.842 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.cssSelector: button[data-bs-toggle='dropdown']
-2026-01-13 12:31:21.882 [main] INFO  DropdownUtil -  - Selecting dropdown value: +91
-2026-01-13 12:31:21.882 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.cssSelector: button[data-bs-toggle='dropdown']
-2026-01-13 12:31:22.025 [main] INFO  ActionDriver -  - Clicking element: By.cssSelector: button[data-bs-toggle='dropdown']
-2026-01-13 12:31:22.025 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.cssSelector: button[data-bs-toggle='dropdown']
-2026-01-13 12:31:22.296 [main] INFO  DropdownUtil -  - Dropdown value selected: +91
-2026-01-13 12:31:22.296 [main] INFO  ForgotPasswordPage -  - Selecting country code +91
-2026-01-13 12:31:22.297 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: phone
-2026-01-13 12:31:22.324 [main] INFO  ActionDriver -  - Entering text into By.id: phone
-2026-01-13 12:31:22.324 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: phone
-2026-01-13 12:31:22.529 [main] INFO  ForgotPasswordPage -  - Add Phone number in the input field is (998) 877-0119
-2026-01-13 12:31:22.529 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: forgotPasswordBtn
-2026-01-13 12:31:22.612 [main] INFO  ActionDriver -  - Clicking element: By.id: forgotPasswordBtn
-2026-01-13 12:31:22.613 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: forgotPasswordBtn
-2026-01-13 12:31:22.755 [main] INFO  ForgotPasswordPage -  - Click On Verify Phone number on the Forgot Password
-2026-01-13 12:31:22.755 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: forgotPasswordBtn
-2026-01-13 12:31:22.911 [main] INFO  ActionDriver -  - Clicking element: By.id: forgotPasswordBtn
-2026-01-13 12:31:22.911 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: forgotPasswordBtn
-2026-01-13 12:31:23.025 [main] INFO  ForgotPasswordPage -  - Click On Verify Phone number on the Forgot Password
-2026-01-13 12:31:23.025 [main] INFO  OtpAPIUtil -  - Email and API checks passed
-2026-01-13 12:31:26.950 [main] INFO  OtpAPIUtil -  - OTP API Status Code: 200
-2026-01-13 12:31:26.950 [main] INFO  OtpAPIUtil -  - API called Successfully https://uat.carecoordinations.com/Api/v1/getOTPCode/Carl.fs@yopmail.com
-2026-01-13 12:31:28.111 [main] INFO  OtpAPIUtil -  - OTP received  successfully of length 6
-2026-01-13 12:31:28.111 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.cssSelector: div#otp input[type='text']
-2026-01-13 12:31:28.152 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.cssSelector: div#otp input[type='text']
-2026-01-13 12:31:28.245 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
-2026-01-13 12:31:28.424 [main] INFO  EnterOTPUtil -  - Entered OTP digit at position 1
-2026-01-13 12:31:28.424 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
-2026-01-13 12:31:28.505 [main] INFO  EnterOTPUtil -  - Entered OTP digit at position 2
-2026-01-13 12:31:28.505 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
-2026-01-13 12:31:28.574 [main] INFO  EnterOTPUtil -  - Entered OTP digit at position 3
-2026-01-13 12:31:28.574 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
-2026-01-13 12:31:28.721 [main] INFO  EnterOTPUtil -  - Entered OTP digit at position 4
-2026-01-13 12:31:28.721 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
-2026-01-13 12:31:28.789 [main] INFO  EnterOTPUtil -  - Entered OTP digit at position 5
-2026-01-13 12:31:28.789 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
-2026-01-13 12:31:28.853 [main] INFO  EnterOTPUtil -  - Entered OTP digit at position 6
-2026-01-13 12:31:28.854 [main] INFO  ForgotPasswordPage -  - OTP-Set on the field 624453
-2026-01-13 12:31:28.854 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //h6[normalize-space()='Reset password']
-2026-01-13 12:31:30.522 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //h6[normalize-space()='Reset password']
-2026-01-13 12:31:30.553 [main] DEBUG ActionDriver -  - Text retrieved from By.xpath: //h6[normalize-space()='Reset password']: RESET PASSWORD
-2026-01-13 12:31:30.553 [main] INFO  ForgotPasswordPage -  - Title displayed on reset password is RESET PASSWORD
-2026-01-13 12:31:30.557 [main] DEBUG BaseTest -  - @AfterMethod optional cleanup for thread: main
-2026-01-13 12:31:30.557 [main] DEBUG BaseTest -  - Skipping logout because login was skipped for this test
-2026-01-13 12:31:30.558 [main] INFO  DriverFactory -  - Quitting WebDriver for thread: main
-2026-01-13 12:31:30.906 [main] DEBUG DriverFactory -  - WebDriver removed from ThreadLocal for thread: main
-2026-01-13 12:31:30.907 [main] INFO  BaseTest -  - WebDriver quit and ThreadLocal cleared
+2026-01-19 11:44:39.284 [main] INFO  BaseTest -  - ===== Starting Test Setup on thread: main =====
+2026-01-19 11:44:39.284 [main] INFO  BaseTest -  - No TestNG browser parameter provided. Falling back to config: chrome
+2026-01-19 11:44:39.284 [main] INFO  DriverFactory -  - Initiating driver on for browser chrome on threadmain
+2026-01-19 11:44:41.643 [main] INFO  DriverManager -  - Chrome Driver Instance Is Created
+2026-01-19 11:44:41.644 [main] DEBUG DriverManager -  - Driver instance created successfully: ChromeDriver: chrome on windows (1c1b7e89ed76a2d67a37c231d70a6002)
+2026-01-19 11:44:41.644 [main] DEBUG DriverFactory -  - WebDriver instance set in ThreadLocal for thread: main
+2026-01-19 11:44:41.644 [main] DEBUG BaseTest -  - WebDriver initialized successfully
+2026-01-19 11:44:41.648 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=20 seconds
+2026-01-19 11:44:41.649 [main] DEBUG BaseTest -  - ActionDriver initialized
+2026-01-19 11:44:41.649 [main] INFO  BaseTest -  - Configuring Browser Settings...
+2026-01-19 11:44:41.649 [main] DEBUG BaseTest -  - Setting implicit wait to 2 seconds
+2026-01-19 11:44:41.655 [main] INFO  BaseTest -  - Maximizing browser window
+2026-01-19 11:44:47.332 [main] INFO  BaseTest -  - Navigating to URL: https://uat.carecoordinations.com/
+2026-01-19 11:44:47.332 [main] INFO  BaseTest -  - Skip for logged for method validateResetPasswordFormInitialState
+2026-01-19 11:44:47.332 [main] INFO  BaseTest -  - === @BeforeMethod completed ===
+2026-01-19 11:44:47.424 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-01-19 11:44:47.949 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-01-19 11:44:47.949 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-01-19 11:44:51.541 [main] INFO  LandingPage -  - Click on log in page from landing page
+2026-01-19 11:44:51.542 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //span[@class='login100-form-title p-b-10']
+2026-01-19 11:44:51.604 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //span[@class='login100-form-title p-b-10']
+2026-01-19 11:44:51.604 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //span[@class='login100-form-title p-b-10']
+2026-01-19 11:44:51.647 [main] INFO  LoginPage -  - Login page displayed status: true
+2026-01-19 11:44:51.650 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
+2026-01-19 11:44:51.686 [main] INFO  ForgotPasswordPage -  - Forgot password link is displayed on login page...
+2026-01-19 11:44:51.687 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
+2026-01-19 11:44:51.688 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
+2026-01-19 11:44:51.735 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
+2026-01-19 11:44:51.794 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
+2026-01-19 11:44:51.794 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
+2026-01-19 11:44:55.020 [main] INFO  ForgotPasswordPage -  - Clicked on forgot password lnk from login page ....
+2026-01-19 11:44:55.020 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //h6[normalize-space()='Forgot Password?']
+2026-01-19 11:44:55.068 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //input[@id='phone']
+2026-01-19 11:44:55.099 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //h6[normalize-space()='Forgot Password?']
+2026-01-19 11:44:55.099 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //h6[normalize-space()='Forgot Password?']
+2026-01-19 11:44:55.137 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //input[@id='phone']
+2026-01-19 11:44:55.137 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //input[@id='phone']
+2026-01-19 11:44:55.174 [main] INFO  ForgotPasswordPage -  - Forgot Password page is displayed ......
+2026-01-19 11:44:55.175 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.cssSelector: button[data-bs-toggle='dropdown']
+2026-01-19 11:44:55.201 [main] INFO  DropdownUtil -  - Selecting dropdown value: +91
+2026-01-19 11:44:55.201 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.cssSelector: button[data-bs-toggle='dropdown']
+2026-01-19 11:44:55.240 [main] INFO  ActionDriver -  - Clicking element: By.cssSelector: button[data-bs-toggle='dropdown']
+2026-01-19 11:44:55.240 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.cssSelector: button[data-bs-toggle='dropdown']
+2026-01-19 11:44:55.555 [main] INFO  DropdownUtil -  - Dropdown value selected: +91
+2026-01-19 11:44:55.555 [main] INFO  ForgotPasswordPage -  - Selecting country code +91
+2026-01-19 11:44:55.555 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: phone
+2026-01-19 11:44:55.585 [main] INFO  ActionDriver -  - Entering text into By.id: phone
+2026-01-19 11:44:55.585 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: phone
+2026-01-19 11:44:55.720 [main] INFO  ForgotPasswordPage -  - Add Phone number in the input field is (998) 877-0119
+2026-01-19 11:44:55.720 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: forgotPasswordBtn
+2026-01-19 11:44:55.756 [main] INFO  ActionDriver -  - Clicking element: By.id: forgotPasswordBtn
+2026-01-19 11:44:55.756 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: forgotPasswordBtn
+2026-01-19 11:44:55.865 [main] INFO  ForgotPasswordPage -  - Click On Verify Phone number on the Forgot Password
+2026-01-19 11:44:55.865 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: forgotPasswordBtn
+2026-01-19 11:44:56.008 [main] INFO  ActionDriver -  - Clicking element: By.id: forgotPasswordBtn
+2026-01-19 11:44:56.008 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: forgotPasswordBtn
+2026-01-19 11:44:56.090 [main] INFO  ForgotPasswordPage -  - Click On Verify Phone number on the Forgot Password
+2026-01-19 11:44:56.091 [main] INFO  OtpAPIUtil -  - Email and API checks passed
+2026-01-19 11:45:01.375 [main] INFO  OtpAPIUtil -  - OTP API Status Code: 200
+2026-01-19 11:45:01.382 [main] INFO  OtpAPIUtil -  - API called Successfully https://uat.carecoordinations.com/Api/v1/getOTPCode/Carl.fs@yopmail.com
+2026-01-19 11:45:08.615 [main] INFO  OtpAPIUtil -  - OTP received  successfully of length 6
+2026-01-19 11:45:08.618 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.cssSelector: div#otp input[type='text']
+2026-01-19 11:45:08.670 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.cssSelector: div#otp input[type='text']
+2026-01-19 11:45:08.768 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
+2026-01-19 11:45:08.852 [main] INFO  EnterOTPUtil -  - Entered OTP digit at position 1
+2026-01-19 11:45:08.852 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
+2026-01-19 11:45:08.965 [main] INFO  EnterOTPUtil -  - Entered OTP digit at position 2
+2026-01-19 11:45:08.965 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
+2026-01-19 11:45:09.036 [main] INFO  EnterOTPUtil -  - Entered OTP digit at position 3
+2026-01-19 11:45:09.036 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
+2026-01-19 11:45:09.103 [main] INFO  EnterOTPUtil -  - Entered OTP digit at position 4
+2026-01-19 11:45:09.103 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
+2026-01-19 11:45:09.183 [main] INFO  EnterOTPUtil -  - Entered OTP digit at position 5
+2026-01-19 11:45:09.183 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
+2026-01-19 11:45:09.253 [main] INFO  EnterOTPUtil -  - Entered OTP digit at position 6
+2026-01-19 11:45:09.253 [main] INFO  ForgotPasswordPage -  - OTP-Set on the field 553045
+2026-01-19 11:45:09.255 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //h6[normalize-space()='Reset password']
+2026-01-19 11:45:12.091 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //h6[normalize-space()='Reset password']
+2026-01-19 11:45:12.124 [main] DEBUG ActionDriver -  - Text retrieved from By.xpath: //h6[normalize-space()='Reset password']: RESET PASSWORD
+2026-01-19 11:45:12.125 [main] INFO  ResetPasswordPage -  - Title displayed on reset password is RESET PASSWORD
+2026-01-19 11:45:12.125 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //p[normalize-space()='Please enter a new password']
+2026-01-19 11:45:12.147 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //p[normalize-space()='Please enter a new password']
+2026-01-19 11:45:12.168 [main] DEBUG ActionDriver -  - Text retrieved from By.xpath: //p[normalize-space()='Please enter a new password']: Please enter a new password
+2026-01-19 11:45:12.168 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: password_reset
+2026-01-19 11:45:12.204 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: confirm_password_reset
+2026-01-19 11:45:12.231 [main] DEBUG ActionDriver -  - Checking visibility for: By.id: password_reset
+2026-01-19 11:45:12.232 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: password_reset
+2026-01-19 11:45:12.277 [main] DEBUG ActionDriver -  - Checking visibility for: By.id: confirm_password_reset
+2026-01-19 11:45:12.277 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: confirm_password_reset
+2026-01-19 11:45:12.309 [main] INFO  ResetPasswordPage -  - On reset password page new password and confirm password field is displayed...
+2026-01-19 11:45:12.309 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.id: resetPasswordBtn
+2026-01-19 11:45:12.340 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: resetPasswordBtn
+2026-01-19 11:45:12.388 [main] INFO  ResetPasswordPage -  - Submit button state on Reset-password is false
+2026-01-19 11:45:12.393 [main] DEBUG BaseTest -  - @AfterMethod optional cleanup for thread: main
+2026-01-19 11:45:12.394 [main] DEBUG BaseTest -  - Skipping logout because login was skipped for this test
+2026-01-19 11:45:12.394 [main] INFO  DriverFactory -  - Quitting WebDriver for thread: main
+2026-01-19 11:45:14.866 [main] DEBUG DriverFactory -  - WebDriver removed from ThreadLocal for thread: main
+2026-01-19 11:45:14.867 [main] INFO  BaseTest -  - WebDriver quit and ThreadLocal cleared
+2026-01-19 12:24:26.468 [main] INFO  Utils -  - [TestNG] Running:
+  C:\Users\DREAMWORLD\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+2026-01-19 12:24:26.576 [main] INFO  BaseTest -  - ===== Starting Test Setup on thread: main =====
+2026-01-19 12:24:26.583 [main] INFO  BaseTest -  - No TestNG browser parameter provided. Falling back to config: chrome
+2026-01-19 12:24:26.587 [main] INFO  DriverFactory -  - Initiating driver on for browser chrome on threadmain
+2026-01-19 12:24:29.522 [main] INFO  DriverManager -  - Chrome Driver Instance Is Created
+2026-01-19 12:24:29.522 [main] DEBUG DriverManager -  - Driver instance created successfully: ChromeDriver: chrome on windows (b2ad526c6c716c08925a4153bb4c938f)
+2026-01-19 12:24:29.522 [main] DEBUG DriverFactory -  - WebDriver instance set in ThreadLocal for thread: main
+2026-01-19 12:24:29.522 [main] DEBUG BaseTest -  - WebDriver initialized successfully
+2026-01-19 12:24:29.530 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=20 seconds
+2026-01-19 12:24:29.530 [main] DEBUG BaseTest -  - ActionDriver initialized
+2026-01-19 12:24:29.530 [main] INFO  BaseTest -  - Configuring Browser Settings...
+2026-01-19 12:24:29.530 [main] DEBUG BaseTest -  - Setting implicit wait to 2 seconds
+2026-01-19 12:24:29.532 [main] INFO  BaseTest -  - Maximizing browser window
+2026-01-19 12:24:33.844 [main] INFO  BaseTest -  - Navigating to URL: https://uat.carecoordinations.com/
+2026-01-19 12:24:33.844 [main] INFO  BaseTest -  - Skip for logged for method validateResetPasswordFormInitialState
+2026-01-19 12:24:33.844 [main] INFO  BaseTest -  - === @BeforeMethod completed ===
+2026-01-19 12:24:33.860 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-01-19 12:24:34.354 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-01-19 12:24:34.354 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-01-19 12:24:37.561 [main] INFO  LandingPage -  - Click on log in page from landing page
+2026-01-19 12:24:37.561 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //span[@class='login100-form-title p-b-10']
+2026-01-19 12:24:37.576 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //span[@class='login100-form-title p-b-10']
+2026-01-19 12:24:37.576 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //span[@class='login100-form-title p-b-10']
+2026-01-19 12:24:37.629 [main] INFO  LoginPage -  - Login page displayed status: true
+2026-01-19 12:24:37.632 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
+2026-01-19 12:24:37.660 [main] INFO  ForgotPasswordPage -  - Forgot password link is displayed on login page...
+2026-01-19 12:24:37.660 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
+2026-01-19 12:24:37.660 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
+2026-01-19 12:24:37.722 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
+2026-01-19 12:24:37.814 [main] INFO  ForgotPasswordPage -  - Forgot password link is displayed on login page...
+2026-01-19 12:24:37.814 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
+2026-01-19 12:24:37.815 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
+2026-01-19 12:24:37.858 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
+2026-01-19 12:24:37.888 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
+2026-01-19 12:24:37.888 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //span[@id='spanClick' and text()='Forgot your password?']
+2026-01-19 12:24:40.979 [main] INFO  ForgotPasswordPage -  - Clicked on forgot password lnk from login page ....
+2026-01-19 12:24:40.979 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //h6[normalize-space()='Forgot Password?']
+2026-01-19 12:24:41.009 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //input[@id='phone']
+2026-01-19 12:24:41.035 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //h6[normalize-space()='Forgot Password?']
+2026-01-19 12:24:41.036 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //h6[normalize-space()='Forgot Password?']
+2026-01-19 12:24:41.061 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //input[@id='phone']
+2026-01-19 12:24:41.061 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //input[@id='phone']
+2026-01-19 12:24:41.086 [main] INFO  ForgotPasswordPage -  - Forgot Password page is displayed ......
+2026-01-19 12:24:41.086 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.cssSelector: button[data-bs-toggle='dropdown']
+2026-01-19 12:24:41.107 [main] INFO  DropdownUtil -  - Selecting dropdown value: +91
+2026-01-19 12:24:41.107 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.cssSelector: button[data-bs-toggle='dropdown']
+2026-01-19 12:24:41.130 [main] INFO  ActionDriver -  - Clicking element: By.cssSelector: button[data-bs-toggle='dropdown']
+2026-01-19 12:24:41.131 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.cssSelector: button[data-bs-toggle='dropdown']
+2026-01-19 12:24:41.324 [main] INFO  DropdownUtil -  - Dropdown value selected: +91
+2026-01-19 12:24:41.325 [main] INFO  ForgotPasswordPage -  - Selecting country code +91
+2026-01-19 12:24:41.325 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: phone
+2026-01-19 12:24:41.360 [main] INFO  ActionDriver -  - Entering text into By.id: phone
+2026-01-19 12:24:41.361 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: phone
+2026-01-19 12:24:41.515 [main] INFO  ForgotPasswordPage -  - Add Phone number in the input field is (998) 877-0119
+2026-01-19 12:24:41.515 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: forgotPasswordBtn
+2026-01-19 12:24:41.576 [main] INFO  ActionDriver -  - Clicking element: By.id: forgotPasswordBtn
+2026-01-19 12:24:41.576 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: forgotPasswordBtn
+2026-01-19 12:24:41.671 [main] INFO  ForgotPasswordPage -  - Click On Verify Phone number on the Forgot Password
+2026-01-19 12:24:41.671 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: forgotPasswordBtn
+2026-01-19 12:24:41.797 [main] INFO  ActionDriver -  - Clicking element: By.id: forgotPasswordBtn
+2026-01-19 12:24:41.797 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: forgotPasswordBtn
+2026-01-19 12:24:41.900 [main] INFO  ForgotPasswordPage -  - Click On Verify Phone number on the Forgot Password
+2026-01-19 12:24:41.900 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@class='cc-heading-txt']
+2026-01-19 12:24:45.068 [main] INFO  OtpAPIUtil -  - Email and API checks passed
+2026-01-19 12:24:48.205 [main] INFO  OtpAPIUtil -  - OTP API Status Code: 200
+2026-01-19 12:24:48.205 [main] INFO  OtpAPIUtil -  - API called Successfully https://uat.carecoordinations.com/Api/v1/getOTPCode/Carl.fs@yopmail.com
+2026-01-19 12:24:55.287 [main] INFO  OtpAPIUtil -  - OTP received  successfully of length 6
+2026-01-19 12:24:55.288 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.cssSelector: div#otp input[type='text']
+2026-01-19 12:24:55.312 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.cssSelector: div#otp input[type='text']
+2026-01-19 12:24:55.405 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
+2026-01-19 12:24:55.465 [main] INFO  EnterOTPUtil -  - Entered OTP digit at position 1
+2026-01-19 12:24:55.465 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
+2026-01-19 12:24:55.562 [main] INFO  EnterOTPUtil -  - Entered OTP digit at position 2
+2026-01-19 12:24:55.562 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
+2026-01-19 12:24:55.641 [main] INFO  EnterOTPUtil -  - Entered OTP digit at position 3
+2026-01-19 12:24:55.641 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
+2026-01-19 12:24:55.709 [main] INFO  EnterOTPUtil -  - Entered OTP digit at position 4
+2026-01-19 12:24:55.710 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
+2026-01-19 12:24:55.808 [main] INFO  EnterOTPUtil -  - Entered OTP digit at position 5
+2026-01-19 12:24:55.808 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
+2026-01-19 12:24:55.884 [main] INFO  EnterOTPUtil -  - Entered OTP digit at position 6
+2026-01-19 12:24:55.884 [main] INFO  ForgotPasswordPage -  - OTP-Set on the field 841183
+2026-01-19 12:24:55.884 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //h6[normalize-space()='Reset password']
+2026-01-19 12:24:58.235 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //h6[normalize-space()='Reset password']
+2026-01-19 12:24:58.257 [main] DEBUG ActionDriver -  - Text retrieved from By.xpath: //h6[normalize-space()='Reset password']: RESET PASSWORD
+2026-01-19 12:24:58.257 [main] INFO  ResetPasswordPage -  - Title displayed on reset password is RESET PASSWORD
+2026-01-19 12:24:58.257 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //p[normalize-space()='Please enter a new password']
+2026-01-19 12:24:58.284 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //p[normalize-space()='Please enter a new password']
+2026-01-19 12:24:58.317 [main] DEBUG ActionDriver -  - Text retrieved from By.xpath: //p[normalize-space()='Please enter a new password']: Please enter a new password
+2026-01-19 12:24:58.317 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: password_reset
+2026-01-19 12:24:58.345 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: confirm_password_reset
+2026-01-19 12:24:58.367 [main] DEBUG ActionDriver -  - Checking visibility for: By.id: password_reset
+2026-01-19 12:24:58.367 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: password_reset
+2026-01-19 12:24:58.397 [main] DEBUG ActionDriver -  - Checking visibility for: By.id: confirm_password_reset
+2026-01-19 12:24:58.397 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: confirm_password_reset
+2026-01-19 12:24:58.424 [main] INFO  ResetPasswordPage -  - On reset password page new password and confirm password field is displayed...
+2026-01-19 12:24:58.424 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.id: resetPasswordBtn
+2026-01-19 12:24:58.446 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: resetPasswordBtn
+2026-01-19 12:24:58.521 [main] INFO  ResetPasswordPage -  - Submit button state on Reset-password is false
+2026-01-19 12:24:58.526 [main] DEBUG BaseTest -  - @AfterMethod optional cleanup for thread: main
+2026-01-19 12:24:58.526 [main] DEBUG BaseTest -  - Skipping logout because login was skipped for this test
+2026-01-19 12:24:58.526 [main] INFO  DriverFactory -  - Quitting WebDriver for thread: main
+2026-01-19 12:24:59.154 [main] DEBUG DriverFactory -  - WebDriver removed from ThreadLocal for thread: main
+2026-01-19 12:24:59.155 [main] INFO  BaseTest -  - WebDriver quit and ThreadLocal cleared
