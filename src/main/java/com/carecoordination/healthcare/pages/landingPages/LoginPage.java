@@ -22,10 +22,9 @@ public class LoginPage {
     private final By btnLogin = By.xpath("//button[@id='FinalCommonLoginBtn']");
     private final By loginPage = By.xpath("//span[@class='login100-form-title p-b-10']");
 
-    private final By lnkForgotPassword = By.xpath("//a[@class='forgot-password-txt spanAnchor']");
     By lnkRegister = By.cssSelector("a.signup-link[href*='user-register']");
 
-    private final By errorMessage = By.xpath("//div[@class='custom-block-error-msg mt-3']");
+    private final By errorMessage = By.cssSelector(".custom-block-error-msg");
 
 
     //method for login page displayed

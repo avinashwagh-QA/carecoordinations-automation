@@ -12,8 +12,8 @@ import org.testng.Assert;
 public class ForgotPasswordPage {
 
     private final ActionDriver actionDriver;
-    private DropdownUtil dropdownUtil;
-    private EnterOTPUtil enterOTPUtil;
+    private final DropdownUtil dropdownUtil;
+    private final EnterOTPUtil enterOTPUtil;
 
     private static final Logger logger= LogManager.getLogger(ForgotPasswordPage.class);
 
@@ -86,7 +86,7 @@ public class ForgotPasswordPage {
 
     public String getErrorMessage(){
         actionDriver.waitForElementToVisible(errorMessage);
-        String msg = actionDriver.getText(errorMessage);
+        String msg = actionDriver.getErrorMessage(errorMessage);
         logger.info("Error message on the verify phone on Forgot password is : {}", msg);
         return msg;
     }

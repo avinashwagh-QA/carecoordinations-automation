@@ -1,6 +1,8 @@
 package com.carecoordination.healthcare.testpages;
 
 import com.carecoordination.healthcare.factory.BaseTest;
+import com.carecoordination.healthcare.factory.DriverFactory;
+import com.carecoordination.healthcare.pages.AppDashBoard.AppDashboardPage;
 import com.carecoordination.healthcare.pages.landingPages.ForgotPasswordPage;
 import com.carecoordination.healthcare.pages.landingPages.LandingPage;
 import com.carecoordination.healthcare.pages.landingPages.LoginPage;
@@ -12,6 +14,7 @@ import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import utilities.TestDataProvider;
 
 public class ResetPasswordPageTest extends BaseTest {
 
@@ -20,6 +23,7 @@ public class ResetPasswordPageTest extends BaseTest {
     private OtpAPIUtil otpAPIUtil;
     private LandingPage landingPage;
     private LoginPage loginPage;
+    private AppDashboardPage appDashboardPage;
 
     private static final Logger logger = LogManager.getLogger(ResetPasswordPageTest.class);
 
@@ -27,6 +31,7 @@ public class ResetPasswordPageTest extends BaseTest {
     public void setUpPages() {
         landingPage = new LandingPage(actionDriver);
         loginPage = new LoginPage(actionDriver);
+        appDashboardPage = new AppDashboardPage(actionDriver);
         forgotPasswordPage = new ForgotPasswordPage(actionDriver);
         resetPasswordPage = new ResetPasswordPage(actionDriver);
         otpAPIUtil = new OtpAPIUtil();
@@ -60,10 +65,97 @@ public class ResetPasswordPageTest extends BaseTest {
         Assert.assertTrue(password, "Input field for password does not displayed..");
 
         //Validation on submit button initial state - disabled
-        boolean button = resetPasswordPage.verifyButtonEnabled();
+        boolean button = resetPasswordPage.verifySubmitButtonEnabled();
         Assert.assertFalse(button, "Submit button displayed as enabled by default");
 
     }
+
+    @Test(groups = "skip-login",
+    dataProvider = "passwordValidationData", dataProviderClass = TestDataProvider.class,
+    description = "Verify the Rules on the Rest password page for password validation")
+    public void validatePasswordRule(String password, boolean expectedSubmitState){
+
+        resetPasswordPage.setInputNewPassword(password);
+        resetPasswordPage.setInputConfirmPassword(password);
+
+        Assert.assertEquals(resetPasswordPage.verifySubmitButtonEnabled(),
+                expectedSubmitState,
+                "Submit button state mismatch for password: " + password);
+
+    }
+
+    @Test(groups = "skip-login",
+    description = "Verify the button remains when password and confirm password are mismatch")
+    public void verifyPasswordMismatchOnResetPassword(){
+
+        resetPasswordPage.setInputNewPassword("Password@123");
+        resetPasswordPage.setInputConfirmPassword("Password@123");
+
+        Assert.assertTrue(resetPasswordPage.verifySubmitButtonEnabled(),
+                "Submit button should remains disable for mismatch password");
+    }
+
+    @Test(groups = "skip-login",
+    description = "Verify on after entering Old password then error message displayed")
+    public void validateResetPasswordOnOldPassword(){
+
+        resetPasswordPage.setInputNewPassword("Password@123");
+        resetPasswordPage.setInputConfirmPassword("Password@123");
+
+        Assert.assertTrue(resetPasswordPage.verifySubmitButtonEnabled(), "button not enabled even enter same password");
+
+        resetPasswordPage.clickOnSubmitButton();
+
+        String actualMsg = ConfigReader.getProperty("restOldPasswordMessage");
+        String expectedMsg = resetPasswordPage.getErrorMsgOnOldPassword();
+
+        Assert.assertEquals(actualMsg, expectedMsg,"Message does not match on enter old password in reset password");
+    }
+
+
+    @Test(groups = "skip-login",
+            description = "Verify on after entering valid password and confirm password user navigates to login page")
+    public void validateResetPasswordSuccess(){
+
+        resetPasswordPage.setInputNewPassword("Password@123");
+        resetPasswordPage.setInputConfirmPassword("Password@123");
+
+        Assert.assertTrue(resetPasswordPage.verifySubmitButtonEnabled(), "button not enabled even enter same password");
+
+        resetPasswordPage.clickOnSubmitButton();
+
+        Assert.assertTrue(DriverFactory.getDriver().getCurrentUrl().contains("login"),
+                "User should be redirected to login page after reset password");
+    }
+
+    @Test(groups = "skip-login",
+            description = "Verify after reset password user can login with new password")
+    public void validateResetPasswordUserCanLogin() {
+
+        String updatedPassword = "Nexios@1419";
+        resetPasswordPage.setInputNewPassword(updatedPassword);
+        resetPasswordPage.setInputConfirmPassword(updatedPassword);
+
+        Assert.assertTrue(resetPasswordPage.verifySubmitButtonEnabled(), "button not enabled even enter same password");
+
+        resetPasswordPage.clickOnSubmitButton();
+
+        Assert.assertTrue(DriverFactory.getDriver().getCurrentUrl().contains("login"),
+                "User should be redirected to login page after reset password");
+
+        String email = ConfigReader.getProperty("resetEmail");
+
+        loginPage.login(email, updatedPassword);
+
+        Assert.assertTrue(appDashboardPage.isUserNamePresent(), "User name does not displayed");
+
+        appDashboardPage.clickOnLogOut();
+        Assert.assertTrue(landingPage.isHomePageTitleDisplayed(), "User not logout after reset password");
+
+    }
+
+
+
 
 
 }

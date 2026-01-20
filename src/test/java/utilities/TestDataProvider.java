@@ -41,6 +41,31 @@ public class TestDataProvider {
 
     }
 
+    @DataProvider(name = "passwordValidationData")
+    public static Object[][] passwordValidationData(){
+        return new Object[][]{
+                {"Test1@", false},          // < 8 chars
+                {"password12@", false},     // No uppercase
+                {"PASSWORD1@", false},     // No lowercase
+                {"Password@", false},      // No number
+                {"Password12", false},      // No special char
+                {"Password@123", true}       // Fully valid
+        };
+    }
+
+    @DataProvider(name ="invalidRegisterAccountData")
+    public static Object[][] invalidRegisterAccountData(){
+        return new Object[][]{
+                {"invalidCode", "invalidInvitedEmail", "msgInvalidEmailAndCode"},
+                {"invalidCodeLessThan6digit", "validInvitedEmail", "msgInvalidCodeSize"},
+                {"invalidCodeMoreThan8digit", "validInvitedEmail", "msgInvalidCodeSize"},
+                {"invalidCode", "validInvitedEmail", "msgInvalidCode"},
+                {"validCode", "invalidInvitedEmail", "msgInvalidEmailAndCode"},
+                {"validCode", "removedUserEmail", "msgAccessDenied"},
+                {"validCode", "validRegisterEmail", "msgInvalidEmailAndCode"}
+        };
+    }
+
 
 
 }
