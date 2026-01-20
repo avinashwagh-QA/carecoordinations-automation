@@ -53,6 +53,19 @@ public class TestDataProvider {
         };
     }
 
+    @DataProvider(name ="invalidRegisterAccountData")
+    public static Object[][] invalidRegisterAccountData(){
+        return new Object[][]{
+                {"invalidCode", "invalidInvitedEmail", "msgInvalidEmailAndCode"},
+                {"invalidCodeLessThan6digit", "validInvitedEmail", "msgInvalidCodeSize"},
+                {"invalidCodeMoreThan8digit", "validInvitedEmail", "msgInvalidCodeSize"},
+                {"invalidCode", "validInvitedEmail", "msgInvalidCode"},
+                {"validCode", "invalidInvitedEmail", "msgInvalidEmailAndCode"},
+                {"validCode", "removedUserEmail", "msgAccessDenied"},
+                {"validCode", "validRegisterEmail", "msgInvalidEmailAndCode"}
+        };
+    }
+
 
 
 }

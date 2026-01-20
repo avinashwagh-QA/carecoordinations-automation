@@ -72,7 +72,7 @@ public class ResetPasswordPage {
         actionDriver.waitForAllElementsToBeVisible(btnSubmit);
       boolean actualState  =  actionDriver.isButtonEnabled(btnSubmit);
       logger.info("Submit button state on Reset-password is {}", actualState);
-      return  actualState;
+      return actualState;
     }
 
     public void clickOnSubmitButton(){
