@@ -65,51 +65,17 @@ public class ResetPasswordPage {
 
     public void setInputConfirmPassword(String confirmPassword){
         actionDriver.waitForElementToBeClickable(inputConfirmPassword);
-        actionDriver.enterText(inputConfirmPassword, confirmPassword);
+        actionDriver.enterText(inputNewPassword, confirmPassword);
     }
 
-    public boolean verifySubmitButtonEnabled(){
+    public boolean verifyButtonEnabled(){
         actionDriver.waitForAllElementsToBeVisible(btnSubmit);
       boolean actualState  =  actionDriver.isButtonEnabled(btnSubmit);
       logger.info("Submit button state on Reset-password is {}", actualState);
       return actualState;
     }
 
-    public void clickOnSubmitButton(){
-        actionDriver.waitForElementToBeClickable(btnSubmit);
-        actionDriver.click(btnSubmit);
-        logger.info("Clicked on Submit button from reset password");
-    }
 
-    public String getErrorMsgOnOldPassword() {
-        actionDriver.waitForElementToVisible(errorMessage);
-        return actionDriver.getErrorMessage(errorMessage);
-    }
-
-    //==== Password Rule validation Methods ========//
-    public boolean isRuleSatisfied(By ruleLocator){
-        return actionDriver.getAttribute(ruleLocator, "class").contains("checked");
-    }
-
-    public boolean isRuleLengthValid(){
-        return isRuleSatisfied(passwordLength);
-    }
-
-    public boolean isUppercaseRuleValid(){
-        return isRuleSatisfied(uppercaseCheck);
-    }
-
-    public boolean isLowerCaseValid(){
-        return isRuleSatisfied(lowercaseCheck);
-    }
-
-    public boolean isNumberCheckValid(){
-        return isRuleSatisfied(numberCheck);
-    }
-
-    public boolean isSpecialCheckValid(){
-        return isRuleSatisfied(specialCheck);
-    }
 
 
 
