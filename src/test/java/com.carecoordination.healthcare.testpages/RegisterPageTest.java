@@ -83,16 +83,16 @@ public class RegisterPageTest extends BaseTest {
         Assert.assertTrue(registerPage.isRegisterGuideModalOpenWhenClicked(), "Register guide modal does not displayed");
     }
 
-//    @Test(groups = "skip-login",
-//    description = "Verify User navigates Verify OTP page on entering valid email and invitation code")
-//    public void validateUserNavigatesToOtpPageOnValidCodeAndEmail(){
-//
-//       String invitationCode = ConfigReader.getProperty("validCode");
-//       String email = ConfigReader.getProperty("validInvitedEmail");
-//
-//       registerPage.completeRegistration(invitationCode, email);
-//
-//    }
+    @Test(groups = "skip-login",
+    description = "Verify User navigates Verify OTP page on entering valid email and invitation code")
+    public void validateUserNavigatesToOtpPageOnValidCodeAndEmail(){
+
+       String invitationCode = ConfigReader.getProperty("validCode");
+       String email = ConfigReader.getProperty("validInvitedEmail");
+
+       registerPage.completeRegistration(invitationCode, email);
+
+    }
 
 
 
