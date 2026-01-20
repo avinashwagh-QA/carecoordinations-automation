@@ -4,7 +4,6 @@ import com.carecoordination.healthcare.constants.UserRole;
 import com.carecoordination.healthcare.factory.BaseTest;
 import com.carecoordination.healthcare.helpers.AuthHelper;
 import com.carecoordination.healthcare.pages.AppDashBoard.AppDashboardPage;
-import com.carecoordination.healthcare.pages.landingPages.ForgotPasswordPage;
 import com.carecoordination.healthcare.pages.landingPages.LandingPage;
 import com.carecoordination.healthcare.pages.landingPages.LoginPage;
 import com.carecoordination.healthcare.utilities.ConfigReader;
@@ -21,7 +20,6 @@ public class LoginPageTest extends BaseTest {
     private LandingPage landingPage;
     private LoginPage loginPage;
     private AppDashboardPage appDashboardPage;
-    private ForgotPasswordPage forgotPasswordPage;
 
     private static final Logger logger = LogManager.getLogger(LoginPageTest.class);
 
@@ -30,7 +28,6 @@ public class LoginPageTest extends BaseTest {
         landingPage = new LandingPage(actionDriver);
         loginPage = new LoginPage(actionDriver);
         appDashboardPage = new AppDashboardPage(actionDriver);
-        forgotPasswordPage = new ForgotPasswordPage(actionDriver);
 
         landingPage.clickOnLoginLink();
         Assert.assertTrue(loginPage.isLoginPageDisplayed(), "Login Page does not displayed");
