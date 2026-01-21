@@ -1,9 +1,12 @@
 package com.carecoordination.healthcare.testpages;
 
 import com.carecoordination.healthcare.factory.BaseTest;
+import com.carecoordination.healthcare.factory.DriverFactory;
 import com.carecoordination.healthcare.pages.landingPages.LandingPage;
+import com.carecoordination.healthcare.pages.landingPages.OtpVerifyPage;
 import com.carecoordination.healthcare.pages.landingPages.RegisterPage;
 import com.carecoordination.healthcare.utilities.ConfigReader;
+import com.carecoordination.healthcare.utilities.OtpAPIUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
@@ -16,6 +19,8 @@ public class RegisterPageTest extends BaseTest {
 
     private LandingPage landingPage;
     private RegisterPage registerPage;
+    private OtpVerifyPage otpVerifyPage;
+    private OtpAPIUtil otpAPIUtil;
 
     private static final Logger logger = LogManager.getLogger(RegisterPageTest.class);
 
@@ -23,6 +28,8 @@ public class RegisterPageTest extends BaseTest {
     public void setUpPages(){
         landingPage = new LandingPage(actionDriver);
         registerPage = new RegisterPage(actionDriver);
+        otpVerifyPage = new OtpVerifyPage(actionDriver);
+        otpAPIUtil = new OtpAPIUtil();
 
         landingPage.clickOnRegisterLink();
         Assert.assertTrue(registerPage.isRegisterPageDisplayed(), "Register page does not displayed");
@@ -92,11 +99,78 @@ public class RegisterPageTest extends BaseTest {
 
        registerPage.completeRegistration(invitationCode, email);
 
+       Assert.assertTrue(otpVerifyPage.isTitleForOtpPageDisplayed(), "Title for OTP verification page not displayed");
+    }
+
+
+    @Test(groups = "skip-login",
+    description = "Verify Message on invalid OTP is enter from register page")
+    public void verifyMessageOnInvalidOtp(){
+
+        String invitationCode = ConfigReader.getProperty("validCode");
+        String email = ConfigReader.getProperty("validInvitedEmail");
+
+        registerPage.completeRegistration(invitationCode, email);
+
+        Assert.assertTrue(otpVerifyPage.isTitleForOtpPageDisplayed(), "Title for OTP verification page not displayed");
+
+        otpVerifyPage.setOTPInputs(ConfigReader.getProperty("invalidOtp"));
+
+        String actualMSg = registerPage.getErrorMessage();
+        String expectedMsg = ConfigReader.getProperty("incorrectOtpMsg");
+
+        Assert.assertEquals(actualMSg, expectedMsg, "Message does not match");
+    }
+
+    @Test(groups = "skip-login",
+            description = "Verify OTP-Resend link is displayed on the OTP verify page when user navigates to register page")
+    public void verifyResendOtpLinkIsPresent(){
+
+        String invitationCode = ConfigReader.getProperty("validCode");
+        String email = ConfigReader.getProperty("validInvitedEmail");
+
+        registerPage.completeRegistration(invitationCode, email);
+
+        Assert.assertTrue(otpVerifyPage.isTitleForOtpPageDisplayed(), "Title for OTP verification page not displayed");
+
+        Assert.assertTrue(otpVerifyPage.isResendOtpDisplayedOnRegisterPage(), "Resend otp link is not displayed on OTP page ");
+
+    }
+
+    @Test(groups = "skip-login",
+    description = "Verify old OTP becomes invalid after resend ")
+    public void verifyOldOtpExpiresAfterResend(){
+
+        logger.info("Verify on resend OTP the old Otp expire successfully");
+
+        String invitationCode = ConfigReader.getProperty("validCode");
+        String email = ConfigReader.getProperty("validInvitedEmail");
+
+        registerPage.completeRegistration(invitationCode, email);
+
+        Assert.assertTrue(otpVerifyPage.isTitleForOtpPageDisplayed(), "Title for OTP verification page not displayed");
+
+        //Fetching 1st OTP in otp1
+        String Otp1 = otpAPIUtil.getOtp();
+
+        //Verify resend OTP link and click
+        Assert.assertTrue(otpVerifyPage.isResendOtpDisplayedOnRegisterPage(), "ResendOTP link is not present");
+        otpVerifyPage.clickOnResendOtpForRegisterPage();
+
+        // Enter old OTP
+        otpVerifyPage.setOTPInputs(Otp1);
+
+        String actualMSg = registerPage.getErrorMessage();
+        String expectedMsg = ConfigReader.getProperty("incorrectOtpMsg");
+
+        Assert.assertEquals(actualMSg, expectedMsg, "Message does not match");
+
     }
 
 
 
 
 
-
 }
+
+

@@ -3,10 +3,7 @@ package com.carecoordination.healthcare.testpages;
 import com.carecoordination.healthcare.factory.BaseTest;
 import com.carecoordination.healthcare.factory.DriverFactory;
 import com.carecoordination.healthcare.pages.AppDashBoard.AppDashboardPage;
-import com.carecoordination.healthcare.pages.landingPages.ForgotPasswordPage;
-import com.carecoordination.healthcare.pages.landingPages.LandingPage;
-import com.carecoordination.healthcare.pages.landingPages.LoginPage;
-import com.carecoordination.healthcare.pages.landingPages.ResetPasswordPage;
+import com.carecoordination.healthcare.pages.landingPages.*;
 import com.carecoordination.healthcare.utilities.ConfigReader;
 import com.carecoordination.healthcare.utilities.OtpAPIUtil;
 import org.apache.logging.log4j.LogManager;
@@ -18,9 +15,11 @@ import utilities.TestDataProvider;
 
 public class ResetPasswordPageTest extends BaseTest {
 
+
     private ForgotPasswordPage forgotPasswordPage;
     private ResetPasswordPage resetPasswordPage;
     private OtpAPIUtil otpAPIUtil;
+    private OtpVerifyPage otpVerifyPage;
     private LandingPage landingPage;
     private LoginPage loginPage;
     private AppDashboardPage appDashboardPage;
@@ -34,15 +33,16 @@ public class ResetPasswordPageTest extends BaseTest {
         appDashboardPage = new AppDashboardPage(actionDriver);
         forgotPasswordPage = new ForgotPasswordPage(actionDriver);
         resetPasswordPage = new ResetPasswordPage(actionDriver);
+        otpVerifyPage = new OtpVerifyPage(actionDriver);
         otpAPIUtil = new OtpAPIUtil();
 
         landingPage.clickOnLoginLink();
         Assert.assertTrue(loginPage.isLoginPageDisplayed(), "Login Page does not displayed");
 
-        boolean otpPage = forgotPasswordPage.navigateToVerificationOtpPage(); // navigate otp page
+        boolean otpPage = forgotPasswordPage.navigateToVerificationOtpPageFromForgotPassword(); // navigate otp page
         Assert.assertTrue(otpPage, "OTP verification page does not displayed");
 
-        forgotPasswordPage.setOTPInputs(otpAPIUtil.getOtp()); // enter otp page
+        otpVerifyPage.setOTPInputs(otpAPIUtil.getOtp()); // enter otp page
     }
 
     @Test(groups = "skip-login",

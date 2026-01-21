@@ -8,14 +8,14 @@ import io.restassured.response.Response;
 /**
  * Fetches the latest OTP for forgot/reset password flow
  * by calling backend OTP API (QA environments only).
- * <p>
+ *
  * Flow:
- * 1. Validates email and API enable flag
- * 2. Calls OTP API endpoint
- * 3. Retries OTP fetch if not immediately available
+ * 1. Validates email configuration and API enable flag
+ * 2. Calls OTP API with retry to handle async OTP generation
+ * 3. Re-invokes API until OTP is available or retries are exhausted<
  * 4. Extracts OTP from nested response object
  * 5. Returns OTP for UI automation usage
- * <p>
+ *
  * Note:
  * * - Designed to handle backend timing delays (async OTP generation)
  * * - Used only to support Selenium tests, not for API validation
@@ -24,10 +24,8 @@ import io.restassured.response.Response;
 public class OtpAPIUtil {
 
     public static Logger logger = LogManager.getLogger(OtpAPIUtil.class);
-
-    int maxAttempts = 3;
-    int attempt = 1;
-    String otp = null;
+    private static final int MAX_ATTEMPTS = 3;
+    private static final int WAIT_TIME_MS = 3000;
 
     public String getOtp() {
 
@@ -47,53 +45,43 @@ public class OtpAPIUtil {
 
         logger.info("Email and API checks passed");
 
-        String completeUrl = ConfigReader.getProperty("otp.api.base.url") + email;
+        String baseUrl = ConfigReader.getProperty("otp.api.base.url");
+        String completeUrl = baseUrl + email;
 
-        Response response = RestAssured
-                .given()
-                .when()
-                .get(completeUrl);
+        logger.info("Fetching OTP for email: {}", email);
 
-        int statusCode = response.getStatusCode();
-        logger.info("OTP API Status Code: {}", statusCode);
+        String otp = null;
 
-        if (statusCode != 200) {
-            logger.error("API fails to get the response with status 200...");
-            throw new RuntimeException("API fails - 200 status code not received");
-        }
+        for (int attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
 
-        logger.info("API called Successfully {}", completeUrl);
+            Response response = RestAssured
+                    .given()
+                    .when()
+                    .get(completeUrl);
 
-        while (attempt <= maxAttempts) {
+            logger.info("Attempt {} - Status Code: {}", attempt, response.getStatusCode());
 
-            otp = response.jsonPath().getString("data.User.otp");
 
-            if (otp != null && otp.isBlank()) {
-                logger.info("OTP fetched successfully on attempt {}", attempt);
-                break;
+            if (response.getStatusCode() != 200) {
+                logger.warn("OTP API returned non-200 response");
+            } else {
+                otp = response.jsonPath().getString("data.User.otp");
+                if (otp != null && !otp.isBlank()) {
+                    logger.info("OTP fetched successfully on attempt {}", attempt);
+                    return otp;
+                }
             }
 
             try {
-                Thread.sleep(2000);
+                Thread.sleep(WAIT_TIME_MS);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
-                throw new RuntimeException("Retry interrupted while waiting for OTP", e);
+                throw new RuntimeException("OTP fetch interrupted", e);
             }
-            attempt++;
-
         }
 
-        //final validation after retry
-        if (otp == null || otp.trim().isBlank()) {
-            logger.error("OTP not received after {} attempts", maxAttempts);
-            throw new RuntimeException("OTP not available after retries");
-        }
-
-        logger.info("OTP received  successfully of length {}", otp.length());
-
-        return otp;
-
+        logger.error("OTP not received after {} attempts", MAX_ATTEMPTS);
+        throw new RuntimeException("OTP not available after retries");
     }
-
 
 }
