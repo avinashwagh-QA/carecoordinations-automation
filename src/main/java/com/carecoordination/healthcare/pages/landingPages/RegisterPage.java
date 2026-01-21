@@ -2,17 +2,21 @@ package com.carecoordination.healthcare.pages.landingPages;
 
 import com.carecoordination.healthcare.actiondriver.ActionDriver;
 import com.carecoordination.healthcare.factory.DriverFactory;
+import com.carecoordination.healthcare.utilities.ConfigReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.testng.Assert;
 
 public class RegisterPage {
 
-    private ActionDriver actionDriver;
+    private final ActionDriver actionDriver;
+    private final LandingPage landingPage;
     private static final Logger logger = LogManager.getLogger(RegisterPage.class);
 
     public RegisterPage(ActionDriver actionDriver){
         this.actionDriver = actionDriver;
+        landingPage = new LandingPage(actionDriver);
     }
 
     //Defining the locators for register page
@@ -98,6 +102,9 @@ public class RegisterPage {
         actionDriver.waitForElementToVisible(errorMessage);
         return actionDriver.getErrorMessage(errorMessage);
     }
+
+
+
 
 
 

@@ -40,6 +40,12 @@ public class LandingPage {
         actionDriver.click(registerLink);
     }
 
+    public boolean isRegisterLinkPresent(){
+        actionDriver.waitForElementToBeClickable(registerLink);
+        boolean link =actionDriver.isDisplayed(registerLink);
+        return link;
+    }
+
 
 
 }

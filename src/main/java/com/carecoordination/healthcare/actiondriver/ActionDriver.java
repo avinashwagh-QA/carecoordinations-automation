@@ -21,7 +21,11 @@ public class ActionDriver {
 
     private final WebDriver driver;
     private final WebDriverWait wait;
-    private final WebDriverWait OtpWait;
+    private final WebDriverWait otpWait;
+
+
+    // locators used for resend Otp logic for wait and click
+    private final By resendOtpTimerSection = By.cssSelector(".thirtySecondTimerSection");
 
     public ActionDriver(WebDriver driver) {
         this.driver = driver;
@@ -29,7 +33,7 @@ public class ActionDriver {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(explicitWait));
 
         int OtpWait = Integer.parseInt(ConfigReader.getProperty("OtpWait"));
-        this.OtpWait = new WebDriverWait(driver, Duration.ofSeconds(OtpWait));
+        this.otpWait = new WebDriverWait(driver, Duration.ofSeconds(OtpWait));
 
         logger.debug("ActionDriver initialized with explicitWait={} seconds", explicitWait);
     }
@@ -217,13 +221,39 @@ public class ActionDriver {
     public boolean waitForResendOTP(By locator) {
         try {
             logger.debug("Waiting for visibility of OTP : {}", locator);
-            OtpWait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+            otpWait.until(ExpectedConditions.elementToBeClickable(locator));
             return true;
         } catch (TimeoutException e) {
             logger.error("Resend OTP link not appeared after 40s");
             return false;
         }
     }
+
+    public void jsClick(By locator) {
+        WebElement element = driver.findElement(locator);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", element);
+    }
+
+    public void waitForOtpResendWindow() {
+        try {
+            logger.debug("Waiting for OTP resend window (30s business rule)");
+            Thread.sleep(31000); // 30s + buffer
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            throw new RuntimeException("Interrupted while waiting for OTP resend window", e);
+        }
+    }
+
+    public void waitAndClickResendOtp(By resendOtpLink) {
+
+        logger.debug("Waiting for OTP resend eligibility window");
+        waitForOtpResendWindow();
+
+        logger.debug("Triggering Resend OTP via JavaScript");
+        jsClick(resendOtpLink);
+    }
+
 
 
     // This method is used in autosuggestion wait for searching text until the list of suggestion appears

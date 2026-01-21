@@ -68,14 +68,25 @@ public class ResetPasswordPage {
         actionDriver.enterText(inputNewPassword, confirmPassword);
     }
 
-    public boolean verifyButtonEnabled(){
+    public boolean verifySubmitButtonEnabled(){
         actionDriver.waitForAllElementsToBeVisible(btnSubmit);
       boolean actualState  =  actionDriver.isButtonEnabled(btnSubmit);
       logger.info("Submit button state on Reset-password is {}", actualState);
       return actualState;
     }
 
+    public void clickOnSubmitButton(){
+        actionDriver.waitForElementToBeClickable(btnSubmit);
+        actionDriver.click(btnSubmit);
+        logger.info("Clickd on submit button from reset-password page");
+    }
 
+    public String getErrorMsgOnOldPassword(){
+        actionDriver.waitForElementToVisible(errorMessage);
+        String error = actionDriver.getText(errorMessage);
+        logger.info("Error message on enetering old password is {}", error);
+        return error;
+    }
 
 
 

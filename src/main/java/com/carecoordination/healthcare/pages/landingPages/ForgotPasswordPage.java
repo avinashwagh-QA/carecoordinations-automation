@@ -3,25 +3,23 @@ package com.carecoordination.healthcare.pages.landingPages;
 import com.carecoordination.healthcare.actiondriver.ActionDriver;
 import com.carecoordination.healthcare.utilities.ConfigReader;
 import com.carecoordination.healthcare.utilities.DropdownUtil;
-import com.carecoordination.healthcare.utilities.EnterOTPUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
-import org.testng.Assert;
 
 public class ForgotPasswordPage {
 
     private final ActionDriver actionDriver;
     private final DropdownUtil dropdownUtil;
-    private final EnterOTPUtil enterOTPUtil;
+    private final OtpVerifyPage otpVerifyPage;
 
     private static final Logger logger= LogManager.getLogger(ForgotPasswordPage.class);
 
     //Initialize the action drive object by passing the webdriver instance
     public ForgotPasswordPage (ActionDriver actionDriver){
         this.actionDriver = actionDriver;
+        otpVerifyPage = new OtpVerifyPage(actionDriver);
         dropdownUtil = new DropdownUtil(actionDriver);
-        enterOTPUtil = new EnterOTPUtil(actionDriver);
     }
 
     //Defining locators for ForgotPassword
@@ -38,9 +36,6 @@ public class ForgotPasswordPage {
 
     private final By errorMessage = By.cssSelector(".custom-block-error-msg");
 
-    private final By titleVerifyOtpPage = By.xpath("//div[@class='cc-heading-txt']");
-    private final By linkResendOtp = By.xpath("//a[normalize-space()='Resend OTP']");
-    private final By OTPInputs = By.cssSelector("div#otp input[type='text']");
 
 
     //method to check the forgot link present on login page
@@ -91,17 +86,7 @@ public class ForgotPasswordPage {
         return msg;
     }
 
-    public void setOTPInputs(String otp){
-        actionDriver.waitForElementToVisible(OTPInputs);
-        enterOTPUtil.enterOTP(OTPInputs, otp);
-        logger.info("OTP-Set on the field {}", otp);
-    }
 
-    public void clearOTPInput(){
-        actionDriver.waitForElementToVisible(OTPInputs);
-        enterOTPUtil.clearOtp(OTPInputs);
-        logger.info("Otp field cleared.....");
-    }
 
     //Method to set country code and phone number in forgot password
     public void setPhoneNumberForgotPassword(String countryCode, String phoneNumber){
@@ -110,27 +95,10 @@ public class ForgotPasswordPage {
         clickOnVerifyPhoneNumber();
     }
 
-    public String getOtpVerificationTitle(){
-        actionDriver.waitForElementToVisible(titleVerifyOtpPage);
-        String title = actionDriver.getText(titleVerifyOtpPage);
-        logger.info("Title display on OTP verification page is {}", title);
-        return title;
-    }
-
-    //method to check the resend OTP is present
-    public boolean isResendOtpDisplayed(){
-        return actionDriver.waitForResendOTP(linkResendOtp);
-    }
-
-    public void clickOnResendOtp(){
-         actionDriver.waitForResendOTP(linkResendOtp);
-         actionDriver.click(linkResendOtp);
-    }
-
     /**
-     *  Common method to navigate the Verify OTP page
+     *  Common method to navigate the Verify OTP page from forgot password
      */
-    public boolean navigateToVerificationOtpPage() {
+    public boolean navigateToVerificationOtpPageFromForgotPassword() {
 
         if (!isForgotLinkDisplayed()) {
             logger.error("Forgot Password link not found");
@@ -152,7 +120,7 @@ public class ForgotPasswordPage {
         setPhoneNumberForgotPassword(countryCode, phoneNumber); // inserting data into field
         clickOnVerifyPhoneNumber();
 
-        return actionDriver.waitForElementToVisible(titleVerifyOtpPage).isDisplayed();
+        return otpVerifyPage.isTitleForOtpPageDisplayed();
     }
 
 
