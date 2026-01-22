@@ -1,5 +1,6 @@
 package com.carecoordination.healthcare.testpages;
 
+import com.carecoordination.healthcare.constants.OtpUserContext;
 import com.carecoordination.healthcare.factory.BaseTest;
 import com.carecoordination.healthcare.factory.DriverFactory;
 import com.carecoordination.healthcare.pages.landingPages.*;
@@ -117,7 +118,10 @@ public class ForgotPasswordTest extends BaseTest {
         boolean otpPage = forgotPasswordPage.navigateToVerificationOtpPageFromForgotPassword(); // navigate otp page
         Assert.assertTrue(otpPage, "OTP verification page does not displayed");
 
-        otpVerifyPage.setOTPInputs(otpAPIUtil.getOtp());
+        String email = ConfigReader.getProperty("forgot.password.email");
+        String otp = otpAPIUtil.getOtp(email,OtpUserContext.REGISTERED_USER);
+
+        otpVerifyPage.setOTPInputs(otp);
 
         String actualTitle = resetPasswordPage.getResetPasswordPageTitle();
         String expectedTitle = ConfigReader.getProperty("resetPasswordPageTitle");
@@ -136,15 +140,17 @@ public class ForgotPasswordTest extends BaseTest {
         Assert.assertTrue(otpPage, "OTP verification page does not displayed");
 
         //Fetching 1st OTP in otp1
-        String otp1 = otpAPIUtil.getOtp();
+        String email = ConfigReader.getProperty("forgot.password.email");
+
+        String otp1 = otpAPIUtil.getOtp(email,OtpUserContext.REGISTERED_USER);
         logger.info("The OTP on first attempt is {}", otp1);
 
         // Verify resend OTP link and click
         Assert.assertTrue(otpVerifyPage.isResendOtpDisplayedOnForgotPassword(), "ResendOTP link is not present");
         otpVerifyPage.clickOnResendOtpForForgotPassword();
 
-        //Fetching 1st OTP in otp1
-        String otp2 = otpAPIUtil.getOtp();
+        //Fetching 2nd OTP in otp2
+        String otp2 = otpAPIUtil.getOtp(email,OtpUserContext.REGISTERED_USER);
         logger.info("The OTP on first attempt is {}", otp2);
 
         // Enter old OTP
@@ -166,8 +172,11 @@ public class ForgotPasswordTest extends BaseTest {
         boolean otpPage = forgotPasswordPage.navigateToVerificationOtpPageFromForgotPassword(); // navigate otp page
         Assert.assertTrue(otpPage, "OTP verification page does not displayed");
 
-        otpVerifyPage.setOTPInputs(otpAPIUtil.getOtp());
+        String email = ConfigReader.getProperty("forgot.password.email");
 
+        String otp = otpAPIUtil.getOtp(email,OtpUserContext.REGISTERED_USER);
+
+        otpVerifyPage.setOTPInputs(otp);
         String actualTitle = resetPasswordPage.getResetPasswordPageTitle();
         String expectedTitle = ConfigReader.getProperty("resetPasswordPageTitle");
 

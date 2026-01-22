@@ -1,5 +1,6 @@
 package com.carecoordination.healthcare.testpages;
 
+import com.carecoordination.healthcare.constants.OtpUserContext;
 import com.carecoordination.healthcare.factory.BaseTest;
 import com.carecoordination.healthcare.factory.DriverFactory;
 import com.carecoordination.healthcare.pages.landingPages.LandingPage;
@@ -151,14 +152,15 @@ public class RegisterPageTest extends BaseTest {
         Assert.assertTrue(otpVerifyPage.isTitleForOtpPageDisplayed(), "Title for OTP verification page not displayed");
 
         //Fetching 1st OTP in otp1
-        String Otp1 = otpAPIUtil.getOtp();
+        String otp1 = otpAPIUtil.getOtp(email, OtpUserContext.UNREGISTERED_USER);
+        logger.info("The OTP on first attempt is {}", otp1);
 
         //Verify resend OTP link and click
         Assert.assertTrue(otpVerifyPage.isResendOtpDisplayedOnRegisterPage(), "ResendOTP link is not present");
         otpVerifyPage.clickOnResendOtpForRegisterPage();
 
         // Enter old OTP
-        otpVerifyPage.setOTPInputs(Otp1);
+        otpVerifyPage.setOTPInputs(otp1);
 
         String actualMSg = registerPage.getErrorMessage();
         String expectedMsg = ConfigReader.getProperty("incorrectOtpMsg");
