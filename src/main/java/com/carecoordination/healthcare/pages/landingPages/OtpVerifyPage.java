@@ -23,8 +23,9 @@ public class OtpVerifyPage {
     private final By linkResendOtpRegisterPage = By.xpath("//form[@id='verifyCommonOTPForm']//a");
 
     private final By OTPInputs = By.cssSelector("div#otp input[type='text']");
+    private final By errorMessage = By.cssSelector(".custom-block-error-msg");
 
-    public boolean isTitleForOtpPageDisplayed(){
+    public boolean isOtpPageTitleDisplayed(){
         actionDriver.waitForElementToVisible(titleVerifyOtpPage);
         boolean title = actionDriver.isDisplayed(titleVerifyOtpPage);
         logger.info("The tile on verify otp page is displayed  {}", title);
@@ -43,7 +44,7 @@ public class OtpVerifyPage {
         logger.info("Otp field cleared.....");
     }
 
-    public String getOtpVerificationTitle(){
+    public String getOtpPageTitle(){
         actionDriver.waitForElementToVisible(titleVerifyOtpPage);
         String title = actionDriver.getText(titleVerifyOtpPage);
         logger.info("Title display on OTP verification page is {}", title);
@@ -68,6 +69,10 @@ public class OtpVerifyPage {
         actionDriver.waitAndClickResendOtp(linkResendOtpRegisterPage);
     }
 
+    public String getErrorMessage(){
+        actionDriver.waitForElementToVisible(errorMessage);
+        return actionDriver.getErrorMessage(errorMessage);
+    }
 
 
 

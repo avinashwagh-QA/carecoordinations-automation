@@ -80,7 +80,7 @@ public class ForgotPasswordTest extends BaseTest {
 
         forgotPasswordPage.navigateToVerificationOtpPageFromForgotPassword();
 
-        Assert.assertEquals(otpVerifyPage.getOtpVerificationTitle(),
+        Assert.assertEquals(otpVerifyPage.getOtpPageTitle(),
                 "OTP Verification", "Title does not match");
     }
 
@@ -156,7 +156,7 @@ public class ForgotPasswordTest extends BaseTest {
         // Enter old OTP
         otpVerifyPage.setOTPInputs(otp1);
 
-        String actualMSg = forgotPasswordPage.getErrorMessage();
+        String actualMSg = otpVerifyPage.getErrorMessage();
         String expectedMsg = ConfigReader.getProperty("incorrectOtpMsg");
 
         Assert.assertEquals(actualMSg, expectedMsg, "Message does not match");

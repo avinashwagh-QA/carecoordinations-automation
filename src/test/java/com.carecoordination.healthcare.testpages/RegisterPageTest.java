@@ -2,7 +2,6 @@ package com.carecoordination.healthcare.testpages;
 
 import com.carecoordination.healthcare.constants.OtpUserContext;
 import com.carecoordination.healthcare.factory.BaseTest;
-import com.carecoordination.healthcare.factory.DriverFactory;
 import com.carecoordination.healthcare.pages.landingPages.LandingPage;
 import com.carecoordination.healthcare.pages.landingPages.OtpVerifyPage;
 import com.carecoordination.healthcare.pages.landingPages.RegisterPage;
@@ -71,9 +70,7 @@ public class RegisterPageTest extends BaseTest {
         String expectedMessage = ConfigReader.getProperty(expectedMsgKey);
 
         Assert.assertEquals(actualMessage, expectedMessage, "On register page the message does not match");
-
     }
-
 
     @Test(groups = "skip-login",
     description = "Verify the Login link present on the register page")
@@ -81,7 +78,6 @@ public class RegisterPageTest extends BaseTest {
 
         Assert.assertTrue(registerPage.isLoginLinkDisplayed(), "Login link does not displayed on register page");
     }
-
 
     @Test(groups = "skip-login",
     description = "Verify register guide displayed on register page")
@@ -100,8 +96,28 @@ public class RegisterPageTest extends BaseTest {
 
        registerPage.completeRegistration(invitationCode, email);
 
-       Assert.assertTrue(otpVerifyPage.isTitleForOtpPageDisplayed(), "Title for OTP verification page not displayed");
+       Assert.assertTrue(otpVerifyPage.isOtpPageTitleDisplayed(), "Title for OTP verification page not displayed");
+
     }
+
+    @Test(groups = "skip-login",
+    description = "Verify navigating back from register verify otp page then user navigates to register page")
+    public void validateNavigateToBackFromOtpPage(){
+
+        String invitationCode = ConfigReader.getProperty("validCode");
+        String email = ConfigReader.getProperty("validInvitedEmail");
+
+        registerPage.completeRegistration(invitationCode, email);
+
+        Assert.assertTrue(otpVerifyPage.isOtpPageTitleDisplayed(), "Title for OTP verification page not displayed");
+
+        registerPage.clickOnGoBack();
+
+        Assert.assertTrue(registerPage.isRegisterPageDisplayed(), "Register page not displayed after go back From OTP");
+
+    }
+
+
 
 
     @Test(groups = "skip-login",
@@ -113,7 +129,7 @@ public class RegisterPageTest extends BaseTest {
 
         registerPage.completeRegistration(invitationCode, email);
 
-        Assert.assertTrue(otpVerifyPage.isTitleForOtpPageDisplayed(), "Title for OTP verification page not displayed");
+        Assert.assertTrue(otpVerifyPage.isOtpPageTitleDisplayed(), "Title for OTP verification page not displayed");
 
         otpVerifyPage.setOTPInputs(ConfigReader.getProperty("invalidOtp"));
 
@@ -132,10 +148,9 @@ public class RegisterPageTest extends BaseTest {
 
         registerPage.completeRegistration(invitationCode, email);
 
-        Assert.assertTrue(otpVerifyPage.isTitleForOtpPageDisplayed(), "Title for OTP verification page not displayed");
+        Assert.assertTrue(otpVerifyPage.isOtpPageTitleDisplayed(), "Title for OTP verification page not displayed");
 
         Assert.assertTrue(otpVerifyPage.isResendOtpDisplayedOnRegisterPage(), "Resend otp link is not displayed on OTP page ");
-
     }
 
     @Test(groups = "skip-login",
@@ -149,7 +164,7 @@ public class RegisterPageTest extends BaseTest {
 
         registerPage.completeRegistration(invitationCode, email);
 
-        Assert.assertTrue(otpVerifyPage.isTitleForOtpPageDisplayed(), "Title for OTP verification page not displayed");
+        Assert.assertTrue(otpVerifyPage.isOtpPageTitleDisplayed(), "Title for OTP verification page not displayed");
 
         //Fetching 1st OTP in otp1
         String otp1 = otpAPIUtil.getOtp(email, OtpUserContext.UNREGISTERED_USER);
@@ -162,7 +177,7 @@ public class RegisterPageTest extends BaseTest {
         // Enter old OTP
         otpVerifyPage.setOTPInputs(otp1);
 
-        String actualMSg = registerPage.getErrorMessage();
+        String actualMSg = otpVerifyPage.getErrorMessage();
         String expectedMsg = ConfigReader.getProperty("incorrectOtpMsg");
 
         Assert.assertEquals(actualMSg, expectedMsg, "Message does not match");

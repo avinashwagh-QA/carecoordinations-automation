@@ -78,13 +78,13 @@ public class ResetPasswordPage {
     public void clickOnSubmitButton(){
         actionDriver.waitForElementToBeClickable(btnSubmit);
         actionDriver.click(btnSubmit);
-        logger.info("Clickd on submit button from reset-password page");
+        logger.info("Click on submit button from reset-password page");
     }
 
     public String getErrorMsgOnOldPassword(){
         actionDriver.waitForElementToVisible(errorMessage);
         String error = actionDriver.getText(errorMessage);
-        logger.info("Error message on enetering old password is {}", error);
+        logger.info("Error message on entering old password is {}", error);
         return error;
     }
 

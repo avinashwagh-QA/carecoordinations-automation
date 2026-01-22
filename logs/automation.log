@@ -478,3 +478,50 @@
 2026-01-22 13:12:40.931 [main] INFO  DriverFactory -  - Quitting WebDriver for thread: main
 2026-01-22 13:12:41.522 [main] DEBUG DriverFactory -  - WebDriver removed from ThreadLocal for thread: main
 2026-01-22 13:12:41.522 [main] INFO  BaseTest -  - WebDriver quit and ThreadLocal cleared
+2026-01-22 14:20:48.521 [main] INFO  Utils -  - [TestNG] Running:
+  C:\Users\DREAMWORLD\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+2026-01-22 14:20:48.602 [main] INFO  BaseTest -  - ===== Starting Test Setup on thread: main =====
+2026-01-22 14:20:48.605 [main] INFO  BaseTest -  - No TestNG browser parameter provided. Falling back to config: chrome
+2026-01-22 14:20:48.608 [main] INFO  DriverFactory -  - Initiating driver on for browser chrome on threadmain
+2026-01-22 14:20:51.358 [main] INFO  DriverManager -  - Chrome Driver Instance Is Created
+2026-01-22 14:20:51.358 [main] DEBUG DriverManager -  - Driver instance created successfully: ChromeDriver: chrome on windows (1fe64d3dc8a0d6883714da89022852f3)
+2026-01-22 14:20:51.358 [main] DEBUG DriverFactory -  - WebDriver instance set in ThreadLocal for thread: main
+2026-01-22 14:20:51.358 [main] DEBUG BaseTest -  - WebDriver initialized successfully
+2026-01-22 14:20:51.362 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=20 seconds
+2026-01-22 14:20:51.363 [main] DEBUG BaseTest -  - ActionDriver initialized
+2026-01-22 14:20:51.363 [main] INFO  BaseTest -  - Configuring Browser Settings...
+2026-01-22 14:20:51.363 [main] DEBUG BaseTest -  - Setting implicit wait to 2 seconds
+2026-01-22 14:20:51.385 [main] INFO  BaseTest -  - Maximizing browser window
+2026-01-22 14:20:58.015 [main] INFO  BaseTest -  - Navigating to URL: https://uat.carecoordinations.com/
+2026-01-22 14:20:58.016 [main] INFO  BaseTest -  - Skip for logged for method validateNavigateToBackFromOtpPage
+2026-01-22 14:20:58.016 [main] INFO  BaseTest -  - === @BeforeMethod completed ===
+2026-01-22 14:20:58.025 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Register']
+2026-01-22 14:20:58.092 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Register']
+2026-01-22 14:20:58.093 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Register']
+2026-01-22 14:21:03.758 [main] INFO  RegisterPage -  - Register page URL contains true
+2026-01-22 14:21:03.768 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: invitation_code
+2026-01-22 14:21:03.806 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: invitation_code
+2026-01-22 14:21:03.953 [main] INFO  ActionDriver -  - Entering text into By.id: invitation_code
+2026-01-22 14:21:03.954 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: invitation_code
+2026-01-22 14:21:04.058 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: email
+2026-01-22 14:21:04.093 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: email
+2026-01-22 14:21:04.232 [main] INFO  ActionDriver -  - Entering text into By.id: email
+2026-01-22 14:21:04.232 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: email
+2026-01-22 14:21:04.402 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: commonInviteCompanySignupBtn
+2026-01-22 14:21:04.435 [main] INFO  ActionDriver -  - Clicking element: By.id: commonInviteCompanySignupBtn
+2026-01-22 14:21:04.435 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: commonInviteCompanySignupBtn
+2026-01-22 14:21:04.544 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@class='cc-heading-txt']
+2026-01-22 14:21:07.770 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //div[@class='cc-heading-txt']
+2026-01-22 14:21:07.770 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@class='cc-heading-txt']
+2026-01-22 14:21:07.798 [main] INFO  OtpVerifyPage -  - The tile on verify otp page is displayed  true
+2026-01-22 14:21:07.799 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[normalize-space()='Go Back']
+2026-01-22 14:21:07.830 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[normalize-space()='Go Back']
+2026-01-22 14:21:07.830 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[normalize-space()='Go Back']
+2026-01-22 14:21:09.320 [main] INFO  RegisterPage -  - Clicked on Goback from the Otp verify page from register page
+2026-01-22 14:21:09.326 [main] INFO  RegisterPage -  - Register page URL contains true
+2026-01-22 14:21:09.330 [main] DEBUG BaseTest -  - @AfterMethod optional cleanup for thread: main
+2026-01-22 14:21:09.330 [main] DEBUG BaseTest -  - Skipping logout because login was skipped for this test
+2026-01-22 14:21:09.330 [main] INFO  DriverFactory -  - Quitting WebDriver for thread: main
+2026-01-22 14:21:09.625 [main] DEBUG DriverFactory -  - WebDriver removed from ThreadLocal for thread: main
+2026-01-22 14:21:09.626 [main] INFO  BaseTest -  - WebDriver quit and ThreadLocal cleared

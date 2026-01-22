@@ -120,7 +120,7 @@ public class ForgotPasswordPage {
         setPhoneNumberForgotPassword(countryCode, phoneNumber); // inserting data into field
         clickOnVerifyPhoneNumber();
 
-        return otpVerifyPage.isTitleForOtpPageDisplayed();
+        return otpVerifyPage.isOtpPageTitleDisplayed();
     }
 
 
