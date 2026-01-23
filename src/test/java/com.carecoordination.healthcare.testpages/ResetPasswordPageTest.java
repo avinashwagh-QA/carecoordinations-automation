@@ -1,5 +1,6 @@
 package com.carecoordination.healthcare.testpages;
 
+import com.carecoordination.healthcare.constants.OtpUserContext;
 import com.carecoordination.healthcare.factory.BaseTest;
 import com.carecoordination.healthcare.factory.DriverFactory;
 import com.carecoordination.healthcare.pages.AppDashBoard.AppDashboardPage;
@@ -41,8 +42,10 @@ public class ResetPasswordPageTest extends BaseTest {
 
         boolean otpPage = forgotPasswordPage.navigateToVerificationOtpPageFromForgotPassword(); // navigate otp page
         Assert.assertTrue(otpPage, "OTP verification page does not displayed");
+        String email = ConfigReader.getProperty("forgot.password.email");
+        String otp = otpAPIUtil.getOtp(email, OtpUserContext.REGISTERED_USER);
 
-        otpVerifyPage.setOTPInputs(otpAPIUtil.getOtp()); // enter otp page
+        otpVerifyPage.setOTPInputs(otp); // enter otp page
     }
 
     @Test(groups = "skip-login",

@@ -2,21 +2,17 @@ package com.carecoordination.healthcare.pages.landingPages;
 
 import com.carecoordination.healthcare.actiondriver.ActionDriver;
 import com.carecoordination.healthcare.factory.DriverFactory;
-import com.carecoordination.healthcare.utilities.ConfigReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
-import org.testng.Assert;
 
 public class RegisterPage {
 
     private final ActionDriver actionDriver;
-    private final LandingPage landingPage;
     private static final Logger logger = LogManager.getLogger(RegisterPage.class);
 
     public RegisterPage(ActionDriver actionDriver){
         this.actionDriver = actionDriver;
-        landingPage = new LandingPage(actionDriver);
     }
 
     //Defining the locators for register page
@@ -31,10 +27,13 @@ public class RegisterPage {
     private final By registerGuide = By.xpath("//a[normalize-space()='Click here to read register guide']");
     private final By registerGuideModal = By.id("signupGuideHtmlModel");
 
+    private final By btnGoBack = By.xpath("//button[normalize-space()='Go Back']");
+
     public boolean isRegisterPageDisplayed() {
-        boolean register = DriverFactory.getDriver().getCurrentUrl().contains("user-register");
-        logger.info("Register page URL contains {}", register);
-        return register;
+        boolean urlCheck = DriverFactory.getDriver().getCurrentUrl().contains("user-register");
+        boolean titleCheck = actionDriver.isDisplayed(titleRegister);
+        logger.info("Register page displayed | URL: {} | Title: {}", urlCheck, titleCheck);
+        return urlCheck && titleCheck;
     }
 
     public String getRegisterPageTitle() {
@@ -68,13 +67,13 @@ public class RegisterPage {
 
     }
 
-    public void setInpInvitationCode(String invitationCode){
+    public void enterInpInvitationCode(String invitationCode){
         actionDriver.waitForElementToBeClickable(inpInvitationCode);
         actionDriver.clearText(inpInvitationCode);
         actionDriver.enterText(inpInvitationCode, invitationCode);
     }
 
-    public void setInpEmailField(String email){
+    public void enterInpEmailField(String email){
         actionDriver.waitForElementToBeClickable(inpEmailField);
         actionDriver.clearText(inpEmailField);
         actionDriver.enterText(inpEmailField, email);
@@ -86,15 +85,15 @@ public class RegisterPage {
     }
 
     public void completeRegistration(String invitationCode, String email){
-        setInpInvitationCode(invitationCode);
-        setInpEmailField(email);
+        enterInpInvitationCode(invitationCode);
+        enterInpEmailField(email);
         clickOnContinueFromRegisterPage();
     }
 
     public boolean verifyContinueButtonEnabled(){
         actionDriver.waitForAllElementsToBeVisible(btnContinueRegister);
         boolean actualState  =  actionDriver.isButtonEnabled(btnContinueRegister);
-        logger.info("Submit button state on Reset-password is {}", actualState);
+        logger.info("Continue button state on Register page is {}", actualState);
         return actualState;
     }
 
@@ -103,6 +102,11 @@ public class RegisterPage {
         return actionDriver.getErrorMessage(errorMessage);
     }
 
+    public void clickOnGoBack(){
+        actionDriver.waitForElementToBeClickable(btnGoBack);
+        actionDriver.click(btnGoBack);
+        logger.info("Clicked on Goback from the Otp verify page from register page");
+    }
 
 
 
