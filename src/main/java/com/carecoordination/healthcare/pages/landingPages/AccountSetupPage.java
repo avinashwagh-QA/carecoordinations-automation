@@ -20,7 +20,9 @@ public class AccountSetupPage {
     //User name user role company name
     private final By lblUserName = By.xpath("//div[contains(@class,'cc-heading-txt') and contains(text(),'Hello!')]");
     private final By lblRoleAndOrg = By.xpath("//div[contains(@class,'cc-heading-txt') and contains(text(),'(')]");
+    private final By lblWelcomeCC = By.xpath("//div[contains(text(),'Welcome to Care Coordinations')]");
 
+    //Title and Password inputs
     private final By inpProfessionTitle = By.id("professional");
     private final By inpPassword = By.id("password");
 
@@ -28,8 +30,15 @@ public class AccountSetupPage {
     private final By lnkTermsAndCondition = By.xpath("//span[normalize-space()='Terms & Conditions']");
 
     private final By btnCopyPassword = By.xpath("//span[normalize-space()='Copy Password']");
+    private final By msgSuccessCopyPassword = By.xpath("//span[contains(@class,'custom-copy-success-msg') and normalize-space()='Copied!']");
     private final By btnRegister = By.id("commonCompanySignupBtn");
 
+    public String getWelcomeTitleOnAccountSetup (){
+        actionDriver.waitForElementToVisible(lblWelcomeCC);
+        String title = actionDriver.getText(lblWelcomeCC);
+        logger.info("Title displayed on Account set up page {}", title );
+        return title;
+    }
     public boolean isCompanyLogoDisplayed() {
         actionDriver.waitForElementToVisible(companyLogo);
         boolean logo = actionDriver.isDisplayed(companyLogo);
@@ -50,6 +59,14 @@ public class AccountSetupPage {
     String roleAndOrg =   actionDriver.getText(lblRoleAndOrg);
     logger.info("Role and Org displayed in account setup page is {}", roleAndOrg);
     return roleAndOrg;
+    }
+
+    public boolean isTitleAndPasswordDisplayed(){
+        actionDriver.waitForElementToVisible(inpProfessionTitle);
+        actionDriver.waitForElementToVisible(inpPassword);
+        boolean title = actionDriver.isDisplayed(inpProfessionTitle);
+        boolean password = actionDriver.isDisplayed(inpPassword);
+        return title && password;
     }
 
     public void enterProfession(String profession) {
@@ -77,14 +94,34 @@ public class AccountSetupPage {
         logger.info("Click on terms and condition page form account setup...");
     }
 
+    public boolean isTermsAndConditionDisplayed(){
+        actionDriver.waitForElementToVisible(lnkTermsAndCondition);
+        boolean termsCondition = actionDriver.isDisplayed(lnkTermsAndCondition);
+        logger.info("Terms and condition displayed status on Account setup page {}", termsCondition);
+        return termsCondition;
+    }
+
     public void clickOnRegisterButton(){
         actionDriver.waitForElementToBeClickable(btnRegister);
         actionDriver.click(btnRegister);
     }
 
+    public boolean isRegisterButtonEnabled() {
+        boolean btnStatus = actionDriver.isButtonEnabled(btnRegister);
+        logger.info("The Register button status on the account setup page is displayed : {}", btnStatus);
+        return btnStatus;
+    }
+
     public void clickOnCopyPassword(){
         actionDriver.waitForElementToBeClickable(btnCopyPassword);
         actionDriver.click(btnCopyPassword);
+    }
+
+    public boolean isSuccessToastDisplayedOnCopyPassword() {
+        actionDriver.waitForElementToVisible(msgSuccessCopyPassword);
+        boolean msg = actionDriver.isDisplayed(msgSuccessCopyPassword);
+        logger.info("On Copy password message is displayed {}", msg);
+        return msg;
     }
 
 

@@ -1,7 +1,10 @@
 package com.carecoordination.healthcare.testpages;
 
+import com.carecoordination.healthcare.api.Client.UserRegistrationApi;
+import com.carecoordination.healthcare.api.DTO.UserRegistrationDetailsResponse;
 import com.carecoordination.healthcare.constants.OtpUserContext;
 import com.carecoordination.healthcare.factory.BaseTest;
+import com.carecoordination.healthcare.pages.landingPages.AccountSetupPage;
 import com.carecoordination.healthcare.pages.landingPages.LandingPage;
 import com.carecoordination.healthcare.pages.landingPages.OtpVerifyPage;
 import com.carecoordination.healthcare.pages.landingPages.RegisterPage;
@@ -17,19 +20,23 @@ import utilities.TestDataProvider;
 
 public class RegisterPageTest extends BaseTest {
 
-    private LandingPage landingPage;
     private RegisterPage registerPage;
     private OtpVerifyPage otpVerifyPage;
     private OtpAPIUtil otpAPIUtil;
+    private AccountSetupPage accountSetupPage;
+    private UserRegistrationApi userRegistrationApi;
+    private UserRegistrationDetailsResponse userDetailDto;
 
     private static final Logger logger = LogManager.getLogger(RegisterPageTest.class);
 
     @BeforeMethod
     public void setUpPages(){
-        landingPage = new LandingPage(actionDriver);
+        LandingPage landingPage = new LandingPage(actionDriver);
         registerPage = new RegisterPage(actionDriver);
         otpVerifyPage = new OtpVerifyPage(actionDriver);
         otpAPIUtil = new OtpAPIUtil();
+        accountSetupPage = new AccountSetupPage(actionDriver);
+        userRegistrationApi = new UserRegistrationApi();
 
         landingPage.clickOnRegisterLink();
         Assert.assertTrue(registerPage.isRegisterPageDisplayed(), "Register page does not displayed");
@@ -117,9 +124,6 @@ public class RegisterPageTest extends BaseTest {
 
     }
 
-
-
-
     @Test(groups = "skip-login",
     description = "Verify Message on invalid OTP is enter from register page")
     public void verifyMessageOnInvalidOtp(){
@@ -184,7 +188,125 @@ public class RegisterPageTest extends BaseTest {
 
     }
 
+    @Test(groups = "skip-login",
+    description = "Verify default UI for the account setup page")
+    public void validateDefaultUIOnAccountSetupPage(){
 
+        logger.info("Verify Basic UI on Default screen for account setup page...");
+
+        String invitationCode = ConfigReader.getProperty("validCode");
+        String email = ConfigReader.getProperty("validInvitedEmail");
+
+        registerPage.completeRegistration(invitationCode, email);
+
+        Assert.assertTrue(otpVerifyPage.isOtpPageTitleDisplayed(), "Title for OTP verification page not displayed");
+
+        //Fetching and set OTP
+        String otp = otpAPIUtil.getOtp(email, OtpUserContext.UNREGISTERED_USER);
+        otpVerifyPage.setOTPInputs(otp);
+
+        //Verify welcome title
+        String actualTitle = accountSetupPage.getWelcomeTitleOnAccountSetup();
+        String expectedTitle = ConfigReader.getProperty("accountSetUpTitle");
+
+        Assert.assertEquals(actualTitle, expectedTitle, "Title for CC does not match in Account setup page");
+
+        // Verify logo displayed
+        Assert.assertTrue(accountSetupPage.isCompanyLogoDisplayed(), "Company logo does not displayed");
+
+        //verify input title and password field displayed
+        Assert.assertTrue(accountSetupPage.isTitleAndPasswordDisplayed(), "Title and password not displayed in account setup page");
+
+        //Verify terms and condition is displayed
+        Assert.assertTrue(accountSetupPage.isTermsAndConditionDisplayed(), "Terms and condition does not displayed");
+
+        //Verify default register button
+       Assert.assertFalse(accountSetupPage.isRegisterButtonEnabled(),"Register button not enabled by default");
+    }
+
+    private void navigateToAccountSetupPage(){
+
+        String invitationCode = ConfigReader.getProperty("validCode");
+        String email = ConfigReader.getProperty("validInvitedEmail");
+
+        registerPage.completeRegistration(invitationCode, email);
+
+        Assert.assertTrue(otpVerifyPage.isOtpPageTitleDisplayed(), "Account setup page not displayed after OTP verification");
+
+        //Fetching and set OTP
+        String otp = otpAPIUtil.getOtp(email, OtpUserContext.UNREGISTERED_USER);
+        otpVerifyPage.setOTPInputs(otp);
+
+        Assert.assertTrue(accountSetupPage.isCompanyLogoDisplayed(), "Company logo does not displayed");
+    }
+
+
+    @Test(groups = "skip-login",
+    description = "Verify Username displayed on Account setup is displayed as per invited user ")
+    public void validateUsernameDisplayed(){
+
+        navigateToAccountSetupPage();
+
+        String email = ConfigReader.getProperty("validInvitedEmail");
+        userDetailDto = userRegistrationApi.getInvitedUserDetails(email);
+
+        String actualUserName = accountSetupPage.getDisplayedUserName().trim();
+        logger.info("Actual user name from UI: {}", actualUserName);
+
+        String expectedUserName = userDetailDto.getName().trim();
+        logger.info("Expected user name from API: {}", expectedUserName);
+
+        Assert.assertTrue(actualUserName.contains(expectedUserName), "User name incorrectly displayed");
+    }
+
+    @Test(groups = "skip-login",
+    description = "Verify user role correctly displayed as per user invited")
+    public void validateCorrectUserRoleDisplayed(){
+
+        navigateToAccountSetupPage();
+
+        String email = ConfigReader.getProperty("validInvitedEmail");
+        userDetailDto = userRegistrationApi.getInvitedUserDetails(email);
+
+        String actualUserRole = accountSetupPage.getDisplayedRoleAndOrg().trim();
+        logger.info("Actual user role and organization name displayed in account setup page {}", actualUserRole);
+
+        String expectedUserRole = userDetailDto.getUserType().trim();
+        logger.info("Actual user role displayed in account setup page {}", expectedUserRole);
+
+        Assert.assertTrue(actualUserRole.contains(expectedUserRole), "User role does not match");
+    }
+
+
+    @Test(groups = "skip-login",
+            dataProvider = "passwordValidationData", dataProviderClass = TestDataProvider.class,
+            description = "Verify the Rules on the Account setup page for password validation")
+    public void validatePasswordRule(String password, boolean expectedSubmitState){
+
+        navigateToAccountSetupPage();
+
+        accountSetupPage.enterProfession("Director of Nursing");
+        accountSetupPage.enterPassword(password);
+
+        accountSetupPage.clickOnCheckBoxTermsAndCondition();
+
+        Assert.assertEquals(accountSetupPage.isRegisterButtonEnabled(),
+                expectedSubmitState,
+                "Registration button state mismatch for password: " + password);
+    }
+
+    @Test(groups = "skip-login",
+    description = "Verify on Account set up page user can copy password and success message is displayed")
+    public void validateOnCopyPasswordSuccessMsgDisplayed(){
+
+        navigateToAccountSetupPage();
+
+        accountSetupPage.enterProfession("Director of Nursing");
+        accountSetupPage.enterPassword("Password@123");
+
+        accountSetupPage.clickOnCopyPassword();
+        Assert.assertTrue(accountSetupPage.isSuccessToastDisplayedOnCopyPassword(), "Copy password toast does not displayed");
+    }
 
 
 
