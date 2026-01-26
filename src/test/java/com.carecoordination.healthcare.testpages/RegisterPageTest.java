@@ -4,10 +4,12 @@ import com.carecoordination.healthcare.api.Client.UserRegistrationApi;
 import com.carecoordination.healthcare.api.DTO.UserRegistrationDetailsResponse;
 import com.carecoordination.healthcare.constants.OtpUserContext;
 import com.carecoordination.healthcare.factory.BaseTest;
-import com.carecoordination.healthcare.pages.landingPages.AccountSetupPage;
+import com.carecoordination.healthcare.pages.modules.AppDashBoard.AppDashboardPage;
+import com.carecoordination.healthcare.pages.modules.accountSetup.AccountSetupPage;
 import com.carecoordination.healthcare.pages.landingPages.LandingPage;
 import com.carecoordination.healthcare.pages.landingPages.OtpVerifyPage;
 import com.carecoordination.healthcare.pages.landingPages.RegisterPage;
+import com.carecoordination.healthcare.pages.modules.accountSetup.MpinSetupPage;
 import com.carecoordination.healthcare.utilities.ConfigReader;
 import com.carecoordination.healthcare.utilities.OtpAPIUtil;
 import org.apache.logging.log4j.LogManager;
@@ -26,6 +28,9 @@ public class RegisterPageTest extends BaseTest {
     private AccountSetupPage accountSetupPage;
     private UserRegistrationApi userRegistrationApi;
     private UserRegistrationDetailsResponse userDetailDto;
+    private MpinSetupPage mpinSetupPage;
+    private AppDashboardPage appDashboardPage;
+    private LandingPage landingPage;
 
     private static final Logger logger = LogManager.getLogger(RegisterPageTest.class);
 
@@ -37,6 +42,9 @@ public class RegisterPageTest extends BaseTest {
         otpAPIUtil = new OtpAPIUtil();
         accountSetupPage = new AccountSetupPage(actionDriver);
         userRegistrationApi = new UserRegistrationApi();
+        mpinSetupPage = new MpinSetupPage(actionDriver);
+        appDashboardPage = new AppDashboardPage(actionDriver);
+        landingPage = new LandingPage(actionDriver);
 
         landingPage.clickOnRegisterLink();
         Assert.assertTrue(registerPage.isRegisterPageDisplayed(), "Register page does not displayed");
@@ -307,6 +315,63 @@ public class RegisterPageTest extends BaseTest {
         accountSetupPage.clickOnCopyPassword();
         Assert.assertTrue(accountSetupPage.isSuccessToastDisplayedOnCopyPassword(), "Copy password toast does not displayed");
     }
+
+    @Test(groups = "skip-login",
+    description = "Verify tooltip Displayed for user role system admin, Branch admin and Manager supervisor role ")
+    public void validateTooltipDisplayedOnAccountSetUp(){
+
+        navigateToAccountSetupPage();
+
+        accountSetupPage.clickOnToolTip();
+
+        String actualTitle = accountSetupPage.getToolTipDisplayedOnAccountSetup()
+                .replace("\n", " ") //Replaces line breaks with a space
+                .replaceAll("\\s+", " ") //Collapses multiple spaces into one
+                .trim();
+        String expectedTitle = ConfigReader.getProperty("titleA")
+                .replaceAll("\\s+", " ")
+                .trim();
+
+        Assert.assertEquals(actualTitle,expectedTitle, "Title does not match on Account setup page");
+    }
+
+    @Test(groups = "skip-login",
+    description = "Verify by completing registration with MPIN set up")
+    public void validateCompleteRegistrationWithSetMpin(){
+
+        navigateToAccountSetupPage();
+
+        accountSetupPage.enterProfession("Director of Nursing");
+        accountSetupPage.enterPassword("Password@123");
+
+        accountSetupPage.clickOnCheckBoxTermsAndCondition();
+
+        accountSetupPage.clickOnRegisterButton();
+
+        Assert.assertTrue(mpinSetupPage.isAccountSetMpinModalIsDisplayed(), "Modal for account set up MPIN does not displayed ...");
+
+        String actualModalTitle = mpinSetupPage.getTitleForMpinAccountSetup().replaceAll("\\s+", " ").trim();
+        String expectedModalTitle = ConfigReader.getProperty("accountSetupModalTitle").replaceAll("\\s+", " ").trim();
+
+        Assert.assertEquals(actualModalTitle.toLowerCase(), expectedModalTitle, "Title does not matched Account setup");
+
+        Assert.assertFalse(mpinSetupPage.isBtnEnabled(), "Button appears to enabled for setMPIn by default");
+
+        mpinSetupPage.enterMpin("000000");
+        mpinSetupPage.clickOnSetInputs();
+
+        Assert.assertTrue(appDashboardPage.isUserNamePresent(), "User name does not displayed");
+
+        appDashboardPage.clickOnLogOut();
+        Assert.assertTrue(landingPage.isHomePageTitleDisplayed(), "Home page title not displayed, user not logout");
+    }
+
+
+
+
+
+
+
 
 
 

@@ -3,7 +3,7 @@ package com.carecoordination.healthcare.testpages;
 import com.carecoordination.healthcare.constants.UserRole;
 import com.carecoordination.healthcare.factory.BaseTest;
 import com.carecoordination.healthcare.helpers.AuthHelper;
-import com.carecoordination.healthcare.pages.AppDashBoard.AppDashboardPage;
+import com.carecoordination.healthcare.pages.modules.AppDashBoard.AppDashboardPage;
 import com.carecoordination.healthcare.pages.landingPages.LandingPage;
 import com.carecoordination.healthcare.pages.landingPages.LoginPage;
 import com.carecoordination.healthcare.utilities.ConfigReader;

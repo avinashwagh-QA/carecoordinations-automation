@@ -1,4 +1,4 @@
-package com.carecoordination.healthcare.pages.AppDashBoard;
+package com.carecoordination.healthcare.pages.modules.AppDashBoard;
 
 import com.carecoordination.healthcare.actiondriver.ActionDriver;
 import org.apache.logging.log4j.LogManager;

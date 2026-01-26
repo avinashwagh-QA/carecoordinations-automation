@@ -1,4 +1,4 @@
-package com.carecoordination.healthcare.pages.landingPages;
+package com.carecoordination.healthcare.pages.modules.accountSetup;
 
 import com.carecoordination.healthcare.actiondriver.ActionDriver;
 import org.apache.logging.log4j.LogManager;
@@ -32,6 +32,9 @@ public class AccountSetupPage {
     private final By btnCopyPassword = By.xpath("//span[normalize-space()='Copy Password']");
     private final By msgSuccessCopyPassword = By.xpath("//span[contains(@class,'custom-copy-success-msg') and normalize-space()='Copied!']");
     private final By btnRegister = By.id("commonCompanySignupBtn");
+
+    private final By infoIcon = By.id("infoDropDownBtn");
+    private final By toolTip = By.xpath("//div[@class='dropdown-menu dropdown-menu-end user-permission-filter-dropdown show']//a");
 
     public String getWelcomeTitleOnAccountSetup (){
         actionDriver.waitForElementToVisible(lblWelcomeCC);
@@ -123,6 +126,22 @@ public class AccountSetupPage {
         logger.info("On Copy password message is displayed {}", msg);
         return msg;
     }
+
+    public void clickOnToolTip(){
+        actionDriver.waitForElementToBeClickable(infoIcon);
+        actionDriver.click(infoIcon);
+        logger.info("Clicked on info icon for title from Account setup page");
+    }
+
+
+    public String getToolTipDisplayedOnAccountSetup(){
+        actionDriver.waitForElementToVisible(toolTip);
+        String tooltip = actionDriver.getText(toolTip);
+        logger.info("Title displayed on account setup is {}", toolTip);
+        return tooltip;
+    }
+
+
 
 
 }
