@@ -66,10 +66,22 @@ public class ActionDriver {
             logger.debug("Waiting for visibility of: {}", locator);
             return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         } catch (Exception e) {
-            logger.error("Element not visible: {}", locator);
+            logger.error("Locator not visible: {}", locator);
             throw new RuntimeException("Element is not visible" + locator, e);
         }
     }
+
+    // Wait for element to be visible - by Element
+    public WebElement waitForElementToVisible(WebElement element) {
+        try {
+            logger.debug("Waiting for visibility of element: {}", element);
+            return wait.until(ExpectedConditions.visibilityOf(element));
+        } catch (Exception e) {
+            logger.error("Element not visible: {} ", element);
+            throw new RuntimeException("Element is not visible" + element, e);
+        }
+    }
+
 
     //wait for list of WebElements
     public List<WebElement> waitForAllElementsToBeVisible(By locator) {

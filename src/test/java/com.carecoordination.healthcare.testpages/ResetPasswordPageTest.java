@@ -3,7 +3,7 @@ package com.carecoordination.healthcare.testpages;
 import com.carecoordination.healthcare.constants.OtpUserContext;
 import com.carecoordination.healthcare.factory.BaseTest;
 import com.carecoordination.healthcare.factory.DriverFactory;
-import com.carecoordination.healthcare.pages.AppDashBoard.AppDashboardPage;
+import com.carecoordination.healthcare.pages.modules.AppDashBoard.AppDashboardPage;
 import com.carecoordination.healthcare.pages.landingPages.*;
 import com.carecoordination.healthcare.utilities.ConfigReader;
 import com.carecoordination.healthcare.utilities.OtpAPIUtil;
