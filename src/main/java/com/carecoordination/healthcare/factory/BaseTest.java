@@ -79,14 +79,20 @@ public class BaseTest {
 
         if (!skipLogin) {
 
-            //get default or overridden  user context
+            //1. get default or overridden  user context
             UserContext userContext = getUserContext();
 
             logger.info("Logging in with user role: {} | Multi-branch org: {}",
             userContext.getRole(),
                     userContext.isMultiBranchOrganization());
-/// remains to add method
-            AuthHelper.login(userContext);
+
+            // 2. Initialize required pages
+            landingPage = new LandingPage(actionDriver);
+            loginPage = new LoginPage(actionDriver);
+
+            // 3. Perform login
+            AuthHelper.login(userContext, landingPage, loginPage);
+
             isLoggedIn.set(true);
         } else {
             isLoggedIn.set(false);
