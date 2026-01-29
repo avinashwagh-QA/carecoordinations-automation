@@ -6,11 +6,15 @@ import java.util.EnumSet;
 import java.util.Set;
 
 /**
- * Defines which roles can invite users.
+ * InvitePermission defines who is allowed to invite users.
  *
- * NOTE:
- * - Invite permission is NOT same as privilege
- * - Kept separate to avoid future confusion
+ * IMPORTANT BUSINESS RULE:
+ * - Only users who can invite users
+ *   are allowed to access Manage Team
+ * - Non-invite users must NOT see Manage Team
+ *
+ * This class represents EXPECTED behavior,
+ * not application implementation.
  */
 
 public class InvitePermission   {
@@ -22,10 +26,15 @@ public class InvitePermission   {
                     UserRole.MANAGER_SUPERVISOR
             );
 
+    private InvitePermission() {
+        // Prevent instantiation
+    }
 
     public static boolean canInvite(UserRole role){
         return INVITED_ALLOWED.contains(role);
     }
+
+
 
 
 }

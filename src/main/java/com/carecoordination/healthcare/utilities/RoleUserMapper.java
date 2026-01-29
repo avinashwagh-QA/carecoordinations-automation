@@ -6,7 +6,7 @@ public class RoleUserMapper {
 
     public static String expectedUserName(UserRole role) {
         return switch (role) {
-            case SUPER_ADMIN -> "Max M Thompson";
+            case SYSTEM_ADMIN -> "Max M Thompson";
             case BRANCH_ADMIN -> "Ana wagner";
             case MANAGER_SUPERVISOR -> "Joy Alexander";
             case CLERICAL_STAFF -> "Addison Perry";

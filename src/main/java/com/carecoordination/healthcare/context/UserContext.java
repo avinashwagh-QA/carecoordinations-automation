@@ -39,5 +39,9 @@ public class UserContext {
         return organizationContext.isMultiBranch();
     }
 
+    public boolean canAccessManageTeam() {
+        return InvitePermission.canInvite(role);
+    }
+
 
 }
