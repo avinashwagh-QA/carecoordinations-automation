@@ -18,11 +18,20 @@ public class HeaderPage {
     //Header Menus - locators
     private final By manageTeam = By.xpath("//a[contains(@href,'manage-team')]");
 
+    private final By channelHistory = By.xpath("//a[contains(@href,'channel-history')]");
+
     public boolean isManageTeamDisplayed() {
         actionDriver.isElementPresentAndDisplayed(manageTeam);
         boolean team = actionDriver.isDisplayed(manageTeam);
         logger.info("Manage team status for logged in user {}", team);
         return team;
+    }
+
+    public boolean isChannelHistoryDisplayed() {
+        actionDriver.isElementPresentAndDisplayed(channelHistory);
+        boolean history = actionDriver.isDisplayed(channelHistory);
+        logger.info("Channel History team status for logged in user {}", history);
+        return history;
     }
 
 

@@ -27,7 +27,7 @@ public class BaseTest {
 
 
     // per-thread flag — true if THIS TEST logged in
-    private static final ThreadLocal<Boolean> isLoggedIn = ThreadLocal.withInitial(() -> false);
+    protected static final ThreadLocal<Boolean> isLoggedIn = ThreadLocal.withInitial(() -> false);
 
     @Parameters("browser")
     @BeforeMethod(alwaysRun = true)
@@ -93,10 +93,9 @@ public class BaseTest {
             // 3. Perform login
             AuthHelper.login(userContext, landingPage, loginPage);
 
-            isLoggedIn.set(true);
+            isLoggedIn.set(true); // LOGIN HAPPENED
         } else {
-            isLoggedIn.set(false);
-            logger.info("Skip for logged for method {}", method.getName());
+            isLoggedIn.set(false);  // Default, Test may login manually
         }
         logger.info("=== @BeforeMethod completed ===");
     }

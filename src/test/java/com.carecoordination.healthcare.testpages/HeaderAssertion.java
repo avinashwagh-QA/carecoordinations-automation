@@ -55,6 +55,7 @@ public class HeaderAssertion extends BaseTest {
                 new OrganizationContext(isMultiBranch));
 
         AuthHelper.loginAs(role, landingPage, loginPage);
+        isLoggedIn.set(true); //for logout - login happened inside test method
 
         boolean actualVisibility = headerPage.isManageTeamDisplayed();
         boolean expectedVisibility = userContext.canAccessManageTeam();
@@ -64,6 +65,24 @@ public class HeaderAssertion extends BaseTest {
 
 
     }
+
+    @Test(description ="Verify Channel History menu is displayed for privilege users"
+            , groups = "skip-login", dataProvider =  "roleMatrix", dataProviderClass = TestDataProvider.class)
+    public void verifyChannelHistoryDisplayedForPrivilegedUsers(UserRole role, boolean isMultiBranch){
+
+        UserContext userContext = new UserContext(role, new OrganizationContext(isMultiBranch));
+
+        AuthHelper.loginAs(role, landingPage, loginPage);
+        isLoggedIn.set(true);//for logout - login happened inside test method
+
+        boolean actualVisibility = headerPage.isChannelHistoryDisplayed();
+        boolean expectedVisibility = userContext.isPrivileged();
+
+        Assert.assertEquals(actualVisibility,expectedVisibility,
+                "Header Channel History option not displayed for user role "+ userContext.getRole());
+
+    }
+
 
 
 
