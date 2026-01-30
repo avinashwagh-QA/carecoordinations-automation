@@ -7,7 +7,7 @@ public class RoleCredentials {
 
     public static String getEmail(UserRole role) {
         return switch (role) {
-            case SUPER_ADMIN -> ConfigReader.getProperty("superadmin.email");
+            case SYSTEM_ADMIN -> ConfigReader.getProperty("superadmin.email");
             case BRANCH_ADMIN -> ConfigReader.getProperty("branchadmin.email");
             case MANAGER_SUPERVISOR -> ConfigReader.getProperty("managerSupervisor.email");
             case CLERICAL_STAFF -> ConfigReader.getProperty("clerical.email");
@@ -19,7 +19,7 @@ public class RoleCredentials {
 
     public static String getPassword(UserRole role) {
         return switch (role) {
-            case SUPER_ADMIN -> ConfigReader.getProperty("superadmin.password");
+            case SYSTEM_ADMIN -> ConfigReader.getProperty("superadmin.password");
             case BRANCH_ADMIN -> ConfigReader.getProperty("branchadmin.password");
             case MANAGER_SUPERVISOR -> ConfigReader.getProperty("managerSupervisor.password");
             case CLERICAL_STAFF -> ConfigReader.getProperty("clerical.password");

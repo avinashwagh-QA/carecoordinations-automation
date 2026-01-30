@@ -1,6 +1,10 @@
 package com.carecoordination.healthcare.factory;
 
 import com.carecoordination.healthcare.actiondriver.ActionDriver;
+import com.carecoordination.healthcare.constants.UserRole;
+import com.carecoordination.healthcare.context.OrganizationContext;
+import com.carecoordination.healthcare.context.UserContext;
+import com.carecoordination.healthcare.helpers.AuthHelper;
 import com.carecoordination.healthcare.pages.landingPages.LandingPage;
 import com.carecoordination.healthcare.pages.landingPages.LoginPage;
 import com.carecoordination.healthcare.utilities.ConfigReader;
@@ -74,11 +78,21 @@ public class BaseTest {
         }
 
         if (!skipLogin) {
+
+            //1. get default or overridden  user context
+            UserContext userContext = getUserContext();
+
+            logger.info("Logging in with user role: {} | Multi-branch org: {}",
+            userContext.getRole(),
+                    userContext.isMultiBranchOrganization());
+
+            // 2. Initialize required pages
+            landingPage = new LandingPage(actionDriver);
             loginPage = new LoginPage(actionDriver);
-            String email = ConfigReader.getProperty("email");
-            String password = ConfigReader.getProperty("password");
-            logger.info("Logging in with configured user");
-            loginPage.login(email, password);
+
+            // 3. Perform login
+            AuthHelper.login(userContext, landingPage, loginPage);
+
             isLoggedIn.set(true);
         } else {
             isLoggedIn.set(false);
@@ -112,6 +126,19 @@ public class BaseTest {
             throw new RuntimeException("Failed to navigate to URL : " + e);
         }
     }
+
+    /**
+     * Default user context.(Default log in to system admin)
+     * Can be overridden by test classes when needed.
+     */
+
+    protected UserContext getUserContext(){
+        return new UserContext(UserRole.SYSTEM_ADMIN,
+                new OrganizationContext(true));
+    }
+
+
+
 
     @AfterMethod(alwaysRun = true)
     public void tearDown() {

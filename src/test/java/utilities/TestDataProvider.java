@@ -22,7 +22,7 @@ public class TestDataProvider {
     @DataProvider(name = "roleBasedLogin")
     public static Object[][] roleBasedLogin(){
         return new Object[][]{
-                {UserRole.SUPER_ADMIN},
+                {UserRole.SYSTEM_ADMIN},
                 {UserRole.BRANCH_ADMIN},
                 {UserRole.MANAGER_SUPERVISOR},
                 {UserRole.CLERICAL_STAFF},
@@ -65,6 +65,20 @@ public class TestDataProvider {
                 {"validCode", "validRegisterEmail", "msgInvalidEmailAndCode"}
         };
     }
+
+    @DataProvider(name = "roleMatrix")
+    public Object[][] roleMatrix() {
+        return new Object[][] {
+                { UserRole.SYSTEM_ADMIN, true },
+                { UserRole.BRANCH_ADMIN, true },
+                { UserRole.MANAGER_SUPERVISOR, true },
+                { UserRole.CLERICAL_STAFF, true },
+                { UserRole.FIELD_CLINICIAN, true },
+                { UserRole.TRIAGE_STAFF, true },
+                { UserRole.EXTERNAL_VENDOR, true }
+        };
+    }
+
 
 
 

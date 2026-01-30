@@ -82,6 +82,15 @@ public class ActionDriver {
         }
     }
 
+    //Method check element is present and dispaleyd
+    public boolean isElementPresentAndDisplayed(By locator){
+        try {
+            List<WebElement> elements = driver.findElements(locator);
+            return !elements.isEmpty() && elements.get(0).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
 
     //wait for list of WebElements
     public List<WebElement> waitForAllElementsToBeVisible(By locator) {
