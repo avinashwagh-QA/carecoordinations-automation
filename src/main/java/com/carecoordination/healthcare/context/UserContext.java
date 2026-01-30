@@ -1,6 +1,7 @@
 package com.carecoordination.healthcare.context;
 
 import com.carecoordination.healthcare.constants.UserRole;
+import com.carecoordination.healthcare.core.security.ChannelUsagePermission;
 import com.carecoordination.healthcare.core.security.InvitePermission;
 import com.carecoordination.healthcare.core.security.RolePrivilege;
 
@@ -43,5 +44,16 @@ public class UserContext {
         return InvitePermission.canInvite(role);
     }
 
+    public boolean canAccessChannelUsage(){
+        return ChannelUsagePermission.canAccessChannelUsage(role);
+    }
+
+    // Alerts and Availability can be access to all users
+    public boolean canAccessAlerts(){
+        return true;
+    }
+    public boolean canAccessAvailability(){
+        return true;
+    }
 
 }

@@ -7,6 +7,7 @@ import com.carecoordination.healthcare.context.UserContext;
 import com.carecoordination.healthcare.helpers.AuthHelper;
 import com.carecoordination.healthcare.pages.landingPages.LandingPage;
 import com.carecoordination.healthcare.pages.landingPages.LoginPage;
+import com.carecoordination.healthcare.pages.modules.AppDashBoard.AppDashboardPage;
 import com.carecoordination.healthcare.utilities.ConfigReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -23,6 +24,7 @@ public class BaseTest {
     protected ActionDriver actionDriver;
     protected LandingPage landingPage;
     protected LoginPage loginPage;
+    protected AppDashboardPage appDashboardPage;
     private static final String GROUP_SKIP_LOGIN = "skip-login";
 
 
@@ -137,8 +139,6 @@ public class BaseTest {
     }
 
 
-
-
     @AfterMethod(alwaysRun = true)
     public void tearDown() {
         //Optional: per-test cleanup can go here (e.g., clear cookies, navigate back to dashboard)
@@ -147,9 +147,9 @@ public class BaseTest {
         try {
             if (Boolean.TRUE.equals(isLoggedIn.get())) {
                 try {
-                    landingPage = new LandingPage(actionDriver);
+                    appDashboardPage = new AppDashboardPage(actionDriver);
                     logger.info("Attempting logout after test");
-                   // homePage.setLnkLogout();
+                    appDashboardPage.clickOnLogOut();
                     logger.info("Logout performed");
                 } catch (Exception e) {
                     logger.warn("Logout during @AfterMethod failed", e);
