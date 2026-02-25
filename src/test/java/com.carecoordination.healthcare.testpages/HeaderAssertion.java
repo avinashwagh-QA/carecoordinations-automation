@@ -130,6 +130,26 @@ public class HeaderAssertion extends BaseTest {
 
     }
 
+    /* Alerts and more menu assertion is remaining for all user roles
+    *  We need to set the rules for the permission in core security
+    */
+    @Test(description = "Verify Company info is displayed for system admin",
+    groups = "skip-login", dataProvider = "roleMatrix", dataProviderClass = TestDataProvider.class)
+    public void VerifyCompanyInfoDisplayedAsPerPermission(UserRole role, boolean isMultiBranch){
+
+        UserContext userContext = new UserContext(role, new OrganizationContext(isMultiBranch));
+
+        AuthHelper.loginAs(role, landingPage,loginPage);
+        isLoggedIn.set(true); // for logout - login happened inside test method
+
+        boolean actualVisibility = headerPage.isCompanyInfoDisplayed();
+        boolean expectedVisibility = userContext.canAccessCompanyInfo();
+
+        Assert.assertEquals(actualVisibility, expectedVisibility,
+                "Company info not displayed for user roles"+ userContext);
+    }
+
+
 
 
 

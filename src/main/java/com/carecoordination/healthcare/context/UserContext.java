@@ -2,6 +2,7 @@ package com.carecoordination.healthcare.context;
 
 import com.carecoordination.healthcare.constants.UserRole;
 import com.carecoordination.healthcare.core.security.ChannelUsagePermission;
+import com.carecoordination.healthcare.core.security.CompanyInfoPermission;
 import com.carecoordination.healthcare.core.security.InvitePermission;
 import com.carecoordination.healthcare.core.security.RolePrivilege;
 
@@ -54,6 +55,11 @@ public class UserContext {
     }
     public boolean canAccessAvailability(){
         return true;
+    }
+
+    //Company info permission
+    public boolean canAccessCompanyInfo(){
+        return CompanyInfoPermission.canAccess(role);
     }
 
 }

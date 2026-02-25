@@ -22,6 +22,16 @@ public class HeaderPage {
     private final By alerts = By.id("dropdownMenuAlertNotifications");
     private final By availability = By.xpath("//a[contains(@href,'work-availability')]");
 
+    // More Menu
+    private final By moreMenu = By.id("ccMoreMenuDrp");
+    private final By companyInfo = By.xpath("//a[contains(@href,'company-info')]");
+    private final By branchInfo = By.xpath("//a[contains(@href,'branch-info')]");
+    private final By inactiveChannels = By.xpath("//a[contains(@href,'inactive-channels')]");
+    private final By manageMilestone = By.xpath("//a[contains(@href,'manage-milestone')]");
+    private final By managePharmacies = By.xpath("//a[contains(@href,'manage-pharmacies')]");
+    private final By managePhysician = By.xpath("//a[contains(@href,'manage-physician')]");
+    private final By manageTags = By.xpath("//a[contains(@href,'manage-tags')]");
+    private final By manageTask = By.xpath("//a[contains(@href,'/manage-task-template')]");
 
     //Method for is header menus(Name of the menu) is displayed
     public boolean isManageTeamDisplayed() {
@@ -57,6 +67,16 @@ public class HeaderPage {
         boolean alert = actionDriver.isDisplayed(alerts);
         logger.info("Alert Menu option status for logged in user {}", alert);
         return alert;
+    }
+
+    public boolean isCompanyInfoDisplayed(){
+        actionDriver.waitForElementToBeClickable(moreMenu);
+        actionDriver.click(moreMenu);
+
+        actionDriver.isElementPresentAndDisplayed(companyInfo);
+        boolean companyInfoPage = actionDriver.isDisplayed(companyInfo);
+        logger.info("Company info status for logged in user {}", companyInfoPage);
+        return  companyInfoPage;
     }
 
 
