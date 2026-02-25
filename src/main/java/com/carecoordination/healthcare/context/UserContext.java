@@ -1,10 +1,7 @@
 package com.carecoordination.healthcare.context;
 
 import com.carecoordination.healthcare.constants.UserRole;
-import com.carecoordination.healthcare.core.security.ChannelUsagePermission;
-import com.carecoordination.healthcare.core.security.CompanyInfoPermission;
-import com.carecoordination.healthcare.core.security.InvitePermission;
-import com.carecoordination.healthcare.core.security.RolePrivilege;
+import com.carecoordination.healthcare.core.security.*;
 
 public class UserContext {
 
@@ -60,6 +57,31 @@ public class UserContext {
     //Company info permission
     public boolean canAccessCompanyInfo(){
         return CompanyInfoPermission.canAccess(role);
+    }
+
+    //Branch info
+    public boolean canAccessBranchInfo(){
+        return BranchInfoPermission.canAccessBranchInfo(role);
+    }
+
+    //Inactive channel
+    public boolean canAccessInactiveChannel(){
+        return InactiveChannelPermission.getInactivechannelUserAcccess(role);
+    }
+
+    //Manage Milestone
+    public boolean canAccessManageMilestone(){
+        return MilestonePermission.getManageMilestoneAllowed(role);
+    }
+
+    //Manage physician
+    public boolean canAccessManagePhysician(){
+        return ManagePhysician.getManagePhysicianUserAccess(role);
+    }
+
+    //Manage pharmacies
+    public boolean canAccessManagePharmacies(){
+        return ManagePharmacies.getManagePharmaciesUserAccess(role);
     }
 
 }

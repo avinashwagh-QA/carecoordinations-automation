@@ -79,13 +79,75 @@ public class HeaderPage {
         return  companyInfoPage;
     }
 
+    public boolean isBranchInfoDisplayed(){
+        actionDriver.waitForElementToBeClickable(moreMenu);
+        actionDriver.click(moreMenu);
 
+        actionDriver.isElementPresentAndDisplayed(branchInfo);
+        boolean branchInfoPage = actionDriver.isDisplayed(branchInfo);
+        logger.info("Branch info status for logged in user {}", branchInfoPage);
+        return  branchInfoPage;
+    }
 
+    public boolean isManageMilestoneDisplayed(){
+        actionDriver.waitForElementToBeClickable(moreMenu);
+        actionDriver.click(moreMenu);
 
+        actionDriver.isElementPresentAndDisplayed(manageMilestone);
+        boolean milestonePage = actionDriver.isDisplayed(manageMilestone);
+        logger.info("Milestone page status for logged in user {}", milestonePage);
+        return  milestonePage;
+    }
 
+    public boolean isInactiveChannelDisplayed(){
+        actionDriver.waitForElementToBeClickable(moreMenu);
+        actionDriver.click(moreMenu);
 
+        actionDriver.isElementPresentAndDisplayed(inactiveChannels);
+        boolean inactiveChannelPage = actionDriver.isDisplayed(inactiveChannels);
+        logger.info("Inactive channel page status for logged in user {}", inactiveChannelPage);
+        return  inactiveChannelPage;
+    }
 
+    public boolean isManagePhysicianDisplayed(){
+        actionDriver.waitForElementToBeClickable(moreMenu);
+        actionDriver.click(moreMenu);
 
+        actionDriver.isElementPresentAndDisplayed(managePhysician);
+        boolean physicianPage = actionDriver.isDisplayed(managePhysician);
+        logger.info("Manage physician page status for logged in user {}", physicianPage);
+        return  physicianPage;
+    }
+
+    public boolean isManagePharmaciesDisplayed(){
+        actionDriver.waitForElementToBeClickable(moreMenu);
+        actionDriver.click(moreMenu);
+
+        actionDriver.isElementPresentAndDisplayed(managePharmacies);
+        boolean pharmaciesPage = actionDriver.isDisplayed(managePharmacies);
+        logger.info("Manage pharmacies page status for logged in user {}", pharmaciesPage);
+        return  pharmaciesPage;
+    }
+
+    public boolean isManageTaskDisplayed(){
+        actionDriver.waitForElementToBeClickable(moreMenu);
+        actionDriver.click(moreMenu);
+
+        actionDriver.isElementPresentAndDisplayed(manageTask);
+        boolean TaskPage = actionDriver.isDisplayed(manageTask);
+        logger.info("Manage task page status for logged in user {}", TaskPage);
+        return  TaskPage;
+    }
+
+    public boolean isManageTagsDisplayed(){
+        actionDriver.waitForElementToBeClickable(moreMenu);
+        actionDriver.click(moreMenu);
+
+        actionDriver.isElementPresentAndDisplayed(manageTags);
+        boolean TagsPage = actionDriver.isDisplayed(manageTags);
+        logger.info("Manage tags page status for logged in user {}", TagsPage);
+        return  TagsPage;
+    }
 
 
 

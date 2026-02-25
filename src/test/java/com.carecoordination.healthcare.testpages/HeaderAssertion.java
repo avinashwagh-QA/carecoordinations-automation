@@ -130,9 +130,6 @@ public class HeaderAssertion extends BaseTest {
 
     }
 
-    /* Alerts and more menu assertion is remaining for all user roles
-    *  We need to set the rules for the permission in core security
-    */
     @Test(description = "Verify Company info is displayed for system admin",
     groups = "skip-login", dataProvider = "roleMatrix", dataProviderClass = TestDataProvider.class)
     public void VerifyCompanyInfoDisplayedAsPerPermission(UserRole role, boolean isMultiBranch){
@@ -149,13 +146,96 @@ public class HeaderAssertion extends BaseTest {
                 "Company info not displayed for user roles"+ userContext);
     }
 
+    @Test(description = "Verify branch info is displayed as permission wise",
+            groups = "skip-login", dataProvider = "roleMatrix", dataProviderClass = TestDataProvider.class)
+    public void VerifyBranchInfoDisplayedAsPerPermission(UserRole role, boolean isMultiBranch){
+
+        UserContext userContext = new UserContext(role, new OrganizationContext(isMultiBranch));
+
+        AuthHelper.loginAs(role, landingPage,loginPage);
+        isLoggedIn.set(true); // for logout - login happened inside test method
+
+        boolean actualVisibility = headerPage.isBranchInfoDisplayed();
+        boolean expectedVisibility = userContext.canAccessBranchInfo();
+
+        Assert.assertEquals(actualVisibility, expectedVisibility,
+                "Branch info not displayed for user roles"+ userContext);
+    }
+
+    @Test(description = "Verify Inactive channel is displayed as permission wise",
+            groups = "skip-login", dataProvider = "roleMatrix", dataProviderClass = TestDataProvider.class)
+    public void VerifyInactiveChannelDisplayedAsPerPermission(UserRole role, boolean isMultiBranch){
+
+        UserContext userContext = new UserContext(role, new OrganizationContext(isMultiBranch));
+
+        AuthHelper.loginAs(role, landingPage,loginPage);
+        isLoggedIn.set(true); // for logout - login happened inside test method
+
+        boolean actualVisibility = headerPage.isInactiveChannelDisplayed();
+        boolean expectedVisibility = userContext.canAccessInactiveChannel();
+
+        Assert.assertEquals(actualVisibility, expectedVisibility,
+                "Inactive Channel page not displayed for user roles"+ userContext);
+    }
 
 
+    @Test(description = "Verify Manage milestone is displayed as permission wise",
+            groups = "skip-login", dataProvider = "roleMatrix", dataProviderClass = TestDataProvider.class)
+    public void VerifyManageMilestoneDisplayedAsPerPermission(UserRole role, boolean isMultiBranch){
+
+        UserContext userContext = new UserContext(role, new OrganizationContext(isMultiBranch));
+
+        AuthHelper.loginAs(role, landingPage,loginPage);
+        isLoggedIn.set(true); // for logout - login happened inside test method
+
+        boolean actualVisibility = headerPage.isManageMilestoneDisplayed();
+        boolean expectedVisibility = userContext.canAccessManageMilestone();
+
+        Assert.assertEquals(actualVisibility, expectedVisibility,
+                "Manage milestone page not displayed for user roles"+ userContext);
+    }
 
 
+    @Test(description = "Verify Manage physician is displayed as permission wise",
+            groups = "skip-login", dataProvider = "roleMatrix", dataProviderClass = TestDataProvider.class)
+    public void VerifyManagePhysicianDisplayedAsPerPermission(UserRole role, boolean isMultiBranch){
+
+        UserContext userContext = new UserContext(role, new OrganizationContext(isMultiBranch));
+
+        AuthHelper.loginAs(role, landingPage,loginPage);
+        isLoggedIn.set(true); // for logout - login happened inside test method
+
+        boolean actualVisibility = headerPage.isManagePhysicianDisplayed();
+        boolean expectedVisibility = userContext.canAccessManagePhysician();
+
+        Assert.assertEquals(actualVisibility, expectedVisibility,
+                "Manage Physician not displayed for user roles"+ userContext);
+    }
 
 
+    @Test(description = "Verify Manage Pharmacies is displayed as permission wise",
+            groups = "skip-login", dataProvider = "roleMatrix", dataProviderClass = TestDataProvider.class)
+    public void VerifyManagePharmaciesDisplayedAsPerPermission(UserRole role, boolean isMultiBranch){
 
+        UserContext userContext = new UserContext(role, new OrganizationContext(isMultiBranch));
+
+        AuthHelper.loginAs(role, landingPage,loginPage);
+        isLoggedIn.set(true); // for logout - login happened inside test method
+
+        boolean actualVisibility = headerPage.isManagePharmaciesDisplayed();
+        boolean expectedVisibility = userContext.canAccessManagePharmacies();
+
+        Assert.assertEquals(actualVisibility, expectedVisibility,
+                "Manage Pharmacies not displayed for user roles"+ userContext);
+    }
+
+
+    /*  Manage Task and tags Header menu remaining
+     *  permission and Page objects are define in repsective class
+     *  Permission may require to update in future as per need
+     *  Assertion in all method just check menu visibility , we have not
+     *  verified by opening page
+     * */
 
 
 }

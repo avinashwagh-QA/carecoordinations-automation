@@ -947,3 +947,532 @@ Session ID: a3db90f087b9292bcdd293e582ec29f4
 2026-02-25 11:13:21.672 [main] INFO  DriverFactory -  - Quitting WebDriver for thread: main
 2026-02-25 11:13:22.089 [main] DEBUG DriverFactory -  - WebDriver removed from ThreadLocal for thread: main
 2026-02-25 11:13:22.089 [main] INFO  BaseTest -  - WebDriver quit and ThreadLocal cleared
+2026-02-25 14:04:39.663 [main] INFO  Utils -  - [TestNG] Running:
+  C:\Users\DREAMWORLD\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+2026-02-25 14:04:39.807 [main] INFO  BaseTest -  - ===== Starting Test Setup on thread: main =====
+2026-02-25 14:04:39.813 [main] INFO  BaseTest -  - No TestNG browser parameter provided. Falling back to config: chrome
+2026-02-25 14:04:39.816 [main] INFO  DriverFactory -  - Initiating driver on for browser chrome on threadmain
+2026-02-25 14:04:43.323 [main] INFO  DriverManager -  - Chrome Driver Instance Is Created
+2026-02-25 14:04:43.324 [main] DEBUG DriverManager -  - Driver instance created successfully: ChromeDriver: chrome on windows (3175bcd2639e18ce45a0832f3e8c30cb)
+2026-02-25 14:04:43.324 [main] DEBUG DriverFactory -  - WebDriver instance set in ThreadLocal for thread: main
+2026-02-25 14:04:43.324 [main] DEBUG BaseTest -  - WebDriver initialized successfully
+2026-02-25 14:04:43.330 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=20 seconds
+2026-02-25 14:04:43.331 [main] DEBUG BaseTest -  - ActionDriver initialized
+2026-02-25 14:04:43.331 [main] INFO  BaseTest -  - Configuring Browser Settings...
+2026-02-25 14:04:43.331 [main] DEBUG BaseTest -  - Setting implicit wait to 2 seconds
+2026-02-25 14:04:43.336 [main] INFO  BaseTest -  - Maximizing browser window
+2026-02-25 14:04:47.553 [main] INFO  BaseTest -  - Navigating to URL: https://uat.carecoordinations.com/
+2026-02-25 14:04:47.553 [main] INFO  BaseTest -  - === @BeforeMethod completed ===
+2026-02-25 14:04:47.577 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-02-25 14:04:48.238 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-02-25 14:04:48.239 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-02-25 14:04:51.170 [main] INFO  LandingPage -  - Click on log in page from landing page
+2026-02-25 14:04:51.174 [main] INFO  LoginPage -  - Adding Username and Password max.admin@yopmail.com Admin@111
+2026-02-25 14:04:51.174 [main] INFO  ActionDriver -  - Entering text into By.id: email
+2026-02-25 14:04:51.174 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: email
+2026-02-25 14:04:51.521 [main] INFO  ActionDriver -  - Entering text into By.id: password
+2026-02-25 14:04:51.521 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: password
+2026-02-25 14:04:51.677 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-02-25 14:04:51.678 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-02-25 14:04:51.792 [main] INFO  LoginPage -  - Clicking  on login button ......
+2026-02-25 14:04:51.793 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: ccMoreMenuDrp
+2026-02-25 14:04:58.348 [main] INFO  ActionDriver -  - Clicking element: By.id: ccMoreMenuDrp
+2026-02-25 14:04:58.348 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: ccMoreMenuDrp
+2026-02-25 14:04:58.535 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //a[contains(@href,'manage-physician')]
+2026-02-25 14:04:58.535 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //a[contains(@href,'manage-physician')]
+2026-02-25 14:04:58.587 [main] INFO  HeaderPage -  - Manage physician page status for logged in user true
+2026-02-25 14:04:58.597 [main] DEBUG BaseTest -  - @AfterMethod optional cleanup for thread: main
+2026-02-25 14:04:58.599 [main] INFO  BaseTest -  - Attempting logout after test
+2026-02-25 14:04:58.599 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-02-25 14:04:58.631 [main] INFO  ActionDriver -  - Clicking element: By.id: headerUserName
+2026-02-25 14:04:58.631 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-02-25 14:04:58.763 [main] INFO  AppDashboardPage -  - Clicked on User Profile ....
+2026-02-25 14:04:58.763 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-02-25 14:04:58.803 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-02-25 14:04:58.803 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-02-25 14:04:58.964 [main] INFO  AppDashboardPage -  - Clicked on logout from User Profile modal.....
+2026-02-25 14:04:58.965 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='actionYes']
+2026-02-25 14:04:59.614 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='actionYes']
+2026-02-25 14:04:59.614 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='actionYes']
+2026-02-25 14:05:01.702 [main] INFO  AppDashboardPage -  - The user click on confirm to logout.... 
+2026-02-25 14:05:01.704 [main] INFO  BaseTest -  - Logout performed
+2026-02-25 14:05:01.704 [main] INFO  DriverFactory -  - Quitting WebDriver for thread: main
+2026-02-25 14:05:02.361 [main] DEBUG DriverFactory -  - WebDriver removed from ThreadLocal for thread: main
+2026-02-25 14:05:02.361 [main] INFO  BaseTest -  - WebDriver quit and ThreadLocal cleared
+2026-02-25 14:05:02.367 [main] INFO  BaseTest -  - ===== Starting Test Setup on thread: main =====
+2026-02-25 14:05:02.367 [main] INFO  BaseTest -  - No TestNG browser parameter provided. Falling back to config: chrome
+2026-02-25 14:05:02.367 [main] INFO  DriverFactory -  - Initiating driver on for browser chrome on threadmain
+2026-02-25 14:05:03.460 [main] INFO  DriverManager -  - Chrome Driver Instance Is Created
+2026-02-25 14:05:03.460 [main] DEBUG DriverManager -  - Driver instance created successfully: ChromeDriver: chrome on windows (f5ca6eea424026a5b6586cecd425a7ed)
+2026-02-25 14:05:03.461 [main] DEBUG DriverFactory -  - WebDriver instance set in ThreadLocal for thread: main
+2026-02-25 14:05:03.461 [main] DEBUG BaseTest -  - WebDriver initialized successfully
+2026-02-25 14:05:03.461 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=20 seconds
+2026-02-25 14:05:03.461 [main] DEBUG BaseTest -  - ActionDriver initialized
+2026-02-25 14:05:03.461 [main] INFO  BaseTest -  - Configuring Browser Settings...
+2026-02-25 14:05:03.461 [main] DEBUG BaseTest -  - Setting implicit wait to 2 seconds
+2026-02-25 14:05:03.469 [main] INFO  BaseTest -  - Maximizing browser window
+2026-02-25 14:05:07.614 [main] INFO  BaseTest -  - Navigating to URL: https://uat.carecoordinations.com/
+2026-02-25 14:05:07.615 [main] INFO  BaseTest -  - === @BeforeMethod completed ===
+2026-02-25 14:05:07.617 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-02-25 14:05:07.671 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-02-25 14:05:07.671 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-02-25 14:05:10.527 [main] INFO  LandingPage -  - Click on log in page from landing page
+2026-02-25 14:05:10.527 [main] INFO  LoginPage -  - Adding Username and Password ana.admin@yopmail.com Admin@123
+2026-02-25 14:05:10.527 [main] INFO  ActionDriver -  - Entering text into By.id: email
+2026-02-25 14:05:10.528 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: email
+2026-02-25 14:05:10.820 [main] INFO  ActionDriver -  - Entering text into By.id: password
+2026-02-25 14:05:10.820 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: password
+2026-02-25 14:05:10.948 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-02-25 14:05:10.948 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-02-25 14:05:11.086 [main] INFO  LoginPage -  - Clicking  on login button ......
+2026-02-25 14:05:11.086 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: ccMoreMenuDrp
+2026-02-25 14:05:17.846 [main] INFO  ActionDriver -  - Clicking element: By.id: ccMoreMenuDrp
+2026-02-25 14:05:17.846 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: ccMoreMenuDrp
+2026-02-25 14:05:18.086 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //a[contains(@href,'manage-physician')]
+2026-02-25 14:05:18.086 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //a[contains(@href,'manage-physician')]
+2026-02-25 14:05:18.160 [main] INFO  HeaderPage -  - Manage physician page status for logged in user true
+2026-02-25 14:05:18.163 [main] DEBUG BaseTest -  - @AfterMethod optional cleanup for thread: main
+2026-02-25 14:05:18.164 [main] INFO  BaseTest -  - Attempting logout after test
+2026-02-25 14:05:18.164 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-02-25 14:05:18.216 [main] INFO  ActionDriver -  - Clicking element: By.id: headerUserName
+2026-02-25 14:05:18.216 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-02-25 14:05:18.657 [main] INFO  AppDashboardPage -  - Clicked on User Profile ....
+2026-02-25 14:05:18.657 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-02-25 14:05:18.727 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-02-25 14:05:18.728 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-02-25 14:05:18.912 [main] INFO  AppDashboardPage -  - Clicked on logout from User Profile modal.....
+2026-02-25 14:05:18.912 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='actionYes']
+2026-02-25 14:05:19.505 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='actionYes']
+2026-02-25 14:05:19.505 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='actionYes']
+2026-02-25 14:05:25.565 [main] INFO  AppDashboardPage -  - The user click on confirm to logout.... 
+2026-02-25 14:05:25.565 [main] INFO  BaseTest -  - Logout performed
+2026-02-25 14:05:25.565 [main] INFO  DriverFactory -  - Quitting WebDriver for thread: main
+2026-02-25 14:05:25.872 [main] DEBUG DriverFactory -  - WebDriver removed from ThreadLocal for thread: main
+2026-02-25 14:05:25.873 [main] INFO  BaseTest -  - WebDriver quit and ThreadLocal cleared
+2026-02-25 14:05:25.874 [main] INFO  BaseTest -  - ===== Starting Test Setup on thread: main =====
+2026-02-25 14:05:25.874 [main] INFO  BaseTest -  - No TestNG browser parameter provided. Falling back to config: chrome
+2026-02-25 14:05:25.875 [main] INFO  DriverFactory -  - Initiating driver on for browser chrome on threadmain
+2026-02-25 14:05:26.828 [main] INFO  DriverManager -  - Chrome Driver Instance Is Created
+2026-02-25 14:05:26.829 [main] DEBUG DriverManager -  - Driver instance created successfully: ChromeDriver: chrome on windows (bdc4093697142babb03f1d4efc14a78b)
+2026-02-25 14:05:26.829 [main] DEBUG DriverFactory -  - WebDriver instance set in ThreadLocal for thread: main
+2026-02-25 14:05:26.829 [main] DEBUG BaseTest -  - WebDriver initialized successfully
+2026-02-25 14:05:26.829 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=20 seconds
+2026-02-25 14:05:26.829 [main] DEBUG BaseTest -  - ActionDriver initialized
+2026-02-25 14:05:26.830 [main] INFO  BaseTest -  - Configuring Browser Settings...
+2026-02-25 14:05:26.830 [main] DEBUG BaseTest -  - Setting implicit wait to 2 seconds
+2026-02-25 14:05:26.832 [main] INFO  BaseTest -  - Maximizing browser window
+2026-02-25 14:05:27.879 [main] INFO  BaseTest -  - Navigating to URL: https://uat.carecoordinations.com/
+2026-02-25 14:05:27.880 [main] INFO  BaseTest -  - === @BeforeMethod completed ===
+2026-02-25 14:05:27.881 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-02-25 14:05:30.607 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-02-25 14:05:30.607 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-02-25 14:05:33.646 [main] INFO  LandingPage -  - Click on log in page from landing page
+2026-02-25 14:05:33.646 [main] INFO  LoginPage -  - Adding Username and Password joy.manager@yopmail.com Admin@111
+2026-02-25 14:05:33.646 [main] INFO  ActionDriver -  - Entering text into By.id: email
+2026-02-25 14:05:33.646 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: email
+2026-02-25 14:05:33.966 [main] INFO  ActionDriver -  - Entering text into By.id: password
+2026-02-25 14:05:33.966 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: password
+2026-02-25 14:05:34.112 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-02-25 14:05:34.112 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-02-25 14:05:34.229 [main] INFO  LoginPage -  - Clicking  on login button ......
+2026-02-25 14:05:34.229 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: ccMoreMenuDrp
+2026-02-25 14:05:40.922 [main] INFO  ActionDriver -  - Clicking element: By.id: ccMoreMenuDrp
+2026-02-25 14:05:40.922 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: ccMoreMenuDrp
+2026-02-25 14:05:41.092 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //a[contains(@href,'manage-physician')]
+2026-02-25 14:05:41.092 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //a[contains(@href,'manage-physician')]
+2026-02-25 14:05:41.129 [main] INFO  HeaderPage -  - Manage physician page status for logged in user true
+2026-02-25 14:05:41.130 [main] DEBUG BaseTest -  - @AfterMethod optional cleanup for thread: main
+2026-02-25 14:05:41.130 [main] INFO  BaseTest -  - Attempting logout after test
+2026-02-25 14:05:41.130 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-02-25 14:05:41.176 [main] INFO  ActionDriver -  - Clicking element: By.id: headerUserName
+2026-02-25 14:05:41.176 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-02-25 14:05:41.313 [main] INFO  AppDashboardPage -  - Clicked on User Profile ....
+2026-02-25 14:05:41.314 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-02-25 14:05:41.365 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-02-25 14:05:41.365 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-02-25 14:05:41.520 [main] INFO  AppDashboardPage -  - Clicked on logout from User Profile modal.....
+2026-02-25 14:05:41.520 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='actionYes']
+2026-02-25 14:05:42.211 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='actionYes']
+2026-02-25 14:05:42.212 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='actionYes']
+2026-02-25 14:05:56.245 [main] INFO  AppDashboardPage -  - The user click on confirm to logout.... 
+2026-02-25 14:05:56.245 [main] INFO  BaseTest -  - Logout performed
+2026-02-25 14:05:56.245 [main] INFO  DriverFactory -  - Quitting WebDriver for thread: main
+2026-02-25 14:05:56.586 [main] DEBUG DriverFactory -  - WebDriver removed from ThreadLocal for thread: main
+2026-02-25 14:05:56.586 [main] INFO  BaseTest -  - WebDriver quit and ThreadLocal cleared
+2026-02-25 14:05:56.588 [main] INFO  BaseTest -  - ===== Starting Test Setup on thread: main =====
+2026-02-25 14:05:56.588 [main] INFO  BaseTest -  - No TestNG browser parameter provided. Falling back to config: chrome
+2026-02-25 14:05:56.588 [main] INFO  DriverFactory -  - Initiating driver on for browser chrome on threadmain
+2026-02-25 14:05:57.595 [main] INFO  DriverManager -  - Chrome Driver Instance Is Created
+2026-02-25 14:05:57.595 [main] DEBUG DriverManager -  - Driver instance created successfully: ChromeDriver: chrome on windows (e7ba8626a76f80a0e69814264e86e148)
+2026-02-25 14:05:57.595 [main] DEBUG DriverFactory -  - WebDriver instance set in ThreadLocal for thread: main
+2026-02-25 14:05:57.595 [main] DEBUG BaseTest -  - WebDriver initialized successfully
+2026-02-25 14:05:57.595 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=20 seconds
+2026-02-25 14:05:57.595 [main] DEBUG BaseTest -  - ActionDriver initialized
+2026-02-25 14:05:57.595 [main] INFO  BaseTest -  - Configuring Browser Settings...
+2026-02-25 14:05:57.595 [main] DEBUG BaseTest -  - Setting implicit wait to 2 seconds
+2026-02-25 14:05:57.611 [main] INFO  BaseTest -  - Maximizing browser window
+2026-02-25 14:05:58.588 [main] INFO  BaseTest -  - Navigating to URL: https://uat.carecoordinations.com/
+2026-02-25 14:05:58.589 [main] INFO  BaseTest -  - === @BeforeMethod completed ===
+2026-02-25 14:05:58.595 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-02-25 14:06:01.553 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-02-25 14:06:01.554 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-02-25 14:06:04.939 [main] INFO  LandingPage -  - Click on log in page from landing page
+2026-02-25 14:06:04.940 [main] INFO  LoginPage -  - Adding Username and Password Add.cstaff@yopmail.com Admin@123
+2026-02-25 14:06:04.940 [main] INFO  ActionDriver -  - Entering text into By.id: email
+2026-02-25 14:06:04.940 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: email
+2026-02-25 14:06:05.125 [main] INFO  ActionDriver -  - Entering text into By.id: password
+2026-02-25 14:06:05.125 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: password
+2026-02-25 14:06:05.289 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-02-25 14:06:05.289 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-02-25 14:06:05.425 [main] INFO  LoginPage -  - Clicking  on login button ......
+2026-02-25 14:06:05.426 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: ccMoreMenuDrp
+2026-02-25 14:06:13.825 [main] INFO  ActionDriver -  - Clicking element: By.id: ccMoreMenuDrp
+2026-02-25 14:06:13.825 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: ccMoreMenuDrp
+2026-02-25 14:06:16.008 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //a[contains(@href,'manage-physician')]
+2026-02-25 14:06:16.009 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //a[contains(@href,'manage-physician')]
+2026-02-25 14:06:38.485 [main] ERROR ActionDriver -  - Locator not visible: By.xpath: //a[contains(@href,'manage-physician')]
+2026-02-25 14:06:38.486 [main] WARN  ActionDriver -  - Unexpected error while checking visibility for: By.xpath: //a[contains(@href,'manage-physician')]
+java.lang.RuntimeException: Element is not visibleBy.xpath: //a[contains(@href,'manage-physician')]
+	at com.carecoordination.healthcare.actiondriver.ActionDriver.waitForElementToVisible(ActionDriver.java:70)
+	at com.carecoordination.healthcare.actiondriver.ActionDriver.isDisplayed(ActionDriver.java:220)
+	at com.carecoordination.healthcare.pages.modules.AppDashBoard.HeaderPage.isManagePhysicianDisplayed(HeaderPage.java:117)
+	at com.carecoordination.healthcare.testpages.HeaderAssertion.VerifyManagePhysicianDisplayedAsPerPermission(HeaderAssertion.java:211)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //a[contains(@href,'manage-physician')] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.17'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.110, chrome: {chromedriverVersion: 145.0.7632.117 (de4e5d6e13b..., userDataDir: C:\Users\DREAMW~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51449}, goog:processID: 40240, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51449/devtoo..., se:cdpVersion: 145.0.7632.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: e7ba8626a76f80a0e69814264e86e148
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at com.carecoordination.healthcare.actiondriver.ActionDriver.waitForElementToVisible(ActionDriver.java:67)
+	... 30 more
+2026-02-25 14:06:38.490 [main] INFO  HeaderPage -  - Manage physician page status for logged in user false
+2026-02-25 14:06:38.491 [main] DEBUG BaseTest -  - @AfterMethod optional cleanup for thread: main
+2026-02-25 14:06:38.491 [main] INFO  BaseTest -  - Attempting logout after test
+2026-02-25 14:06:38.491 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-02-25 14:06:38.527 [main] INFO  ActionDriver -  - Clicking element: By.id: headerUserName
+2026-02-25 14:06:38.528 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-02-25 14:06:38.663 [main] INFO  AppDashboardPage -  - Clicked on User Profile ....
+2026-02-25 14:06:38.664 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-02-25 14:06:38.704 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-02-25 14:06:38.704 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-02-25 14:06:38.819 [main] INFO  AppDashboardPage -  - Clicked on logout from User Profile modal.....
+2026-02-25 14:06:38.819 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='actionYes']
+2026-02-25 14:06:39.434 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='actionYes']
+2026-02-25 14:06:39.434 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='actionYes']
+2026-02-25 14:06:42.253 [main] INFO  AppDashboardPage -  - The user click on confirm to logout.... 
+2026-02-25 14:06:42.253 [main] INFO  BaseTest -  - Logout performed
+2026-02-25 14:06:42.254 [main] INFO  DriverFactory -  - Quitting WebDriver for thread: main
+2026-02-25 14:06:42.620 [main] DEBUG DriverFactory -  - WebDriver removed from ThreadLocal for thread: main
+2026-02-25 14:06:42.620 [main] INFO  BaseTest -  - WebDriver quit and ThreadLocal cleared
+2026-02-25 14:06:42.622 [main] INFO  BaseTest -  - ===== Starting Test Setup on thread: main =====
+2026-02-25 14:06:42.622 [main] INFO  BaseTest -  - No TestNG browser parameter provided. Falling back to config: chrome
+2026-02-25 14:06:42.622 [main] INFO  DriverFactory -  - Initiating driver on for browser chrome on threadmain
+2026-02-25 14:06:43.571 [main] INFO  DriverManager -  - Chrome Driver Instance Is Created
+2026-02-25 14:06:43.571 [main] DEBUG DriverManager -  - Driver instance created successfully: ChromeDriver: chrome on windows (ae161936c8e1676c48475f5e9e52e576)
+2026-02-25 14:06:43.571 [main] DEBUG DriverFactory -  - WebDriver instance set in ThreadLocal for thread: main
+2026-02-25 14:06:43.571 [main] DEBUG BaseTest -  - WebDriver initialized successfully
+2026-02-25 14:06:43.572 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=20 seconds
+2026-02-25 14:06:43.572 [main] DEBUG BaseTest -  - ActionDriver initialized
+2026-02-25 14:06:43.572 [main] INFO  BaseTest -  - Configuring Browser Settings...
+2026-02-25 14:06:43.572 [main] DEBUG BaseTest -  - Setting implicit wait to 2 seconds
+2026-02-25 14:06:43.574 [main] INFO  BaseTest -  - Maximizing browser window
+2026-02-25 14:06:47.658 [main] INFO  BaseTest -  - Navigating to URL: https://uat.carecoordinations.com/
+2026-02-25 14:06:47.658 [main] INFO  BaseTest -  - === @BeforeMethod completed ===
+2026-02-25 14:06:47.660 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-02-25 14:06:47.739 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-02-25 14:06:47.739 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-02-25 14:06:50.229 [main] INFO  LandingPage -  - Click on log in page from landing page
+2026-02-25 14:06:50.229 [main] INFO  LoginPage -  - Adding Username and Password ishan_staff@yopmail.com Admin@111
+2026-02-25 14:06:50.229 [main] INFO  ActionDriver -  - Entering text into By.id: email
+2026-02-25 14:06:50.230 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: email
+2026-02-25 14:06:50.571 [main] INFO  ActionDriver -  - Entering text into By.id: password
+2026-02-25 14:06:50.571 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: password
+2026-02-25 14:06:50.701 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-02-25 14:06:50.701 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-02-25 14:06:50.810 [main] INFO  LoginPage -  - Clicking  on login button ......
+2026-02-25 14:06:50.810 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: ccMoreMenuDrp
+2026-02-25 14:06:57.839 [main] INFO  ActionDriver -  - Clicking element: By.id: ccMoreMenuDrp
+2026-02-25 14:06:57.839 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: ccMoreMenuDrp
+2026-02-25 14:07:00.044 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //a[contains(@href,'manage-physician')]
+2026-02-25 14:07:00.045 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //a[contains(@href,'manage-physician')]
+2026-02-25 14:07:22.462 [main] ERROR ActionDriver -  - Locator not visible: By.xpath: //a[contains(@href,'manage-physician')]
+2026-02-25 14:07:22.462 [main] WARN  ActionDriver -  - Unexpected error while checking visibility for: By.xpath: //a[contains(@href,'manage-physician')]
+java.lang.RuntimeException: Element is not visibleBy.xpath: //a[contains(@href,'manage-physician')]
+	at com.carecoordination.healthcare.actiondriver.ActionDriver.waitForElementToVisible(ActionDriver.java:70)
+	at com.carecoordination.healthcare.actiondriver.ActionDriver.isDisplayed(ActionDriver.java:220)
+	at com.carecoordination.healthcare.pages.modules.AppDashBoard.HeaderPage.isManagePhysicianDisplayed(HeaderPage.java:117)
+	at com.carecoordination.healthcare.testpages.HeaderAssertion.VerifyManagePhysicianDisplayedAsPerPermission(HeaderAssertion.java:211)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //a[contains(@href,'manage-physician')] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.17'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.110, chrome: {chromedriverVersion: 145.0.7632.117 (de4e5d6e13b..., userDataDir: C:\Users\DREAMW~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51556}, goog:processID: 24572, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51556/devtoo..., se:cdpVersion: 145.0.7632.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: ae161936c8e1676c48475f5e9e52e576
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at com.carecoordination.healthcare.actiondriver.ActionDriver.waitForElementToVisible(ActionDriver.java:67)
+	... 30 more
+2026-02-25 14:07:22.463 [main] INFO  HeaderPage -  - Manage physician page status for logged in user false
+2026-02-25 14:07:22.464 [main] DEBUG BaseTest -  - @AfterMethod optional cleanup for thread: main
+2026-02-25 14:07:22.464 [main] INFO  BaseTest -  - Attempting logout after test
+2026-02-25 14:07:22.464 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-02-25 14:07:22.496 [main] INFO  ActionDriver -  - Clicking element: By.id: headerUserName
+2026-02-25 14:07:22.496 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-02-25 14:07:22.635 [main] INFO  AppDashboardPage -  - Clicked on User Profile ....
+2026-02-25 14:07:22.635 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-02-25 14:07:22.669 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-02-25 14:07:22.669 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-02-25 14:07:22.802 [main] INFO  AppDashboardPage -  - Clicked on logout from User Profile modal.....
+2026-02-25 14:07:22.802 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='actionYes']
+2026-02-25 14:07:23.362 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='actionYes']
+2026-02-25 14:07:23.362 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='actionYes']
+2026-02-25 14:07:25.434 [main] INFO  AppDashboardPage -  - The user click on confirm to logout.... 
+2026-02-25 14:07:25.435 [main] INFO  BaseTest -  - Logout performed
+2026-02-25 14:07:25.435 [main] INFO  DriverFactory -  - Quitting WebDriver for thread: main
+2026-02-25 14:07:25.848 [main] DEBUG DriverFactory -  - WebDriver removed from ThreadLocal for thread: main
+2026-02-25 14:07:25.848 [main] INFO  BaseTest -  - WebDriver quit and ThreadLocal cleared
+2026-02-25 14:07:25.850 [main] INFO  BaseTest -  - ===== Starting Test Setup on thread: main =====
+2026-02-25 14:07:25.850 [main] INFO  BaseTest -  - No TestNG browser parameter provided. Falling back to config: chrome
+2026-02-25 14:07:25.850 [main] INFO  DriverFactory -  - Initiating driver on for browser chrome on threadmain
+2026-02-25 14:07:26.683 [main] INFO  DriverManager -  - Chrome Driver Instance Is Created
+2026-02-25 14:07:26.683 [main] DEBUG DriverManager -  - Driver instance created successfully: ChromeDriver: chrome on windows (afbd36d74af8b542778a4e8f505bff98)
+2026-02-25 14:07:26.683 [main] DEBUG DriverFactory -  - WebDriver instance set in ThreadLocal for thread: main
+2026-02-25 14:07:26.683 [main] DEBUG BaseTest -  - WebDriver initialized successfully
+2026-02-25 14:07:26.683 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=20 seconds
+2026-02-25 14:07:26.683 [main] DEBUG BaseTest -  - ActionDriver initialized
+2026-02-25 14:07:26.683 [main] INFO  BaseTest -  - Configuring Browser Settings...
+2026-02-25 14:07:26.683 [main] DEBUG BaseTest -  - Setting implicit wait to 2 seconds
+2026-02-25 14:07:26.686 [main] INFO  BaseTest -  - Maximizing browser window
+2026-02-25 14:07:30.864 [main] INFO  BaseTest -  - Navigating to URL: https://uat.carecoordinations.com/
+2026-02-25 14:07:30.865 [main] INFO  BaseTest -  - === @BeforeMethod completed ===
+2026-02-25 14:07:30.866 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-02-25 14:07:30.904 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-02-25 14:07:30.904 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-02-25 14:07:33.765 [main] INFO  LandingPage -  - Click on log in page from landing page
+2026-02-25 14:07:33.765 [main] INFO  LoginPage -  - Adding Username and Password ellen.triage@yopmail.com Admin@111
+2026-02-25 14:07:33.766 [main] INFO  ActionDriver -  - Entering text into By.id: email
+2026-02-25 14:07:33.766 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: email
+2026-02-25 14:07:34.049 [main] INFO  ActionDriver -  - Entering text into By.id: password
+2026-02-25 14:07:34.049 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: password
+2026-02-25 14:07:34.199 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-02-25 14:07:34.199 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-02-25 14:07:34.305 [main] INFO  LoginPage -  - Clicking  on login button ......
+2026-02-25 14:07:34.306 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: ccMoreMenuDrp
+2026-02-25 14:07:40.442 [main] INFO  ActionDriver -  - Clicking element: By.id: ccMoreMenuDrp
+2026-02-25 14:07:40.442 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: ccMoreMenuDrp
+2026-02-25 14:07:42.609 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //a[contains(@href,'manage-physician')]
+2026-02-25 14:07:42.610 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //a[contains(@href,'manage-physician')]
+2026-02-25 14:08:04.931 [main] ERROR ActionDriver -  - Locator not visible: By.xpath: //a[contains(@href,'manage-physician')]
+2026-02-25 14:08:04.932 [main] WARN  ActionDriver -  - Unexpected error while checking visibility for: By.xpath: //a[contains(@href,'manage-physician')]
+java.lang.RuntimeException: Element is not visibleBy.xpath: //a[contains(@href,'manage-physician')]
+	at com.carecoordination.healthcare.actiondriver.ActionDriver.waitForElementToVisible(ActionDriver.java:70)
+	at com.carecoordination.healthcare.actiondriver.ActionDriver.isDisplayed(ActionDriver.java:220)
+	at com.carecoordination.healthcare.pages.modules.AppDashBoard.HeaderPage.isManagePhysicianDisplayed(HeaderPage.java:117)
+	at com.carecoordination.healthcare.testpages.HeaderAssertion.VerifyManagePhysicianDisplayedAsPerPermission(HeaderAssertion.java:211)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //a[contains(@href,'manage-physician')] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.17'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.110, chrome: {chromedriverVersion: 145.0.7632.117 (de4e5d6e13b..., userDataDir: C:\Users\DREAMW~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51664}, goog:processID: 22032, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51664/devtoo..., se:cdpVersion: 145.0.7632.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: afbd36d74af8b542778a4e8f505bff98
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at com.carecoordination.healthcare.actiondriver.ActionDriver.waitForElementToVisible(ActionDriver.java:67)
+	... 30 more
+2026-02-25 14:08:04.932 [main] INFO  HeaderPage -  - Manage physician page status for logged in user false
+2026-02-25 14:08:04.934 [main] DEBUG BaseTest -  - @AfterMethod optional cleanup for thread: main
+2026-02-25 14:08:04.934 [main] INFO  BaseTest -  - Attempting logout after test
+2026-02-25 14:08:04.934 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-02-25 14:08:04.988 [main] INFO  ActionDriver -  - Clicking element: By.id: headerUserName
+2026-02-25 14:08:04.988 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-02-25 14:08:05.113 [main] INFO  AppDashboardPage -  - Clicked on User Profile ....
+2026-02-25 14:08:05.114 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-02-25 14:08:05.160 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-02-25 14:08:05.160 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-02-25 14:08:05.291 [main] INFO  AppDashboardPage -  - Clicked on logout from User Profile modal.....
+2026-02-25 14:08:05.291 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='actionYes']
+2026-02-25 14:08:05.855 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='actionYes']
+2026-02-25 14:08:05.855 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='actionYes']
+2026-02-25 14:08:07.962 [main] INFO  AppDashboardPage -  - The user click on confirm to logout.... 
+2026-02-25 14:08:07.962 [main] INFO  BaseTest -  - Logout performed
+2026-02-25 14:08:07.962 [main] INFO  DriverFactory -  - Quitting WebDriver for thread: main
+2026-02-25 14:08:08.380 [main] DEBUG DriverFactory -  - WebDriver removed from ThreadLocal for thread: main
+2026-02-25 14:08:08.381 [main] INFO  BaseTest -  - WebDriver quit and ThreadLocal cleared
+2026-02-25 14:08:08.389 [main] INFO  BaseTest -  - ===== Starting Test Setup on thread: main =====
+2026-02-25 14:08:08.389 [main] INFO  BaseTest -  - No TestNG browser parameter provided. Falling back to config: chrome
+2026-02-25 14:08:08.391 [main] INFO  DriverFactory -  - Initiating driver on for browser chrome on threadmain
+2026-02-25 14:08:09.380 [main] INFO  DriverManager -  - Chrome Driver Instance Is Created
+2026-02-25 14:08:09.380 [main] DEBUG DriverManager -  - Driver instance created successfully: ChromeDriver: chrome on windows (c248f8c63ad517e29b4e6a2a8f04e84e)
+2026-02-25 14:08:09.380 [main] DEBUG DriverFactory -  - WebDriver instance set in ThreadLocal for thread: main
+2026-02-25 14:08:09.380 [main] DEBUG BaseTest -  - WebDriver initialized successfully
+2026-02-25 14:08:09.380 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=20 seconds
+2026-02-25 14:08:09.381 [main] DEBUG BaseTest -  - ActionDriver initialized
+2026-02-25 14:08:09.381 [main] INFO  BaseTest -  - Configuring Browser Settings...
+2026-02-25 14:08:09.381 [main] DEBUG BaseTest -  - Setting implicit wait to 2 seconds
+2026-02-25 14:08:09.385 [main] INFO  BaseTest -  - Maximizing browser window
+2026-02-25 14:08:13.460 [main] INFO  BaseTest -  - Navigating to URL: https://uat.carecoordinations.com/
+2026-02-25 14:08:13.460 [main] INFO  BaseTest -  - === @BeforeMethod completed ===
+2026-02-25 14:08:13.466 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-02-25 14:08:13.530 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-02-25 14:08:13.530 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-02-25 14:08:16.264 [main] INFO  LandingPage -  - Click on log in page from landing page
+2026-02-25 14:08:16.264 [main] INFO  LoginPage -  - Adding Username and Password Jhony.vendor@yopmail.com Nexi@1234
+2026-02-25 14:08:16.264 [main] INFO  ActionDriver -  - Entering text into By.id: email
+2026-02-25 14:08:16.264 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: email
+2026-02-25 14:08:16.566 [main] INFO  ActionDriver -  - Entering text into By.id: password
+2026-02-25 14:08:16.567 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: password
+2026-02-25 14:08:16.710 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-02-25 14:08:16.710 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-02-25 14:08:16.818 [main] INFO  LoginPage -  - Clicking  on login button ......
+2026-02-25 14:08:16.818 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: ccMoreMenuDrp
+2026-02-25 14:08:23.642 [main] INFO  ActionDriver -  - Clicking element: By.id: ccMoreMenuDrp
+2026-02-25 14:08:23.642 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: ccMoreMenuDrp
+2026-02-25 14:08:25.827 [main] DEBUG ActionDriver -  - Checking visibility for: By.xpath: //a[contains(@href,'manage-physician')]
+2026-02-25 14:08:25.828 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //a[contains(@href,'manage-physician')]
+2026-02-25 14:08:48.222 [main] ERROR ActionDriver -  - Locator not visible: By.xpath: //a[contains(@href,'manage-physician')]
+2026-02-25 14:08:48.222 [main] WARN  ActionDriver -  - Unexpected error while checking visibility for: By.xpath: //a[contains(@href,'manage-physician')]
+java.lang.RuntimeException: Element is not visibleBy.xpath: //a[contains(@href,'manage-physician')]
+	at com.carecoordination.healthcare.actiondriver.ActionDriver.waitForElementToVisible(ActionDriver.java:70)
+	at com.carecoordination.healthcare.actiondriver.ActionDriver.isDisplayed(ActionDriver.java:220)
+	at com.carecoordination.healthcare.pages.modules.AppDashBoard.HeaderPage.isManagePhysicianDisplayed(HeaderPage.java:117)
+	at com.carecoordination.healthcare.testpages.HeaderAssertion.VerifyManagePhysicianDisplayedAsPerPermission(HeaderAssertion.java:211)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //a[contains(@href,'manage-physician')] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.17'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.110, chrome: {chromedriverVersion: 145.0.7632.117 (de4e5d6e13b..., userDataDir: C:\Users\DREAMW~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51775}, goog:processID: 35940, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51775/devtoo..., se:cdpVersion: 145.0.7632.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: c248f8c63ad517e29b4e6a2a8f04e84e
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at com.carecoordination.healthcare.actiondriver.ActionDriver.waitForElementToVisible(ActionDriver.java:67)
+	... 30 more
+2026-02-25 14:08:48.223 [main] INFO  HeaderPage -  - Manage physician page status for logged in user false
+2026-02-25 14:08:48.224 [main] DEBUG BaseTest -  - @AfterMethod optional cleanup for thread: main
+2026-02-25 14:08:48.224 [main] INFO  BaseTest -  - Attempting logout after test
+2026-02-25 14:08:48.224 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-02-25 14:08:48.255 [main] INFO  ActionDriver -  - Clicking element: By.id: headerUserName
+2026-02-25 14:08:48.255 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-02-25 14:08:48.391 [main] INFO  AppDashboardPage -  - Clicked on User Profile ....
+2026-02-25 14:08:48.391 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-02-25 14:08:48.444 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-02-25 14:08:48.444 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-02-25 14:08:48.559 [main] INFO  AppDashboardPage -  - Clicked on logout from User Profile modal.....
+2026-02-25 14:08:48.560 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='actionYes']
+2026-02-25 14:08:49.138 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='actionYes']
+2026-02-25 14:08:49.138 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='actionYes']
+2026-02-25 14:08:51.125 [main] INFO  AppDashboardPage -  - The user click on confirm to logout.... 
+2026-02-25 14:08:51.125 [main] INFO  BaseTest -  - Logout performed
+2026-02-25 14:08:51.125 [main] INFO  DriverFactory -  - Quitting WebDriver for thread: main
+2026-02-25 14:08:51.540 [main] DEBUG DriverFactory -  - WebDriver removed from ThreadLocal for thread: main
+2026-02-25 14:08:51.540 [main] INFO  BaseTest -  - WebDriver quit and ThreadLocal cleared
