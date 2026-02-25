@@ -8,11 +8,13 @@ import com.carecoordination.healthcare.helpers.AuthHelper;
 import com.carecoordination.healthcare.pages.landingPages.LandingPage;
 import com.carecoordination.healthcare.pages.landingPages.LoginPage;
 import com.carecoordination.healthcare.pages.modules.AppDashBoard.HeaderPage;
+import model.TestUser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import repository.UserRepository;
 import utilities.TestDataProvider;
 
 public class HeaderAssertion extends BaseTest {
@@ -229,6 +231,15 @@ public class HeaderAssertion extends BaseTest {
                 "Manage Pharmacies not displayed for user roles"+ userContext);
     }
 
+    @Test
+    public void testLoadUser() {
+
+        TestUser user =
+                UserRepository.getUser("sysadmin_multi_integrated");
+
+        System.out.println(user.getEmail());
+        System.out.println(user.getRole());
+    }
 
     /*  Manage Task and tags Header menu remaining
      *  permission and Page objects are define in repsective class

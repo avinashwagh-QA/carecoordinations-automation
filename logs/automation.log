@@ -1476,3 +1476,51 @@ Session ID: c248f8c63ad517e29b4e6a2a8f04e84e
 2026-02-25 14:08:51.125 [main] INFO  DriverFactory -  - Quitting WebDriver for thread: main
 2026-02-25 14:08:51.540 [main] DEBUG DriverFactory -  - WebDriver removed from ThreadLocal for thread: main
 2026-02-25 14:08:51.540 [main] INFO  BaseTest -  - WebDriver quit and ThreadLocal cleared
+2026-02-25 18:20:38.616 [main] INFO  Utils -  - [TestNG] Running:
+  C:\Users\DREAMWORLD\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+2026-02-25 18:20:38.696 [main] INFO  BaseTest -  - ===== Starting Test Setup on thread: main =====
+2026-02-25 18:20:38.698 [main] INFO  BaseTest -  - No TestNG browser parameter provided. Falling back to config: chrome
+2026-02-25 18:20:38.703 [main] INFO  DriverFactory -  - Initiating driver on for browser chrome on threadmain
+2026-02-25 18:20:41.239 [main] INFO  DriverManager -  - Chrome Driver Instance Is Created
+2026-02-25 18:20:41.239 [main] DEBUG DriverManager -  - Driver instance created successfully: ChromeDriver: chrome on windows (d0cf94c82d438cc0077602b924690f9d)
+2026-02-25 18:20:41.240 [main] DEBUG DriverFactory -  - WebDriver instance set in ThreadLocal for thread: main
+2026-02-25 18:20:41.240 [main] DEBUG BaseTest -  - WebDriver initialized successfully
+2026-02-25 18:20:41.244 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=20 seconds
+2026-02-25 18:20:41.244 [main] DEBUG BaseTest -  - ActionDriver initialized
+2026-02-25 18:20:41.244 [main] INFO  BaseTest -  - Configuring Browser Settings...
+2026-02-25 18:20:41.244 [main] DEBUG BaseTest -  - Setting implicit wait to 2 seconds
+2026-02-25 18:20:41.251 [main] INFO  BaseTest -  - Maximizing browser window
+2026-02-25 18:20:45.074 [main] INFO  BaseTest -  - Navigating to URL: https://uat.carecoordinations.com/
+2026-02-25 18:20:45.075 [main] INFO  BaseTest -  - Logging in with user role: SYSTEM_ADMIN | Multi-branch org: true
+2026-02-25 18:20:45.082 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-02-25 18:20:45.233 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-02-25 18:20:45.233 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-02-25 18:20:48.023 [main] INFO  LandingPage -  - Click on log in page from landing page
+2026-02-25 18:20:48.026 [main] INFO  LoginPage -  - Adding Username and Password max.admin@yopmail.com Admin@111
+2026-02-25 18:20:48.026 [main] INFO  ActionDriver -  - Entering text into By.id: email
+2026-02-25 18:20:48.026 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: email
+2026-02-25 18:20:48.231 [main] INFO  ActionDriver -  - Entering text into By.id: password
+2026-02-25 18:20:48.231 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: password
+2026-02-25 18:20:48.427 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-02-25 18:20:48.427 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-02-25 18:20:48.639 [main] INFO  LoginPage -  - Clicking  on login button ......
+2026-02-25 18:20:48.639 [main] INFO  BaseTest -  - === @BeforeMethod completed ===
+2026-02-25 18:20:48.958 [main] DEBUG BaseTest -  - @AfterMethod optional cleanup for thread: main
+2026-02-25 18:20:48.960 [main] INFO  BaseTest -  - Attempting logout after test
+2026-02-25 18:20:48.960 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-02-25 18:20:56.976 [main] INFO  ActionDriver -  - Clicking element: By.id: headerUserName
+2026-02-25 18:20:56.976 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-02-25 18:20:57.274 [main] INFO  AppDashboardPage -  - Clicked on User Profile ....
+2026-02-25 18:20:57.274 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-02-25 18:20:57.631 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-02-25 18:20:57.631 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-02-25 18:20:57.824 [main] INFO  AppDashboardPage -  - Clicked on logout from User Profile modal.....
+2026-02-25 18:20:57.824 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='actionYes']
+2026-02-25 18:20:58.488 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='actionYes']
+2026-02-25 18:20:58.488 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='actionYes']
+2026-02-25 18:21:01.025 [main] INFO  AppDashboardPage -  - The user click on confirm to logout.... 
+2026-02-25 18:21:01.031 [main] INFO  BaseTest -  - Logout performed
+2026-02-25 18:21:01.031 [main] INFO  DriverFactory -  - Quitting WebDriver for thread: main
+2026-02-25 18:21:01.480 [main] DEBUG DriverFactory -  - WebDriver removed from ThreadLocal for thread: main
+2026-02-25 18:21:01.480 [main] INFO  BaseTest -  - WebDriver quit and ThreadLocal cleared

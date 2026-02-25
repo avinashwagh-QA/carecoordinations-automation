@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "key": "sysadmin_multi_integrated",
+      "email": "sysadmin_multi@test.com",
+      "password": "Password123",
+      "role": "SYSTEM_ADMIN",
+      "companyType": "INTEGRATED",
+      "orgStructure": "MULTI_BRANCH",
+      "branches": ["A", "B", "C"]
+    },
+    {
+      "key": "branchadmin_single_integrated",
+      "email": "branchadmin_single@test.com",
+      "password": "Password123",
+      "role": "BRANCH_ADMIN",
+      "companyType": "INTEGRATED",
+      "orgStructure": "SINGLE_BRANCH",
+      "branches": ["A"]
+    }
+  ]
+}
