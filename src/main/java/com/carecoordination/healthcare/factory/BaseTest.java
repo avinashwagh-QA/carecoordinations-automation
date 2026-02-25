@@ -7,6 +7,7 @@ import com.carecoordination.healthcare.context.UserContext;
 import com.carecoordination.healthcare.helpers.AuthHelper;
 import com.carecoordination.healthcare.pages.landingPages.LandingPage;
 import com.carecoordination.healthcare.pages.landingPages.LoginPage;
+import com.carecoordination.healthcare.pages.modules.AppDashBoard.AppDashboardPage;
 import com.carecoordination.healthcare.utilities.ConfigReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -23,11 +24,12 @@ public class BaseTest {
     protected ActionDriver actionDriver;
     protected LandingPage landingPage;
     protected LoginPage loginPage;
+    protected AppDashboardPage appDashboardPage;
     private static final String GROUP_SKIP_LOGIN = "skip-login";
 
 
     // per-thread flag — true if THIS TEST logged in
-    private static final ThreadLocal<Boolean> isLoggedIn = ThreadLocal.withInitial(() -> false);
+    protected static final ThreadLocal<Boolean> isLoggedIn = ThreadLocal.withInitial(() -> false);
 
     @Parameters("browser")
     @BeforeMethod(alwaysRun = true)
@@ -93,10 +95,9 @@ public class BaseTest {
             // 3. Perform login
             AuthHelper.login(userContext, landingPage, loginPage);
 
-            isLoggedIn.set(true);
+            isLoggedIn.set(true); // LOGIN HAPPENED
         } else {
-            isLoggedIn.set(false);
-            logger.info("Skip for logged for method {}", method.getName());
+            isLoggedIn.set(false);  // Default, Test may login manually
         }
         logger.info("=== @BeforeMethod completed ===");
     }
@@ -138,8 +139,6 @@ public class BaseTest {
     }
 
 
-
-
     @AfterMethod(alwaysRun = true)
     public void tearDown() {
         //Optional: per-test cleanup can go here (e.g., clear cookies, navigate back to dashboard)
@@ -148,9 +147,9 @@ public class BaseTest {
         try {
             if (Boolean.TRUE.equals(isLoggedIn.get())) {
                 try {
-                    landingPage = new LandingPage(actionDriver);
+                    appDashboardPage = new AppDashboardPage(actionDriver);
                     logger.info("Attempting logout after test");
-                   // homePage.setLnkLogout();
+                    appDashboardPage.clickOnLogOut();
                     logger.info("Logout performed");
                 } catch (Exception e) {
                     logger.warn("Logout during @AfterMethod failed", e);

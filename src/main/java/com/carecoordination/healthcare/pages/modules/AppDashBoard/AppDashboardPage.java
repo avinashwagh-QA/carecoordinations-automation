@@ -25,8 +25,6 @@ public class AppDashboardPage {
     private final By confirmNo = By.xpath("//button[@id='actionNo']");
 
 
-
-
     //Username displayed in top header
     public boolean isUserNamePresent(){
         actionDriver.waitForElementToBeClickable(headerUserName);

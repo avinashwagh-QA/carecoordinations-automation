@@ -31,7 +31,6 @@ public class HeaderAssertion extends BaseTest {
 
     }
 
-
     @Test(description = "Verify Manager Team displayed for logged in user")
     public void verifyManageTeamMenu(){
         UserContext userContext = getUserContext();
@@ -39,10 +38,8 @@ public class HeaderAssertion extends BaseTest {
         boolean actualVisibility = headerPage.isManageTeamDisplayed();
         boolean expectedVisibility = userContext.canInviteUser();
 
-
         Assert.assertEquals(actualVisibility,expectedVisibility,
                 "Header Mange team option not displayed for user role "+ userContext.getRole());
-
 
     }
 
@@ -55,6 +52,7 @@ public class HeaderAssertion extends BaseTest {
                 new OrganizationContext(isMultiBranch));
 
         AuthHelper.loginAs(role, landingPage, loginPage);
+        isLoggedIn.set(true); //for logout - login happened inside test method
 
         boolean actualVisibility = headerPage.isManageTeamDisplayed();
         boolean expectedVisibility = userContext.canAccessManageTeam();
@@ -62,15 +60,182 @@ public class HeaderAssertion extends BaseTest {
         Assert.assertEquals(actualVisibility,expectedVisibility,
                 "Header Mange team option not displayed for user role "+ userContext.getRole());
 
+    }
+
+    @Test(description = "Verify Channel History menu is displayed for privilege users"
+            , groups = "skip-login", dataProvider = "roleMatrix", dataProviderClass = TestDataProvider.class)
+    public void verifyChannelHistoryDisplayedForPrivilegedUsers(UserRole role, boolean isMultiBranch) {
+
+        UserContext userContext = new UserContext(role, new OrganizationContext(isMultiBranch));
+
+        AuthHelper.loginAs(role, landingPage, loginPage);
+        isLoggedIn.set(true);//for logout - login happened inside test method
+
+        boolean actualVisibility = headerPage.isChannelHistoryDisplayed();
+        boolean expectedVisibility = userContext.isPrivileged();
+
+        Assert.assertEquals(actualVisibility, expectedVisibility,
+                "Header Channel History option not displayed for user role " + userContext.getRole());
 
     }
 
+    @Test(description = "verify channel usage displayed for system admin and branch admin only",
+            groups = "skip-login", dataProvider = "roleMatrix", dataProviderClass = TestDataProvider.class)
+    public void verifyChannelUsageMenuDisplayPermission(UserRole role, boolean isMultibranch) {
+
+        UserContext userContext = new UserContext(role, new OrganizationContext(isMultibranch));
+
+        AuthHelper.loginAs(role, landingPage, loginPage);
+        isLoggedIn.set(true);//for logout - login happened inside test method
+
+        boolean actualVisibility = headerPage.isChannelUsageDisplayed();
+        boolean expectedVisibility = userContext.canAccessChannelUsage();
+
+        Assert.assertEquals(actualVisibility, expectedVisibility,
+                "Header Channel usage option not displayed for user role " + userContext.getRole());
+
+    }
+
+    @Test(description = "verify Alerts option displayed for all users",
+            groups = "skip-login", dataProvider = "roleMatrix", dataProviderClass = TestDataProvider.class)
+    public void verifyAlertsDisplayedForAllUserRole(UserRole role, boolean isMultibranch){
+
+        UserContext userContext = new UserContext(role, new OrganizationContext(isMultibranch));
+
+        AuthHelper.loginAs(role, landingPage, loginPage);
+        isLoggedIn.set(true);//for logout - login happened inside test method
+
+        boolean actualVisibility = headerPage.isAlertDisplayed();
+        boolean expectedVisibility = userContext.canAccessAlerts();
+
+        Assert.assertEquals(actualVisibility, expectedVisibility,
+                "Alert option not displayed for user role " + userContext.getRole());
+
+    }
+
+    @Test(description = "verify availability option displayed for all users",
+            groups = "skip-login", dataProvider = "roleMatrix", dataProviderClass = TestDataProvider.class)
+    public void verifyAvailabilityDisplayedForAllUserRole(UserRole role, boolean isMultibranch){
+
+        UserContext userContext = new UserContext(role, new OrganizationContext(isMultibranch));
+
+        AuthHelper.loginAs(role, landingPage, loginPage);
+        isLoggedIn.set(true);//for logout - login happened inside test method
+
+        boolean actualVisibility = headerPage.availabilityDisplayed();
+        boolean expectedVisibility = userContext.canAccessAvailability();
+
+        Assert.assertEquals(actualVisibility, expectedVisibility,
+                "Availability option not displayed for user role " + userContext.getRole());
+
+    }
+
+    @Test(description = "Verify Company info is displayed for system admin",
+    groups = "skip-login", dataProvider = "roleMatrix", dataProviderClass = TestDataProvider.class)
+    public void VerifyCompanyInfoDisplayedAsPerPermission(UserRole role, boolean isMultiBranch){
+
+        UserContext userContext = new UserContext(role, new OrganizationContext(isMultiBranch));
+
+        AuthHelper.loginAs(role, landingPage,loginPage);
+        isLoggedIn.set(true); // for logout - login happened inside test method
+
+        boolean actualVisibility = headerPage.isCompanyInfoDisplayed();
+        boolean expectedVisibility = userContext.canAccessCompanyInfo();
+
+        Assert.assertEquals(actualVisibility, expectedVisibility,
+                "Company info not displayed for user roles"+ userContext);
+    }
+
+    @Test(description = "Verify branch info is displayed as permission wise",
+            groups = "skip-login", dataProvider = "roleMatrix", dataProviderClass = TestDataProvider.class)
+    public void VerifyBranchInfoDisplayedAsPerPermission(UserRole role, boolean isMultiBranch){
+
+        UserContext userContext = new UserContext(role, new OrganizationContext(isMultiBranch));
+
+        AuthHelper.loginAs(role, landingPage,loginPage);
+        isLoggedIn.set(true); // for logout - login happened inside test method
+
+        boolean actualVisibility = headerPage.isBranchInfoDisplayed();
+        boolean expectedVisibility = userContext.canAccessBranchInfo();
+
+        Assert.assertEquals(actualVisibility, expectedVisibility,
+                "Branch info not displayed for user roles"+ userContext);
+    }
+
+    @Test(description = "Verify Inactive channel is displayed as permission wise",
+            groups = "skip-login", dataProvider = "roleMatrix", dataProviderClass = TestDataProvider.class)
+    public void VerifyInactiveChannelDisplayedAsPerPermission(UserRole role, boolean isMultiBranch){
+
+        UserContext userContext = new UserContext(role, new OrganizationContext(isMultiBranch));
+
+        AuthHelper.loginAs(role, landingPage,loginPage);
+        isLoggedIn.set(true); // for logout - login happened inside test method
+
+        boolean actualVisibility = headerPage.isInactiveChannelDisplayed();
+        boolean expectedVisibility = userContext.canAccessInactiveChannel();
+
+        Assert.assertEquals(actualVisibility, expectedVisibility,
+                "Inactive Channel page not displayed for user roles"+ userContext);
+    }
 
 
+    @Test(description = "Verify Manage milestone is displayed as permission wise",
+            groups = "skip-login", dataProvider = "roleMatrix", dataProviderClass = TestDataProvider.class)
+    public void VerifyManageMilestoneDisplayedAsPerPermission(UserRole role, boolean isMultiBranch){
+
+        UserContext userContext = new UserContext(role, new OrganizationContext(isMultiBranch));
+
+        AuthHelper.loginAs(role, landingPage,loginPage);
+        isLoggedIn.set(true); // for logout - login happened inside test method
+
+        boolean actualVisibility = headerPage.isManageMilestoneDisplayed();
+        boolean expectedVisibility = userContext.canAccessManageMilestone();
+
+        Assert.assertEquals(actualVisibility, expectedVisibility,
+                "Manage milestone page not displayed for user roles"+ userContext);
+    }
 
 
+    @Test(description = "Verify Manage physician is displayed as permission wise",
+            groups = "skip-login", dataProvider = "roleMatrix", dataProviderClass = TestDataProvider.class)
+    public void VerifyManagePhysicianDisplayedAsPerPermission(UserRole role, boolean isMultiBranch){
+
+        UserContext userContext = new UserContext(role, new OrganizationContext(isMultiBranch));
+
+        AuthHelper.loginAs(role, landingPage,loginPage);
+        isLoggedIn.set(true); // for logout - login happened inside test method
+
+        boolean actualVisibility = headerPage.isManagePhysicianDisplayed();
+        boolean expectedVisibility = userContext.canAccessManagePhysician();
+
+        Assert.assertEquals(actualVisibility, expectedVisibility,
+                "Manage Physician not displayed for user roles"+ userContext);
+    }
 
 
+    @Test(description = "Verify Manage Pharmacies is displayed as permission wise",
+            groups = "skip-login", dataProvider = "roleMatrix", dataProviderClass = TestDataProvider.class)
+    public void VerifyManagePharmaciesDisplayedAsPerPermission(UserRole role, boolean isMultiBranch){
+
+        UserContext userContext = new UserContext(role, new OrganizationContext(isMultiBranch));
+
+        AuthHelper.loginAs(role, landingPage,loginPage);
+        isLoggedIn.set(true); // for logout - login happened inside test method
+
+        boolean actualVisibility = headerPage.isManagePharmaciesDisplayed();
+        boolean expectedVisibility = userContext.canAccessManagePharmacies();
+
+        Assert.assertEquals(actualVisibility, expectedVisibility,
+                "Manage Pharmacies not displayed for user roles"+ userContext);
+    }
+
+
+    /*  Manage Task and tags Header menu remaining
+     *  permission and Page objects are define in repsective class
+     *  Permission may require to update in future as per need
+     *  Assertion in all method just check menu visibility , we have not
+     *  verified by opening page
+     * */
 
 
 }

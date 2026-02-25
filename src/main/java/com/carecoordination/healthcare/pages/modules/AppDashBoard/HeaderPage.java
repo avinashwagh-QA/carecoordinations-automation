@@ -17,7 +17,23 @@ public class HeaderPage {
 
     //Header Menus - locators
     private final By manageTeam = By.xpath("//a[contains(@href,'manage-team')]");
+    private final By channelHistory = By.xpath("//a[contains(@href,'channel-history')]");
+    private final By channelUsage = By.xpath("//a[contains(@href,'channel-usages')]");
+    private final By alerts = By.id("dropdownMenuAlertNotifications");
+    private final By availability = By.xpath("//a[contains(@href,'work-availability')]");
 
+    // More Menu
+    private final By moreMenu = By.id("ccMoreMenuDrp");
+    private final By companyInfo = By.xpath("//a[contains(@href,'company-info')]");
+    private final By branchInfo = By.xpath("//a[contains(@href,'branch-info')]");
+    private final By inactiveChannels = By.xpath("//a[contains(@href,'inactive-channels')]");
+    private final By manageMilestone = By.xpath("//a[contains(@href,'manage-milestone')]");
+    private final By managePharmacies = By.xpath("//a[contains(@href,'manage-pharmacies')]");
+    private final By managePhysician = By.xpath("//a[contains(@href,'manage-physician')]");
+    private final By manageTags = By.xpath("//a[contains(@href,'manage-tags')]");
+    private final By manageTask = By.xpath("//a[contains(@href,'/manage-task-template')]");
+
+    //Method for is header menus(Name of the menu) is displayed
     public boolean isManageTeamDisplayed() {
         actionDriver.isElementPresentAndDisplayed(manageTeam);
         boolean team = actionDriver.isDisplayed(manageTeam);
@@ -25,11 +41,113 @@ public class HeaderPage {
         return team;
     }
 
+    public boolean isChannelHistoryDisplayed() {
+        actionDriver.isElementPresentAndDisplayed(channelHistory);
+        boolean history = actionDriver.isDisplayed(channelHistory);
+        logger.info("Channel History team status for logged in user {}", history);
+        return history;
+    }
 
+    public boolean isChannelUsageDisplayed(){
+        actionDriver.isElementPresentAndDisplayed(channelUsage);
+        boolean usage = actionDriver.isDisplayed(channelUsage);
+        logger.info("Channel Usage team status for logged in user {}", usage);
+        return usage;
+    }
 
+    public boolean availabilityDisplayed(){
+        actionDriver.isElementPresentAndDisplayed(availability);
+        boolean availabilityMenu = actionDriver.isDisplayed(availability);
+        logger.info("Work availability Menu option status for logged in user {}", availabilityMenu);
+        return availabilityMenu;
+    }
 
+    public boolean isAlertDisplayed(){
+        actionDriver.isElementPresentAndDisplayed(alerts);
+        boolean alert = actionDriver.isDisplayed(alerts);
+        logger.info("Alert Menu option status for logged in user {}", alert);
+        return alert;
+    }
 
+    public boolean isCompanyInfoDisplayed(){
+        actionDriver.waitForElementToBeClickable(moreMenu);
+        actionDriver.click(moreMenu);
 
+        actionDriver.isElementPresentAndDisplayed(companyInfo);
+        boolean companyInfoPage = actionDriver.isDisplayed(companyInfo);
+        logger.info("Company info status for logged in user {}", companyInfoPage);
+        return  companyInfoPage;
+    }
+
+    public boolean isBranchInfoDisplayed(){
+        actionDriver.waitForElementToBeClickable(moreMenu);
+        actionDriver.click(moreMenu);
+
+        actionDriver.isElementPresentAndDisplayed(branchInfo);
+        boolean branchInfoPage = actionDriver.isDisplayed(branchInfo);
+        logger.info("Branch info status for logged in user {}", branchInfoPage);
+        return  branchInfoPage;
+    }
+
+    public boolean isManageMilestoneDisplayed(){
+        actionDriver.waitForElementToBeClickable(moreMenu);
+        actionDriver.click(moreMenu);
+
+        actionDriver.isElementPresentAndDisplayed(manageMilestone);
+        boolean milestonePage = actionDriver.isDisplayed(manageMilestone);
+        logger.info("Milestone page status for logged in user {}", milestonePage);
+        return  milestonePage;
+    }
+
+    public boolean isInactiveChannelDisplayed(){
+        actionDriver.waitForElementToBeClickable(moreMenu);
+        actionDriver.click(moreMenu);
+
+        actionDriver.isElementPresentAndDisplayed(inactiveChannels);
+        boolean inactiveChannelPage = actionDriver.isDisplayed(inactiveChannels);
+        logger.info("Inactive channel page status for logged in user {}", inactiveChannelPage);
+        return  inactiveChannelPage;
+    }
+
+    public boolean isManagePhysicianDisplayed(){
+        actionDriver.waitForElementToBeClickable(moreMenu);
+        actionDriver.click(moreMenu);
+
+        actionDriver.isElementPresentAndDisplayed(managePhysician);
+        boolean physicianPage = actionDriver.isDisplayed(managePhysician);
+        logger.info("Manage physician page status for logged in user {}", physicianPage);
+        return  physicianPage;
+    }
+
+    public boolean isManagePharmaciesDisplayed(){
+        actionDriver.waitForElementToBeClickable(moreMenu);
+        actionDriver.click(moreMenu);
+
+        actionDriver.isElementPresentAndDisplayed(managePharmacies);
+        boolean pharmaciesPage = actionDriver.isDisplayed(managePharmacies);
+        logger.info("Manage pharmacies page status for logged in user {}", pharmaciesPage);
+        return  pharmaciesPage;
+    }
+
+    public boolean isManageTaskDisplayed(){
+        actionDriver.waitForElementToBeClickable(moreMenu);
+        actionDriver.click(moreMenu);
+
+        actionDriver.isElementPresentAndDisplayed(manageTask);
+        boolean TaskPage = actionDriver.isDisplayed(manageTask);
+        logger.info("Manage task page status for logged in user {}", TaskPage);
+        return  TaskPage;
+    }
+
+    public boolean isManageTagsDisplayed(){
+        actionDriver.waitForElementToBeClickable(moreMenu);
+        actionDriver.click(moreMenu);
+
+        actionDriver.isElementPresentAndDisplayed(manageTags);
+        boolean TagsPage = actionDriver.isDisplayed(manageTags);
+        logger.info("Manage tags page status for logged in user {}", TagsPage);
+        return  TagsPage;
+    }
 
 
 

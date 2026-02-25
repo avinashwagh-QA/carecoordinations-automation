@@ -82,7 +82,7 @@ public class ActionDriver {
         }
     }
 
-    //Method check element is present and dispaleyd
+    //Method check element is present and displayed
     public boolean isElementPresentAndDisplayed(By locator){
         try {
             List<WebElement> elements = driver.findElements(locator);
