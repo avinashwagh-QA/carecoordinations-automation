@@ -91,5 +91,12 @@ public class LoginPageTest extends BaseTest {
     }
 
 
+    @Test(description = "Verify the Default login works in the Base test")
+    public void verifyLoginOnBaseTest(){
+
+
+        Assert.assertTrue(appDashboardPage.isDashboardHomeDisplayed());
+    }
+
 
 }

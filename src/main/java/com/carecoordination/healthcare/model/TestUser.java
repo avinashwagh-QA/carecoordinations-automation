@@ -1,4 +1,4 @@
-package model;
+package com.carecoordination.healthcare.model;
 
 import com.carecoordination.healthcare.constants.UserRole;
 

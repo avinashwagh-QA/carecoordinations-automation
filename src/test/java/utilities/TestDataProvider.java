@@ -79,6 +79,21 @@ public class TestDataProvider {
         };
     }
 
+    @DataProvider(name = "personaMatrix")
+    public Object[][] personaMatrix(){
+        return new Object[][]{
+                {"sysadmin_multi_nonintegrated"},
+                {"branchadmin_multi_nonintegrated"},
+                {"managersupervisor_multi_nonintegrated"},
+                {"clerical_multi_nonintegrated"},
+                {"fieldclinician_multi_nonintegrated"},
+                {"triagestaff_multi_nonintegrated"},
+                {"externalvendor_multi_nonintegrated"}
+
+        };
+    }
+
+
 
 
 

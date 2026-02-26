@@ -1,8 +1,7 @@
-package repository;
+package com.carecoordination.healthcare.repository;
 
-import model.TestUser;
-import model.TestUserConfig;
-import tools.jackson.core.JacksonException;
+import com.carecoordination.healthcare.model.TestUser;
+import com.carecoordination.healthcare.model.TestUserConfig;
 import tools.jackson.databind.ObjectMapper;
 
 import java.io.InputStream;
@@ -23,7 +22,7 @@ public class UserRepository {
             ObjectMapper mapper = new ObjectMapper();
 
             InputStream inputStream = UserRepository.class.getClassLoader()
-                    .getResourceAsStream("Cofig/test-users.json");
+                    .getResourceAsStream("Config/test-users.json");
 
             TestUserConfig config =
                     mapper.readValue(inputStream, TestUserConfig.class);

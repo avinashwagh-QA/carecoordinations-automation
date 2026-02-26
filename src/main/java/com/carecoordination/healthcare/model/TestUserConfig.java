@@ -1,4 +1,4 @@
-package model;
+package com.carecoordination.healthcare.model;
 
 import java.util.List;
 

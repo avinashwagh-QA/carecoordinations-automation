@@ -5,9 +5,11 @@ import com.carecoordination.healthcare.constants.UserRole;
 import com.carecoordination.healthcare.context.OrganizationContext;
 import com.carecoordination.healthcare.context.UserContext;
 import com.carecoordination.healthcare.helpers.AuthHelper;
+import com.carecoordination.healthcare.model.TestUser;
 import com.carecoordination.healthcare.pages.landingPages.LandingPage;
 import com.carecoordination.healthcare.pages.landingPages.LoginPage;
 import com.carecoordination.healthcare.pages.modules.AppDashBoard.AppDashboardPage;
+import com.carecoordination.healthcare.repository.UserRepository;
 import com.carecoordination.healthcare.utilities.ConfigReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -27,13 +29,12 @@ public class BaseTest {
     protected AppDashboardPage appDashboardPage;
     private static final String GROUP_SKIP_LOGIN = "skip-login";
 
-
     // per-thread flag — true if THIS TEST logged in
     protected static final ThreadLocal<Boolean> isLoggedIn = ThreadLocal.withInitial(() -> false);
 
     @Parameters("browser")
     @BeforeMethod(alwaysRun = true)
-    public void setup(@Optional String browser, Method method) {
+    public void setup(@Optional String browser, Method method, Object[] testData) {
 
         logger.info("===== Starting Test Setup on thread: {} =====", Thread.currentThread().getName());
 
@@ -65,7 +66,7 @@ public class BaseTest {
         //4.Configure browser settings (max, waits, url)
         configureBrowser();
 
-        //5.Default: do login, unless the test method is in group "no-login"
+        //5.Default: do log in, unless the test method is in group "no-login"
         boolean skipLogin = false;
 
         // Detect if group contains "Skip-login"
@@ -81,19 +82,35 @@ public class BaseTest {
 
         if (!skipLogin) {
 
-            //1. get default or overridden  user context
-            UserContext userContext = getUserContext();
+            // 1. Detect persona from data provider
+            String personaKey = null;
 
-            logger.info("Logging in with user role: {} | Multi-branch org: {}",
-            userContext.getRole(),
-                    userContext.isMultiBranchOrganization());
+            if (testData != null && testData.length > 0) {
+                if (testData[0] instanceof String) {
+                    personaKey = (String) testData[0];
+                }
+            }
+
+            // 2. Load TestUser
+            TestUser testUser =
+                    personaKey != null
+                            ? UserRepository.getUser(personaKey)
+                            : getTestUser(); // default
+
+            if (testUser == null) {
+                throw new RuntimeException("Persona not found!");
+            }
+
+            logger.info("Persona Login --> role: {} |  Company Type: {} | Organization Structure: {} | Email: {}",
+            testUser.getRole(), testUser.getCompanyType(),
+                    testUser.getOrgStructure(), testUser.getEmail());
 
             // 2. Initialize required pages
             landingPage = new LandingPage(actionDriver);
             loginPage = new LoginPage(actionDriver);
 
             // 3. Perform login
-            AuthHelper.login(userContext, landingPage, loginPage);
+            AuthHelper.login(testUser, landingPage, loginPage);
 
             isLoggedIn.set(true); // LOGIN HAPPENED
         } else {
@@ -138,6 +155,17 @@ public class BaseTest {
                 new OrganizationContext(true));
     }
 
+    /**
+     * This method is used for persona based login
+     */
+
+    protected String getPersonaKey(){
+        return "sysadmin_multi_nonintegrated"; //default
+    }
+
+    protected TestUser getTestUser(){
+        return UserRepository.getUser(getPersonaKey());
+    }
 
     @AfterMethod(alwaysRun = true)
     public void tearDown() {
