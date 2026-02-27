@@ -1,6 +1,8 @@
 package com.carecoordination.healthcare.context;
 
 
+import com.carecoordination.healthcare.constants.CompanyType;
+
 /**
  * Holds organization-level configuration for a test run.
  *
@@ -20,25 +22,52 @@ package com.carecoordination.healthcare.context;
 
 public class OrganizationContext {
 
-    private final boolean multiBranch;
+    private final boolean isMultiBranch;
+    private final CompanyType companyType;
 
     /**
-     * @param multiBranch
+     * @param isMultiBranch
      *        true  -> organization has multiple branches
      *        false -> organization has only one branch
+     * @param companyType
+     *  Integrated - Type or Non-Integrated type of company
      */
 
-    public OrganizationContext(boolean multiBranch){
-        this.multiBranch = multiBranch;
+    public OrganizationContext(boolean isMultiBranch, CompanyType companyType){
+
+        this.isMultiBranch = isMultiBranch;
+        this.companyType = companyType;
     }
 
 
     /**
      * @return true if organization has more than one branch
      */
-
     public boolean isMultiBranch(){
-        return multiBranch;
+        return isMultiBranch();
     }
+
+    public CompanyType getCompanyType(){
+        return companyType;
+    }
+
+    public boolean isIntegrated(){
+        return companyType == CompanyType.INTEGRATED;
+    }
+
+    public boolean isNonIntegrated(){
+        return companyType == CompanyType.NONINTEGRATED;
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 }

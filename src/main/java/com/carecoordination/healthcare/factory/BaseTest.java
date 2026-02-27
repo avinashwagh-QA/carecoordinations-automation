@@ -1,6 +1,7 @@
 package com.carecoordination.healthcare.factory;
 
 import com.carecoordination.healthcare.actiondriver.ActionDriver;
+import com.carecoordination.healthcare.constants.CompanyType;
 import com.carecoordination.healthcare.context.OrganizationContext;
 import com.carecoordination.healthcare.context.UserContext;
 import com.carecoordination.healthcare.helpers.AuthHelper;
@@ -173,12 +174,17 @@ public class BaseTest {
         TestUser testUser = getCurrentUser();
 
         //Build userContext on get current User
-        return new UserContext(testUser.getRole(),
-                new OrganizationContext(testUser
+         boolean isMultibranch = testUser
                         .getOrgStructure()
-                        .equals("MULTI_BRANCH")));
-    }
+                        .equals("MULTI_BRANCH");
 
+        CompanyType companyType = CompanyType.valueOf(testUser.getCompanyType().toUpperCase());
+
+        return new UserContext(
+                testUser.getRole(),
+                new OrganizationContext(isMultibranch,companyType)
+        );
+    }
 
 
     @AfterMethod(alwaysRun = true)

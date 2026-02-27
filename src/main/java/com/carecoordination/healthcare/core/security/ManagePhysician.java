@@ -1,6 +1,7 @@
 package com.carecoordination.healthcare.core.security;
 
 import com.carecoordination.healthcare.constants.UserRole;
+import com.carecoordination.healthcare.context.UserContext;
 
 import java.util.EnumSet;
 import java.util.Set;
@@ -18,8 +19,8 @@ public class ManagePhysician {
         //Prevent instantiation
     }
 
-    public static boolean getManagePhysicianUserAccess(UserRole role){
-        return MANAGEPHYSCIAN_ALLOWED.contains(role);
+    public static boolean canAccess(UserContext userContext) {
+        return MANAGEPHYSCIAN_ALLOWED.contains(userContext.getRole()) && userContext.getOrganizationContext().isNonIntegrated();
     }
 
 }

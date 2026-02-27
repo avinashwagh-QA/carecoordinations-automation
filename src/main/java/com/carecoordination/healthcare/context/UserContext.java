@@ -25,25 +25,20 @@ public class UserContext {
 
     //@return true if user is considered privileged
     public boolean isPrivileged(){
-        return RolePrivilege.isPrivileged(role);
+        return RolePrivilege.isPrivileged(this);
     }
 
     //true if user is allowed to invite other users
     public boolean canInviteUser(){
-        return InvitePermission.canInvite(role);
-    }
-
-    // true if organization has multiple branches
-    public boolean isMultiBranchOrganization(){
-        return organizationContext.isMultiBranch();
+        return ManageTeamPermission.canAccessAndInvite(this);
     }
 
     public boolean canAccessManageTeam() {
-        return InvitePermission.canInvite(role);
+        return ManageTeamPermission.canAccessAndInvite(this);
     }
 
     public boolean canAccessChannelUsage(){
-        return ChannelUsagePermission.canAccessChannelUsage(role);
+        return ChannelUsagePermission.canAccess(this);
     }
 
     // Alerts and Availability can be access to all users
@@ -56,32 +51,32 @@ public class UserContext {
 
     //Company info permission
     public boolean canAccessCompanyInfo(){
-        return CompanyInfoPermission.canAccess(role);
+        return CompanyInfoPermission.canAccess(this);
     }
 
     //Branch info
     public boolean canAccessBranchInfo(){
-        return BranchInfoPermission.canAccessBranchInfo(role);
+        return BranchInfoPermission.canAccess(this);
     }
 
     //Inactive channel
     public boolean canAccessInactiveChannel(){
-        return InactiveChannelPermission.getInactivechannelUserAcccess(role);
+        return InactiveChannelPermission.canAccess(this);
     }
 
     //Manage Milestone
     public boolean canAccessManageMilestone(){
-        return MilestonePermission.getManageMilestoneAllowed(role);
+        return MilestonePermission.canAccess(this);
     }
 
     //Manage physician
     public boolean canAccessManagePhysician(){
-        return ManagePhysician.getManagePhysicianUserAccess(role);
+        return ManagePhysician.canAccess(this);
     }
 
     //Manage pharmacies
     public boolean canAccessManagePharmacies(){
-        return ManagePharmacies.getManagePharmaciesUserAccess(role);
+        return ManagePharmacies.canAccess(this);
     }
 
 }

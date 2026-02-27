@@ -1,6 +1,7 @@
 package com.carecoordination.healthcare.core.security;
 
 import com.carecoordination.healthcare.constants.UserRole;
+import com.carecoordination.healthcare.context.UserContext;
 
 import java.util.EnumSet;
 import java.util.Set;
@@ -18,8 +19,8 @@ public class BranchInfoPermission {
         // prevent Instantiation
     }
 
-    public static boolean canAccessBranchInfo(UserRole role){
-        return BRANCHINFO_ALLOWED.contains(role);
+    public static boolean canAccess(UserContext userContext){
+        return BRANCHINFO_ALLOWED.contains(userContext.getRole());
     }
 
 }
