@@ -1,7 +1,6 @@
 package com.carecoordination.healthcare.factory;
 
 import com.carecoordination.healthcare.actiondriver.ActionDriver;
-import com.carecoordination.healthcare.constants.UserRole;
 import com.carecoordination.healthcare.context.OrganizationContext;
 import com.carecoordination.healthcare.context.UserContext;
 import com.carecoordination.healthcare.helpers.AuthHelper;
@@ -20,32 +19,25 @@ import java.time.Duration;
 
 public class BaseTest {
 
-
     private static final Logger logger = LogManager.getLogger(BaseTest.class);
 
     protected ActionDriver actionDriver;
     protected LandingPage landingPage;
     protected LoginPage loginPage;
     protected AppDashboardPage appDashboardPage;
+
     private static final String GROUP_SKIP_LOGIN = "skip-login";
 
-    // per-thread flag — true if THIS TEST logged in
+    //per-thread flag — true if THIS TEST logged in
     protected static final ThreadLocal<Boolean> isLoggedIn = ThreadLocal.withInitial(() -> false);
+
+    protected static final ThreadLocal<TestUser> currentUser = new ThreadLocal<>();
 
     @Parameters("browser")
     @BeforeMethod(alwaysRun = true)
     public void setup(@Optional String browser, Method method, Object[] testData) {
 
         logger.info("===== Starting Test Setup on thread: {} =====", Thread.currentThread().getName());
-
-        /*
-        //1.Read browser from config.properties
-        String browser = ConfigReader.getProperty("browser");
-        logger.info("Browser selected from config: {}", browser);
-         */
-
-        //Reading browser from test NG
-        //logger.info("Browser selected from TestNG parameter: {}", browser);
 
         // 1. Fallback to config if TestNG didn't pass a browser (for single-browser runs)
         if (browser == null || browser.trim().isEmpty()) {
@@ -61,35 +53,18 @@ public class BaseTest {
 
         //3.Create custom ActionDriver wrapper
         actionDriver = new ActionDriver(DriverFactory.getDriver());
-        logger.debug("ActionDriver initialized");
+        logger.debug("ActionDriver initialized..........");
 
         //4.Configure browser settings (max, waits, url)
         configureBrowser();
 
         //5.Default: do log in, unless the test method is in group "no-login"
-        boolean skipLogin = false;
-
-        // Detect if group contains "Skip-login"
-        Test testAnnotation = method.getAnnotation(Test.class);
-        if (testAnnotation != null) {
-            for (String g : testAnnotation.groups()) {
-                if (GROUP_SKIP_LOGIN.equalsIgnoreCase(g)) {
-                    skipLogin = true;
-                    break;
-                }
-            }
-        }
+        boolean skipLogin = isSkippedLogin(method);
 
         if (!skipLogin) {
 
             // 1. Detect persona from data provider
-            String personaKey = null;
-
-            if (testData != null && testData.length > 0) {
-                if (testData[0] instanceof String) {
-                    personaKey = (String) testData[0];
-                }
-            }
+            String personaKey = extractPersonaFromData(testData);
 
             // 2. Load TestUser
             TestUser testUser =
@@ -101,9 +76,14 @@ public class BaseTest {
                 throw new RuntimeException("Persona not found!");
             }
 
+            //Store in thread local
+            currentUser.set(testUser);
+
             logger.info("Persona Login --> role: {} |  Company Type: {} | Organization Structure: {} | Email: {}",
-            testUser.getRole(), testUser.getCompanyType(),
-                    testUser.getOrgStructure(), testUser.getEmail());
+                    testUser.getRole(),
+                    testUser.getCompanyType(),
+                    testUser.getOrgStructure(),
+                    testUser.getEmail());
 
             // 2. Initialize required pages
             landingPage = new LandingPage(actionDriver);
@@ -114,9 +94,34 @@ public class BaseTest {
 
             isLoggedIn.set(true); // LOGIN HAPPENED
         } else {
-            isLoggedIn.set(false);  // Default, Test may login manually
+            logger.info("Skip-login group detected. Login skipped.");
+            isLoggedIn.set(false);  // Default, Test may log in manually
         }
-        logger.info("=== @BeforeMethod completed ===");
+        logger.info("=== Test Setup completed ===");
+    }
+
+    private boolean isSkippedLogin(Method method) {
+        // Detect if group contains "Skip-login"
+        Test testAnnotation = method.getAnnotation(Test.class);
+
+        if (testAnnotation != null) {
+            for (String g : testAnnotation.groups()) {
+                if (GROUP_SKIP_LOGIN.equalsIgnoreCase(g)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private String extractPersonaFromData(Object[] testData) {
+
+        if (testData != null && testData.length > 0) {
+            if (testData[0] instanceof String) {
+                return (String) testData[0];
+            }
+        }
+        return null;
     }
 
     // Method to maximize browser , set URL and implicitWait to load the URL
@@ -127,12 +132,13 @@ public class BaseTest {
         int impWait = Integer.parseInt(ConfigReader.getProperty("implicitWait"));
         logger.debug("Setting implicit wait to {} seconds", impWait);
 
-        DriverFactory.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(impWait));
+        DriverFactory.getDriver()
+                .manage()
+                .timeouts()
+                .implicitlyWait(Duration.ofSeconds(impWait));
 
-        // Maximize browser
         logger.info("Maximizing browser window");
         DriverFactory.getDriver().manage().window().maximize();
-
 
         //Set URL
         String url = ConfigReader.getProperty("url");
@@ -146,26 +152,34 @@ public class BaseTest {
     }
 
     /**
-     * Default user context.(Default log in to system admin)
-     * Can be overridden by test classes when needed.
-     */
-
-    protected UserContext getUserContext(){
-        return new UserContext(UserRole.SYSTEM_ADMIN,
-                new OrganizationContext(true));
-    }
-
-    /**
      * This method is used for persona based login
      */
-
-    protected String getPersonaKey(){
+    protected String getPersonaKey() {
         return "sysadmin_multi_nonintegrated"; //default
     }
 
-    protected TestUser getTestUser(){
+    protected TestUser getTestUser() {
         return UserRepository.getUser(getPersonaKey());
     }
+
+    protected TestUser getCurrentUser() {
+        return currentUser.get();
+    }
+
+    // Method to build user context based on current user login
+
+    protected UserContext getCurrentUserContext(){
+
+        TestUser testUser = getCurrentUser();
+
+        //Build userContext on get current User
+        return new UserContext(testUser.getRole(),
+                new OrganizationContext(testUser
+                        .getOrgStructure()
+                        .equals("MULTI_BRANCH")));
+    }
+
+
 
     @AfterMethod(alwaysRun = true)
     public void tearDown() {
@@ -196,10 +210,5 @@ public class BaseTest {
             isLoggedIn.remove();
         }
     }
-
-
-
-
-
 
 }

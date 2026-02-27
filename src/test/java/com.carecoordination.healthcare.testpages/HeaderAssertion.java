@@ -33,31 +33,31 @@ public class HeaderAssertion extends BaseTest {
 
     }
 
-    private String currentPersona;
-
-
     @Test(description = "Verify Manage Team displayed for logged in user")
     public void verifyManageTeamMenu() {
-        UserContext userContext = getUserContext();
+        UserContext userContext = getCurrentUserContext();
 
         boolean actualVisibility = headerPage.isManageTeamDisplayed();
         boolean expectedVisibility = userContext.canInviteUser();
 
         Assert.assertEquals(actualVisibility, expectedVisibility,
-                "Header Mange team option not displayed for user role " + userContext.getRole());
+                "Header Mange team option not displayed for user role " + getCurrentUser().getRole());
 
     }
 
     @Test(description = "Verify Manage team is displayed as per user roles wise permission",
             dataProvider = "personaMatrix", dataProviderClass = TestDataProvider.class)
-    public void verifyMangeTeamForAllUserRole(String personaKey) {
+    public void verifyMangeTeamForAllUserRole() {
 
-        TestUser testUser = UserRepository.getUser(personaKey); // Loaded in BaseTest
+        TestUser testUser = getCurrentUser();
 
-        // Build user context from persona
-        UserContext userContext = new UserContext(testUser.getRole(), new OrganizationContext(
-                testUser.getOrgStructure().equals("MULTI_BRANCH")
-        ));
+        //Call default base test method to build user context
+        UserContext userContext = getCurrentUserContext();
+
+        logger.info("Validating Manage Team visibility for Role: {} | Company: {} | Org: {}",
+                testUser.getRole(),
+                testUser.getCompanyType(),
+                testUser.getOrgStructure());
 
         boolean actualVisibility = headerPage.isManageTeamDisplayed();
         boolean expectedVisibility = userContext.canAccessManageTeam();
