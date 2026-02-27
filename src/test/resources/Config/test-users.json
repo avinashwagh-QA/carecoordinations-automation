@@ -1,0 +1,67 @@
+{
+  "users": [
+    {
+      "key": "sysadmin_multi_nonintegrated",
+      "email": "max.admin@yopmail.com",
+      "password": "Admin@111",
+      "role": "SYSTEM_ADMIN",
+      "companyType": "NONINTEGRATED",
+      "orgStructure": "MULTI_BRANCH",
+      "branches": ["A", "B", "C"]
+    },
+    {
+      "key": "branchadmin_multi_nonintegrated",
+      "email": "ana.admin@yopmail.com",
+      "password": "Admin@123",
+      "role": "BRANCH_ADMIN",
+      "companyType": "NONINTEGRATED",
+      "orgStructure": "MULTI_BRANCH",
+      "branches": ["A"]
+    },
+    {
+      "key": "managersupervisor_multi_nonintegrated",
+      "email": "joy.manager@yopmail.com",
+      "password": "Admin@111",
+      "role": "MANAGER_SUPERVISOR",
+      "companyType": "NONINTEGRATED",
+      "orgStructure": "MULTI_BRANCH",
+      "branches": ["A"]
+    },
+    {
+      "key": "clerical_multi_nonintegrated",
+      "email": "Add.cstaff@yopmail.com",
+      "password": "Admin@123",
+      "role": "CLERICAL_STAFF",
+      "companyType": "NONINTEGRATED",
+      "orgStructure": "MULTI_BRANCH",
+      "branches": ["A"]
+    },
+    {
+      "key": "fieldclinician_multi_nonintegrated",
+      "email": "ishan_staff@yopmail.com",
+      "password": "Admin@111",
+      "role": "FIELD_CLINICIAN",
+      "companyType": "NONINTEGRATED",
+      "orgStructure": "MULTI_BRANCH",
+      "branches": ["B"]
+    },
+    {
+      "key": "triagestaff_multi_nonintegrated",
+      "email": "ellen.triage@yopmail.com",
+      "password": "Admin@111",
+      "role": "TRIAGE_STAFF",
+      "companyType": "NONINTEGRATED",
+      "orgStructure": "MULTI_BRANCH",
+      "branches": ["B"]
+    },
+    {
+      "key": "externalvendor_multi_nonintegrated",
+      "email": "Jhony.vendor@yopmail.com",
+      "password": "Nexi@1234",
+      "role": "EXTERNAL_VENDOR",
+      "companyType": "NONINTEGRATED",
+      "orgStructure": "MULTI_BRANCH",
+      "branches": ["C"]
+    }
+  ]
+}
