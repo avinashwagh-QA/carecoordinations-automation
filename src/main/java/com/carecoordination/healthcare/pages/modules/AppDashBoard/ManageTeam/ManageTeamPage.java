@@ -13,8 +13,6 @@ import java.util.List;
 public class ManageTeamPage {
 
     private final ActionDriver actionDriver;
-
-
     private final BranchSelectorComponent branchSelectorComponent;
 
     private static final Logger logger = LogManager.getLogger(ManageTeamPage.class);
@@ -27,8 +25,6 @@ public class ManageTeamPage {
     //Locators for ManageTeam
     private final By tabManageTeam = By.xpath("//a[contains(@href,'manage-team-list') and normalize-space()='Manage Team']");
     private final By tabManageMiniTeams = By.xpath("//a[contains(@href,'manage-mini-team') and normalize-space()='Manage Mini-Teams']");
-
-    private final By btnInviteUser = By.id("createInviteUser");
     private final By inpSearchUser = By.id("searchUsersInput");
 
     private final By activeTab = By.id("activeTab");
@@ -81,8 +77,6 @@ public class ManageTeamPage {
         actionDriver.waitForElementToBeClickable(inpSearchUser);
         actionDriver.enterText(inpSearchUser, email);
     }
-
-
 
     //Pagination method to  get all pages
     public int getAllPages(){

@@ -7,6 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
@@ -22,7 +23,6 @@ public class ActionDriver {
     private final WebDriver driver;
     private final WebDriverWait wait;
     private final WebDriverWait otpWait;
-
 
     // locators used for resend Otp logic for wait and click
     private final By resendOtpTimerSection = By.cssSelector(".thirtySecondTimerSection");
@@ -275,57 +275,38 @@ public class ActionDriver {
         jsClick(resendOtpLink);
     }
 
-
-
-    // This method is used in autosuggestion wait for searching text until the list of suggestion appears
-    public List<WebElement> waitForSuggestionToLoad(By suggestionLocators, String loadingText) {
-
-        //1) Wait until the list of suggestion/list-box to visible
-        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(suggestionLocators));
-
-        //2) Wait until something other than loading text is appear
-        wait.until(driver1 -> {
-            List<WebElement> items = driver1.findElements(suggestionLocators);
-            if (items.isEmpty()) return false;
-
-            boolean allLoading = true;
-            for (WebElement e : items) {
-
-                String t = e.getText().trim().toLowerCase();
-                if (!t.isEmpty() && !t.contains(loadingText.toLowerCase())) {
-                    allLoading = false;
-                    break;
-                }
-            }
-            return !allLoading;  // true when at least one real result OR "No Records Found"
-        });
-
-        // return fresh elements loading finish
-        return DriverFactory.getDriver().findElements(suggestionLocators);
+    //Method for select Dropdown for selectDropdown
+    public void selectByVisibleText(By locator, String text){
+       WebElement dropDown = waitForElementToVisible(locator);
+        Select select = new Select(dropDown);
+        select.selectByVisibleText(text);
+        logger.info("Dropdown value is {} selected", text);
     }
 
-    //Method for upload doc using javascript
-    public void upload(By locator, String filePath) {
-
-        WebElement e = waitForElementToBePresent(locator);
-
-        String absolutePath = Paths.get(filePath).toAbsolutePath().toString();
-
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].style.display='block'; arguments[0].style.visibility='visible';", e);
-        e.sendKeys(absolutePath);
+    //Method for select Dropdown for selectDropdown
+    public void selectByValue(By locator, String value){
+        WebElement dropDown = waitForElementToVisible(locator);
+        Select select = new Select(dropDown);
+        select.selectByValue(value);
+        logger.info("Dropdown value is {} selected ", value);
     }
 
-    // common method to get the table rows and cell text from row and column
+    public void selectCustomDropdown(By dropDown, By options, String value){
 
-    public List<WebElement> getTableRows(By tableLocator) {
-        return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(tableLocator));
+        waitForElementToBeClickable(dropDown).click();
+       List<WebElement> optionList = waitForAllElementsToBeVisible(options);
+
+       for (WebElement option: optionList){
+           if (option.getText().equalsIgnoreCase(value)){
+               option.click();
+               break;
+           }
+        }
     }
 
-    public String getCellText(WebElement rowElement, int colIndex) {
 
-        return rowElement.findElement(By.xpath(".//div[" + colIndex + "]")).getText().trim();
-    }
+
+
 
 }
 
