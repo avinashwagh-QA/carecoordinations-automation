@@ -5,6 +5,7 @@
       "email": "max.admin@yopmail.com",
       "password": "Admin@111",
       "role": "SYSTEM_ADMIN",
+      "userName" : "Max M Thompson",
       "companyType": "NONINTEGRATED",
       "orgStructure": "MULTI_BRANCH",
       "branches": ["A", "B", "C"]
@@ -14,6 +15,7 @@
       "email": "ana.admin@yopmail.com",
       "password": "Admin@123",
       "role": "BRANCH_ADMIN",
+      "userName" : "Ana wagner",
       "companyType": "NONINTEGRATED",
       "orgStructure": "MULTI_BRANCH",
       "branches": ["A"]
@@ -23,6 +25,7 @@
       "email": "joy.manager@yopmail.com",
       "password": "Admin@111",
       "role": "MANAGER_SUPERVISOR",
+      "userName" : "Joy Alexander",
       "companyType": "NONINTEGRATED",
       "orgStructure": "MULTI_BRANCH",
       "branches": ["A"]
@@ -32,6 +35,7 @@
       "email": "Add.cstaff@yopmail.com",
       "password": "Admin@123",
       "role": "CLERICAL_STAFF",
+      "userName" : "Addison Perry",
       "companyType": "NONINTEGRATED",
       "orgStructure": "MULTI_BRANCH",
       "branches": ["A"]
@@ -41,6 +45,7 @@
       "email": "ishan_staff@yopmail.com",
       "password": "Admin@111",
       "role": "FIELD_CLINICIAN",
+      "userName" : "Ishan s Mehta",
       "companyType": "NONINTEGRATED",
       "orgStructure": "MULTI_BRANCH",
       "branches": ["B"]
@@ -50,6 +55,7 @@
       "email": "ellen.triage@yopmail.com",
       "password": "Admin@111",
       "role": "TRIAGE_STAFF",
+      "userName" : "Ellen Rogers",
       "companyType": "NONINTEGRATED",
       "orgStructure": "MULTI_BRANCH",
       "branches": ["B"]
@@ -59,6 +65,7 @@
       "email": "Jhony.vendor@yopmail.com",
       "password": "Nexi@1234",
       "role": "EXTERNAL_VENDOR",
+      "userName" : "Jhony A Walker",
       "companyType": "NONINTEGRATED",
       "orgStructure": "MULTI_BRANCH",
       "branches": ["C"]

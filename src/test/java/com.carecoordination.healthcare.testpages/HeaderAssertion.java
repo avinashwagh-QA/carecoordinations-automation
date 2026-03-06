@@ -1,15 +1,9 @@
 package com.carecoordination.healthcare.testpages;
 
-import com.carecoordination.healthcare.constants.UserRole;
-import com.carecoordination.healthcare.context.OrganizationContext;
 import com.carecoordination.healthcare.context.UserContext;
 import com.carecoordination.healthcare.factory.BaseTest;
-import com.carecoordination.healthcare.helpers.AuthHelper;
 import com.carecoordination.healthcare.model.TestUser;
-import com.carecoordination.healthcare.pages.landingPages.LandingPage;
-import com.carecoordination.healthcare.pages.landingPages.LoginPage;
 import com.carecoordination.healthcare.pages.modules.AppDashBoard.HeaderPage;
-import com.carecoordination.healthcare.repository.UserRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
@@ -46,7 +40,7 @@ public class HeaderAssertion extends BaseTest {
     public void verifyMangeTeamForAllUserRole(String personaKey) {
 
         TestUser testUser = getCurrentUser();
-
+//span[normalize-space()='Log in']
         //Call default base test method to build user context
         UserContext userContext = getCurrentUserContext();
 

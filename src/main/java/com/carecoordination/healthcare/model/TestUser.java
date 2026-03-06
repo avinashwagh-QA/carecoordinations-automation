@@ -14,6 +14,7 @@ public class TestUser {
     private String companyType;
     private String orgStructure;
     private Set<String> branches;
+    private String userName;
 
     public TestUser(){
     }
@@ -25,6 +26,6 @@ public class TestUser {
     public String getCompanyType() { return companyType; }
     public String getOrgStructure() { return orgStructure; }
     public Set<String> getBranches() { return branches; }
-
+    public String getUserName(){return userName;}
 
 }
