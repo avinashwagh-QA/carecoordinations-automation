@@ -1,9 +1,13 @@
 package com.carecoordination.healthcare.pages.modules.AppDashBoard.ManageTeam;
 
 import com.carecoordination.healthcare.actiondriver.ActionDriver;
+import com.carecoordination.healthcare.constants.InviteUserField;
+import com.carecoordination.healthcare.factory.DriverFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+
+import java.util.Map;
 
 public class InviteUserModal {
 
@@ -25,7 +29,21 @@ public class InviteUserModal {
     private final By drpCountryCode = By.id("addInvitationCountryId");
     private final By inpPhone = By.id("phone");
 
-    private  final By btnInvite = By.id("inviteUserTeamBtn");
+    private final By btnInvite = By.id("inviteUserTeamBtn");
+
+    // it will map field with error text
+    private Map<InviteUserField, By> errorLocators = Map.of(
+            InviteUserField.USER_ROLE, By.xpath("//div[@id='userTypeSelectDiv']//span[@class='cc-error-txt']']"),
+            InviteUserField.FIRST_NAME, By.xpath("//input[@id='first_name']/parent::div/following-sibling::span[@class='cc-error-txt']"),
+            InviteUserField.LAST_NAME, By.xpath("//input[@id='last_name']/parent::div/following-sibling::span[@class='cc-error-txt']"),
+            InviteUserField.USER_EMAIL, By.xpath("//input[@id='email']/parent::div/following-sibling::span[@class='cc-error-txt']"),
+            InviteUserField.MOBILE_NUMBER, By.xpath("//input[@id='phone']/parent::div/following-sibling::span[@class='cc-error-txt']")
+    );
+
+    // This method will return the message based on field
+    public String getErrorField(InviteUserField field){
+        return DriverFactory.getDriver().findElement(errorLocators.get(field)).getText();
+    }
 
     public void clickOnInviteUser(){
         actionDriver.waitForElementToBeClickable(btnInviteUser);
@@ -33,12 +51,12 @@ public class InviteUserModal {
         logger.info("Click on Invite User button from Manage team");
     }
 
-    public void selectRole(String role){
+    public void selectUserRole(String role){
         actionDriver.selectByValue(drpDownSelectUserRole, role);
         logger.info("The User role{} is selected from {}", role, drpDownSelectUserRole);
     }
 
-    public void selectBranch(String branchName){
+    public void selectUserBranch(String branchName){
         actionDriver.selectByValue(selectBranch, branchName);
         logger.info("The User Branch{} is selected from {}", branchName, selectBranch);
     }
@@ -75,6 +93,16 @@ public class InviteUserModal {
         actionDriver.click(btnInvite);
         logger.info(" click on invite user button");
     }
+
+    public void fillBasicDetails(String firstname, String lastname, String email, String countryCode, String phone){
+        setInpFirstName(firstname);
+        setInpLastName(lastname);
+        setInpEmail(email);
+        setInpPhone(countryCode,phone);
+    }
+
+
+
 
 
 

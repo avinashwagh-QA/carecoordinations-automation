@@ -15,7 +15,6 @@ public class HeaderAssertion extends BaseTest {
 
     private HeaderPage headerPage;
 
-
     private static final Logger logger = LogManager.getLogger(HeaderAssertion.class);
 
     @BeforeMethod

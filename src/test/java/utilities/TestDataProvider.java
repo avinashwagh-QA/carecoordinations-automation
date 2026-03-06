@@ -2,7 +2,14 @@ package utilities;
 
 
 import com.carecoordination.healthcare.constants.UserRole;
+import com.carecoordination.healthcare.context.UserContext;
+import com.carecoordination.healthcare.core.security.ManageTeamPermission;
+import com.carecoordination.healthcare.model.TestUser;
+import com.carecoordination.healthcare.repository.UserRepository;
 import org.testng.annotations.DataProvider;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class TestDataProvider {
@@ -19,18 +26,6 @@ public class TestDataProvider {
         };
     }
 
-    @DataProvider(name = "roleBasedLogin")
-    public static Object[][] roleBasedLogin(){
-        return new Object[][]{
-                {UserRole.SYSTEM_ADMIN},
-                {UserRole.BRANCH_ADMIN},
-                {UserRole.MANAGER_SUPERVISOR},
-                {UserRole.CLERICAL_STAFF},
-                {UserRole.FIELD_CLINICIAN},
-                {UserRole.TRIAGE_STAFF}
-        };
-    }
-
     @DataProvider(name = "invalidForgotPasswordMobileData")
     public static Object[][] invalidForgotPasswordMobileData(){
         return new Object[][]{
@@ -38,7 +33,6 @@ public class TestDataProvider {
                 {"invalidCountryCode", "validPhoneNumber", "invalidCountryCodeMsg"},
                 {"countryCode", "invalidPhoneNumber", "unregisterPhone"}
         };
-
     }
 
     @DataProvider(name = "passwordValidationData")
@@ -95,6 +89,19 @@ public class TestDataProvider {
 
 
 
+//    public Object[][] inviteUserPersonas(){
+//
+//        List <TestUser> users = new ArrayList<>(UserRepository.getAllUser());
+//
+//        List<TestUser> allowedUser = users.stream()
+//                .filter(user -> ManageTeamPermission.canAccessAndInvite(user)).toList();
+//
+//
+//
+//
+//        };
+//
+//    }
 
 
 }
