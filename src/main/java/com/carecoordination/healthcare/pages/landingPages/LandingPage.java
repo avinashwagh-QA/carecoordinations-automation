@@ -24,6 +24,7 @@ public class LandingPage {
 
     // Home page title displayed
     public boolean isHomePageTitleDisplayed(){
+        actionDriver.waitForPageLoad();
         actionDriver.waitForElementToBeClickable(titleHomePage);
         return actionDriver.isDisplayed(titleHomePage);
     }

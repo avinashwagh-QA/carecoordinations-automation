@@ -1,10 +1,8 @@
 package com.carecoordination.healthcare.helpers;
 
-import com.carecoordination.healthcare.constants.UserRole;
 import com.carecoordination.healthcare.model.TestUser;
 import com.carecoordination.healthcare.pages.landingPages.LandingPage;
 import com.carecoordination.healthcare.pages.landingPages.LoginPage;
-import com.carecoordination.healthcare.utilities.RoleCredentials;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -23,27 +21,6 @@ public class AuthHelper {
 
         loginAs(testUser, landingPage, loginPage);
     }
-
-
-/**
- * Login using role.
- * Kept for backward compatibility and future flexibility.
- */
-
-    public static void loginAs(UserRole role,
-                               LandingPage landingPage,
-                               LoginPage loginPage) {
-
-        logger.info("Logging with Role-Based Login Used: {}", role);
-
-        landingPage.clickOnLoginLink();
-
-        String email= RoleCredentials.getEmail(role);
-        String password= RoleCredentials.getPassword(role);
-
-        loginPage.login(email, password);
-    }
-
 
     /**
      *  Login as Per User persona based

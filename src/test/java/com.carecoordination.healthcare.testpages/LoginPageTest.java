@@ -1,13 +1,12 @@
 package com.carecoordination.healthcare.testpages;
 
-import com.carecoordination.healthcare.constants.UserRole;
+import com.carecoordination.healthcare.context.UserContext;
 import com.carecoordination.healthcare.factory.BaseTest;
-import com.carecoordination.healthcare.helpers.AuthHelper;
+import com.carecoordination.healthcare.model.TestUser;
 import com.carecoordination.healthcare.pages.modules.AppDashBoard.AppDashboardPage;
 import com.carecoordination.healthcare.pages.landingPages.LandingPage;
 import com.carecoordination.healthcare.pages.landingPages.LoginPage;
 import com.carecoordination.healthcare.utilities.ConfigReader;
-import com.carecoordination.healthcare.utilities.RoleUserMapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
@@ -29,7 +28,7 @@ public class LoginPageTest extends BaseTest {
         loginPage = new LoginPage(actionDriver);
         appDashboardPage = new AppDashboardPage(actionDriver);
 
-        landingPage.clickOnLoginLink();
+       // landingPage.clickOnLoginLink();
         Assert.assertTrue(loginPage.isLoginPageDisplayed(), "Login Page does not displayed");
     }
 
@@ -70,24 +69,28 @@ public class LoginPageTest extends BaseTest {
 
     }
 
-    @Test(dataProvider = "roleBasedLogin", groups = {"skip-login"},
-            description = "Verify Role-based login using user name identification",
-            dataProviderClass = TestDataProvider.class)
-    public void verifyRoleBasedLogin(UserRole role) {
+    @Test(description = "Verify Role-based login using user name identification",
+            dataProvider = "personaMatrix",  dataProviderClass = TestDataProvider.class)
+    public void verifyRoleBasedLogin(String personaKey) {
 
-        //Log in as per role wise
-        AuthHelper.loginAs(role, landingPage, loginPage);
+        TestUser testUser = getCurrentUser();
 
-        Assert.assertTrue(appDashboardPage.isDashboardHomeDisplayed(), "Dashboard does not displayed for user role:" + role);
+        //Call default base test method to build user context
+        UserContext userContext = getCurrentUserContext();
+
+        logger.info("Validating Role Based Login for User:{} |  Role: {} | Company: {} | Org: {}",
+                testUser.getUserName(),
+                testUser.getRole(),
+                testUser.getCompanyType(),
+                testUser.getOrgStructure());
+
+        Assert.assertTrue(appDashboardPage.isDashboardHomeDisplayed(), "Dashboard does not displayed for user role:" + testUser.getRole());
 
         String actualUserName = appDashboardPage.getUserName();
-        String expectedUserName = RoleUserMapper.expectedUserName(role);
+        String expectedUserName = testUser.getUserName();
 
-        Assert.assertEquals(actualUserName, expectedUserName, "Logged-in user mismatch for role:" + role);
+        Assert.assertEquals(actualUserName, expectedUserName, "Logged-in user mismatch for role:" + testUser.getRole());
 
-        //log out after login
-        appDashboardPage.clickOnLogOut();
-        Assert.assertTrue(landingPage.isHomePageTitleDisplayed(), "Home page title not displayed, user not logout");
     }
 
 

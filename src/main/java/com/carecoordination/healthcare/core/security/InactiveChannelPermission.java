@@ -1,6 +1,7 @@
 package com.carecoordination.healthcare.core.security;
 
 import com.carecoordination.healthcare.constants.UserRole;
+import com.carecoordination.healthcare.context.UserContext;
 
 import java.util.EnumSet;
 import java.util.Set;
@@ -23,7 +24,7 @@ public class InactiveChannelPermission {
         //Prevent instantiation
     }
 
-    public static boolean getInactivechannelUserAcccess(UserRole role) {
-        return INACTIVECHANNEL_ALLOWED.contains(role);
+    public static boolean canAccess(UserContext userContext) {
+        return INACTIVECHANNEL_ALLOWED.contains(userContext.getRole());
     }
 }

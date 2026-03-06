@@ -20,7 +20,7 @@ public class LoginPage {
     private final By inputEmail = By.id("email");
     private final By inputPassword = By.id("password");
     private final By btnLogin = By.xpath("//button[@id='FinalCommonLoginBtn']");
-    private final By loginPage = By.xpath("//span[@class='login100-form-title p-b-10']");
+    private final By loginPage = By.xpath("//span[normalize-space()='Log in']");
 
     By lnkRegister = By.cssSelector("a.signup-link[href*='user-register']");
 

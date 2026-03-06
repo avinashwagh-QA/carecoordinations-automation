@@ -1,6 +1,7 @@
 package com.carecoordination.healthcare.core.security;
 
 import com.carecoordination.healthcare.constants.UserRole;
+import com.carecoordination.healthcare.context.UserContext;
 
 import java.util.EnumSet;
 import java.util.Set;
@@ -17,7 +18,7 @@ import java.util.Set;
  * not application implementation.
  */
 
-public class InvitePermission   {
+public class ManageTeamPermission   {
 
     private static final Set<UserRole> INVITED_ALLOWED =
             EnumSet.of(
@@ -26,12 +27,18 @@ public class InvitePermission   {
                     UserRole.MANAGER_SUPERVISOR
             );
 
-    private InvitePermission() {
+    private ManageTeamPermission() {
         // Prevent instantiation
     }
 
-    public static boolean canInvite(UserRole role){
-        return INVITED_ALLOWED.contains(role);
+    public static boolean canAccessAndInvite(UserContext userContext){
+
+        // Rule:
+        // Manage Team is accessible only for roles
+        // that are allowed to invite users.
+        // Company type and branch structure do NOT affect this rule.
+
+        return INVITED_ALLOWED.contains(userContext.getRole());
     }
 
 

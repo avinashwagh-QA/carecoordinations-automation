@@ -1,6 +1,7 @@
 package com.carecoordination.healthcare.core.security;
 
 import com.carecoordination.healthcare.constants.UserRole;
+import com.carecoordination.healthcare.context.UserContext;
 
 import java.util.EnumSet;
 import java.util.Set;
@@ -25,8 +26,8 @@ public class RolePrivilege {
                     UserRole.CLERICAL_STAFF
             );
 
-    public static boolean isPrivileged(UserRole role){
-        return PRIVILEGED_ROLES.contains(role);
+    public static boolean isPrivileged(UserContext userContext){
+        return PRIVILEGED_ROLES.contains(userContext.getRole());
     }
 
 

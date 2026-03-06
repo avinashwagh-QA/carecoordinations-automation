@@ -1,6 +1,7 @@
 package com.carecoordination.healthcare.core.security;
 
 import com.carecoordination.healthcare.constants.UserRole;
+import com.carecoordination.healthcare.context.UserContext;
 
 
 public class CompanyInfoPermission {
@@ -9,8 +10,8 @@ public class CompanyInfoPermission {
         // Prevent instantiation
     }
 
-    public static boolean canAccess(UserRole role){
-        return role == UserRole.SYSTEM_ADMIN;
+    public static boolean canAccess(UserContext userContext){
+        return userContext.getRole() == UserRole.SYSTEM_ADMIN;
     }
 
 
