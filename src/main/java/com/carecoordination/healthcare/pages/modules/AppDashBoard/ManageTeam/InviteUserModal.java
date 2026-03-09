@@ -19,6 +19,8 @@ public class InviteUserModal {
     }
 
     private final By btnInviteUser = By.id("createInviteUser");
+    private final By dropdownUserRole = By.xpath("//button[@data-id='addInvitationUserType']");
+    private final By dropDownRoleOption = By.xpath("//select[@id='addInvitationUserType']//option");
     private final By drpDownSelectUserRole = By.id("addInvitationUserType");
     private final By selectBranch = By.id("team-select-branch");
 
@@ -52,7 +54,7 @@ public class InviteUserModal {
     }
 
     public void selectUserRole(String role){
-        actionDriver.selectByValue(drpDownSelectUserRole, role);
+        actionDriver.selectCustomDropdown(dropdownUserRole,dropDownRoleOption, role);
         logger.info("The User role{} is selected from {}", role, drpDownSelectUserRole);
     }
 
@@ -92,6 +94,11 @@ public class InviteUserModal {
         actionDriver.waitForElementToBeClickable(btnInvite);
         actionDriver.click(btnInvite);
         logger.info(" click on invite user button");
+    }
+
+    public boolean isInviteButtonDisable(){
+        actionDriver.waitForElementToVisible(btnInvite);
+      return   actionDriver.isButtonEnabled(btnInvite);
     }
 
     public void fillBasicDetails(String firstname, String lastname, String email, String countryCode, String phone){

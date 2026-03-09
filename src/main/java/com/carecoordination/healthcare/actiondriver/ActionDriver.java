@@ -253,6 +253,16 @@ public class ActionDriver {
         js.executeScript("arguments[0].click();", element);
     }
 
+    // fall back method for click
+    public void safeClick(By locator) {
+        try {
+            click(locator);
+        } catch (Exception e) {
+            System.out.println("Normal click failed. Using JS click for: " + locator);
+            jsClick(locator);
+        }
+    }
+
     public void waitForOtpResendWindow() {
         try {
             logger.debug("Waiting for OTP resend window (30s business rule)");

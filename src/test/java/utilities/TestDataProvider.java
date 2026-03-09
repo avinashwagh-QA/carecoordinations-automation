@@ -1,7 +1,9 @@
 package utilities;
 
 
+import com.carecoordination.healthcare.constants.CompanyType;
 import com.carecoordination.healthcare.constants.UserRole;
+import com.carecoordination.healthcare.context.OrganizationContext;
 import com.carecoordination.healthcare.context.UserContext;
 import com.carecoordination.healthcare.core.security.ManageTeamPermission;
 import com.carecoordination.healthcare.model.TestUser;
@@ -27,16 +29,16 @@ public class TestDataProvider {
     }
 
     @DataProvider(name = "invalidForgotPasswordMobileData")
-    public static Object[][] invalidForgotPasswordMobileData(){
+    public static Object[][] invalidForgotPasswordMobileData() {
         return new Object[][]{
-                { "countryCode","mobileLessThan10Digit", "msgMobileLessThan10Digit"},
+                {"countryCode", "mobileLessThan10Digit", "msgMobileLessThan10Digit"},
                 {"invalidCountryCode", "validPhoneNumber", "invalidCountryCodeMsg"},
                 {"countryCode", "invalidPhoneNumber", "unregisterPhone"}
         };
     }
 
     @DataProvider(name = "passwordValidationData")
-    public static Object[][] passwordValidationData(){
+    public static Object[][] passwordValidationData() {
         return new Object[][]{
                 {"Test1@", false},          // < 8 chars
                 {"password12@", false},     // No uppercase
@@ -47,8 +49,8 @@ public class TestDataProvider {
         };
     }
 
-    @DataProvider(name ="invalidRegisterAccountData")
-    public static Object[][] invalidRegisterAccountData(){
+    @DataProvider(name = "invalidRegisterAccountData")
+    public static Object[][] invalidRegisterAccountData() {
         return new Object[][]{
                 {"invalidCode", "invalidInvitedEmail", "msgInvalidEmailAndCode"},
                 {"invalidCodeLessThan6digit", "validInvitedEmail", "msgInvalidCodeSize"},
@@ -62,19 +64,19 @@ public class TestDataProvider {
 
     @DataProvider(name = "roleMatrix")
     public Object[][] roleMatrix() {
-        return new Object[][] {
-                { UserRole.SYSTEM_ADMIN, true },
-                { UserRole.BRANCH_ADMIN, true },
-                { UserRole.MANAGER_SUPERVISOR, true },
-                { UserRole.CLERICAL_STAFF, true },
-                { UserRole.FIELD_CLINICIAN, true },
-                { UserRole.TRIAGE_STAFF, true },
-                { UserRole.EXTERNAL_VENDOR, true }
+        return new Object[][]{
+                {UserRole.SYSTEM_ADMIN, true},
+                {UserRole.BRANCH_ADMIN, true},
+                {UserRole.MANAGER_SUPERVISOR, true},
+                {UserRole.CLERICAL_STAFF, true},
+                {UserRole.FIELD_CLINICIAN, true},
+                {UserRole.TRIAGE_STAFF, true},
+                {UserRole.EXTERNAL_VENDOR, true}
         };
     }
 
     @DataProvider(name = "personaMatrix")
-    public Object[][] personaMatrix(){
+    public Object[][] personaMatrix() {
         return new Object[][]{
                 {"sysadmin_multi_nonintegrated"},
                 {"branchadmin_multi_nonintegrated"},
@@ -87,21 +89,29 @@ public class TestDataProvider {
         };
     }
 
+    @DataProvider(name = "inviteUserPersonas")
+    public Object[][] inviteUserPersonas() {
 
+        List<TestUser> users = new ArrayList<>(UserRepository.getAllUser());
 
-//    public Object[][] inviteUserPersonas(){
-//
-//        List <TestUser> users = new ArrayList<>(UserRepository.getAllUser());
-//
-//        List<TestUser> allowedUser = users.stream()
-//                .filter(user -> ManageTeamPermission.canAccessAndInvite(user)).toList();
-//
-//
-//
-//
-//        };
-//
-//    }
+        List<TestUser> allowedUser = users.stream()
+                .filter(user -> {
+
+                    boolean isMultiBranch = user.getOrgStructure().equalsIgnoreCase("MULTI_BRANCH");
+                    CompanyType companyType = CompanyType.valueOf(user.getCompanyType());
+
+                    OrganizationContext orgContext = new OrganizationContext(isMultiBranch, companyType);
+
+                    UserContext userContext = new UserContext(user.getRole(), orgContext);
+
+                    return ManageTeamPermission.canAccessAndInvite(userContext);
+                }).toList();
+
+        return allowedUser.stream()
+                .map(user -> new Object[]{user.getKey()})
+                .toArray(Object[][]::new);
+
+    }
 
 
 }

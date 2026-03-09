@@ -41,6 +41,12 @@ public class HeaderPage {
         return team;
     }
 
+    public void clickOnManageTeam(){
+        actionDriver.isElementPresentAndDisplayed(manageTeam);
+        actionDriver.click(manageTeam);
+        logger.info("Manage team Clicked from header menus");
+    }
+
     public boolean isChannelHistoryDisplayed() {
         actionDriver.isElementPresentAndDisplayed(channelHistory);
         boolean history = actionDriver.isDisplayed(channelHistory);
