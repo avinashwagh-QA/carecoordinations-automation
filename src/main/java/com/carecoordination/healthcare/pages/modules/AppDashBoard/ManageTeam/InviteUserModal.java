@@ -6,6 +6,7 @@ import com.carecoordination.healthcare.factory.DriverFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import java.util.Map;
 
@@ -19,17 +20,18 @@ public class InviteUserModal {
     }
 
     private final By btnInviteUser = By.id("createInviteUser");
-    private final By dropdownUserRole = By.xpath("//button[@data-id='addInvitationUserType']");
-    private final By dropDownRoleOption = By.xpath("//select[@id='addInvitationUserType']//option");
+    private final By dropdownUserRole = By.xpath("//div[@id='userTypeSelectDiv']//button");
+    private final By dropDownRoleOption = By.xpath("//div[@id='userTypeSelectDiv']//div[contains(@class,'dropdown-menu')]//span[@class='text']");
     private final By drpDownSelectUserRole = By.id("addInvitationUserType");
     private final By selectBranch = By.id("team-select-branch");
 
-    private final By inpFirstName = By.id("first_name");
+    private final By inpFirstName = By.xpath("//div[@id='commonManageTeamModalBody']//input[@id='first_name']");
     private final By inpMiddleName = By.name("middle_name");
-    private final By inpLastName = By.id("last_name");
-    private final By inpEmail = By.id("email");
-    private final By drpCountryCode = By.id("addInvitationCountryId");
-    private final By inpPhone = By.id("phone");
+    private final By inpLastName = By.xpath("//div[@id='commonManageTeamModalBody']//input[@id='last_name']");
+    private final By inpEmail = By.xpath("//div[@id='commonManageTeamModalBody']//input[@id='email']");
+    private final By drpCountryCode = By.xpath("//button[@data-id='addInvitationCountryId']");
+    private final By getDrpCountryCodeOption = By.xpath("//button[@data-id='addInvitationCountryId']/following::div[contains(@class,'dropdown-menu')]//span");
+    private final By inpPhone = By.xpath("//div[@id='commonManageTeamModalBody']//input[@id='phone']");
 
     private final By btnInvite = By.id("inviteUserTeamBtn");
 
@@ -64,36 +66,30 @@ public class InviteUserModal {
     }
 
     public void setInpFirstName(String firstName){
-        actionDriver.waitForElementToBeClickable(inpFirstName);
         actionDriver.enterText(inpFirstName, firstName);
     }
 
     public void setInpMiddleName(String middleName){
-        actionDriver.waitForElementToBeClickable(inpMiddleName  );
         actionDriver.enterText(inpMiddleName, middleName);
     }
 
     public void setInpLastName(String lastName){
-        actionDriver.waitForElementToBeClickable(inpLastName);
         actionDriver.enterText(inpLastName, lastName);
     }
 
     public void setInpEmail(String email){
-        actionDriver.waitForElementToBeClickable(inpEmail);
         actionDriver.enterText(inpEmail, email);
     }
 
     public void setInpPhone(String countryName, String number){
-        actionDriver.selectByValue(drpCountryCode, countryName);
-        actionDriver.waitForElementToBeClickable(inpPhone);
+        actionDriver.selectCustomDropdown(drpCountryCode, getDrpCountryCodeOption, countryName);
         actionDriver.enterText(inpPhone, number);
         logger.info("Phone :- countryCode:{} - Phone:{}",countryName, number);
     }
 
     public void clickOnInvite(){
-        actionDriver.waitForElementToBeClickable(btnInvite);
         actionDriver.click(btnInvite);
-        logger.info(" click on invite user button");
+        logger.info(" clicked on invite user button");
     }
 
     public boolean isInviteButtonDisable(){

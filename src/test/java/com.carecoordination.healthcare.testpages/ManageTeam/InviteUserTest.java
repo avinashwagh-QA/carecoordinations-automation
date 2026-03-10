@@ -52,10 +52,14 @@ public class InviteUserTest extends BaseTest {
 
         inviteUserModal.selectUserRole("Branch Admin");
 
-        inviteUserModal.fillBasicDetails("Smith", "Andrew", "Smith01_admin@yopmail.com","+91", "7849849840");
+        inviteUserModal.fillBasicDetails("Alexa", "Andrew", "alexa01_admin@yopmail.com","+91", "7849849842");
 
         inviteUserModal.clickOnInvite();
+        manageTeamPage.clickOnPendingTab();
+
+
         pendingTabComponent = new PendingTabComponent(actionDriver);
+
 
         Assert.assertTrue(pendingTabComponent.isUserPresent("Smith"), "User not found in the Pending tab");
 
@@ -63,7 +67,21 @@ public class InviteUserTest extends BaseTest {
     }
 
 
+    @Test
+    public void verifyUserPresentInManageTeam(){
 
+
+        headerPage.clickOnManageTeam();
+
+        manageTeamPage.clickOnPendingTab();
+
+        actionDriver.waitForPageLoad();
+
+        pendingTabComponent = new PendingTabComponent(actionDriver);
+
+
+        Assert.assertTrue(pendingTabComponent.isUserPresent("Smith Andrew"));
+    }
 
 
 

@@ -168,6 +168,7 @@ public class ActionDriver {
         try {
             logger.info("Entering text into {}", locator);
             WebElement element = waitForElementToVisible(locator);
+            logger.info("The element status is : {}", element.isDisplayed());
             element.clear();
             element.sendKeys(value);
         } catch (Exception e) {
@@ -298,16 +299,16 @@ public class ActionDriver {
         logger.info("Dropdown value is {} selected ", value);
     }
 
-    public void selectCustomDropdown(By dropDown, By options, String value){
-
+    public void selectCustomDropdown(By dropDown, By options, String value) {
         waitForElementToBeClickable(dropDown).click();
-       List<WebElement> optionList = waitForAllElementsToBeVisible(options);
 
-       for (WebElement option: optionList){
-           if (option.getText().equalsIgnoreCase(value)){
-               option.click();
-               break;
-           }
+        List<WebElement> optionList = waitForAllElementsToBeVisible(options);
+
+        for (WebElement option : optionList) {
+            if (option.getText().equalsIgnoreCase(value)) {
+                option.click();
+                break;
+            }
         }
     }
 

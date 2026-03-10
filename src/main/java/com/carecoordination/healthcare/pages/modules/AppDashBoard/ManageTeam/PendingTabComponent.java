@@ -19,7 +19,7 @@ public class PendingTabComponent {
     }
 
     private final By tableHeader = By.xpath("//table[@id='manageteamListingsTbl']//th");
-    private final By tableRows = By.xpath("//table[@id='manageteamListingsTbl']//tr");
+    private final By tableRows = By.xpath("//table[@id='manageteamListingsTbl']//tbody/tr");
 
     public boolean isUserPresent(String username) {
         boolean user = tableComponent.isRowPresent("Name & Title", username);

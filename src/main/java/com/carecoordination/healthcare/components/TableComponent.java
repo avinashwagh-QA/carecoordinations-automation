@@ -86,7 +86,7 @@ public class TableComponent {
 
         for (WebElement row : getRows()) {
 
-            String cellText = row.findElement(By.xpath("./div[" + columnIndex + "]"))
+            String cellText = row.findElement(By.xpath("./td[" + columnIndex + "]"))
                     .getText().trim();
 
             if (cellText.equalsIgnoreCase(value)) {
