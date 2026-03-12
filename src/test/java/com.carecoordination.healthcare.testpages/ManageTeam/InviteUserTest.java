@@ -1,5 +1,6 @@
 package com.carecoordination.healthcare.testpages.ManageTeam;
 
+import com.carecoordination.healthcare.constants.InviteUserField;
 import com.carecoordination.healthcare.context.UserContext;
 import com.carecoordination.healthcare.factory.BaseTest;
 import com.carecoordination.healthcare.pages.modules.AppDashBoard.HeaderPage;
@@ -52,40 +53,61 @@ public class InviteUserTest extends BaseTest {
 
         inviteUserModal.selectUserRole("Branch Admin");
 
-        inviteUserModal.fillBasicDetails("Alexa", "Andrew", "alexa01_admin@yopmail.com","+91", "7849849842");
+        inviteUserModal.fillBasicDetails("Carter", "Mitchel", "Carter01_admin@yopmail.com","+91", "7849849899");
 
         inviteUserModal.clickOnInvite();
         manageTeamPage.clickOnPendingTab();
 
-
+        manageTeamPage.waitForLoaderToDisappear();
         pendingTabComponent = new PendingTabComponent(actionDriver);
 
-
-        Assert.assertTrue(pendingTabComponent.isUserPresent("Smith"), "User not found in the Pending tab");
-
+        Assert.assertTrue(pendingTabComponent.isUserPresent("CM Carter Mitchel"));
+        Assert.assertEquals(pendingTabComponent.getUserEmailByUserName("CM Carter Mitchel"), "Carter01_admin@yopmail.com", "User email is incorrect");
 
     }
 
 
-    @Test
-    public void verifyUserPresentInManageTeam(){
-
-
+    @Test(description = "Verify inviting user with already email exist")
+    public void verifyErrorMessageOnDuplicateEmail(){
         headerPage.clickOnManageTeam();
+        inviteUserModal.clickOnInviteUser();
 
-        manageTeamPage.clickOnPendingTab();
+        inviteUserModal.selectUserRole("Branch Admin");
 
-        actionDriver.waitForPageLoad();
+        inviteUserModal.fillBasicDetails("Carter", "Mitchel", "Carter01_admin@yopmail.com","+91", "7321984989");
 
-        pendingTabComponent = new PendingTabComponent(actionDriver);
+        inviteUserModal.clickOnInvite();
 
-
-        Assert.assertTrue(pendingTabComponent.isUserPresent("Smith Andrew"));
+        Assert.assertTrue(inviteUserModal.isDuplicateInviteEmailMessageIsDisplayed(), "Duplicate email message format does not match");
     }
 
+    @Test(description = "Verify inviting user with invalid phone")
+    public void verifyErrorMessageOnPhone(){
+        headerPage.clickOnManageTeam();
+        inviteUserModal.clickOnInviteUser();
 
+        inviteUserModal.selectUserRole("Branch Admin");
 
+        inviteUserModal.fillBasicDetails("Carter", "Mitchel", "Carter02_admin@yopmail.com","+91", "784");
 
+        inviteUserModal.clickOnInvite();
+
+        Assert.assertEquals(inviteUserModal.getErrorField(InviteUserField.MOBILE_NUMBER), "The mobile number must contain exactly ten digits.");
+    }
+
+    @Test(description = "Verify inviting user with already phone number exist")
+    public void verifyErrorMessageOnDuplicatePhone(){
+        headerPage.clickOnManageTeam();
+        inviteUserModal.clickOnInviteUser();
+
+        inviteUserModal.selectUserRole("Branch Admin");
+
+        inviteUserModal.fillBasicDetails("Carter", "Mitchel", "Carter02_admin@yopmail.com","+91", "7849849899");
+
+        inviteUserModal.clickOnInvite();
+
+        Assert.assertTrue(inviteUserModal.isDuplicateInvitePhoneMessageIsDisplayed(), "Duplicate Phone number message format does not match");
+    }
 
 
 }

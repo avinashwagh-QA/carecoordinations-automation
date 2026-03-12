@@ -100,6 +100,17 @@ public class ActionDriver {
         }
     }
 
+    public List<WebElement> waitForAllElementsToBePresent(By locator) {
+        try {
+            logger.debug("Waiting for Presence of all the elements: {}", locator);
+            return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
+        } catch (Exception e) {
+            logger.error(" All the Elements are not presence: {}", locator);
+            throw new RuntimeException("List of Elements are not presence" + locator, e);
+        }
+    }
+
+
     // Wait for element to be Present in the Dom
     public WebElement waitForElementToBePresent(By locator) {
         try {
@@ -117,6 +128,27 @@ public class ActionDriver {
                 Objects.equals(((JavascriptExecutor) driver)
                         .executeScript("return document.readyState"), "complete"));
     }
+
+    // wait for load table in manage team
+    public void waitForLoaderToDisappear(By loaderLocator) {
+
+        try {
+            logger.debug("Checking if loader appears: {}", loaderLocator);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(loaderLocator));
+        } catch (Exception e) {
+            logger.debug("Loader did not appear.");
+        }
+
+        logger.debug("Waiting for loader to disappear: {}", loaderLocator);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(loaderLocator));
+    }
+
+    //row helper method to get rows more than 1
+    public void waitForRowsToLoad(By rowLocator){
+        wait.until(driver -> !driver.findElements(rowLocator).isEmpty());
+    }
+
+
 
     //Navigate Back form browser
     public void navigateToBack(){

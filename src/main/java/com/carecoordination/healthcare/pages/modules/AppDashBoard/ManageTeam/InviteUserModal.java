@@ -6,14 +6,17 @@ import com.carecoordination.healthcare.factory.DriverFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
 import java.util.Map;
 
 public class InviteUserModal {
 
     private final ActionDriver actionDriver;
     private static final Logger logger = LogManager.getLogger(InviteUserModal.class);
+    private final WebDriver driver = DriverFactory.getDriver();
 
     public InviteUserModal(ActionDriver actionDriver) {
         this.actionDriver = actionDriver;
@@ -36,22 +39,34 @@ public class InviteUserModal {
     private final By btnInvite = By.id("inviteUserTeamBtn");
 
     // it will map field with error text
-    private Map<InviteUserField, By> errorLocators = Map.of(
-            InviteUserField.USER_ROLE, By.xpath("//div[@id='userTypeSelectDiv']//span[@class='cc-error-txt']']"),
-            InviteUserField.FIRST_NAME, By.xpath("//input[@id='first_name']/parent::div/following-sibling::span[@class='cc-error-txt']"),
-            InviteUserField.LAST_NAME, By.xpath("//input[@id='last_name']/parent::div/following-sibling::span[@class='cc-error-txt']"),
-            InviteUserField.USER_EMAIL, By.xpath("//input[@id='email']/parent::div/following-sibling::span[@class='cc-error-txt']"),
-            InviteUserField.MOBILE_NUMBER, By.xpath("//input[@id='phone']/parent::div/following-sibling::span[@class='cc-error-txt']")
+    private Map<InviteUserField, List<By> > errorLocators = Map.of(
+            InviteUserField.USER_ROLE, List.of(By.xpath("//div[@id='userTypeSelectDiv']//span[@class='cc-error-txt']")),
+            InviteUserField.FIRST_NAME,List.of(By.xpath("//input[@id='first_name']/parent::div/following-sibling::span[@class='cc-error-txt']")),
+            InviteUserField.LAST_NAME, List.of(By.xpath("//input[@id='last_name']/parent::div/following-sibling::span[@class='cc-error-txt']")),
+            InviteUserField.USER_EMAIL, List.of(By.xpath("//input[@id='email']/parent::div/following-sibling::span[@class='cc-error-txt']")),
+            InviteUserField.MOBILE_NUMBER, List.of(By.xpath("//input[@id='phone']/parent::div/following-sibling::span[@class='cc-error-txt']"),
+                    By.xpath("//form[@id='inviteUserManageTeamForm']//span[contains(@class,'cc-error-phone-txt')]"))
     );
 
     // This method will return the message based on field
-    public String getErrorField(InviteUserField field){
-        return DriverFactory.getDriver().findElement(errorLocators.get(field)).getText();
+    public String getErrorField(InviteUserField field) {
+        for (By locator : errorLocators.get(field)) {
+            try {
+            WebElement element = actionDriver.waitForElementToVisible(locator);
+
+                String text = element.getText().trim();
+                logger.info("Message found is : {}", text);
+                return text;
+
+            } catch (Exception e) {
+                logger.debug("Locator not visible yet: {}", locator);
+            }
+        }
+        throw new RuntimeException("No error message found for field: " + field);
     }
 
     public void clickOnInviteUser(){
-        actionDriver.waitForElementToBeClickable(btnInviteUser);
-        actionDriver.click(btnInviteUser);
+        actionDriver.safeClick(btnInviteUser);
         logger.info("Click on Invite User button from Manage team");
     }
 
@@ -104,7 +119,25 @@ public class InviteUserModal {
         setInpPhone(countryCode,phone);
     }
 
+    //regex based message pattern check for email
+    public boolean isDuplicateInviteEmailMessageIsDisplayed(){
 
+        String errorMessage = getErrorField(InviteUserField.USER_EMAIL);
+        logger.info("Error message displayed on modal for email is : {}", errorMessage);
+
+        String pattern = "You are inviting .* as .*, but our records show that .* already sent an invite on .* at .*";
+        return errorMessage.matches(pattern);
+    }
+
+    //regex based message pattern check for Phone
+    public boolean isDuplicateInvitePhoneMessageIsDisplayed(){
+
+        String errorMessage = getErrorField(InviteUserField.MOBILE_NUMBER);
+        logger.info("Error message displayed on modal for Phone is : {}", errorMessage);
+
+        String pattern = "You are inviting .* as .*, but our records show that .* already sent an invite on .* at .*";
+        return errorMessage.matches(pattern);
+    }
 
 
 

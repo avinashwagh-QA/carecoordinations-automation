@@ -33,6 +33,9 @@ public class ManageTeamPage {
 
     private final By pagination = By.xpath("//div[@id='manageteamListingsTbl_paginate']//a[contains(@class,'paginate_button')]");
 
+    //loader
+    private final By loaderLocator = By.xpath("//div[@id='subAdminMainNormalBodySection']//div[contains(@class,'pageAjaxLoader')]");
+
     public void clickOnManageTeamTab(){
         actionDriver.waitForElementToBeClickable(tabManageTeam);
         actionDriver.click(tabManageTeam);
@@ -53,7 +56,7 @@ public class ManageTeamPage {
 
     public void clickOnPendingTab(){
         actionDriver.waitForElementToBeClickable(pendingTab);
-        actionDriver.click(pendingTab);
+        actionDriver.safeClick(pendingTab);
         logger.info("Click on Pending tab - Mange team in Team menu....");
     }
 
@@ -61,6 +64,10 @@ public class ManageTeamPage {
         actionDriver.waitForElementToBeClickable(teamHistory);
         actionDriver.click(teamHistory);
         logger.info("Click on Team History tab - Mange team in Team menu....");
+    }
+
+    public void waitForLoaderToDisappear(){
+        actionDriver.waitForLoaderToDisappear(loaderLocator);
     }
 
     public void selectBranch(String branchName){
@@ -91,6 +98,8 @@ public class ManageTeamPage {
         actionDriver.click(page);
         logger.info("Click on page number :{}", pageNumber);
     }
+
+
 
 
 }

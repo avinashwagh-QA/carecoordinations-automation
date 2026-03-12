@@ -27,6 +27,13 @@ public class PendingTabComponent {
         return user;
     }
 
+    public String getUserEmailByUserName(String userName){
+        String userEmail = tableComponent.getCellText("Name & Title", userName, "Email address");
+        logger.info("User name {}, has email {}", userName, userEmail);
+        return userEmail;
+    }
+
+
 
 
 
