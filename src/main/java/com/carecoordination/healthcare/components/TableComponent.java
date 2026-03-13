@@ -66,9 +66,11 @@ public class TableComponent {
     //Get All rows
     public List<WebElement> getRows(){
         actionDriver.waitForElementToVisible(rowLocator);
+        actionDriver.waitForRowsToLoad(rowLocator);
+
         List<WebElement> rows =driver.findElements(rowLocator);
 
-        logger.info("Total rows found  in table{}", rows.size());
+        logger.info("Total rows found  in table : {}", rows.size());
         return rows;
     }
 
@@ -86,8 +88,11 @@ public class TableComponent {
 
         for (WebElement row : getRows()) {
 
-            String cellText = row.findElement(By.xpath("./div[" + columnIndex + "]"))
-                    .getText().trim();
+            String cellText = row.findElement(By.xpath("./td[" + columnIndex + "]"))
+                    .getText()
+                    .replace("\n", " ")
+                    .trim();
+            logger.info("User name for debug {}", cellText);
 
             if (cellText.equalsIgnoreCase(value)) {
 
@@ -112,7 +117,7 @@ public class TableComponent {
         }
         int tagetIndex = getColumnIndex(targetColumn);
 
-        String cellText = row.findElement(By.xpath("./div[" + tagetIndex + "]"))
+        String cellText = row.findElement(By.xpath("./td[" + tagetIndex + "]"))
                 .getText().trim();
 
         logger.info("Cell value for {} -> {} : {}",searchColumn,searchValue,cellText);

@@ -47,7 +47,7 @@ public class AppDashboardPage {
 
     public void clickOnUserProfile(){
         actionDriver.waitForElementToBeClickable(headerUserName);
-        actionDriver.click(headerUserName);
+        actionDriver.safeClick(headerUserName);
         logger.info("Clicked on User Profile ....");
     }
 
@@ -55,12 +55,12 @@ public class AppDashboardPage {
     public void clickOnLogOut(){
         clickOnUserProfile();
         actionDriver.waitForElementToBeClickable(lnkLogOut);
-        actionDriver.click(lnkLogOut);
+        actionDriver.safeClick(lnkLogOut);
 
         logger.info("Clicked on logout from User Profile modal.....");
 
         actionDriver.waitForElementToBeClickable(confirmYes);
-        actionDriver.click(confirmYes);
+        actionDriver.safeClick(confirmYes);
 
         logger.info("The user click on confirm to logout.... ");
     }

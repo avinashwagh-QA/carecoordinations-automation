@@ -100,6 +100,17 @@ public class ActionDriver {
         }
     }
 
+    public List<WebElement> waitForAllElementsToBePresent(By locator) {
+        try {
+            logger.debug("Waiting for Presence of all the elements: {}", locator);
+            return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
+        } catch (Exception e) {
+            logger.error(" All the Elements are not presence: {}", locator);
+            throw new RuntimeException("List of Elements are not presence" + locator, e);
+        }
+    }
+
+
     // Wait for element to be Present in the Dom
     public WebElement waitForElementToBePresent(By locator) {
         try {
@@ -117,6 +128,27 @@ public class ActionDriver {
                 Objects.equals(((JavascriptExecutor) driver)
                         .executeScript("return document.readyState"), "complete"));
     }
+
+    // wait for load table in manage team
+    public void waitForLoaderToDisappear(By loaderLocator) {
+
+        try {
+            logger.debug("Checking if loader appears: {}", loaderLocator);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(loaderLocator));
+        } catch (Exception e) {
+            logger.debug("Loader did not appear.");
+        }
+
+        logger.debug("Waiting for loader to disappear: {}", loaderLocator);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(loaderLocator));
+    }
+
+    //row helper method to get rows more than 1
+    public void waitForRowsToLoad(By rowLocator){
+        wait.until(driver -> !driver.findElements(rowLocator).isEmpty());
+    }
+
+
 
     //Navigate Back form browser
     public void navigateToBack(){
@@ -168,6 +200,7 @@ public class ActionDriver {
         try {
             logger.info("Entering text into {}", locator);
             WebElement element = waitForElementToVisible(locator);
+            logger.info("The element status is : {}", element.isDisplayed());
             element.clear();
             element.sendKeys(value);
         } catch (Exception e) {
@@ -253,6 +286,16 @@ public class ActionDriver {
         js.executeScript("arguments[0].click();", element);
     }
 
+    // fall back method for click
+    public void safeClick(By locator) {
+        try {
+            click(locator);
+        } catch (Exception e) {
+            System.out.println("Normal click failed. Using JS click for: " + locator);
+            jsClick(locator);
+        }
+    }
+
     public void waitForOtpResendWindow() {
         try {
             logger.debug("Waiting for OTP resend window (30s business rule)");
@@ -288,16 +331,16 @@ public class ActionDriver {
         logger.info("Dropdown value is {} selected ", value);
     }
 
-    public void selectCustomDropdown(By dropDown, By options, String value){
-
+    public void selectCustomDropdown(By dropDown, By options, String value) {
         waitForElementToBeClickable(dropDown).click();
-       List<WebElement> optionList = waitForAllElementsToBeVisible(options);
 
-       for (WebElement option: optionList){
-           if (option.getText().equalsIgnoreCase(value)){
-               option.click();
-               break;
-           }
+        List<WebElement> optionList = waitForAllElementsToBeVisible(options);
+
+        for (WebElement option : optionList) {
+            if (option.getText().equalsIgnoreCase(value)) {
+                option.click();
+                break;
+            }
         }
     }
 

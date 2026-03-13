@@ -5,6 +5,7 @@ import com.carecoordination.healthcare.model.TestUserConfig;
 import tools.jackson.databind.ObjectMapper;
 
 import java.io.InputStream;
+import java.util.Collection;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -39,4 +40,9 @@ public class UserRepository {
         return userMap.get(key);
     }
 
+    public static Collection<TestUser> getAllUser(){
+        return userMap.values();
+    }
 }
+
+

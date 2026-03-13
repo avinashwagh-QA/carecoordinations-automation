@@ -2,6 +2,7 @@ package com.carecoordination.healthcare.context;
 
 import com.carecoordination.healthcare.constants.UserRole;
 import com.carecoordination.healthcare.core.security.*;
+import com.carecoordination.healthcare.model.TestUser;
 
 public class UserContext {
 

@@ -3,6 +3,8 @@ package com.carecoordination.healthcare.context;
 
 import com.carecoordination.healthcare.constants.CompanyType;
 
+import java.util.Set;
+
 /**
  * Holds organization-level configuration for a test run.
  *
@@ -38,7 +40,6 @@ public class OrganizationContext {
         this.isMultiBranch = isMultiBranch;
         this.companyType = companyType;
     }
-
 
     /**
      * @return true if organization has more than one branch
