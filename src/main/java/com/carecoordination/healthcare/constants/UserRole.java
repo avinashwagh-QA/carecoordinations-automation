@@ -20,13 +20,22 @@ package com.carecoordination.healthcare.constants;
 
 public enum UserRole {
 
-    SYSTEM_ADMIN,
-    BRANCH_ADMIN,
-    MANAGER_SUPERVISOR,
-    CLERICAL_STAFF,
-    FIELD_CLINICIAN,
-    TRIAGE_STAFF,
-    EXTERNAL_VENDOR;
+    SYSTEM_ADMIN("System Admin"),
+    BRANCH_ADMIN("Branch Admin"),
+    MANAGER_SUPERVISOR("Manager/Supervisor"),
+    CLERICAL_STAFF("Clerical Staff"),
+    FIELD_CLINICIAN("Field Clinician/Staff"),
+    TRIAGE_STAFF("Triage Staff"),
+    EXTERNAL_VENDOR("External Vendor/Partner");
 
+    private final String displayName;
+
+    UserRole(String displayName) {
+    this.displayName=displayName;
+    }
+
+    public String getDisplayName(){
+        return displayName;
+    }
 }
 

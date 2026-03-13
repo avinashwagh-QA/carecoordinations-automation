@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -26,7 +27,8 @@ public class InviteUserModal {
     private final By dropdownUserRole = By.xpath("//div[@id='userTypeSelectDiv']//button");
     private final By dropDownRoleOption = By.xpath("//div[@id='userTypeSelectDiv']//div[contains(@class,'dropdown-menu')]//span[@class='text']");
     private final By drpDownSelectUserRole = By.id("addInvitationUserType");
-    private final By selectBranch = By.id("team-select-branch");
+    private final By selectBranch = By.xpath("//div[@id='branchedSelectDiv']//button");
+    private final By selectBranchOption = By.xpath("//div[@id='branchedSelectDiv']//div[contains(@class,'dropdown-menu')]//span[@class='text']");
 
     private final By inpFirstName = By.xpath("//div[@id='commonManageTeamModalBody']//input[@id='first_name']");
     private final By inpMiddleName = By.name("middle_name");
@@ -72,12 +74,35 @@ public class InviteUserModal {
 
     public void selectUserRole(String role){
         actionDriver.selectCustomDropdown(dropdownUserRole,dropDownRoleOption, role);
-        logger.info("The User role{} is selected from {}", role, drpDownSelectUserRole);
+        logger.info("The User role {} is selected from {}", role, drpDownSelectUserRole);
+    }
+
+    public List<String> getUserRoles(){
+        actionDriver.waitForElementToBeClickable(dropdownUserRole);
+
+        actionDriver.safeClick(dropdownUserRole);
+
+        List<String> roles = new ArrayList<>();
+        actionDriver.waitForAllElementsToBeVisible(dropDownRoleOption);
+        List<WebElement> Options  = driver.findElements(dropDownRoleOption);
+
+        for (WebElement option : Options){
+            roles.add(option.getText().trim());
+        }
+
+        logger.info("Roles displayed in dropdown are : {}", roles);
+        return roles;
     }
 
     public void selectUserBranch(String branchName){
-        actionDriver.selectByValue(selectBranch, branchName);
-        logger.info("The User Branch{} is selected from {}", branchName, selectBranch);
+        actionDriver.selectCustomDropdown(selectBranch,selectBranchOption , branchName);
+        logger.info("The User selected Branch : {}", branchName);
+    }
+
+    public boolean isBranchDisplayed(){
+        boolean status = actionDriver.isDisplayed(selectBranch);
+        logger.info("The branch drop down status : {}", status);
+        return status;
     }
 
     public void setInpFirstName(String firstName){
@@ -104,12 +129,13 @@ public class InviteUserModal {
 
     public void clickOnInvite(){
         actionDriver.click(btnInvite);
-        logger.info(" clicked on invite user button");
+        logger.info(" clicked on invite user button from modal");
     }
 
-    public boolean isInviteButtonDisable(){
-        actionDriver.waitForElementToVisible(btnInvite);
-      return   actionDriver.isButtonEnabled(btnInvite);
+    public boolean isInviteButtonEnabled(){
+        boolean button = actionDriver.isButtonEnabled(btnInvite);
+        logger.info("The invite button status : {}", button);
+        return button;
     }
 
     public void fillBasicDetails(String firstname, String lastname, String email, String countryCode, String phone){
@@ -128,6 +154,19 @@ public class InviteUserModal {
         String pattern = "You are inviting .* as .*, but our records show that .* already sent an invite on .* at .*";
         return errorMessage.matches(pattern);
     }
+
+    public boolean isAlreadyRegisterUserMessageDisplayedOnEmail(){
+
+        String errorMessage = getErrorField(InviteUserField.USER_EMAIL);
+        logger.info("Error message displayed on modal for register email is : {}", errorMessage);
+
+        String pattern = "This user is already assigned as a .* in another branch. To invite them to a new branch with a different role, please update their existing role or contact support for assistance.";
+        return errorMessage.matches(pattern);
+    }
+
+
+
+
 
     //regex based message pattern check for Phone
     public boolean isDuplicateInvitePhoneMessageIsDisplayed(){
