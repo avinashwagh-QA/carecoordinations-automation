@@ -100,16 +100,6 @@ public class ActionDriver {
         }
     }
 
-    public List<WebElement> waitForAllElementsToBePresent(By locator) {
-        try {
-            logger.debug("Waiting for Presence of all the elements: {}", locator);
-            return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
-        } catch (Exception e) {
-            logger.error(" All the Elements are not presence: {}", locator);
-            throw new RuntimeException("List of Elements are not presence" + locator, e);
-        }
-    }
-
 
     // Wait for element to be Present in the Dom
     public WebElement waitForElementToBePresent(By locator) {
@@ -145,10 +135,8 @@ public class ActionDriver {
 
     //row helper method to get rows more than 1
     public void waitForRowsToLoad(By rowLocator){
-        wait.until(driver -> !driver.findElements(rowLocator).isEmpty());
+        wait.until(driver -> driver.findElements(rowLocator).size()>1);
     }
-
-
 
     //Navigate Back form browser
     public void navigateToBack(){
@@ -172,7 +160,25 @@ public class ActionDriver {
             waitForElementToBeClickable(element);
             element.click();
         } catch (Exception e) {
-            throw new RuntimeException("Unable to click WebElement", e);
+            System.out.println("Normal click failed. Using JS click for: " + element);
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            js.executeScript("arguments[0].click();", element);
+        }
+    }
+
+    public void jsClick(By locator) {
+        WebElement element = driver.findElement(locator);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", element);
+    }
+
+    // fall back method for click
+    public void safeClick(By locator) {
+        try {
+            click(locator);
+        } catch (Exception e) {
+            System.out.println("Normal click failed. Using JS click for: " + locator);
+            jsClick(locator);
         }
     }
 
@@ -193,7 +199,6 @@ public class ActionDriver {
         waitForElementToVisible(locator);
         return getText(locator);
     }
-
 
     //Method to enter the value in the input
     public void enterText(By locator, String value) {
@@ -269,6 +274,15 @@ public class ActionDriver {
 
     }
 
+    public void scrollToElement(WebElement element) {
+        try {
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+        } catch (Exception e) {
+            throw new RuntimeException("Unable to get element" + element + e.getMessage());
+        }
+
+    }
+
     public boolean waitForResendOTP(By locator) {
         try {
             logger.debug("Waiting for visibility of OTP : {}", locator);
@@ -277,22 +291,6 @@ public class ActionDriver {
         } catch (TimeoutException e) {
             logger.error("Resend OTP link not appeared after 40s");
             return false;
-        }
-    }
-
-    public void jsClick(By locator) {
-        WebElement element = driver.findElement(locator);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].click();", element);
-    }
-
-    // fall back method for click
-    public void safeClick(By locator) {
-        try {
-            click(locator);
-        } catch (Exception e) {
-            System.out.println("Normal click failed. Using JS click for: " + locator);
-            jsClick(locator);
         }
     }
 

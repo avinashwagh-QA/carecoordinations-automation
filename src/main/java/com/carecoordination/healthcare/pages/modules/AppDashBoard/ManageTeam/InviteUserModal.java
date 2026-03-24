@@ -40,6 +40,8 @@ public class InviteUserModal {
 
     private final By btnInvite = By.id("inviteUserTeamBtn");
 
+    private final By inviteUpdateToastMessage = By.xpath("//div[contains(@class,'iziToast')]//p[contains(@class,'iziToast-message')]");
+
     // it will map field with error text
     private Map<InviteUserField, List<By> > errorLocators = Map.of(
             InviteUserField.USER_ROLE, List.of(By.xpath("//div[@id='userTypeSelectDiv']//span[@class='cc-error-txt']")),
@@ -164,8 +166,14 @@ public class InviteUserModal {
         return errorMessage.matches(pattern);
     }
 
+    public boolean isInvalidEmailMessageDisplayed(){
 
+        String errorMessage = getErrorField(InviteUserField.USER_EMAIL);
+        logger.info("Error message displayed on edit modal for register email is : {}", errorMessage);
 
+        String pattern = "Please enter a valid email address.";
+        return errorMessage.matches(pattern);
+    }
 
 
     //regex based message pattern check for Phone
@@ -176,6 +184,23 @@ public class InviteUserModal {
 
         String pattern = "You are inviting .* as .*, but our records show that .* already sent an invite on .* at .*";
         return errorMessage.matches(pattern);
+    }
+
+    public boolean isUpdateInviteUserToastDisplayed() {
+
+        actionDriver.waitForElementToVisible(inviteUpdateToastMessage);
+        boolean status = actionDriver.isDisplayed(inviteUpdateToastMessage);
+        logger.info("Update Invite user toast message status is : {}", status);
+        logger.info("Message on update invite is : {}", actionDriver.getText(inviteUpdateToastMessage));
+        return status;
+
+    }
+
+
+
+
+
+
     }
 
 
@@ -194,4 +219,4 @@ public class InviteUserModal {
 
 
 
-}
+

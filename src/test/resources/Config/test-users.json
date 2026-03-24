@@ -3,7 +3,7 @@
     {
       "key": "sysadmin_multi_nonintegrated",
       "email": "max.admin@yopmail.com",
-      "password": "Admin@111",
+      "password": "Admin@123",
       "role": "SYSTEM_ADMIN",
       "userName" : "Max M Thompson",
       "companyType": "NONINTEGRATED",
