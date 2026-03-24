@@ -70,7 +70,7 @@ public class TableComponent {
 
         List<WebElement> rows =driver.findElements(rowLocator);
 
-        logger.info("Total rows found  in table : {}", rows.size());
+        logger.info("Total rows found in table : {}", rows.size());
         return rows;
     }
 
@@ -153,7 +153,6 @@ public class TableComponent {
         WebElement row = findRow(searchColumn, searchValue);
 
         if (row == null) {
-
             throw new RuntimeException(
                     "Row not found where " + searchColumn + " = " + searchValue
             );
@@ -162,11 +161,14 @@ public class TableComponent {
         int actionColumn = columnMap.get("Actions");
 
         // Click action button
-        WebElement action = row.findElement(By.xpath("./div[" + actionColumn + "]"));
+        WebElement action = row.findElement(By.xpath("./td[" + actionColumn + "]//div[contains(@class,'companies-listings-actions')]"));
+        actionDriver.waitForElementToBeClickable(action);
+        actionDriver.scrollToElement(action);
         actionDriver.click(action);
 
         //click on action menu
-        By actionOption =  By.xpath("//button[normalize-space()='"+actionName+"']");
+        WebElement actionOption = action.findElement(By.xpath("./ul//span[contains(text(),'"+actionName+"')]"));
+        actionDriver.waitForElementToVisible(actionOption);
         actionDriver.click(actionOption);
 
         logger.info("Performed '{}' action on row where {} = {}",

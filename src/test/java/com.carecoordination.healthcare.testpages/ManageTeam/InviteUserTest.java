@@ -4,6 +4,7 @@ import com.carecoordination.healthcare.constants.InviteUserField;
 import com.carecoordination.healthcare.constants.UserRole;
 import com.carecoordination.healthcare.context.UserContext;
 import com.carecoordination.healthcare.factory.BaseTest;
+import com.carecoordination.healthcare.model.InviteUserData;
 import com.carecoordination.healthcare.pages.modules.AppDashBoard.HeaderPage;
 import com.carecoordination.healthcare.pages.modules.AppDashBoard.ManageTeam.InviteUserModal;
 import com.carecoordination.healthcare.pages.modules.AppDashBoard.ManageTeam.ManageTeamPage;
@@ -173,7 +174,6 @@ public class InviteUserTest extends BaseTest {
 
     }
 
-
     @Test(description = "Verify inviting user with invalid phone")
     public void verifyErrorMessageOnPhone(){
         headerPage.clickOnManageTeam();
@@ -188,7 +188,7 @@ public class InviteUserTest extends BaseTest {
         Assert.assertEquals(inviteUserModal.getErrorField(InviteUserField.MOBILE_NUMBER), "The mobile number must contain exactly ten digits.");
     }
 
-    @Test(description = "Verify inviting user with already phone number exist")
+    @Test(description = "Verify inviting user with already phone number exist in pending tab")
     public void verifyErrorMessageOnDuplicatePhone(){
         headerPage.clickOnManageTeam();
         inviteUserModal.clickOnInviteUser();
@@ -201,6 +201,200 @@ public class InviteUserTest extends BaseTest {
 
         Assert.assertTrue(inviteUserModal.isDuplicateInvitePhoneMessageIsDisplayed(), "Duplicate Phone number message format does not match");
     }
+
+    @Test(description = "Verify inviting user with already register phone number")
+    public void VerifyErrorMessageOnAlreadyRegisterNumber(){
+
+        headerPage.clickOnManageTeam();
+        inviteUserModal.clickOnInviteUser();
+
+        inviteUserModal.selectUserRole("Branch Admin");
+
+        inviteUserModal.fillBasicDetails("Carter", "Mitchel", "Carter02_admin@yopmail.com","+91", "9988770104");
+
+        inviteUserModal.clickOnInvite();
+
+        Assert.assertTrue(inviteUserModal.isDuplicateInvitePhoneMessageIsDisplayed(), "Duplicate Phone number message format does not match");
+
+    }
+
+
+    @Test(description = "Verify After inviting a user On Re-invite correct User data is displayed")
+    public void VerifyOnReInviteUserInfoDetailsCorrectlyDisplayed(){
+
+        headerPage.clickOnManageTeam();
+        inviteUserModal.clickOnInviteUser();
+
+        inviteUserModal.selectUserRole("Branch Admin");
+
+        inviteUserModal.selectUserBranch("Sigma Hospice TX Branch");
+
+        inviteUserModal.fillBasicDetails("Owen", "Mitchel", "owen02_admin@yopmail.com","+91", "(924) 540-7368");
+
+        inviteUserModal.clickOnInvite();
+        manageTeamPage.clickOnPendingTab();
+
+        manageTeamPage.waitForLoaderToDisappear();
+        pendingTabComponent = new PendingTabComponent(actionDriver);
+
+        Assert.assertTrue(pendingTabComponent.isUserPresent("OM Owen Mitchel"));
+
+        InviteUserData expectedUser = new InviteUserData("Branch Admin", "Sigma Hospice TX Branch",
+                "Owen", "Mitchel", "owen02_admin@yopmail.com","+91 (924) 540-7368");
+
+        InviteUserData actualData = pendingTabComponent.getInviteUserDetailsByUserName("OM Owen Mitchel");
+
+        Assert.assertEquals(actualData.getRole(), expectedUser.getRole(), "Role does not match");
+        Assert.assertEquals(actualData.getBranchName(), expectedUser.getBranchName(), "Branch name does not match");
+        Assert.assertEquals(actualData.getFirstName(), expectedUser.getFirstName(), "First name does not match");
+        Assert.assertEquals(actualData.getLastName(), expectedUser.getLastName(), "Last name does not match");
+        Assert.assertEquals(actualData.getEmail(), expectedUser.getEmail(), "Email does not match");
+        Assert.assertEquals(actualData.getPhoneNumber(), expectedUser.getPhoneNumber(), "Phone number does not match");
+
+    }
+
+    @Test(description = "Verify click on invite user without updating user then user update successfully")
+    public void verifyToastMessageDisplayedOnUpdateInviteUser (){
+        headerPage.clickOnManageTeam();
+        manageTeamPage.clickOnPendingTab();
+
+        manageTeamPage.waitForLoaderToDisappear();
+        pendingTabComponent = new PendingTabComponent(actionDriver);
+
+        Assert.assertTrue(pendingTabComponent.isUserPresent("CM Craig Mitchel"));
+
+        pendingTabComponent.clickOnConfirmAndReInviteUser("CM Craig Mitchel");
+
+        inviteUserModal.clickOnInvite();
+
+        Assert.assertTrue(inviteUserModal.isUpdateInviteUserToastDisplayed(), "Toast on update invite user is not displayed");
+    }
+
+
+    @Test(description = "Verify updating user email from pending tab then email gets updated ")
+    public void verifyUpdatingUserEmailForAlreadyInvitedUser() {
+
+        headerPage.clickOnManageTeam();
+        manageTeamPage.clickOnPendingTab();
+
+        manageTeamPage.waitForLoaderToDisappear();
+        pendingTabComponent = new PendingTabComponent(actionDriver);
+
+        Assert.assertTrue(pendingTabComponent.isUserPresent("CM Craig Mitchel"));
+
+        pendingTabComponent.clickOnConfirmAndReInviteUser("CM Craig Mitchel");
+
+        String title = pendingTabComponent.clickOnEditInfo();
+
+        Assert.assertEquals(title, "Edit info & Re-invite", "Title does not match");
+
+        inviteUserModal.setInpEmail("Craig10_admin@yopmail.com");
+        inviteUserModal.clickOnInvite();
+
+        Assert.assertTrue(inviteUserModal.isUpdateInviteUserToastDisplayed(), "Toast on update invite user is not displayed");
+        manageTeamPage.waitForLoaderToDisappear();
+        Assert.assertEquals(pendingTabComponent.getUserEmailByUserName("CM Craig Mitchel"), "Craig10_admin@yopmail.com", "Email does not updated");
+
+    }
+
+    @Test(description = "Verify alert message on edit invitation for email")
+    public void verifyAlertMessageOnEmailInEditInvitation(){
+
+        headerPage.clickOnManageTeam();
+        manageTeamPage.clickOnPendingTab();
+
+        manageTeamPage.waitForLoaderToDisappear();
+        pendingTabComponent = new PendingTabComponent(actionDriver);
+
+        Assert.assertTrue(pendingTabComponent.isUserPresent("CM Craig Mitchel"));
+
+        pendingTabComponent.clickOnConfirmAndReInviteUser("CM Craig Mitchel");
+
+        String title = pendingTabComponent.clickOnEditInfo();
+
+        Assert.assertEquals(title, "Edit info & Re-invite", "Title does not match");
+
+        inviteUserModal.setInpEmail("care");
+        inviteUserModal.clickOnInvite();
+        Assert.assertTrue(inviteUserModal.isInvalidEmailMessageDisplayed());
+
+    }
+
+    //Invited scenario is remaining
+    @Test(description = "Verify on editing inviting user then invited by is correctly displayed")
+    public void verifyInvitedByDetailsIsCorrectlyDisplayed() {
+
+        headerPage.clickOnManageTeam();
+        manageTeamPage.clickOnPendingTab();
+
+        manageTeamPage.waitForLoaderToDisappear();
+        pendingTabComponent = new PendingTabComponent(actionDriver);
+
+        Assert.assertTrue(pendingTabComponent.isUserPresent("CM Craig Mitchel"));
+
+        pendingTabComponent.clickOnConfirmAndReInviteUser("CM Craig Mitchel");
+
+        String title = pendingTabComponent.clickOnEditInfo();
+
+        Assert.assertEquals(title, "Edit info & Re-invite", "Title does not match");
+
+        inviteUserModal.setInpEmail("Craig01_admin@yopmail.com");
+        inviteUserModal.clickOnInvite();
+        manageTeamPage.waitForLoaderToDisappear();
+
+        String invitedByText = pendingTabComponent.getInvitedUserDetails("CM Craig Mitchel");
+
+        Assert.assertTrue(invitedByText.startsWith("By"), "message does not start with By");
+
+        Assert.assertTrue(invitedByText.contains("Max M Thompson"), "Invited by user is not correctly displayed");
+
+        // Validate date
+        Assert.assertTrue(invitedByText.matches(".*\\d{2}/\\d{2}/\\d{4}.*"),
+                "Date format incorrect");
+
+        // Validate time
+        Assert.assertTrue(invitedByText.matches(".*\\d{2}:\\d{2}\\s?(AM|PM).*"),
+                "Time format incorrect");
+    }
+
+    @Test(description = "Verify by deleting user from pending tab")
+    public void verifyByDeletingUserFromPendingTab(){
+
+        headerPage.clickOnManageTeam();
+        manageTeamPage.clickOnPendingTab();
+
+        manageTeamPage.waitForLoaderToDisappear();
+        pendingTabComponent = new PendingTabComponent(actionDriver);
+
+        pendingTabComponent.clickOnDeleteInvitation("MM Madhumkcg MK");
+
+        Assert.assertTrue(pendingTabComponent.isDeleteInviteUserToastDisplayed(), " Delete user toast does not displayed");
+        Assert.assertFalse(pendingTabComponent.isUserPresent(""), "User is present in the pending tab ");
+
+    }
+
+    @Test(description = "Verify Delete confirmation popup displayed correct user name and role")
+    public void VerifyUserNameAndCorrectUserRoleIsDisplayed(){
+
+        headerPage.clickOnManageTeam();
+        manageTeamPage.clickOnPendingTab();
+
+        manageTeamPage.waitForLoaderToDisappear();
+        pendingTabComponent = new PendingTabComponent(actionDriver);
+
+        String role = pendingTabComponent.getUserRoleByUserName("DD Das Dronr");
+
+        pendingTabComponent.clickOnDeleteInvitation("DD Das Dronr");
+
+        Assert.assertTrue(pendingTabComponent.getDeleteConfirmationText().contains("Das Dronr"), "User name does not match in confirmation modal");
+        Assert.assertTrue(pendingTabComponent.getDeleteConfirmationText().contains(role), "User role does not match in the confirmation modal");
+
+        Assert.assertTrue(pendingTabComponent.isDeleteInviteUserToastDisplayed(), " Delete user toast does not displayed");
+        Assert.assertFalse(pendingTabComponent.isUserPresent("CM Craig Mitchel"), "User is present in the pending tab ");
+
+
+    }
+
 
 
 }
