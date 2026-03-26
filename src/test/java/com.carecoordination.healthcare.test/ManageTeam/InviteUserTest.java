@@ -139,12 +139,13 @@ public class InviteUserTest extends BaseTest {
     @Test(description = "Verify inviting user with already email exist in pending tab")
     public void verifyErrorMessageOnDuplicateEmail(){
         openInviteUserModal();
+
+        InviteUserData user = new InviteUserFactory().createUser(UserRole.BRANCH_ADMIN);
         inviteUserModal.selectUserRole("Branch Admin");
 
-        inviteUserModal.fillBasicDetails("Carter", "Mitchel", "Carter01_admin@yopmail.com","+91", "7321984989");
+        user.setEmail("kimbra_branchadmin@yopmail.com");
 
-        inviteUserModal.clickOnInvite();
-
+        inviteUserModal.inviteUser(user);
         Assert.assertTrue(inviteUserModal.isDuplicateInviteEmailMessageIsDisplayed(), "Duplicate email message format does not match");
     }
 
@@ -153,24 +154,23 @@ public class InviteUserTest extends BaseTest {
 
         openInviteUserModal();
 
+        InviteUserData user = new InviteUserFactory().createUser(UserRole.BRANCH_ADMIN);
         inviteUserModal.selectUserRole("Branch Admin");
 
-        inviteUserModal.fillBasicDetails("Carter", "Mitchel", "Max.admin@yopmail.com","+91", "7321984901");
-
-        inviteUserModal.clickOnInvite();
+        user.setEmail("Edwin.cstaff@yopmail.com");
+        inviteUserModal.inviteUser(user);
 
         Assert.assertTrue(inviteUserModal.isAlreadyRegisterUserMessageDisplayedOnEmail(), "Already Register email message format does not match");
-
     }
 
     @Test(description = "Verify inviting user with invalid phone")
     public void verifyErrorMessageOnPhone(){
         openInviteUserModal();
+        InviteUserData user = new InviteUserFactory().createUser(UserRole.BRANCH_ADMIN);
         inviteUserModal.selectUserRole("Branch Admin");
 
-        inviteUserModal.fillBasicDetails("Carter", "Mitchel", "Carter02_admin@yopmail.com","+91", "784");
-
-        inviteUserModal.clickOnInvite();
+        user.setPhoneNumber("7845");
+        inviteUserModal.inviteUser(user);
 
         Assert.assertEquals(inviteUserModal.getErrorField(InviteUserField.MOBILE_NUMBER), "The mobile number must contain exactly ten digits.");
     }
@@ -178,11 +178,11 @@ public class InviteUserTest extends BaseTest {
     @Test(description = "Verify inviting user with already phone number exist in pending tab")
     public void verifyErrorMessageOnDuplicatePhone(){
         openInviteUserModal();
+        InviteUserData user = new InviteUserFactory().createUser(UserRole.BRANCH_ADMIN);
         inviteUserModal.selectUserRole("Branch Admin");
 
-        inviteUserModal.fillBasicDetails("Carter", "Mitchel", "Carter02_admin@yopmail.com","+91", "7849849899");
-
-        inviteUserModal.clickOnInvite();
+        user.setPhoneNumber("(724) 540-2367");
+        inviteUserModal.inviteUser(user);
 
         Assert.assertTrue(inviteUserModal.isDuplicateInvitePhoneMessageIsDisplayed(), "Duplicate Phone number message format does not match");
     }
@@ -190,15 +190,13 @@ public class InviteUserTest extends BaseTest {
     @Test(description = "Verify inviting user with already register phone number")
     public void VerifyErrorMessageOnAlreadyRegisterNumber(){
         openInviteUserModal();
-
+        InviteUserData user = new InviteUserFactory().createUser(UserRole.BRANCH_ADMIN);
         inviteUserModal.selectUserRole("Branch Admin");
 
-        inviteUserModal.fillBasicDetails("Carter", "Mitchel", "Carter02_admin@yopmail.com","+91", "9988770104");
-
-        inviteUserModal.clickOnInvite();
+        user.setPhoneNumber("(309) 090-4995");
+        inviteUserModal.inviteUser(user);
 
         Assert.assertTrue(inviteUserModal.isDuplicateInvitePhoneMessageIsDisplayed(), "Duplicate Phone number message format does not match");
-
     }
 
 
@@ -207,32 +205,26 @@ public class InviteUserTest extends BaseTest {
 
         openInviteUserModal();
 
-        inviteUserModal.selectUserRole("Branch Admin");
-
+        InviteUserData user = new InviteUserFactory().createUser(UserRole.BRANCH_ADMIN);
         inviteUserModal.selectUserBranch("Sigma Hospice TX Branch");
 
-        inviteUserModal.fillBasicDetails("Owen", "Mitchel", "owen02_admin@yopmail.com","+91", "(924) 540-7368");
+        inviteUserModal.inviteUser(user);
 
-        inviteUserModal.clickOnInvite();
         manageTeamPage.clickOnPendingTab();
-
         manageTeamPage.waitForLoaderToDisappear();
+
         pendingTabComponent = new PendingTabComponent(actionDriver);
 
-        Assert.assertTrue(pendingTabComponent.isUserPresent("OM Owen Mitchel"));
+        Assert.assertTrue(pendingTabComponent.isUserPresent(user.getDisplayedName()));
 
-        InviteUserData expectedUser = new InviteUserData("Branch Admin", "Sigma Hospice TX Branch",
-                "Owen", "Mitchel", "owen02_admin@yopmail.com","+91 (924) 540-7368");
+        InviteUserData actualData = pendingTabComponent.getInviteUserDetailsByUserName(user.getDisplayedName());
 
-        InviteUserData actualData = pendingTabComponent.getInviteUserDetailsByUserName("OM Owen Mitchel");
-
-        Assert.assertEquals(actualData.getRole(), expectedUser.getRole(), "Role does not match");
-        Assert.assertEquals(actualData.getBranchName(), expectedUser.getBranchName(), "Branch name does not match");
-        Assert.assertEquals(actualData.getFirstName(), expectedUser.getFirstName(), "First name does not match");
-        Assert.assertEquals(actualData.getLastName(), expectedUser.getLastName(), "Last name does not match");
-        Assert.assertEquals(actualData.getEmail(), expectedUser.getEmail(), "Email does not match");
-        Assert.assertEquals(actualData.getPhoneNumber(), expectedUser.getPhoneNumber(), "Phone number does not match");
-
+        Assert.assertEquals(actualData.getRole(), user.getRole(), "Role does not match");
+        Assert.assertEquals(actualData.getBranchName(), "Sigma Hospice TX Branch", "Branch name does not match");
+        Assert.assertEquals(actualData.getFirstName(), user.getFirstName(), "First name does not match");
+        Assert.assertEquals(actualData.getLastName(), user.getLastName(), "Last name does not match");
+        Assert.assertEquals(actualData.getEmail(), user.getEmail(), "Email does not match");
+        Assert.assertEquals(actualData.getPhoneNumber(), user.getPhoneNumber(), "Phone number does not match");
     }
 
     @Test(description = "Verify click on invite user without updating user then user update successfully")

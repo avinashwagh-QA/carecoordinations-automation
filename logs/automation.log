@@ -280,3 +280,1110 @@
 2026-03-26 11:28:37.501 [main] INFO  DriverFactory -  - Quitting WebDriver for thread: main
 2026-03-26 11:28:37.824 [main] DEBUG DriverFactory -  - WebDriver removed from ThreadLocal for thread: main
 2026-03-26 11:28:37.825 [main] INFO  BaseTest -  - WebDriver quit and ThreadLocal cleared
+2026-03-26 12:49:24.856 [main] INFO  Utils -  - [TestNG] Running:
+  C:\Users\DREAMWORLD\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+2026-03-26 12:49:24.976 [main] INFO  BaseTest -  - ===== Starting Test Setup on thread: main =====
+2026-03-26 12:49:24.983 [main] INFO  BaseTest -  - No TestNG browser parameter provided. Falling back to config: chrome
+2026-03-26 12:49:24.990 [main] INFO  DriverFactory -  - Initiating driver on for browser chrome on threadmain
+2026-03-26 12:49:27.839 [main] INFO  DriverManager -  - Chrome Driver Instance Is Created
+2026-03-26 12:49:27.839 [main] DEBUG DriverManager -  - Driver instance created successfully: ChromeDriver: chrome on windows (88bddc78ecf1364acc97a864d7907dd8)
+2026-03-26 12:49:27.839 [main] DEBUG DriverFactory -  - WebDriver instance set in ThreadLocal for thread: main
+2026-03-26 12:49:27.840 [main] DEBUG BaseTest -  - WebDriver initialized successfully
+2026-03-26 12:49:27.844 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=30 seconds
+2026-03-26 12:49:27.844 [main] DEBUG BaseTest -  - ActionDriver initialized..........
+2026-03-26 12:49:27.845 [main] INFO  BaseTest -  - Configuring Browser Settings...
+2026-03-26 12:49:27.845 [main] DEBUG BaseTest -  - Setting implicit wait to 2 seconds
+2026-03-26 12:49:27.852 [main] INFO  BaseTest -  - Maximizing browser window
+2026-03-26 12:49:33.177 [main] INFO  BaseTest -  - Navigating to URL: https://uat.carecoordinations.com/
+2026-03-26 12:49:33.703 [main] INFO  BaseTest -  - Persona Login --> role: SYSTEM_ADMIN |  Company Type: NONINTEGRATED | Organization Structure: MULTI_BRANCH | Email: max.admin@yopmail.com
+2026-03-26 12:49:33.706 [main] INFO  AuthHelper -  - Logging in with Persona Email: max.admin@yopmail.com
+2026-03-26 12:49:33.707 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 12:49:33.765 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 12:49:33.765 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 12:49:36.883 [main] INFO  LandingPage -  - Click on log in page from landing page
+2026-03-26 12:49:36.883 [main] INFO  LoginPage -  - Adding Username and Password max.admin@yopmail.com Admin@123
+2026-03-26 12:49:36.883 [main] INFO  ActionDriver -  - Entering text into By.id: email
+2026-03-26 12:49:36.884 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: email
+2026-03-26 12:49:36.932 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 12:49:37.174 [main] INFO  ActionDriver -  - Entering text into By.id: password
+2026-03-26 12:49:37.174 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: password
+2026-03-26 12:49:37.309 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 12:49:37.432 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-03-26 12:49:37.432 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-03-26 12:49:37.541 [main] INFO  LoginPage -  - Clicking  on login button ......
+2026-03-26 12:49:37.541 [main] INFO  BaseTest -  - === Test Setup completed ===
+2026-03-26 12:49:37.551 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=30 seconds
+2026-03-26 12:49:45.003 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[contains(@href,'manage-team')]
+2026-03-26 12:49:45.005 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[contains(@href,'manage-team')]
+2026-03-26 12:49:49.146 [main] INFO  HeaderPage -  - Manage team Clicked from header menus
+2026-03-26 12:49:49.146 [main] INFO  ActionDriver -  - Clicking element: By.id: createInviteUser
+2026-03-26 12:49:49.147 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: createInviteUser
+2026-03-26 12:49:49.270 [main] INFO  InviteUserModal -  - Click on Invite User button from Manage team
+2026-03-26 12:49:49.578 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //div[@id='userTypeSelectDiv']//button
+2026-03-26 12:49:49.888 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //div[@id='userTypeSelectDiv']//div[contains(@class,'dropdown-menu')]//span[@class='text']
+2026-03-26 12:49:50.079 [main] INFO  InviteUserModal -  - The User role Branch Admin is selected from By.id: addInvitationUserType
+2026-03-26 12:49:50.079 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //div[@id='userTypeSelectDiv']//button
+2026-03-26 12:49:50.191 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //div[@id='userTypeSelectDiv']//div[contains(@class,'dropdown-menu')]//span[@class='text']
+2026-03-26 12:49:50.344 [main] INFO  InviteUserModal -  - The User role Branch Admin is selected from By.id: addInvitationUserType
+2026-03-26 12:49:50.344 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='first_name']
+2026-03-26 12:49:50.344 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='first_name']
+2026-03-26 12:49:50.372 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 12:49:50.461 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='last_name']
+2026-03-26 12:49:50.461 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='last_name']
+2026-03-26 12:49:50.494 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 12:49:50.584 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='email']
+2026-03-26 12:49:50.584 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='email']
+2026-03-26 12:49:50.618 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 12:49:50.840 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@data-id='addInvitationCountryId']
+2026-03-26 12:49:50.956 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //button[@data-id='addInvitationCountryId']/following::div[contains(@class,'dropdown-menu')]//span
+2026-03-26 12:49:51.096 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='phone']
+2026-03-26 12:49:51.096 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='phone']
+2026-03-26 12:49:51.128 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 12:49:51.253 [main] INFO  InviteUserModal -  - Phone :- countryCode:+91 - Phone:9169448225
+2026-03-26 12:49:51.254 [main] INFO  ActionDriver -  - Clicking element: By.id: inviteUserTeamBtn
+2026-03-26 12:49:51.254 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: inviteUserTeamBtn
+2026-03-26 12:49:51.390 [main] INFO  InviteUserModal -  -  clicked on invite user button from modal
+2026-03-26 12:49:51.390 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //input[@id='email']/parent::div/following-sibling::span[@class='cc-error-txt']
+2026-03-26 12:52:55.928 [main] INFO  Utils -  - [TestNG] Running:
+  C:\Users\DREAMWORLD\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+2026-03-26 12:52:56.040 [main] INFO  BaseTest -  - ===== Starting Test Setup on thread: main =====
+2026-03-26 12:52:56.048 [main] INFO  BaseTest -  - No TestNG browser parameter provided. Falling back to config: chrome
+2026-03-26 12:52:56.052 [main] INFO  DriverFactory -  - Initiating driver on for browser chrome on threadmain
+2026-03-26 12:52:57.847 [main] INFO  DriverManager -  - Chrome Driver Instance Is Created
+2026-03-26 12:52:57.847 [main] DEBUG DriverManager -  - Driver instance created successfully: ChromeDriver: chrome on windows (d9aa10f0823c4927ba2cb5be37b4fcfd)
+2026-03-26 12:52:57.848 [main] DEBUG DriverFactory -  - WebDriver instance set in ThreadLocal for thread: main
+2026-03-26 12:52:57.848 [main] DEBUG BaseTest -  - WebDriver initialized successfully
+2026-03-26 12:52:57.851 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=30 seconds
+2026-03-26 12:52:57.851 [main] DEBUG BaseTest -  - ActionDriver initialized..........
+2026-03-26 12:52:57.851 [main] INFO  BaseTest -  - Configuring Browser Settings...
+2026-03-26 12:52:57.852 [main] DEBUG BaseTest -  - Setting implicit wait to 2 seconds
+2026-03-26 12:52:57.857 [main] INFO  BaseTest -  - Maximizing browser window
+2026-03-26 12:53:02.700 [main] INFO  BaseTest -  - Navigating to URL: https://uat.carecoordinations.com/
+2026-03-26 12:53:03.135 [main] INFO  BaseTest -  - Persona Login --> role: SYSTEM_ADMIN |  Company Type: NONINTEGRATED | Organization Structure: MULTI_BRANCH | Email: max.admin@yopmail.com
+2026-03-26 12:53:03.139 [main] INFO  AuthHelper -  - Logging in with Persona Email: max.admin@yopmail.com
+2026-03-26 12:53:03.139 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 12:53:03.189 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 12:53:03.190 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 12:53:06.287 [main] INFO  LandingPage -  - Click on log in page from landing page
+2026-03-26 12:53:06.288 [main] INFO  LoginPage -  - Adding Username and Password max.admin@yopmail.com Admin@123
+2026-03-26 12:53:06.288 [main] INFO  ActionDriver -  - Entering text into By.id: email
+2026-03-26 12:53:06.288 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: email
+2026-03-26 12:53:06.332 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 12:53:06.517 [main] INFO  ActionDriver -  - Entering text into By.id: password
+2026-03-26 12:53:06.519 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: password
+2026-03-26 12:53:06.584 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 12:53:06.731 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-03-26 12:53:06.731 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-03-26 12:53:06.993 [main] INFO  LoginPage -  - Clicking  on login button ......
+2026-03-26 12:53:06.994 [main] INFO  BaseTest -  - === Test Setup completed ===
+2026-03-26 12:53:07.007 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=30 seconds
+2026-03-26 12:53:14.419 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[contains(@href,'manage-team')]
+2026-03-26 12:53:14.419 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[contains(@href,'manage-team')]
+2026-03-26 12:53:18.538 [main] INFO  HeaderPage -  - Manage team Clicked from header menus
+2026-03-26 12:53:18.539 [main] INFO  ActionDriver -  - Clicking element: By.id: createInviteUser
+2026-03-26 12:53:18.539 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: createInviteUser
+2026-03-26 12:53:19.768 [main] INFO  InviteUserModal -  - Click on Invite User button from Manage team
+2026-03-26 12:53:20.064 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //div[@id='userTypeSelectDiv']//button
+2026-03-26 12:53:20.330 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //div[@id='userTypeSelectDiv']//div[contains(@class,'dropdown-menu')]//span[@class='text']
+2026-03-26 12:53:20.529 [main] INFO  InviteUserModal -  - The User role Branch Admin is selected from By.id: addInvitationUserType
+2026-03-26 12:53:20.529 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //div[@id='userTypeSelectDiv']//button
+2026-03-26 12:53:20.621 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //div[@id='userTypeSelectDiv']//div[contains(@class,'dropdown-menu')]//span[@class='text']
+2026-03-26 12:53:20.777 [main] INFO  InviteUserModal -  - The User role Branch Admin is selected from By.id: addInvitationUserType
+2026-03-26 12:53:20.778 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='first_name']
+2026-03-26 12:53:20.778 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='first_name']
+2026-03-26 12:53:20.809 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 12:53:20.911 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='last_name']
+2026-03-26 12:53:20.911 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='last_name']
+2026-03-26 12:53:20.939 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 12:53:21.036 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='email']
+2026-03-26 12:53:21.036 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='email']
+2026-03-26 12:53:21.068 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 12:53:21.372 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@data-id='addInvitationCountryId']
+2026-03-26 12:53:21.470 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //button[@data-id='addInvitationCountryId']/following::div[contains(@class,'dropdown-menu')]//span
+2026-03-26 12:53:21.604 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='phone']
+2026-03-26 12:53:21.604 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='phone']
+2026-03-26 12:53:21.639 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 12:53:21.787 [main] INFO  InviteUserModal -  - Phone :- countryCode:+91 - Phone:9318769023
+2026-03-26 12:53:21.787 [main] INFO  ActionDriver -  - Clicking element: By.id: inviteUserTeamBtn
+2026-03-26 12:53:21.788 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: inviteUserTeamBtn
+2026-03-26 12:53:21.918 [main] INFO  InviteUserModal -  -  clicked on invite user button from modal
+2026-03-26 12:53:21.919 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //input[@id='email']/parent::div/following-sibling::span[@class='cc-error-txt']
+2026-03-26 12:53:22.487 [main] INFO  InviteUserModal -  - Message found is : You are inviting Reid Walker as Branch Admin, but our records show that You, already sent an invite on 03/26/2026 at 12:58 AM CST.
+2026-03-26 12:53:22.487 [main] INFO  InviteUserModal -  - Error message displayed on modal for email is : You are inviting Reid Walker as Branch Admin, but our records show that You, already sent an invite on 03/26/2026 at 12:58 AM CST.
+2026-03-26 12:53:22.494 [main] DEBUG BaseTest -  - @AfterMethod optional cleanup for thread: main
+2026-03-26 12:53:22.496 [main] INFO  BaseTest -  - Attempting logout after test
+2026-03-26 12:53:22.496 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-03-26 12:53:22.524 [main] INFO  ActionDriver -  - Clicking element: By.id: headerUserName
+2026-03-26 12:53:22.524 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-03-26 12:53:23.704 [main] INFO  AppDashboardPage -  - Clicked on User Profile ....
+2026-03-26 12:53:23.704 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-03-26 12:53:23.738 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-03-26 12:53:23.738 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-03-26 12:53:24.901 [main] INFO  AppDashboardPage -  - Clicked on logout from User Profile modal.....
+2026-03-26 12:53:24.901 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='actionYes']
+2026-03-26 12:53:25.461 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='actionYes']
+2026-03-26 12:53:25.461 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='actionYes']
+2026-03-26 12:53:28.119 [main] INFO  AppDashboardPage -  - The user click on confirm to logout.... 
+2026-03-26 12:53:28.120 [main] INFO  BaseTest -  - Logout performed
+2026-03-26 12:53:28.120 [main] INFO  DriverFactory -  - Quitting WebDriver for thread: main
+2026-03-26 12:53:28.965 [main] DEBUG DriverFactory -  - WebDriver removed from ThreadLocal for thread: main
+2026-03-26 12:53:28.966 [main] INFO  BaseTest -  - WebDriver quit and ThreadLocal cleared
+2026-03-26 12:57:47.283 [main] INFO  Utils -  - [TestNG] Running:
+  C:\Users\DREAMWORLD\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+2026-03-26 12:57:47.368 [main] INFO  BaseTest -  - ===== Starting Test Setup on thread: main =====
+2026-03-26 12:57:47.378 [main] INFO  BaseTest -  - No TestNG browser parameter provided. Falling back to config: chrome
+2026-03-26 12:57:47.380 [main] INFO  DriverFactory -  - Initiating driver on for browser chrome on threadmain
+2026-03-26 12:57:49.255 [main] INFO  DriverManager -  - Chrome Driver Instance Is Created
+2026-03-26 12:57:49.255 [main] DEBUG DriverManager -  - Driver instance created successfully: ChromeDriver: chrome on windows (ab24f242d21c62b8fe6f1db62513cb58)
+2026-03-26 12:57:49.256 [main] DEBUG DriverFactory -  - WebDriver instance set in ThreadLocal for thread: main
+2026-03-26 12:57:49.256 [main] DEBUG BaseTest -  - WebDriver initialized successfully
+2026-03-26 12:57:49.262 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=30 seconds
+2026-03-26 12:57:49.262 [main] DEBUG BaseTest -  - ActionDriver initialized..........
+2026-03-26 12:57:49.263 [main] INFO  BaseTest -  - Configuring Browser Settings...
+2026-03-26 12:57:49.263 [main] DEBUG BaseTest -  - Setting implicit wait to 2 seconds
+2026-03-26 12:57:49.271 [main] INFO  BaseTest -  - Maximizing browser window
+2026-03-26 12:57:53.151 [main] INFO  BaseTest -  - Navigating to URL: https://uat.carecoordinations.com/
+2026-03-26 12:57:53.680 [main] INFO  BaseTest -  - Persona Login --> role: SYSTEM_ADMIN |  Company Type: NONINTEGRATED | Organization Structure: MULTI_BRANCH | Email: max.admin@yopmail.com
+2026-03-26 12:57:53.682 [main] INFO  AuthHelper -  - Logging in with Persona Email: max.admin@yopmail.com
+2026-03-26 12:57:53.682 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 12:57:53.723 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 12:57:53.723 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 12:57:56.202 [main] INFO  LandingPage -  - Click on log in page from landing page
+2026-03-26 12:57:56.202 [main] INFO  LoginPage -  - Adding Username and Password max.admin@yopmail.com Admin@123
+2026-03-26 12:57:56.203 [main] INFO  ActionDriver -  - Entering text into By.id: email
+2026-03-26 12:57:56.203 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: email
+2026-03-26 12:57:56.240 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 12:57:56.413 [main] INFO  ActionDriver -  - Entering text into By.id: password
+2026-03-26 12:57:56.414 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: password
+2026-03-26 12:57:56.467 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 12:57:56.587 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-03-26 12:57:56.587 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-03-26 12:57:56.889 [main] INFO  LoginPage -  - Clicking  on login button ......
+2026-03-26 12:57:56.889 [main] INFO  BaseTest -  - === Test Setup completed ===
+2026-03-26 12:57:56.921 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=30 seconds
+2026-03-26 12:58:04.386 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[contains(@href,'manage-team')]
+2026-03-26 12:58:04.395 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[contains(@href,'manage-team')]
+2026-03-26 12:58:08.202 [main] INFO  HeaderPage -  - Manage team Clicked from header menus
+2026-03-26 12:58:08.202 [main] INFO  ActionDriver -  - Clicking element: By.id: createInviteUser
+2026-03-26 12:58:08.202 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: createInviteUser
+2026-03-26 12:58:08.328 [main] INFO  InviteUserModal -  - Click on Invite User button from Manage team
+2026-03-26 12:58:08.603 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //div[@id='userTypeSelectDiv']//button
+2026-03-26 12:58:08.971 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //div[@id='userTypeSelectDiv']//div[contains(@class,'dropdown-menu')]//span[@class='text']
+2026-03-26 12:58:09.171 [main] INFO  InviteUserModal -  - The User role Branch Admin is selected from By.id: addInvitationUserType
+2026-03-26 12:58:09.171 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //div[@id='userTypeSelectDiv']//button
+2026-03-26 12:58:09.306 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //div[@id='userTypeSelectDiv']//div[contains(@class,'dropdown-menu')]//span[@class='text']
+2026-03-26 12:58:09.494 [main] INFO  InviteUserModal -  - The User role Branch Admin is selected from By.id: addInvitationUserType
+2026-03-26 12:58:09.494 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='first_name']
+2026-03-26 12:58:09.494 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='first_name']
+2026-03-26 12:58:09.535 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 12:58:09.653 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='last_name']
+2026-03-26 12:58:09.654 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='last_name']
+2026-03-26 12:58:09.692 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 12:58:09.809 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='email']
+2026-03-26 12:58:09.810 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='email']
+2026-03-26 12:58:09.838 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 12:58:10.049 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@data-id='addInvitationCountryId']
+2026-03-26 12:58:10.153 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //button[@data-id='addInvitationCountryId']/following::div[contains(@class,'dropdown-menu')]//span
+2026-03-26 12:58:10.288 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='phone']
+2026-03-26 12:58:10.288 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='phone']
+2026-03-26 12:58:10.315 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 12:58:10.436 [main] INFO  InviteUserModal -  - Phone :- countryCode:+91 - Phone:9832092414
+2026-03-26 12:58:10.436 [main] INFO  ActionDriver -  - Clicking element: By.id: inviteUserTeamBtn
+2026-03-26 12:58:10.436 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: inviteUserTeamBtn
+2026-03-26 12:58:10.563 [main] INFO  InviteUserModal -  -  clicked on invite user button from modal
+2026-03-26 12:58:10.564 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //input[@id='email']/parent::div/following-sibling::span[@class='cc-error-txt']
+2026-03-26 12:58:11.128 [main] INFO  InviteUserModal -  - Message found is : This user is already assigned as a Clerical Staff in another branch. To invite them to a new branch with a different role, please update their existing role or contact support for assistance.
+2026-03-26 12:58:11.128 [main] INFO  InviteUserModal -  - Error message displayed on modal for register email is : This user is already assigned as a Clerical Staff in another branch. To invite them to a new branch with a different role, please update their existing role or contact support for assistance.
+2026-03-26 12:58:11.134 [main] DEBUG BaseTest -  - @AfterMethod optional cleanup for thread: main
+2026-03-26 12:58:11.134 [main] INFO  BaseTest -  - Attempting logout after test
+2026-03-26 12:58:11.134 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-03-26 12:58:11.163 [main] INFO  ActionDriver -  - Clicking element: By.id: headerUserName
+2026-03-26 12:58:11.163 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-03-26 12:58:12.305 [main] INFO  AppDashboardPage -  - Clicked on User Profile ....
+2026-03-26 12:58:12.305 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-03-26 12:58:12.339 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-03-26 12:58:12.339 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-03-26 12:58:13.481 [main] INFO  AppDashboardPage -  - Clicked on logout from User Profile modal.....
+2026-03-26 12:58:13.481 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='actionYes']
+2026-03-26 12:58:14.052 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='actionYes']
+2026-03-26 12:58:14.052 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='actionYes']
+2026-03-26 12:58:16.042 [main] INFO  AppDashboardPage -  - The user click on confirm to logout.... 
+2026-03-26 12:58:16.042 [main] INFO  BaseTest -  - Logout performed
+2026-03-26 12:58:16.043 [main] INFO  DriverFactory -  - Quitting WebDriver for thread: main
+2026-03-26 12:58:16.412 [main] DEBUG DriverFactory -  - WebDriver removed from ThreadLocal for thread: main
+2026-03-26 12:58:16.412 [main] INFO  BaseTest -  - WebDriver quit and ThreadLocal cleared
+2026-03-26 13:02:38.887 [main] INFO  Utils -  - [TestNG] Running:
+  C:\Users\DREAMWORLD\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+2026-03-26 13:02:38.995 [main] INFO  BaseTest -  - ===== Starting Test Setup on thread: main =====
+2026-03-26 13:02:38.998 [main] INFO  BaseTest -  - No TestNG browser parameter provided. Falling back to config: chrome
+2026-03-26 13:02:39.001 [main] INFO  DriverFactory -  - Initiating driver on for browser chrome on threadmain
+2026-03-26 13:02:40.629 [main] INFO  DriverManager -  - Chrome Driver Instance Is Created
+2026-03-26 13:02:40.629 [main] DEBUG DriverManager -  - Driver instance created successfully: ChromeDriver: chrome on windows (7ac43baf7c92ec8e3ce78a27d142b739)
+2026-03-26 13:02:40.630 [main] DEBUG DriverFactory -  - WebDriver instance set in ThreadLocal for thread: main
+2026-03-26 13:02:40.630 [main] DEBUG BaseTest -  - WebDriver initialized successfully
+2026-03-26 13:02:40.634 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=30 seconds
+2026-03-26 13:02:40.634 [main] DEBUG BaseTest -  - ActionDriver initialized..........
+2026-03-26 13:02:40.634 [main] INFO  BaseTest -  - Configuring Browser Settings...
+2026-03-26 13:02:40.634 [main] DEBUG BaseTest -  - Setting implicit wait to 2 seconds
+2026-03-26 13:02:40.641 [main] INFO  BaseTest -  - Maximizing browser window
+2026-03-26 13:02:46.406 [main] INFO  BaseTest -  - Navigating to URL: https://uat.carecoordinations.com/
+2026-03-26 13:02:46.884 [main] INFO  BaseTest -  - Persona Login --> role: SYSTEM_ADMIN |  Company Type: NONINTEGRATED | Organization Structure: MULTI_BRANCH | Email: max.admin@yopmail.com
+2026-03-26 13:02:46.886 [main] INFO  AuthHelper -  - Logging in with Persona Email: max.admin@yopmail.com
+2026-03-26 13:02:46.886 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 13:02:46.935 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 13:02:46.936 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 13:02:50.159 [main] INFO  LandingPage -  - Click on log in page from landing page
+2026-03-26 13:02:50.160 [main] INFO  LoginPage -  - Adding Username and Password max.admin@yopmail.com Admin@123
+2026-03-26 13:02:50.160 [main] INFO  ActionDriver -  - Entering text into By.id: email
+2026-03-26 13:02:50.160 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: email
+2026-03-26 13:02:50.292 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 13:02:50.434 [main] INFO  ActionDriver -  - Entering text into By.id: password
+2026-03-26 13:02:50.435 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: password
+2026-03-26 13:02:50.471 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 13:02:50.563 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-03-26 13:02:50.563 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-03-26 13:02:50.667 [main] INFO  LoginPage -  - Clicking  on login button ......
+2026-03-26 13:02:50.667 [main] INFO  BaseTest -  - === Test Setup completed ===
+2026-03-26 13:02:50.671 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=30 seconds
+2026-03-26 13:02:58.312 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[contains(@href,'manage-team')]
+2026-03-26 13:02:58.313 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[contains(@href,'manage-team')]
+2026-03-26 13:03:02.067 [main] INFO  HeaderPage -  - Manage team Clicked from header menus
+2026-03-26 13:03:02.069 [main] INFO  ActionDriver -  - Clicking element: By.id: createInviteUser
+2026-03-26 13:03:02.070 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: createInviteUser
+2026-03-26 13:03:02.198 [main] INFO  InviteUserModal -  - Click on Invite User button from Manage team
+2026-03-26 13:03:02.470 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //div[@id='userTypeSelectDiv']//button
+2026-03-26 13:03:02.617 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //div[@id='userTypeSelectDiv']//div[contains(@class,'dropdown-menu')]//span[@class='text']
+2026-03-26 13:03:02.805 [main] INFO  InviteUserModal -  - The User role Branch Admin is selected from By.id: addInvitationUserType
+2026-03-26 13:03:02.805 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //div[@id='userTypeSelectDiv']//button
+2026-03-26 13:03:02.898 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //div[@id='userTypeSelectDiv']//div[contains(@class,'dropdown-menu')]//span[@class='text']
+2026-03-26 13:03:03.066 [main] INFO  InviteUserModal -  - The User role Branch Admin is selected from By.id: addInvitationUserType
+2026-03-26 13:03:03.067 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='first_name']
+2026-03-26 13:03:03.067 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='first_name']
+2026-03-26 13:03:03.126 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 13:03:03.220 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='last_name']
+2026-03-26 13:03:03.220 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='last_name']
+2026-03-26 13:03:03.252 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 13:03:03.360 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='email']
+2026-03-26 13:03:03.360 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='email']
+2026-03-26 13:03:03.391 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 13:03:03.569 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@data-id='addInvitationCountryId']
+2026-03-26 13:03:03.685 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //button[@data-id='addInvitationCountryId']/following::div[contains(@class,'dropdown-menu')]//span
+2026-03-26 13:03:03.808 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='phone']
+2026-03-26 13:03:03.808 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='phone']
+2026-03-26 13:03:03.839 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 13:03:03.919 [main] INFO  InviteUserModal -  - Phone :- countryCode:+91 - Phone:7845
+2026-03-26 13:03:03.920 [main] INFO  ActionDriver -  - Clicking element: By.id: inviteUserTeamBtn
+2026-03-26 13:03:03.920 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: inviteUserTeamBtn
+2026-03-26 13:03:04.119 [main] INFO  InviteUserModal -  -  clicked on invite user button from modal
+2026-03-26 13:03:04.119 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //input[@id='phone']/parent::div/following-sibling::span[@class='cc-error-txt']
+2026-03-26 13:03:04.161 [main] INFO  InviteUserModal -  - Message found is : The mobile number must contain exactly ten digits.
+2026-03-26 13:03:04.167 [main] DEBUG BaseTest -  - @AfterMethod optional cleanup for thread: main
+2026-03-26 13:03:04.168 [main] INFO  BaseTest -  - Attempting logout after test
+2026-03-26 13:03:04.168 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-03-26 13:03:04.197 [main] INFO  ActionDriver -  - Clicking element: By.id: headerUserName
+2026-03-26 13:03:04.197 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-03-26 13:03:05.335 [main] INFO  AppDashboardPage -  - Clicked on User Profile ....
+2026-03-26 13:03:05.335 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-03-26 13:03:05.368 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-03-26 13:03:05.368 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-03-26 13:03:06.478 [main] INFO  AppDashboardPage -  - Clicked on logout from User Profile modal.....
+2026-03-26 13:03:06.479 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='actionYes']
+2026-03-26 13:03:07.075 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='actionYes']
+2026-03-26 13:03:07.075 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='actionYes']
+2026-03-26 13:03:18.049 [main] INFO  AppDashboardPage -  - The user click on confirm to logout.... 
+2026-03-26 13:03:18.050 [main] INFO  BaseTest -  - Logout performed
+2026-03-26 13:03:18.050 [main] INFO  DriverFactory -  - Quitting WebDriver for thread: main
+2026-03-26 13:03:18.375 [main] DEBUG DriverFactory -  - WebDriver removed from ThreadLocal for thread: main
+2026-03-26 13:03:18.375 [main] INFO  BaseTest -  - WebDriver quit and ThreadLocal cleared
+2026-03-26 17:51:11.650 [main] INFO  Utils -  - [TestNG] Running:
+  C:\Users\DREAMWORLD\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+2026-03-26 17:51:11.746 [main] INFO  BaseTest -  - ===== Starting Test Setup on thread: main =====
+2026-03-26 17:51:11.753 [main] INFO  BaseTest -  - No TestNG browser parameter provided. Falling back to config: chrome
+2026-03-26 17:51:11.758 [main] INFO  DriverFactory -  - Initiating driver on for browser chrome on threadmain
+2026-03-26 17:51:14.621 [main] INFO  DriverManager -  - Chrome Driver Instance Is Created
+2026-03-26 17:51:14.622 [main] DEBUG DriverManager -  - Driver instance created successfully: ChromeDriver: chrome on windows (ad7ac9a81552d830c133adf37403c753)
+2026-03-26 17:51:14.622 [main] DEBUG DriverFactory -  - WebDriver instance set in ThreadLocal for thread: main
+2026-03-26 17:51:14.623 [main] DEBUG BaseTest -  - WebDriver initialized successfully
+2026-03-26 17:51:14.632 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=30 seconds
+2026-03-26 17:51:14.632 [main] DEBUG BaseTest -  - ActionDriver initialized..........
+2026-03-26 17:51:14.633 [main] INFO  BaseTest -  - Configuring Browser Settings...
+2026-03-26 17:51:14.633 [main] DEBUG BaseTest -  - Setting implicit wait to 2 seconds
+2026-03-26 17:51:14.651 [main] INFO  BaseTest -  - Maximizing browser window
+2026-03-26 17:51:19.583 [main] INFO  BaseTest -  - Navigating to URL: https://uat.carecoordinations.com/
+2026-03-26 17:51:20.231 [main] INFO  BaseTest -  - Persona Login --> role: SYSTEM_ADMIN |  Company Type: NONINTEGRATED | Organization Structure: MULTI_BRANCH | Email: max.admin@yopmail.com
+2026-03-26 17:51:20.235 [main] INFO  AuthHelper -  - Logging in with Persona Email: max.admin@yopmail.com
+2026-03-26 17:51:20.235 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 17:51:20.298 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 17:51:20.299 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 17:51:23.145 [main] INFO  LandingPage -  - Click on log in page from landing page
+2026-03-26 17:51:23.146 [main] INFO  LoginPage -  - Adding Username and Password max.admin@yopmail.com Admin@123
+2026-03-26 17:51:23.148 [main] INFO  ActionDriver -  - Entering text into By.id: email
+2026-03-26 17:51:23.148 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: email
+2026-03-26 17:51:23.287 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 17:51:23.472 [main] INFO  ActionDriver -  - Entering text into By.id: password
+2026-03-26 17:51:23.472 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: password
+2026-03-26 17:51:23.516 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 17:51:23.647 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-03-26 17:51:23.647 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-03-26 17:51:23.816 [main] INFO  LoginPage -  - Clicking  on login button ......
+2026-03-26 17:51:23.816 [main] INFO  BaseTest -  - === Test Setup completed ===
+2026-03-26 17:51:23.829 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=30 seconds
+2026-03-26 17:51:30.346 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[contains(@href,'manage-team')]
+2026-03-26 17:51:30.346 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[contains(@href,'manage-team')]
+2026-03-26 17:51:37.263 [main] INFO  HeaderPage -  - Manage team Clicked from header menus
+2026-03-26 17:51:37.264 [main] INFO  ActionDriver -  - Clicking element: By.id: createInviteUser
+2026-03-26 17:51:37.265 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: createInviteUser
+2026-03-26 17:51:38.442 [main] INFO  InviteUserModal -  - Click on Invite User button from Manage team
+2026-03-26 17:51:38.750 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //div[@id='userTypeSelectDiv']//button
+2026-03-26 17:51:39.135 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //div[@id='userTypeSelectDiv']//div[contains(@class,'dropdown-menu')]//span[@class='text']
+2026-03-26 17:51:39.332 [main] INFO  InviteUserModal -  - The User role Branch Admin is selected from By.id: addInvitationUserType
+2026-03-26 17:51:39.333 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //div[@id='userTypeSelectDiv']//button
+2026-03-26 17:51:39.445 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //div[@id='userTypeSelectDiv']//div[contains(@class,'dropdown-menu')]//span[@class='text']
+2026-03-26 17:51:39.631 [main] INFO  InviteUserModal -  - The User role Branch Admin is selected from By.id: addInvitationUserType
+2026-03-26 17:51:39.631 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='first_name']
+2026-03-26 17:51:39.631 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='first_name']
+2026-03-26 17:51:39.690 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 17:51:39.823 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='last_name']
+2026-03-26 17:51:39.823 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='last_name']
+2026-03-26 17:51:39.850 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 17:51:39.974 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='email']
+2026-03-26 17:51:39.974 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='email']
+2026-03-26 17:51:40.000 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 17:51:40.269 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@data-id='addInvitationCountryId']
+2026-03-26 17:51:40.382 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //button[@data-id='addInvitationCountryId']/following::div[contains(@class,'dropdown-menu')]//span
+2026-03-26 17:51:40.532 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='phone']
+2026-03-26 17:51:40.532 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='phone']
+2026-03-26 17:51:40.565 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 17:51:40.709 [main] INFO  InviteUserModal -  - Phone :- countryCode:+91 - Phone:7245402367
+2026-03-26 17:51:40.709 [main] INFO  ActionDriver -  - Clicking element: By.id: inviteUserTeamBtn
+2026-03-26 17:51:40.709 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: inviteUserTeamBtn
+2026-03-26 17:51:40.852 [main] INFO  InviteUserModal -  -  clicked on invite user button from modal
+2026-03-26 17:51:40.852 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //input[@id='phone']/parent::div/following-sibling::span[@class='cc-error-txt']
+2026-03-26 17:52:11.054 [main] ERROR ActionDriver -  - Locator not visible: By.xpath: //input[@id='phone']/parent::div/following-sibling::span[@class='cc-error-txt']
+2026-03-26 17:52:11.059 [main] DEBUG InviteUserModal -  - Locator not visible yet: By.xpath: //input[@id='phone']/parent::div/following-sibling::span[@class='cc-error-txt']
+2026-03-26 17:52:11.059 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //form[@id='inviteUserManageTeamForm']//span[contains(@class,'cc-error-phone-txt')]
+2026-03-26 17:52:41.271 [main] ERROR ActionDriver -  - Locator not visible: By.xpath: //form[@id='inviteUserManageTeamForm']//span[contains(@class,'cc-error-phone-txt')]
+2026-03-26 17:52:41.272 [main] DEBUG InviteUserModal -  - Locator not visible yet: By.xpath: //form[@id='inviteUserManageTeamForm']//span[contains(@class,'cc-error-phone-txt')]
+2026-03-26 17:52:41.288 [main] DEBUG BaseTest -  - @AfterMethod optional cleanup for thread: main
+2026-03-26 17:52:41.290 [main] INFO  BaseTest -  - Attempting logout after test
+2026-03-26 17:52:41.290 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-03-26 17:53:48.875 [main] INFO  Utils -  - [TestNG] Running:
+  C:\Users\DREAMWORLD\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+2026-03-26 17:53:48.981 [main] INFO  BaseTest -  - ===== Starting Test Setup on thread: main =====
+2026-03-26 17:53:48.990 [main] INFO  BaseTest -  - No TestNG browser parameter provided. Falling back to config: chrome
+2026-03-26 17:53:48.994 [main] INFO  DriverFactory -  - Initiating driver on for browser chrome on threadmain
+2026-03-26 17:53:50.807 [main] INFO  DriverManager -  - Chrome Driver Instance Is Created
+2026-03-26 17:53:50.808 [main] DEBUG DriverManager -  - Driver instance created successfully: ChromeDriver: chrome on windows (837e0e0d8748186b6713db09c75ff6b7)
+2026-03-26 17:53:50.808 [main] DEBUG DriverFactory -  - WebDriver instance set in ThreadLocal for thread: main
+2026-03-26 17:53:50.808 [main] DEBUG BaseTest -  - WebDriver initialized successfully
+2026-03-26 17:53:50.811 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=30 seconds
+2026-03-26 17:53:50.811 [main] DEBUG BaseTest -  - ActionDriver initialized..........
+2026-03-26 17:53:50.811 [main] INFO  BaseTest -  - Configuring Browser Settings...
+2026-03-26 17:53:50.811 [main] DEBUG BaseTest -  - Setting implicit wait to 2 seconds
+2026-03-26 17:53:50.818 [main] INFO  BaseTest -  - Maximizing browser window
+2026-03-26 17:53:51.852 [main] INFO  BaseTest -  - Navigating to URL: https://uat.carecoordinations.com/
+2026-03-26 17:53:52.349 [main] INFO  BaseTest -  - Persona Login --> role: SYSTEM_ADMIN |  Company Type: NONINTEGRATED | Organization Structure: MULTI_BRANCH | Email: max.admin@yopmail.com
+2026-03-26 17:53:52.352 [main] INFO  AuthHelper -  - Logging in with Persona Email: max.admin@yopmail.com
+2026-03-26 17:53:52.352 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 17:53:54.997 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 17:53:54.998 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 17:53:57.670 [main] INFO  LandingPage -  - Click on log in page from landing page
+2026-03-26 17:53:57.670 [main] INFO  LoginPage -  - Adding Username and Password max.admin@yopmail.com Admin@123
+2026-03-26 17:53:57.670 [main] INFO  ActionDriver -  - Entering text into By.id: email
+2026-03-26 17:53:57.671 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: email
+2026-03-26 17:53:57.796 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 17:53:57.967 [main] INFO  ActionDriver -  - Entering text into By.id: password
+2026-03-26 17:53:57.968 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: password
+2026-03-26 17:53:58.012 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 17:53:58.126 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-03-26 17:53:58.126 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-03-26 17:53:58.301 [main] INFO  LoginPage -  - Clicking  on login button ......
+2026-03-26 17:53:58.302 [main] INFO  BaseTest -  - === Test Setup completed ===
+2026-03-26 17:53:58.309 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=30 seconds
+2026-03-26 17:54:05.267 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[contains(@href,'manage-team')]
+2026-03-26 17:54:05.268 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[contains(@href,'manage-team')]
+2026-03-26 17:54:09.301 [main] INFO  HeaderPage -  - Manage team Clicked from header menus
+2026-03-26 17:54:09.302 [main] INFO  ActionDriver -  - Clicking element: By.id: createInviteUser
+2026-03-26 17:54:09.302 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: createInviteUser
+2026-03-26 17:54:09.433 [main] INFO  InviteUserModal -  - Click on Invite User button from Manage team
+2026-03-26 17:54:09.675 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //div[@id='userTypeSelectDiv']//button
+2026-03-26 17:54:09.829 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //div[@id='userTypeSelectDiv']//div[contains(@class,'dropdown-menu')]//span[@class='text']
+2026-03-26 17:54:10.212 [main] INFO  InviteUserModal -  - The User role Branch Admin is selected from By.id: addInvitationUserType
+2026-03-26 17:54:10.213 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //div[@id='userTypeSelectDiv']//button
+2026-03-26 17:54:10.313 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //div[@id='userTypeSelectDiv']//div[contains(@class,'dropdown-menu')]//span[@class='text']
+2026-03-26 17:54:10.476 [main] INFO  InviteUserModal -  - The User role Branch Admin is selected from By.id: addInvitationUserType
+2026-03-26 17:54:10.476 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='first_name']
+2026-03-26 17:54:10.476 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='first_name']
+2026-03-26 17:54:10.508 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 17:54:10.596 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='last_name']
+2026-03-26 17:54:10.596 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='last_name']
+2026-03-26 17:54:10.629 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 17:54:10.731 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='email']
+2026-03-26 17:54:10.732 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='email']
+2026-03-26 17:54:10.771 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 17:54:11.040 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@data-id='addInvitationCountryId']
+2026-03-26 17:54:11.167 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //button[@data-id='addInvitationCountryId']/following::div[contains(@class,'dropdown-menu')]//span
+2026-03-26 17:54:11.310 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='phone']
+2026-03-26 17:54:11.310 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='phone']
+2026-03-26 17:54:11.341 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 17:54:11.472 [main] INFO  InviteUserModal -  - Phone :- countryCode:+91 - Phone:7245402367
+2026-03-26 17:54:11.472 [main] INFO  ActionDriver -  - Clicking element: By.id: inviteUserTeamBtn
+2026-03-26 17:54:11.474 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: inviteUserTeamBtn
+2026-03-26 17:54:11.612 [main] INFO  InviteUserModal -  -  clicked on invite user button from modal
+2026-03-26 17:54:11.612 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //input[@id='phone']/parent::div/following-sibling::span[@class='cc-error-txt']
+2026-03-26 17:59:16.814 [main] INFO  Utils -  - [TestNG] Running:
+  C:\Users\DREAMWORLD\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+2026-03-26 17:59:16.915 [main] INFO  BaseTest -  - ===== Starting Test Setup on thread: main =====
+2026-03-26 17:59:16.918 [main] INFO  BaseTest -  - No TestNG browser parameter provided. Falling back to config: chrome
+2026-03-26 17:59:16.921 [main] INFO  DriverFactory -  - Initiating driver on for browser chrome on threadmain
+2026-03-26 17:59:18.644 [main] INFO  DriverManager -  - Chrome Driver Instance Is Created
+2026-03-26 17:59:18.645 [main] DEBUG DriverManager -  - Driver instance created successfully: ChromeDriver: chrome on windows (dcf7478255e5162a2882533a42bb346f)
+2026-03-26 17:59:18.646 [main] DEBUG DriverFactory -  - WebDriver instance set in ThreadLocal for thread: main
+2026-03-26 17:59:18.646 [main] DEBUG BaseTest -  - WebDriver initialized successfully
+2026-03-26 17:59:18.650 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=30 seconds
+2026-03-26 17:59:18.651 [main] DEBUG BaseTest -  - ActionDriver initialized..........
+2026-03-26 17:59:18.651 [main] INFO  BaseTest -  - Configuring Browser Settings...
+2026-03-26 17:59:18.651 [main] DEBUG BaseTest -  - Setting implicit wait to 2 seconds
+2026-03-26 17:59:18.659 [main] INFO  BaseTest -  - Maximizing browser window
+2026-03-26 17:59:22.819 [main] INFO  BaseTest -  - Navigating to URL: https://uat.carecoordinations.com/
+2026-03-26 17:59:23.555 [main] INFO  BaseTest -  - Persona Login --> role: SYSTEM_ADMIN |  Company Type: NONINTEGRATED | Organization Structure: MULTI_BRANCH | Email: max.admin@yopmail.com
+2026-03-26 17:59:23.561 [main] INFO  AuthHelper -  - Logging in with Persona Email: max.admin@yopmail.com
+2026-03-26 17:59:23.561 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 17:59:23.615 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 17:59:23.615 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 17:59:26.440 [main] INFO  LandingPage -  - Click on log in page from landing page
+2026-03-26 17:59:26.440 [main] INFO  LoginPage -  - Adding Username and Password max.admin@yopmail.com Admin@123
+2026-03-26 17:59:26.440 [main] INFO  ActionDriver -  - Entering text into By.id: email
+2026-03-26 17:59:26.440 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: email
+2026-03-26 17:59:26.501 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 17:59:26.775 [main] INFO  ActionDriver -  - Entering text into By.id: password
+2026-03-26 17:59:26.775 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: password
+2026-03-26 17:59:26.816 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 17:59:26.908 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-03-26 17:59:26.908 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-03-26 17:59:27.048 [main] INFO  LoginPage -  - Clicking  on login button ......
+2026-03-26 17:59:27.048 [main] INFO  BaseTest -  - === Test Setup completed ===
+2026-03-26 17:59:27.071 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=30 seconds
+2026-03-26 17:59:33.953 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[contains(@href,'manage-team')]
+2026-03-26 17:59:33.953 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[contains(@href,'manage-team')]
+2026-03-26 17:59:37.454 [main] INFO  HeaderPage -  - Manage team Clicked from header menus
+2026-03-26 17:59:37.454 [main] INFO  ActionDriver -  - Clicking element: By.id: createInviteUser
+2026-03-26 17:59:37.454 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: createInviteUser
+2026-03-26 17:59:37.574 [main] INFO  InviteUserModal -  - Click on Invite User button from Manage team
+2026-03-26 17:59:37.821 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //div[@id='userTypeSelectDiv']//button
+2026-03-26 17:59:37.972 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //div[@id='userTypeSelectDiv']//div[contains(@class,'dropdown-menu')]//span[@class='text']
+2026-03-26 17:59:38.215 [main] INFO  InviteUserModal -  - The User role Branch Admin is selected from By.id: addInvitationUserType
+2026-03-26 17:59:48.386 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //div[@id='userTypeSelectDiv']//button
+2026-03-26 17:59:48.551 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //div[@id='userTypeSelectDiv']//div[contains(@class,'dropdown-menu')]//span[@class='text']
+2026-03-26 17:59:48.992 [main] INFO  InviteUserModal -  - The User role Branch Admin is selected from By.id: addInvitationUserType
+2026-03-26 17:59:48.993 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='first_name']
+2026-03-26 17:59:48.993 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='first_name']
+2026-03-26 17:59:49.041 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 17:59:49.238 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='last_name']
+2026-03-26 17:59:49.238 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='last_name']
+2026-03-26 17:59:49.280 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 17:59:49.385 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='email']
+2026-03-26 17:59:49.385 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='email']
+2026-03-26 17:59:49.467 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 17:59:49.900 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@data-id='addInvitationCountryId']
+2026-03-26 17:59:50.130 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //button[@data-id='addInvitationCountryId']/following::div[contains(@class,'dropdown-menu')]//span
+2026-03-26 17:59:50.260 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='phone']
+2026-03-26 17:59:50.260 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='phone']
+2026-03-26 17:59:50.289 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 17:59:50.417 [main] INFO  InviteUserModal -  - Phone :- countryCode:+91 - Phone:7245402367
+2026-03-26 17:59:50.417 [main] INFO  ActionDriver -  - Clicking element: By.id: inviteUserTeamBtn
+2026-03-26 17:59:50.417 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: inviteUserTeamBtn
+2026-03-26 17:59:50.531 [main] INFO  InviteUserModal -  -  clicked on invite user button from modal
+2026-03-26 17:59:50.531 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //input[@id='phone']/parent::div/following-sibling::span[@class='cc-error-txt']
+2026-03-26 18:01:57.753 [main] ERROR ActionDriver -  - Locator not visible: By.xpath: //input[@id='phone']/parent::div/following-sibling::span[@class='cc-error-txt']
+2026-03-26 18:01:57.756 [main] DEBUG InviteUserModal -  - Locator not visible yet: By.xpath: //input[@id='phone']/parent::div/following-sibling::span[@class='cc-error-txt']
+2026-03-26 18:01:57.756 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //form[@id='inviteUserManageTeamForm']//span[contains(@class,'cc-error-phone-txt')]
+2026-03-26 18:01:57.790 [main] INFO  InviteUserModal -  - Message found is : You are inviting Lydia Lemke as Branch Admin, but our records show that You, already sent an invite on 03/26/2026 at 07:21 AM CST.
+2026-03-26 18:01:57.790 [main] INFO  InviteUserModal -  - Error message displayed on modal for Phone is : You are inviting Lydia Lemke as Branch Admin, but our records show that You, already sent an invite on 03/26/2026 at 07:21 AM CST.
+2026-03-26 18:01:57.797 [main] DEBUG BaseTest -  - @AfterMethod optional cleanup for thread: main
+2026-03-26 18:01:57.800 [main] INFO  BaseTest -  - Attempting logout after test
+2026-03-26 18:01:57.800 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-03-26 18:01:57.822 [main] INFO  ActionDriver -  - Clicking element: By.id: headerUserName
+2026-03-26 18:01:57.822 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-03-26 18:01:58.943 [main] INFO  AppDashboardPage -  - Clicked on User Profile ....
+2026-03-26 18:01:58.943 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-03-26 18:01:58.983 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-03-26 18:01:58.984 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-03-26 18:02:00.143 [main] INFO  AppDashboardPage -  - Clicked on logout from User Profile modal.....
+2026-03-26 18:02:00.144 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='actionYes']
+2026-03-26 18:02:00.744 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='actionYes']
+2026-03-26 18:02:00.745 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='actionYes']
+2026-03-26 18:02:06.044 [main] INFO  AppDashboardPage -  - The user click on confirm to logout.... 
+2026-03-26 18:02:06.045 [main] INFO  BaseTest -  - Logout performed
+2026-03-26 18:02:06.047 [main] INFO  DriverFactory -  - Quitting WebDriver for thread: main
+2026-03-26 18:02:13.594 [main] INFO  Utils -  - [TestNG] Running:
+  C:\Users\DREAMWORLD\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+2026-03-26 18:02:13.701 [main] INFO  BaseTest -  - ===== Starting Test Setup on thread: main =====
+2026-03-26 18:02:13.704 [main] INFO  BaseTest -  - No TestNG browser parameter provided. Falling back to config: chrome
+2026-03-26 18:02:13.708 [main] INFO  DriverFactory -  - Initiating driver on for browser chrome on threadmain
+2026-03-26 18:02:15.427 [main] INFO  DriverManager -  - Chrome Driver Instance Is Created
+2026-03-26 18:02:15.427 [main] DEBUG DriverManager -  - Driver instance created successfully: ChromeDriver: chrome on windows (18717ae3557dacae76a1f5b5e28d0578)
+2026-03-26 18:02:15.427 [main] DEBUG DriverFactory -  - WebDriver instance set in ThreadLocal for thread: main
+2026-03-26 18:02:15.428 [main] DEBUG BaseTest -  - WebDriver initialized successfully
+2026-03-26 18:02:15.431 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=30 seconds
+2026-03-26 18:02:15.432 [main] DEBUG BaseTest -  - ActionDriver initialized..........
+2026-03-26 18:02:15.432 [main] INFO  BaseTest -  - Configuring Browser Settings...
+2026-03-26 18:02:15.432 [main] DEBUG BaseTest -  - Setting implicit wait to 2 seconds
+2026-03-26 18:02:15.437 [main] INFO  BaseTest -  - Maximizing browser window
+2026-03-26 18:02:19.271 [main] INFO  BaseTest -  - Navigating to URL: https://uat.carecoordinations.com/
+2026-03-26 18:02:19.690 [main] INFO  BaseTest -  - Persona Login --> role: SYSTEM_ADMIN |  Company Type: NONINTEGRATED | Organization Structure: MULTI_BRANCH | Email: max.admin@yopmail.com
+2026-03-26 18:02:19.693 [main] INFO  AuthHelper -  - Logging in with Persona Email: max.admin@yopmail.com
+2026-03-26 18:02:19.693 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 18:02:19.751 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 18:02:19.751 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 18:02:22.491 [main] INFO  LandingPage -  - Click on log in page from landing page
+2026-03-26 18:02:22.491 [main] INFO  LoginPage -  - Adding Username and Password max.admin@yopmail.com Admin@123
+2026-03-26 18:02:22.492 [main] INFO  ActionDriver -  - Entering text into By.id: email
+2026-03-26 18:02:22.492 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: email
+2026-03-26 18:02:22.544 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 18:02:22.733 [main] INFO  ActionDriver -  - Entering text into By.id: password
+2026-03-26 18:02:22.733 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: password
+2026-03-26 18:02:22.871 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 18:02:22.977 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-03-26 18:02:22.978 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-03-26 18:02:23.108 [main] INFO  LoginPage -  - Clicking  on login button ......
+2026-03-26 18:02:23.109 [main] INFO  BaseTest -  - === Test Setup completed ===
+2026-03-26 18:02:23.123 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=30 seconds
+2026-03-26 18:02:30.320 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[contains(@href,'manage-team')]
+2026-03-26 18:02:30.321 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[contains(@href,'manage-team')]
+2026-03-26 18:02:34.740 [main] INFO  HeaderPage -  - Manage team Clicked from header menus
+2026-03-26 18:02:34.740 [main] INFO  ActionDriver -  - Clicking element: By.id: createInviteUser
+2026-03-26 18:02:34.741 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: createInviteUser
+2026-03-26 18:02:34.899 [main] INFO  InviteUserModal -  - Click on Invite User button from Manage team
+2026-03-26 18:02:35.166 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //div[@id='userTypeSelectDiv']//button
+2026-03-26 18:02:35.471 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //div[@id='userTypeSelectDiv']//div[contains(@class,'dropdown-menu')]//span[@class='text']
+2026-03-26 18:02:35.699 [main] INFO  InviteUserModal -  - The User role Branch Admin is selected from By.id: addInvitationUserType
+2026-03-26 18:02:38.883 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //div[@id='userTypeSelectDiv']//button
+2026-03-26 18:02:39.001 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //div[@id='userTypeSelectDiv']//div[contains(@class,'dropdown-menu')]//span[@class='text']
+2026-03-26 18:02:39.203 [main] INFO  InviteUserModal -  - The User role Branch Admin is selected from By.id: addInvitationUserType
+2026-03-26 18:02:39.204 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='first_name']
+2026-03-26 18:02:39.204 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='first_name']
+2026-03-26 18:02:39.474 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 18:02:39.709 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='last_name']
+2026-03-26 18:02:39.709 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='last_name']
+2026-03-26 18:02:39.749 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 18:02:39.884 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='email']
+2026-03-26 18:02:39.884 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='email']
+2026-03-26 18:02:39.924 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 18:02:40.321 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@data-id='addInvitationCountryId']
+2026-03-26 18:02:40.446 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //button[@data-id='addInvitationCountryId']/following::div[contains(@class,'dropdown-menu')]//span
+2026-03-26 18:02:40.630 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='phone']
+2026-03-26 18:02:40.630 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='phone']
+2026-03-26 18:02:40.664 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 18:02:40.879 [main] INFO  InviteUserModal -  - Phone :- countryCode:+91 - Phone:(849) 980-2487
+2026-03-26 18:02:40.880 [main] INFO  ActionDriver -  - Clicking element: By.id: inviteUserTeamBtn
+2026-03-26 18:02:40.880 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: inviteUserTeamBtn
+2026-03-26 18:02:41.024 [main] INFO  InviteUserModal -  -  clicked on invite user button from modal
+2026-03-26 18:02:41.024 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //input[@id='phone']/parent::div/following-sibling::span[@class='cc-error-txt']
+2026-03-26 18:03:11.532 [main] ERROR ActionDriver -  - Locator not visible: By.xpath: //input[@id='phone']/parent::div/following-sibling::span[@class='cc-error-txt']
+2026-03-26 18:03:11.533 [main] DEBUG InviteUserModal -  - Locator not visible yet: By.xpath: //input[@id='phone']/parent::div/following-sibling::span[@class='cc-error-txt']
+2026-03-26 18:03:11.534 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //form[@id='inviteUserManageTeamForm']//span[contains(@class,'cc-error-phone-txt')]
+2026-03-26 18:03:11.563 [main] INFO  InviteUserModal -  - Message found is : You are inviting Clorinda Connelly as Branch Admin, but our records show that You, already sent an invite on 03/11/2026 at 11:54 PM CST.
+2026-03-26 18:03:11.564 [main] INFO  InviteUserModal -  - Error message displayed on modal for Phone is : You are inviting Clorinda Connelly as Branch Admin, but our records show that You, already sent an invite on 03/11/2026 at 11:54 PM CST.
+2026-03-26 18:03:11.569 [main] DEBUG BaseTest -  - @AfterMethod optional cleanup for thread: main
+2026-03-26 18:03:11.571 [main] INFO  BaseTest -  - Attempting logout after test
+2026-03-26 18:03:11.571 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-03-26 18:03:11.601 [main] INFO  ActionDriver -  - Clicking element: By.id: headerUserName
+2026-03-26 18:03:11.601 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-03-26 18:03:12.759 [main] INFO  AppDashboardPage -  - Clicked on User Profile ....
+2026-03-26 18:03:12.759 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-03-26 18:03:12.793 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-03-26 18:03:12.793 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-03-26 18:03:13.965 [main] INFO  AppDashboardPage -  - Clicked on logout from User Profile modal.....
+2026-03-26 18:03:13.965 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='actionYes']
+2026-03-26 18:03:14.539 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='actionYes']
+2026-03-26 18:03:14.539 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='actionYes']
+2026-03-26 18:03:16.504 [main] INFO  AppDashboardPage -  - The user click on confirm to logout.... 
+2026-03-26 18:03:16.504 [main] INFO  BaseTest -  - Logout performed
+2026-03-26 18:03:16.505 [main] INFO  DriverFactory -  - Quitting WebDriver for thread: main
+2026-03-26 18:03:16.832 [main] DEBUG DriverFactory -  - WebDriver removed from ThreadLocal for thread: main
+2026-03-26 18:03:16.832 [main] INFO  BaseTest -  - WebDriver quit and ThreadLocal cleared
+2026-03-26 18:03:36.964 [main] INFO  Utils -  - [TestNG] Running:
+  C:\Users\DREAMWORLD\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+2026-03-26 18:03:37.060 [main] INFO  BaseTest -  - ===== Starting Test Setup on thread: main =====
+2026-03-26 18:03:37.062 [main] INFO  BaseTest -  - No TestNG browser parameter provided. Falling back to config: chrome
+2026-03-26 18:03:37.066 [main] INFO  DriverFactory -  - Initiating driver on for browser chrome on threadmain
+2026-03-26 18:03:38.708 [main] INFO  DriverManager -  - Chrome Driver Instance Is Created
+2026-03-26 18:03:38.708 [main] DEBUG DriverManager -  - Driver instance created successfully: ChromeDriver: chrome on windows (b8639977b7be5696ec2265b4a3cbf984)
+2026-03-26 18:03:38.709 [main] DEBUG DriverFactory -  - WebDriver instance set in ThreadLocal for thread: main
+2026-03-26 18:03:38.709 [main] DEBUG BaseTest -  - WebDriver initialized successfully
+2026-03-26 18:03:38.712 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=30 seconds
+2026-03-26 18:03:38.713 [main] DEBUG BaseTest -  - ActionDriver initialized..........
+2026-03-26 18:03:38.713 [main] INFO  BaseTest -  - Configuring Browser Settings...
+2026-03-26 18:03:38.714 [main] DEBUG BaseTest -  - Setting implicit wait to 2 seconds
+2026-03-26 18:03:38.722 [main] INFO  BaseTest -  - Maximizing browser window
+2026-03-26 18:03:42.813 [main] INFO  BaseTest -  - Navigating to URL: https://uat.carecoordinations.com/
+2026-03-26 18:03:43.426 [main] INFO  BaseTest -  - Persona Login --> role: SYSTEM_ADMIN |  Company Type: NONINTEGRATED | Organization Structure: MULTI_BRANCH | Email: max.admin@yopmail.com
+2026-03-26 18:03:43.428 [main] INFO  AuthHelper -  - Logging in with Persona Email: max.admin@yopmail.com
+2026-03-26 18:03:43.428 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 18:03:43.481 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 18:03:43.481 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 18:03:45.950 [main] INFO  LandingPage -  - Click on log in page from landing page
+2026-03-26 18:03:45.951 [main] INFO  LoginPage -  - Adding Username and Password max.admin@yopmail.com Admin@123
+2026-03-26 18:03:45.951 [main] INFO  ActionDriver -  - Entering text into By.id: email
+2026-03-26 18:03:45.952 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: email
+2026-03-26 18:03:45.994 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 18:03:46.165 [main] INFO  ActionDriver -  - Entering text into By.id: password
+2026-03-26 18:03:46.165 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: password
+2026-03-26 18:03:46.215 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 18:03:46.343 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-03-26 18:03:46.343 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-03-26 18:03:46.565 [main] INFO  LoginPage -  - Clicking  on login button ......
+2026-03-26 18:03:46.565 [main] INFO  BaseTest -  - === Test Setup completed ===
+2026-03-26 18:03:46.575 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=30 seconds
+2026-03-26 18:03:53.347 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[contains(@href,'manage-team')]
+2026-03-26 18:03:53.350 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[contains(@href,'manage-team')]
+2026-03-26 18:03:57.357 [main] INFO  HeaderPage -  - Manage team Clicked from header menus
+2026-03-26 18:03:57.357 [main] INFO  ActionDriver -  - Clicking element: By.id: createInviteUser
+2026-03-26 18:03:57.357 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: createInviteUser
+2026-03-26 18:03:57.647 [main] INFO  InviteUserModal -  - Click on Invite User button from Manage team
+2026-03-26 18:03:57.905 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //div[@id='userTypeSelectDiv']//button
+2026-03-26 18:03:58.110 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //div[@id='userTypeSelectDiv']//div[contains(@class,'dropdown-menu')]//span[@class='text']
+2026-03-26 18:03:58.363 [main] INFO  InviteUserModal -  - The User role Branch Admin is selected from By.id: addInvitationUserType
+2026-03-26 18:03:58.363 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //div[@id='userTypeSelectDiv']//button
+2026-03-26 18:03:58.460 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //div[@id='userTypeSelectDiv']//div[contains(@class,'dropdown-menu')]//span[@class='text']
+2026-03-26 18:03:58.617 [main] INFO  InviteUserModal -  - The User role Branch Admin is selected from By.id: addInvitationUserType
+2026-03-26 18:03:58.617 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='first_name']
+2026-03-26 18:03:58.618 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='first_name']
+2026-03-26 18:03:58.644 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 18:03:58.760 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='last_name']
+2026-03-26 18:03:58.760 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='last_name']
+2026-03-26 18:03:58.793 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 18:03:58.909 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='email']
+2026-03-26 18:03:58.909 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='email']
+2026-03-26 18:03:58.939 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 18:03:59.214 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@data-id='addInvitationCountryId']
+2026-03-26 18:03:59.320 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //button[@data-id='addInvitationCountryId']/following::div[contains(@class,'dropdown-menu')]//span
+2026-03-26 18:03:59.457 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='phone']
+2026-03-26 18:03:59.458 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='phone']
+2026-03-26 18:03:59.489 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 18:03:59.641 [main] INFO  InviteUserModal -  - Phone :- countryCode:+91 - Phone:(724) 540-2367
+2026-03-26 18:03:59.641 [main] INFO  ActionDriver -  - Clicking element: By.id: inviteUserTeamBtn
+2026-03-26 18:03:59.641 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: inviteUserTeamBtn
+2026-03-26 18:03:59.771 [main] INFO  InviteUserModal -  -  clicked on invite user button from modal
+2026-03-26 18:03:59.771 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //input[@id='phone']/parent::div/following-sibling::span[@class='cc-error-txt']
+2026-03-26 18:04:30.223 [main] ERROR ActionDriver -  - Locator not visible: By.xpath: //input[@id='phone']/parent::div/following-sibling::span[@class='cc-error-txt']
+2026-03-26 18:04:30.224 [main] DEBUG InviteUserModal -  - Locator not visible yet: By.xpath: //input[@id='phone']/parent::div/following-sibling::span[@class='cc-error-txt']
+2026-03-26 18:04:30.224 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //form[@id='inviteUserManageTeamForm']//span[contains(@class,'cc-error-phone-txt')]
+2026-03-26 18:04:30.253 [main] INFO  InviteUserModal -  - Message found is : You are inviting Delphine DuBuque as Branch Admin, but our records show that You, already sent an invite on 03/16/2026 at 02:25 AM CST.
+2026-03-26 18:04:30.253 [main] INFO  InviteUserModal -  - Error message displayed on modal for Phone is : You are inviting Delphine DuBuque as Branch Admin, but our records show that You, already sent an invite on 03/16/2026 at 02:25 AM CST.
+2026-03-26 18:04:30.258 [main] DEBUG BaseTest -  - @AfterMethod optional cleanup for thread: main
+2026-03-26 18:04:30.259 [main] INFO  BaseTest -  - Attempting logout after test
+2026-03-26 18:04:30.259 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-03-26 18:04:30.286 [main] INFO  ActionDriver -  - Clicking element: By.id: headerUserName
+2026-03-26 18:04:30.286 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-03-26 18:04:31.393 [main] INFO  AppDashboardPage -  - Clicked on User Profile ....
+2026-03-26 18:04:31.393 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-03-26 18:04:31.424 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-03-26 18:04:31.425 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-03-26 18:04:32.527 [main] INFO  AppDashboardPage -  - Clicked on logout from User Profile modal.....
+2026-03-26 18:04:32.527 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='actionYes']
+2026-03-26 18:04:33.108 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='actionYes']
+2026-03-26 18:04:33.109 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='actionYes']
+2026-03-26 18:04:35.239 [main] INFO  AppDashboardPage -  - The user click on confirm to logout.... 
+2026-03-26 18:04:35.239 [main] INFO  BaseTest -  - Logout performed
+2026-03-26 18:04:35.239 [main] INFO  DriverFactory -  - Quitting WebDriver for thread: main
+2026-03-26 18:04:35.538 [main] DEBUG DriverFactory -  - WebDriver removed from ThreadLocal for thread: main
+2026-03-26 18:04:35.538 [main] INFO  BaseTest -  - WebDriver quit and ThreadLocal cleared
+2026-03-26 18:05:43.224 [main] INFO  Utils -  - [TestNG] Running:
+  C:\Users\DREAMWORLD\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+2026-03-26 18:05:43.325 [main] INFO  BaseTest -  - ===== Starting Test Setup on thread: main =====
+2026-03-26 18:05:43.328 [main] INFO  BaseTest -  - No TestNG browser parameter provided. Falling back to config: chrome
+2026-03-26 18:05:43.331 [main] INFO  DriverFactory -  - Initiating driver on for browser chrome on threadmain
+2026-03-26 18:05:45.147 [main] INFO  DriverManager -  - Chrome Driver Instance Is Created
+2026-03-26 18:05:45.148 [main] DEBUG DriverManager -  - Driver instance created successfully: ChromeDriver: chrome on windows (fbfedb6b910e54c381847ce5c1c166e7)
+2026-03-26 18:05:45.148 [main] DEBUG DriverFactory -  - WebDriver instance set in ThreadLocal for thread: main
+2026-03-26 18:05:45.148 [main] DEBUG BaseTest -  - WebDriver initialized successfully
+2026-03-26 18:05:45.151 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=30 seconds
+2026-03-26 18:05:45.152 [main] DEBUG BaseTest -  - ActionDriver initialized..........
+2026-03-26 18:05:45.152 [main] INFO  BaseTest -  - Configuring Browser Settings...
+2026-03-26 18:05:45.152 [main] DEBUG BaseTest -  - Setting implicit wait to 2 seconds
+2026-03-26 18:05:45.160 [main] INFO  BaseTest -  - Maximizing browser window
+2026-03-26 18:05:49.305 [main] INFO  BaseTest -  - Navigating to URL: https://uat.carecoordinations.com/
+2026-03-26 18:05:49.705 [main] INFO  BaseTest -  - Persona Login --> role: SYSTEM_ADMIN |  Company Type: NONINTEGRATED | Organization Structure: MULTI_BRANCH | Email: max.admin@yopmail.com
+2026-03-26 18:05:49.705 [main] INFO  AuthHelper -  - Logging in with Persona Email: max.admin@yopmail.com
+2026-03-26 18:05:49.705 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 18:05:49.766 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 18:05:49.766 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 18:05:52.694 [main] INFO  LandingPage -  - Click on log in page from landing page
+2026-03-26 18:05:52.694 [main] INFO  LoginPage -  - Adding Username and Password max.admin@yopmail.com Admin@123
+2026-03-26 18:05:52.694 [main] INFO  ActionDriver -  - Entering text into By.id: email
+2026-03-26 18:05:52.694 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: email
+2026-03-26 18:05:52.732 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 18:05:52.888 [main] INFO  ActionDriver -  - Entering text into By.id: password
+2026-03-26 18:05:52.888 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: password
+2026-03-26 18:05:52.951 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 18:05:53.097 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-03-26 18:05:53.097 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-03-26 18:05:53.212 [main] INFO  LoginPage -  - Clicking  on login button ......
+2026-03-26 18:05:53.212 [main] INFO  BaseTest -  - === Test Setup completed ===
+2026-03-26 18:05:53.219 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=30 seconds
+2026-03-26 18:06:00.218 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[contains(@href,'manage-team')]
+2026-03-26 18:06:00.227 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[contains(@href,'manage-team')]
+2026-03-26 18:06:03.819 [main] INFO  HeaderPage -  - Manage team Clicked from header menus
+2026-03-26 18:06:03.820 [main] INFO  ActionDriver -  - Clicking element: By.id: createInviteUser
+2026-03-26 18:06:03.820 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: createInviteUser
+2026-03-26 18:06:04.043 [main] INFO  InviteUserModal -  - Click on Invite User button from Manage team
+2026-03-26 18:06:04.265 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //div[@id='userTypeSelectDiv']//button
+2026-03-26 18:06:04.420 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //div[@id='userTypeSelectDiv']//div[contains(@class,'dropdown-menu')]//span[@class='text']
+2026-03-26 18:06:04.622 [main] INFO  InviteUserModal -  - The User role Branch Admin is selected from By.id: addInvitationUserType
+2026-03-26 18:06:04.622 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //div[@id='userTypeSelectDiv']//button
+2026-03-26 18:06:04.735 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //div[@id='userTypeSelectDiv']//div[contains(@class,'dropdown-menu')]//span[@class='text']
+2026-03-26 18:06:04.885 [main] INFO  InviteUserModal -  - The User role Branch Admin is selected from By.id: addInvitationUserType
+2026-03-26 18:06:04.885 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='first_name']
+2026-03-26 18:06:04.885 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='first_name']
+2026-03-26 18:06:04.914 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 18:06:05.000 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='last_name']
+2026-03-26 18:06:05.000 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='last_name']
+2026-03-26 18:06:05.032 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 18:06:05.112 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='email']
+2026-03-26 18:06:05.113 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='email']
+2026-03-26 18:06:05.152 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 18:06:05.362 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@data-id='addInvitationCountryId']
+2026-03-26 18:06:05.485 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //button[@data-id='addInvitationCountryId']/following::div[contains(@class,'dropdown-menu')]//span
+2026-03-26 18:06:05.714 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='phone']
+2026-03-26 18:06:05.714 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='phone']
+2026-03-26 18:06:05.772 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 18:06:05.961 [main] INFO  InviteUserModal -  - Phone :- countryCode:+91 - Phone:(309) 090-4995
+2026-03-26 18:06:05.961 [main] INFO  ActionDriver -  - Clicking element: By.id: inviteUserTeamBtn
+2026-03-26 18:06:05.961 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: inviteUserTeamBtn
+2026-03-26 18:06:06.075 [main] INFO  InviteUserModal -  -  clicked on invite user button from modal
+2026-03-26 18:06:06.076 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //input[@id='phone']/parent::div/following-sibling::span[@class='cc-error-txt']
+2026-03-26 18:06:36.426 [main] ERROR ActionDriver -  - Locator not visible: By.xpath: //input[@id='phone']/parent::div/following-sibling::span[@class='cc-error-txt']
+2026-03-26 18:06:36.427 [main] DEBUG InviteUserModal -  - Locator not visible yet: By.xpath: //input[@id='phone']/parent::div/following-sibling::span[@class='cc-error-txt']
+2026-03-26 18:06:36.427 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //form[@id='inviteUserManageTeamForm']//span[contains(@class,'cc-error-phone-txt')]
+2026-03-26 18:06:36.454 [main] INFO  InviteUserModal -  - Message found is : This user is already assigned as a System Admin in another branch. To invite them to a new branch with a different role, please update their existing role or contact support for assistance.
+2026-03-26 18:06:36.454 [main] INFO  InviteUserModal -  - Error message displayed on modal for Phone is : This user is already assigned as a System Admin in another branch. To invite them to a new branch with a different role, please update their existing role or contact support for assistance.
+2026-03-26 18:06:36.473 [main] DEBUG BaseTest -  - @AfterMethod optional cleanup for thread: main
+2026-03-26 18:06:36.474 [main] INFO  BaseTest -  - Attempting logout after test
+2026-03-26 18:06:36.474 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-03-26 18:06:36.506 [main] INFO  ActionDriver -  - Clicking element: By.id: headerUserName
+2026-03-26 18:06:36.506 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-03-26 18:06:37.641 [main] INFO  AppDashboardPage -  - Clicked on User Profile ....
+2026-03-26 18:06:37.641 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-03-26 18:06:37.674 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-03-26 18:06:37.674 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-03-26 18:06:38.833 [main] INFO  AppDashboardPage -  - Clicked on logout from User Profile modal.....
+2026-03-26 18:06:38.833 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='actionYes']
+2026-03-26 18:06:39.449 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='actionYes']
+2026-03-26 18:06:39.449 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='actionYes']
+2026-03-26 18:06:41.347 [main] INFO  AppDashboardPage -  - The user click on confirm to logout.... 
+2026-03-26 18:06:41.348 [main] INFO  BaseTest -  - Logout performed
+2026-03-26 18:06:41.348 [main] INFO  DriverFactory -  - Quitting WebDriver for thread: main
+2026-03-26 18:06:42.152 [main] DEBUG DriverFactory -  - WebDriver removed from ThreadLocal for thread: main
+2026-03-26 18:06:42.153 [main] INFO  BaseTest -  - WebDriver quit and ThreadLocal cleared
+2026-03-26 18:22:57.825 [main] INFO  Utils -  - [TestNG] Running:
+  C:\Users\DREAMWORLD\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+2026-03-26 18:22:57.914 [main] INFO  BaseTest -  - ===== Starting Test Setup on thread: main =====
+2026-03-26 18:22:57.925 [main] INFO  BaseTest -  - No TestNG browser parameter provided. Falling back to config: chrome
+2026-03-26 18:22:57.928 [main] INFO  DriverFactory -  - Initiating driver on for browser chrome on threadmain
+2026-03-26 18:22:59.729 [main] INFO  DriverManager -  - Chrome Driver Instance Is Created
+2026-03-26 18:22:59.730 [main] DEBUG DriverManager -  - Driver instance created successfully: ChromeDriver: chrome on windows (104109bbf18c6843bc4975f31b3c59b5)
+2026-03-26 18:22:59.730 [main] DEBUG DriverFactory -  - WebDriver instance set in ThreadLocal for thread: main
+2026-03-26 18:22:59.731 [main] DEBUG BaseTest -  - WebDriver initialized successfully
+2026-03-26 18:22:59.736 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=30 seconds
+2026-03-26 18:22:59.736 [main] DEBUG BaseTest -  - ActionDriver initialized..........
+2026-03-26 18:22:59.738 [main] INFO  BaseTest -  - Configuring Browser Settings...
+2026-03-26 18:22:59.738 [main] DEBUG BaseTest -  - Setting implicit wait to 2 seconds
+2026-03-26 18:22:59.744 [main] INFO  BaseTest -  - Maximizing browser window
+2026-03-26 18:23:00.711 [main] INFO  BaseTest -  - Navigating to URL: https://uat.carecoordinations.com/
+2026-03-26 18:23:01.243 [main] INFO  BaseTest -  - Persona Login --> role: SYSTEM_ADMIN |  Company Type: NONINTEGRATED | Organization Structure: MULTI_BRANCH | Email: max.admin@yopmail.com
+2026-03-26 18:23:01.247 [main] INFO  AuthHelper -  - Logging in with Persona Email: max.admin@yopmail.com
+2026-03-26 18:23:01.247 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 18:23:03.655 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 18:23:03.655 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 18:23:06.562 [main] INFO  LandingPage -  - Click on log in page from landing page
+2026-03-26 18:23:06.562 [main] INFO  LoginPage -  - Adding Username and Password max.admin@yopmail.com Admin@123
+2026-03-26 18:23:06.562 [main] INFO  ActionDriver -  - Entering text into By.id: email
+2026-03-26 18:23:06.563 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: email
+2026-03-26 18:23:06.624 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 18:23:06.931 [main] INFO  ActionDriver -  - Entering text into By.id: password
+2026-03-26 18:23:06.932 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: password
+2026-03-26 18:23:06.996 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 18:23:07.110 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-03-26 18:23:07.110 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-03-26 18:23:07.232 [main] INFO  LoginPage -  - Clicking  on login button ......
+2026-03-26 18:23:07.232 [main] INFO  BaseTest -  - === Test Setup completed ===
+2026-03-26 18:23:07.243 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=30 seconds
+2026-03-26 18:23:14.463 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[contains(@href,'manage-team')]
+2026-03-26 18:23:14.463 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[contains(@href,'manage-team')]
+2026-03-26 18:23:18.553 [main] INFO  HeaderPage -  - Manage team Clicked from header menus
+2026-03-26 18:23:18.553 [main] INFO  ActionDriver -  - Clicking element: By.id: createInviteUser
+2026-03-26 18:23:18.553 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: createInviteUser
+2026-03-26 18:23:18.681 [main] INFO  InviteUserModal -  - Click on Invite User button from Manage team
+2026-03-26 18:23:19.041 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //div[@id='branchedSelectDiv']//button
+2026-03-26 18:23:19.313 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //div[@id='branchedSelectDiv']//div[contains(@class,'dropdown-menu')]//span[@class='text']
+2026-03-26 18:23:19.468 [main] INFO  InviteUserModal -  - The User selected Branch : Sigma Hospice TX Branch
+2026-03-26 18:23:19.468 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //div[@id='userTypeSelectDiv']//button
+2026-03-26 18:23:19.573 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //div[@id='userTypeSelectDiv']//div[contains(@class,'dropdown-menu')]//span[@class='text']
+2026-03-26 18:23:19.749 [main] INFO  InviteUserModal -  - The User role Branch Admin is selected from By.id: addInvitationUserType
+2026-03-26 18:23:19.749 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='first_name']
+2026-03-26 18:23:19.749 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='first_name']
+2026-03-26 18:23:19.786 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 18:23:19.880 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='last_name']
+2026-03-26 18:23:19.880 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='last_name']
+2026-03-26 18:23:19.913 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 18:23:20.041 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='email']
+2026-03-26 18:23:20.041 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='email']
+2026-03-26 18:23:20.075 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 18:23:20.342 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@data-id='addInvitationCountryId']
+2026-03-26 18:23:20.463 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //button[@data-id='addInvitationCountryId']/following::div[contains(@class,'dropdown-menu')]//span
+2026-03-26 18:23:20.622 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='phone']
+2026-03-26 18:23:20.622 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='phone']
+2026-03-26 18:23:20.654 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 18:23:20.780 [main] INFO  InviteUserModal -  - Phone :- countryCode:+91 - Phone:9478658315
+2026-03-26 18:23:20.780 [main] INFO  ActionDriver -  - Clicking element: By.id: inviteUserTeamBtn
+2026-03-26 18:23:20.781 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: inviteUserTeamBtn
+2026-03-26 18:23:20.912 [main] INFO  InviteUserModal -  -  clicked on invite user button from modal
+2026-03-26 18:23:20.912 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: PendingRegTab
+2026-03-26 18:23:20.938 [main] INFO  ActionDriver -  - Clicking element: By.id: PendingRegTab
+2026-03-26 18:23:20.938 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: PendingRegTab
+2026-03-26 18:23:21.922 [main] INFO  ManageTeamPage -  - Click on Pending tab - Mange team in Team menu....
+2026-03-26 18:23:21.923 [main] DEBUG ActionDriver -  - Checking if loader appears: By.xpath: //div[@id='subAdminMainNormalBodySection']//div[contains(@class,'pageAjaxLoader')]
+2026-03-26 18:23:21.955 [main] DEBUG ActionDriver -  - Waiting for loader to disappear: By.xpath: //div[@id='subAdminMainNormalBodySection']//div[contains(@class,'pageAjaxLoader')]
+2026-03-26 18:23:22.630 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=30 seconds
+2026-03-26 18:23:22.630 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //table[@id='manageteamListingsTbl']//th
+2026-03-26 18:23:22.737 [main] INFO  TableComponent -  - Table column map created: {Role=2, Mobile Number=3, Name & Title=1, Actions=6, Email address=4, Invited By=5}
+2026-03-26 18:23:22.747 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //table[@id='manageteamListingsTbl']//tbody/tr
+2026-03-26 18:23:22.797 [main] INFO  TableComponent -  - Total rows found in table : 33
+2026-03-26 18:23:22.824 [main] INFO  TableComponent -  - User name for debug CK Corey Kelly
+2026-03-26 18:23:22.846 [main] INFO  TableComponent -  - User name for debug LM Lynn Mitchel
+2026-03-26 18:23:22.890 [main] INFO  TableComponent -  - User name for debug TM Tommy Mitchel
+2026-03-26 18:23:22.919 [main] INFO  TableComponent -  - User name for debug AM Amanda Mitchel
+2026-03-26 18:23:22.936 [main] INFO  TableComponent -  - User name for debug KM Kyyona Mitchel
+2026-03-26 18:23:22.953 [main] INFO  TableComponent -  - User name for debug JM Jack Mitchel
+2026-03-26 18:23:22.971 [main] INFO  TableComponent -  - User name for debug AM Allen Mitchel
+2026-03-26 18:23:22.988 [main] INFO  TableComponent -  - User name for debug AM Alexa Mitchel
+2026-03-26 18:23:23.004 [main] INFO  TableComponent -  - User name for debug GM Garry Mitchel
+2026-03-26 18:23:23.021 [main] INFO  TableComponent -  - User name for debug AM Alexis Mitchel
+2026-03-26 18:23:23.038 [main] INFO  TableComponent -  - User name for debug JM Jackie Mitchel
+2026-03-26 18:23:23.060 [main] INFO  TableComponent -  - User name for debug CM Carter Mitchel
+2026-03-26 18:23:23.088 [main] INFO  TableComponent -  - User name for debug CM Carter Mitchel
+2026-03-26 18:23:23.118 [main] INFO  TableComponent -  - User name for debug KM Kimbra Murphy
+2026-03-26 18:23:23.143 [main] INFO  TableComponent -  - User name for debug RC Rene Cole
+2026-03-26 18:23:23.161 [main] INFO  TableComponent -  - User name for debug PW Patrick Walsh
+2026-03-26 18:23:23.177 [main] INFO  TableComponent -  - User name for debug FW Freda Williamson
+2026-03-26 18:23:23.177 [main] INFO  TableComponent -  - Row found where Name & Title = FW Freda Williamson
+2026-03-26 18:23:23.177 [main] INFO  PendingTabComponent -  - User status in the table :true
+2026-03-26 18:23:23.179 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //table[@id='manageteamListingsTbl']//tbody/tr
+2026-03-26 18:23:23.213 [main] INFO  TableComponent -  - Total rows found in table : 33
+2026-03-26 18:23:23.233 [main] INFO  TableComponent -  - User name for debug CK Corey Kelly
+2026-03-26 18:23:23.255 [main] INFO  TableComponent -  - User name for debug LM Lynn Mitchel
+2026-03-26 18:23:23.278 [main] INFO  TableComponent -  - User name for debug TM Tommy Mitchel
+2026-03-26 18:23:23.304 [main] INFO  TableComponent -  - User name for debug AM Amanda Mitchel
+2026-03-26 18:23:23.329 [main] INFO  TableComponent -  - User name for debug KM Kyyona Mitchel
+2026-03-26 18:23:23.361 [main] INFO  TableComponent -  - User name for debug JM Jack Mitchel
+2026-03-26 18:23:23.384 [main] INFO  TableComponent -  - User name for debug AM Allen Mitchel
+2026-03-26 18:23:23.401 [main] INFO  TableComponent -  - User name for debug AM Alexa Mitchel
+2026-03-26 18:23:23.417 [main] INFO  TableComponent -  - User name for debug GM Garry Mitchel
+2026-03-26 18:23:23.433 [main] INFO  TableComponent -  - User name for debug AM Alexis Mitchel
+2026-03-26 18:23:23.447 [main] INFO  TableComponent -  - User name for debug JM Jackie Mitchel
+2026-03-26 18:23:23.462 [main] INFO  TableComponent -  - User name for debug CM Carter Mitchel
+2026-03-26 18:23:23.479 [main] INFO  TableComponent -  - User name for debug CM Carter Mitchel
+2026-03-26 18:23:23.510 [main] INFO  TableComponent -  - User name for debug KM Kimbra Murphy
+2026-03-26 18:23:23.544 [main] INFO  TableComponent -  - User name for debug RC Rene Cole
+2026-03-26 18:23:23.573 [main] INFO  TableComponent -  - User name for debug PW Patrick Walsh
+2026-03-26 18:23:23.594 [main] INFO  TableComponent -  - User name for debug FW Freda Williamson
+2026-03-26 18:23:23.594 [main] INFO  TableComponent -  - Row found where Name & Title = FW Freda Williamson
+2026-03-26 18:23:23.607 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
+2026-03-26 18:23:23.629 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
+2026-03-26 18:23:24.820 [main] DEBUG ActionDriver -  - Waiting for visibility of element: [[[[[[ChromeDriver: chrome on windows (104109bbf18c6843bc4975f31b3c59b5)] -> xpath: //table[@id='manageteamListingsTbl']//tbody/tr]] -> xpath: ./td[6]//div[contains(@class,'companies-listings-actions')]]] -> xpath: ./ul//span[contains(text(),'Re-Invite')]]
+2026-03-26 18:23:24.829 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
+2026-03-26 18:23:24.934 [main] INFO  TableComponent -  - Performed 'Re-Invite' action on row where Name & Title = FW Freda Williamson
+2026-03-26 18:23:24.934 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='viewUserMangeTeam']//div[@class='subText2 view-role']
+2026-03-26 18:23:25.534 [main] DEBUG ActionDriver -  - Text retrieved from By.xpath: //div[@id='viewUserMangeTeam']//div[@class='subText2 view-role']: Branch Admin
+2026-03-26 18:23:25.534 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='viewUserMangeTeam']//div[@class='subText2 view-branches']
+2026-03-26 18:23:25.569 [main] DEBUG ActionDriver -  - Text retrieved from By.xpath: //div[@id='viewUserMangeTeam']//div[@class='subText2 view-branches']: Sigma Hospice TX Branch
+2026-03-26 18:23:25.569 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='viewUserMangeTeam']//div[@class='subText2 subTextCapitalize view-first-name']
+2026-03-26 18:23:25.600 [main] DEBUG ActionDriver -  - Text retrieved from By.xpath: //div[@id='viewUserMangeTeam']//div[@class='subText2 subTextCapitalize view-first-name']: Freda
+2026-03-26 18:23:25.600 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='viewUserMangeTeam']//div[@class='subText2 subTextCapitalize view-last-name']
+2026-03-26 18:23:25.627 [main] DEBUG ActionDriver -  - Text retrieved from By.xpath: //div[@id='viewUserMangeTeam']//div[@class='subText2 subTextCapitalize view-last-name']: Williamson
+2026-03-26 18:23:25.628 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='viewUserMangeTeam']//div[@class='subText2 view-email']
+2026-03-26 18:23:25.655 [main] DEBUG ActionDriver -  - Text retrieved from By.xpath: //div[@id='viewUserMangeTeam']//div[@class='subText2 view-email']: freda_branchadmin@yopmail.com
+2026-03-26 18:23:25.655 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='viewUserMangeTeam']//div[@class='subText2 view-phone']
+2026-03-26 18:23:25.684 [main] DEBUG ActionDriver -  - Text retrieved from By.xpath: //div[@id='viewUserMangeTeam']//div[@class='subText2 view-phone']: +91 (478) 831-5569
+2026-03-26 18:23:25.704 [main] DEBUG BaseTest -  - @AfterMethod optional cleanup for thread: main
+2026-03-26 18:23:25.706 [main] INFO  BaseTest -  - Attempting logout after test
+2026-03-26 18:23:25.706 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-03-26 18:23:25.772 [main] INFO  ActionDriver -  - Clicking element: By.id: headerUserName
+2026-03-26 18:23:25.772 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-03-26 18:23:26.946 [main] INFO  AppDashboardPage -  - Clicked on User Profile ....
+2026-03-26 18:23:26.946 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-03-26 18:23:26.980 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-03-26 18:23:26.980 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-03-26 18:23:28.089 [main] INFO  AppDashboardPage -  - Clicked on logout from User Profile modal.....
+2026-03-26 18:23:28.090 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='actionYes']
+2026-03-26 18:23:28.681 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='actionYes']
+2026-03-26 18:23:28.681 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='actionYes']
+2026-03-26 18:23:30.752 [main] INFO  AppDashboardPage -  - The user click on confirm to logout.... 
+2026-03-26 18:23:30.752 [main] INFO  BaseTest -  - Logout performed
+2026-03-26 18:23:30.752 [main] INFO  DriverFactory -  - Quitting WebDriver for thread: main
+2026-03-26 18:23:31.285 [main] DEBUG DriverFactory -  - WebDriver removed from ThreadLocal for thread: main
+2026-03-26 18:23:31.285 [main] INFO  BaseTest -  - WebDriver quit and ThreadLocal cleared
+2026-03-26 18:26:09.687 [main] INFO  Utils -  - [TestNG] Running:
+  C:\Users\DREAMWORLD\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+2026-03-26 18:26:09.781 [main] INFO  BaseTest -  - ===== Starting Test Setup on thread: main =====
+2026-03-26 18:26:09.786 [main] INFO  BaseTest -  - No TestNG browser parameter provided. Falling back to config: chrome
+2026-03-26 18:26:09.788 [main] INFO  DriverFactory -  - Initiating driver on for browser chrome on threadmain
+2026-03-26 18:26:11.514 [main] INFO  DriverManager -  - Chrome Driver Instance Is Created
+2026-03-26 18:26:11.514 [main] DEBUG DriverManager -  - Driver instance created successfully: ChromeDriver: chrome on windows (6b37fa0de7276ae8e14bcecfa71f59a9)
+2026-03-26 18:26:11.514 [main] DEBUG DriverFactory -  - WebDriver instance set in ThreadLocal for thread: main
+2026-03-26 18:26:11.514 [main] DEBUG BaseTest -  - WebDriver initialized successfully
+2026-03-26 18:26:11.536 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=30 seconds
+2026-03-26 18:26:11.536 [main] DEBUG BaseTest -  - ActionDriver initialized..........
+2026-03-26 18:26:11.536 [main] INFO  BaseTest -  - Configuring Browser Settings...
+2026-03-26 18:26:11.536 [main] DEBUG BaseTest -  - Setting implicit wait to 2 seconds
+2026-03-26 18:26:11.544 [main] INFO  BaseTest -  - Maximizing browser window
+2026-03-26 18:26:15.840 [main] INFO  BaseTest -  - Navigating to URL: https://uat.carecoordinations.com/
+2026-03-26 18:26:17.163 [main] INFO  BaseTest -  - Persona Login --> role: SYSTEM_ADMIN |  Company Type: NONINTEGRATED | Organization Structure: MULTI_BRANCH | Email: max.admin@yopmail.com
+2026-03-26 18:26:17.167 [main] INFO  AuthHelper -  - Logging in with Persona Email: max.admin@yopmail.com
+2026-03-26 18:26:17.168 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 18:26:17.233 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 18:26:17.234 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='top-nav-btn'][normalize-space()='Log In']
+2026-03-26 18:26:20.257 [main] INFO  LandingPage -  - Click on log in page from landing page
+2026-03-26 18:26:20.258 [main] INFO  LoginPage -  - Adding Username and Password max.admin@yopmail.com Admin@123
+2026-03-26 18:26:20.258 [main] INFO  ActionDriver -  - Entering text into By.id: email
+2026-03-26 18:26:20.258 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: email
+2026-03-26 18:26:20.391 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 18:26:20.559 [main] INFO  ActionDriver -  - Entering text into By.id: password
+2026-03-26 18:26:20.559 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.id: password
+2026-03-26 18:26:20.591 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 18:26:20.699 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-03-26 18:26:20.699 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='FinalCommonLoginBtn']
+2026-03-26 18:26:20.855 [main] INFO  LoginPage -  - Clicking  on login button ......
+2026-03-26 18:26:20.856 [main] INFO  BaseTest -  - === Test Setup completed ===
+2026-03-26 18:26:20.873 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=30 seconds
+2026-03-26 18:26:27.757 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[contains(@href,'manage-team')]
+2026-03-26 18:26:27.758 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[contains(@href,'manage-team')]
+2026-03-26 18:26:31.405 [main] INFO  HeaderPage -  - Manage team Clicked from header menus
+2026-03-26 18:26:31.405 [main] INFO  ActionDriver -  - Clicking element: By.id: createInviteUser
+2026-03-26 18:26:31.405 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: createInviteUser
+2026-03-26 18:26:31.540 [main] INFO  InviteUserModal -  - Click on Invite User button from Manage team
+2026-03-26 18:26:32.160 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //div[@id='branchedSelectDiv']//button
+2026-03-26 18:26:32.296 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //div[@id='branchedSelectDiv']//div[contains(@class,'dropdown-menu')]//span[@class='text']
+2026-03-26 18:26:32.548 [main] INFO  InviteUserModal -  - The User selected Branch : Sigma Hospice TX Branch
+2026-03-26 18:26:32.548 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //div[@id='userTypeSelectDiv']//button
+2026-03-26 18:26:32.662 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //div[@id='userTypeSelectDiv']//div[contains(@class,'dropdown-menu')]//span[@class='text']
+2026-03-26 18:26:32.854 [main] INFO  InviteUserModal -  - The User role Branch Admin is selected from By.id: addInvitationUserType
+2026-03-26 18:26:32.855 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='first_name']
+2026-03-26 18:26:32.855 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='first_name']
+2026-03-26 18:26:32.987 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 18:26:33.097 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='last_name']
+2026-03-26 18:26:33.098 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='last_name']
+2026-03-26 18:26:33.130 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 18:26:33.255 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='email']
+2026-03-26 18:26:33.255 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='email']
+2026-03-26 18:26:33.286 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 18:26:33.537 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@data-id='addInvitationCountryId']
+2026-03-26 18:26:33.649 [main] DEBUG ActionDriver -  - Waiting for visibility of all the elements: By.xpath: //button[@data-id='addInvitationCountryId']/following::div[contains(@class,'dropdown-menu')]//span
+2026-03-26 18:26:33.798 [main] INFO  ActionDriver -  - Entering text into By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='phone']
+2026-03-26 18:26:33.798 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='commonManageTeamModalBody']//input[@id='phone']
+2026-03-26 18:26:33.829 [main] INFO  ActionDriver -  - The element status is : true
+2026-03-26 18:26:33.954 [main] INFO  InviteUserModal -  - Phone :- countryCode:+91 - Phone:9642267507
+2026-03-26 18:26:33.954 [main] INFO  ActionDriver -  - Clicking element: By.id: inviteUserTeamBtn
+2026-03-26 18:26:33.955 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: inviteUserTeamBtn
+2026-03-26 18:26:34.087 [main] INFO  InviteUserModal -  -  clicked on invite user button from modal
+2026-03-26 18:26:34.087 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: PendingRegTab
+2026-03-26 18:26:34.114 [main] INFO  ActionDriver -  - Clicking element: By.id: PendingRegTab
+2026-03-26 18:26:34.114 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: PendingRegTab
+2026-03-26 18:26:35.109 [main] INFO  ManageTeamPage -  - Click on Pending tab - Mange team in Team menu....
+2026-03-26 18:26:35.109 [main] DEBUG ActionDriver -  - Checking if loader appears: By.xpath: //div[@id='subAdminMainNormalBodySection']//div[contains(@class,'pageAjaxLoader')]
+2026-03-26 18:26:35.149 [main] DEBUG ActionDriver -  - Waiting for loader to disappear: By.xpath: //div[@id='subAdminMainNormalBodySection']//div[contains(@class,'pageAjaxLoader')]
+2026-03-26 18:26:36.269 [main] DEBUG ActionDriver -  - ActionDriver initialized with explicitWait=30 seconds
+2026-03-26 18:26:36.269 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //table[@id='manageteamListingsTbl']//th
+2026-03-26 18:26:36.372 [main] INFO  TableComponent -  - Table column map created: {Role=2, Mobile Number=3, Name & Title=1, Actions=6, Email address=4, Invited By=5}
+2026-03-26 18:26:36.386 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //table[@id='manageteamListingsTbl']//tbody/tr
+2026-03-26 18:26:36.431 [main] INFO  TableComponent -  - Total rows found in table : 34
+2026-03-26 18:26:36.454 [main] INFO  TableComponent -  - User name for debug CK Corey Kelly
+2026-03-26 18:26:36.473 [main] INFO  TableComponent -  - User name for debug LM Lynn Mitchel
+2026-03-26 18:26:36.496 [main] INFO  TableComponent -  - User name for debug TM Tommy Mitchel
+2026-03-26 18:26:36.521 [main] INFO  TableComponent -  - User name for debug AM Amanda Mitchel
+2026-03-26 18:26:36.543 [main] INFO  TableComponent -  - User name for debug KM Kyyona Mitchel
+2026-03-26 18:26:36.565 [main] INFO  TableComponent -  - User name for debug JM Jack Mitchel
+2026-03-26 18:26:36.584 [main] INFO  TableComponent -  - User name for debug AM Allen Mitchel
+2026-03-26 18:26:36.603 [main] INFO  TableComponent -  - User name for debug AM Alexa Mitchel
+2026-03-26 18:26:36.620 [main] INFO  TableComponent -  - User name for debug GM Garry Mitchel
+2026-03-26 18:26:36.637 [main] INFO  TableComponent -  - User name for debug AM Alexis Mitchel
+2026-03-26 18:26:36.655 [main] INFO  TableComponent -  - User name for debug JM Jammy Mitchel
+2026-03-26 18:26:36.672 [main] INFO  TableComponent -  - User name for debug CM Carter Mitchel
+2026-03-26 18:26:36.689 [main] INFO  TableComponent -  - User name for debug CM Carter Mitchel
+2026-03-26 18:26:36.705 [main] INFO  TableComponent -  - User name for debug KM Kimbra Murphy
+2026-03-26 18:26:36.728 [main] INFO  TableComponent -  - User name for debug RC Rene Cole
+2026-03-26 18:26:36.749 [main] INFO  TableComponent -  - User name for debug PW Patrick Walsh
+2026-03-26 18:26:36.770 [main] INFO  TableComponent -  - User name for debug FW Freda Williamson
+2026-03-26 18:26:36.792 [main] INFO  TableComponent -  - User name for debug JM Jess Murphy
+2026-03-26 18:26:36.792 [main] INFO  TableComponent -  - Row found where Name & Title = JM Jess Murphy
+2026-03-26 18:26:36.792 [main] INFO  PendingTabComponent -  - User status in the table :true
+2026-03-26 18:26:36.797 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //table[@id='manageteamListingsTbl']//tbody/tr
+2026-03-26 18:26:36.840 [main] INFO  TableComponent -  - Total rows found in table : 34
+2026-03-26 18:26:36.860 [main] INFO  TableComponent -  - User name for debug CK Corey Kelly
+2026-03-26 18:26:36.880 [main] INFO  TableComponent -  - User name for debug LM Lynn Mitchel
+2026-03-26 18:26:36.899 [main] INFO  TableComponent -  - User name for debug TM Tommy Mitchel
+2026-03-26 18:26:36.918 [main] INFO  TableComponent -  - User name for debug AM Amanda Mitchel
+2026-03-26 18:26:36.937 [main] INFO  TableComponent -  - User name for debug KM Kyyona Mitchel
+2026-03-26 18:26:36.958 [main] INFO  TableComponent -  - User name for debug JM Jack Mitchel
+2026-03-26 18:26:36.977 [main] INFO  TableComponent -  - User name for debug AM Allen Mitchel
+2026-03-26 18:26:36.999 [main] INFO  TableComponent -  - User name for debug AM Alexa Mitchel
+2026-03-26 18:26:37.030 [main] INFO  TableComponent -  - User name for debug GM Garry Mitchel
+2026-03-26 18:26:37.052 [main] INFO  TableComponent -  - User name for debug AM Alexis Mitchel
+2026-03-26 18:26:37.068 [main] INFO  TableComponent -  - User name for debug JM Jammy Mitchel
+2026-03-26 18:26:37.084 [main] INFO  TableComponent -  - User name for debug CM Carter Mitchel
+2026-03-26 18:26:37.102 [main] INFO  TableComponent -  - User name for debug CM Carter Mitchel
+2026-03-26 18:26:37.119 [main] INFO  TableComponent -  - User name for debug KM Kimbra Murphy
+2026-03-26 18:26:37.135 [main] INFO  TableComponent -  - User name for debug RC Rene Cole
+2026-03-26 18:26:37.153 [main] INFO  TableComponent -  - User name for debug PW Patrick Walsh
+2026-03-26 18:26:37.173 [main] INFO  TableComponent -  - User name for debug FW Freda Williamson
+2026-03-26 18:26:37.191 [main] INFO  TableComponent -  - User name for debug JM Jess Murphy
+2026-03-26 18:26:37.191 [main] INFO  TableComponent -  - Row found where Name & Title = JM Jess Murphy
+2026-03-26 18:26:37.218 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
+2026-03-26 18:26:37.242 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
+2026-03-26 18:26:38.464 [main] DEBUG ActionDriver -  - Waiting for visibility of element: [[[[[[ChromeDriver: chrome on windows (6b37fa0de7276ae8e14bcecfa71f59a9)] -> xpath: //table[@id='manageteamListingsTbl']//tbody/tr]] -> xpath: ./td[6]//div[contains(@class,'companies-listings-actions')]]] -> xpath: ./ul//span[contains(text(),'Re-Invite')]]
+2026-03-26 18:26:38.472 [main] DEBUG ActionDriver -  - Waiting for WebElement to be clickable
+2026-03-26 18:26:38.582 [main] INFO  TableComponent -  - Performed 'Re-Invite' action on row where Name & Title = JM Jess Murphy
+2026-03-26 18:26:38.582 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='viewUserMangeTeam']//div[@class='subText2 view-role']
+2026-03-26 18:26:39.223 [main] DEBUG ActionDriver -  - Text retrieved from By.xpath: //div[@id='viewUserMangeTeam']//div[@class='subText2 view-role']: Branch Admin
+2026-03-26 18:26:39.224 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='viewUserMangeTeam']//div[@class='subText2 view-branches']
+2026-03-26 18:26:39.280 [main] DEBUG ActionDriver -  - Text retrieved from By.xpath: //div[@id='viewUserMangeTeam']//div[@class='subText2 view-branches']: Sigma Hospice TX Branch
+2026-03-26 18:26:39.280 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='viewUserMangeTeam']//div[@class='subText2 subTextCapitalize view-first-name']
+2026-03-26 18:26:39.311 [main] DEBUG ActionDriver -  - Text retrieved from By.xpath: //div[@id='viewUserMangeTeam']//div[@class='subText2 subTextCapitalize view-first-name']: Jess
+2026-03-26 18:26:39.311 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='viewUserMangeTeam']//div[@class='subText2 subTextCapitalize view-last-name']
+2026-03-26 18:26:39.338 [main] DEBUG ActionDriver -  - Text retrieved from By.xpath: //div[@id='viewUserMangeTeam']//div[@class='subText2 subTextCapitalize view-last-name']: Murphy
+2026-03-26 18:26:39.338 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='viewUserMangeTeam']//div[@class='subText2 view-email']
+2026-03-26 18:26:39.367 [main] DEBUG ActionDriver -  - Text retrieved from By.xpath: //div[@id='viewUserMangeTeam']//div[@class='subText2 view-email']: jess_branchadmin@yopmail.com
+2026-03-26 18:26:39.367 [main] DEBUG ActionDriver -  - Waiting for visibility of: By.xpath: //div[@id='viewUserMangeTeam']//div[@class='subText2 view-phone']
+2026-03-26 18:26:39.396 [main] DEBUG ActionDriver -  - Text retrieved from By.xpath: //div[@id='viewUserMangeTeam']//div[@class='subText2 view-phone']: +91 (642) 750-7629
+2026-03-26 18:26:39.415 [main] DEBUG BaseTest -  - @AfterMethod optional cleanup for thread: main
+2026-03-26 18:26:39.420 [main] INFO  BaseTest -  - Attempting logout after test
+2026-03-26 18:26:39.420 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-03-26 18:26:39.470 [main] INFO  ActionDriver -  - Clicking element: By.id: headerUserName
+2026-03-26 18:26:39.470 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.id: headerUserName
+2026-03-26 18:26:40.690 [main] INFO  AppDashboardPage -  - Clicked on User Profile ....
+2026-03-26 18:26:40.690 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-03-26 18:26:40.723 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-03-26 18:26:40.723 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //a[@class='dropdown-item cursor-pointer']
+2026-03-26 18:26:41.840 [main] INFO  AppDashboardPage -  - Clicked on logout from User Profile modal.....
+2026-03-26 18:26:41.840 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='actionYes']
+2026-03-26 18:26:42.429 [main] INFO  ActionDriver -  - Clicking element: By.xpath: //button[@id='actionYes']
+2026-03-26 18:26:42.430 [main] DEBUG ActionDriver -  - Waiting for element to be clickable: By.xpath: //button[@id='actionYes']
+2026-03-26 18:26:44.390 [main] INFO  AppDashboardPage -  - The user click on confirm to logout.... 
+2026-03-26 18:26:44.390 [main] INFO  BaseTest -  - Logout performed
+2026-03-26 18:26:44.391 [main] INFO  DriverFactory -  - Quitting WebDriver for thread: main
+2026-03-26 18:26:44.815 [main] DEBUG DriverFactory -  - WebDriver removed from ThreadLocal for thread: main
+2026-03-26 18:26:44.815 [main] INFO  BaseTest -  - WebDriver quit and ThreadLocal cleared

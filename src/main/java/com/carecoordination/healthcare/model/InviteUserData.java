@@ -1,13 +1,17 @@
 package com.carecoordination.healthcare.model;
 
+import lombok.Setter;
+
 public class InviteUserData {
 
     private final String role;
     private final String branchName;
     private final String firstName;
     private final String lastName;
-    private final String email;
-    private final String phoneNumber;
+    @Setter
+    private String email;
+    @Setter
+    private String phoneNumber;
 
 
     public InviteUserData (String role, String branchName, String firstName,
@@ -46,14 +50,16 @@ public class InviteUserData {
         return phoneNumber;
     }
 
+
     public String getDisplayedName(){
         String firstInitial = firstName.substring(0,1).toUpperCase();
         String lastInitial = lastName.substring(0,1).toUpperCase();
 
         return firstInitial + lastInitial + " " +firstName +" "+ lastName;
-
-
     }
+
+
+
 
 
 
