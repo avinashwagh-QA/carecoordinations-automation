@@ -46,6 +46,14 @@ public class InviteUserData {
         return phoneNumber;
     }
 
+    public String getDisplayedName(){
+        String firstInitial = firstName.substring(0,1).toUpperCase();
+        String lastInitial = lastName.substring(0,1).toUpperCase();
+
+        return firstInitial + lastInitial + " " +firstName +" "+ lastName;
+
+
+    }
 
 
 

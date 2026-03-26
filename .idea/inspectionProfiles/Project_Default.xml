@@ -18,16 +18,25 @@
         <list>
           <option value="CareCoordination" />
           <option value="CareCoordination" />
+          <option value="CareCoordination" />
+          <option value="CareCoordination" />
+          <option value="CareCoordination" />
         </list>
       </option>
       <option name="ignoredPackages">
         <list>
           <option value="org.lz4:lz4-java:1.8.0" />
           <option value="io.netty:netty-codec-http:4.2.7.Final" />
+          <option value="com.fasterxml.jackson.core:jackson-core:2.20.0" />
+          <option value="org.apache.zookeeper:zookeeper:3.9.4" />
+          <option value="org.yaml:snakeyaml:1.23" />
         </list>
       </option>
       <option name="ignoredReasons">
         <list>
+          <option value="Not exploitable" />
+          <option value="Not exploitable" />
+          <option value="Not exploitable" />
           <option value="Not exploitable" />
           <option value="Not exploitable" />
         </list>

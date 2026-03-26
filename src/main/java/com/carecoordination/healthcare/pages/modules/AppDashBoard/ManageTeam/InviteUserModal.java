@@ -3,6 +3,7 @@ package com.carecoordination.healthcare.pages.modules.AppDashBoard.ManageTeam;
 import com.carecoordination.healthcare.actiondriver.ActionDriver;
 import com.carecoordination.healthcare.constants.InviteUserField;
 import com.carecoordination.healthcare.factory.DriverFactory;
+import com.carecoordination.healthcare.model.InviteUserData;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -129,6 +130,32 @@ public class InviteUserModal {
         logger.info("Phone :- countryCode:{} - Phone:{}",countryName, number);
     }
 
+    // method to set the user data using invite user factory and datautil
+
+    public void inviteUser(InviteUserData user){
+
+        selectUserRole(user.getRole());
+
+        if(user.getBranchName() !=null && !user.getBranchName().isEmpty()){
+            selectUserBranch(user.getBranchName());
+        }
+
+        fillBasicDetails(
+                user.getFirstName(),
+                user.getLastName(),
+                user.getEmail(),
+                "+91",
+                user.getPhoneNumber()
+        );
+
+        clickOnInvite();
+    }
+
+
+
+
+
+
     public void clickOnInvite(){
         actionDriver.click(btnInvite);
         logger.info(" clicked on invite user button from modal");
@@ -186,12 +213,12 @@ public class InviteUserModal {
         return errorMessage.matches(pattern);
     }
 
-    public boolean isUpdateInviteUserToastDisplayed() {
+    public boolean isAddAndUpdateInviteUserToastDisplayed() {
 
         actionDriver.waitForElementToVisible(inviteUpdateToastMessage);
         boolean status = actionDriver.isDisplayed(inviteUpdateToastMessage);
-        logger.info("Update Invite user toast message status is : {}", status);
-        logger.info("Message on update invite is : {}", actionDriver.getText(inviteUpdateToastMessage));
+        logger.info("Add/Update Invite user toast message status is : {}", status);
+        logger.info("Message on Add/update invite is : {}", actionDriver.getText(inviteUpdateToastMessage));
         return status;
 
     }

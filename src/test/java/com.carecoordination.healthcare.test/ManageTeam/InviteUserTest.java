@@ -4,6 +4,7 @@ import com.carecoordination.healthcare.constants.InviteUserField;
 import com.carecoordination.healthcare.constants.UserRole;
 import com.carecoordination.healthcare.context.UserContext;
 import com.carecoordination.healthcare.factory.BaseTest;
+import com.carecoordination.healthcare.factory.InviteUserFactory;
 import com.carecoordination.healthcare.model.InviteUserData;
 import com.carecoordination.healthcare.pages.modules.AppDashBoard.HeaderPage;
 import com.carecoordination.healthcare.pages.modules.AppDashBoard.ManageTeam.InviteUserModal;
@@ -36,26 +37,25 @@ public class InviteUserTest extends BaseTest {
         inviteUserModal = new InviteUserModal(actionDriver);
     }
 
+    //use this method to open invite user modal
+    private void openInviteUserModal() {
+        headerPage.clickOnManageTeam();
+        inviteUserModal.clickOnInviteUser();
+    }
+
     @Test(description = "Verify the invite button is disable when modal is opened for first time",
             dataProvider = "inviteUserPersonas", dataProviderClass = TestDataProvider.class)
     public void verifyInviteButtonIsDisable(String personaKey){
 
         UserContext userContext= getCurrentUserContext();
-
-        headerPage.clickOnManageTeam();
-        inviteUserModal.clickOnInviteUser();
-
+        openInviteUserModal();
         boolean btnStatus = inviteUserModal.isInviteButtonEnabled();
         Assert.assertFalse(btnStatus, "Invite button is display for initial state");
-
     }
 
     @Test(description = "Verify Invite user modal displayed correct user role")
     public void verifyCorrectUserROleDisplayedInRoleDropdown(){
-
-        headerPage.clickOnManageTeam();
-        inviteUserModal.clickOnInviteUser();
-
+         openInviteUserModal();
          List<String> actualRoles = inviteUserModal.getUserRoles();
 
          List<String> expectedRoles = Arrays.stream(UserRole.values())
@@ -63,25 +63,20 @@ public class InviteUserTest extends BaseTest {
                  .collect(Collectors.toList());
 
          Assert.assertEquals(actualRoles, expectedRoles, "User roles does not match");
-
     }
 
     @Test(description = "Verify when system admin is selected as role then branch drop down is not displayed")
     public void verifyBranchNotDisplayedWhenSystemAdminSelected(){
 
-        headerPage.clickOnManageTeam();
-        inviteUserModal.clickOnInviteUser();
-
+        openInviteUserModal();
         inviteUserModal.selectUserRole("System Admin");
-
         Assert.assertFalse(inviteUserModal.isBranchDisplayed(), "Branch displayed when system admin is selected");
     }
 
     @Test(description = "Verify branch is displayed when role selected other than system admin")
     public void verifyBranchStatusDisplayedForOtherRole(){
 
-        headerPage.clickOnManageTeam();
-        inviteUserModal.clickOnInviteUser();
+        openInviteUserModal();
 
         Assert.assertTrue(inviteUserModal.isBranchDisplayed(), "Branch not displayed for Branch Admin");
         List<UserRole> userRoles = List.of(UserRole.BRANCH_ADMIN,
@@ -98,8 +93,7 @@ public class InviteUserTest extends BaseTest {
     @Test(description = "Verify invite button remains disabled until mandatory fields are filled")
     public void verifyInviteButtonDisabledUntilMandatoryFieldsFilled(){
 
-        headerPage.clickOnManageTeam();
-        inviteUserModal.clickOnInviteUser();
+        openInviteUserModal();
 
         inviteUserModal.selectUserRole("Branch Admin");
         Assert.assertFalse(inviteUserModal.isInviteButtonEnabled(), "Button enabled");
@@ -124,31 +118,27 @@ public class InviteUserTest extends BaseTest {
     @Test(description = "Verify system admin can invite user with valid data")
     public void verifyInviteUserWithValidDetails(){
 
-        headerPage.clickOnManageTeam();
-        inviteUserModal.clickOnInviteUser();
+        openInviteUserModal();
 
-        inviteUserModal.selectUserRole("Branch Admin");
+        InviteUserData user = new InviteUserFactory().createUser(UserRole.BRANCH_ADMIN);
+        inviteUserModal.selectUserBranch("Sigma Hospice TX Branch");
 
-        inviteUserModal.selectUserBranch("Sigma Hospice NYC Branch");
+        inviteUserModal.inviteUser(user);
 
-        inviteUserModal.fillBasicDetails("Carter", "Mitchel", "Carter01_admin@yopmail.com","+91", "7849849899");
-
-        inviteUserModal.clickOnInvite();
         manageTeamPage.clickOnPendingTab();
-
         manageTeamPage.waitForLoaderToDisappear();
+
         pendingTabComponent = new PendingTabComponent(actionDriver);
 
-        Assert.assertTrue(pendingTabComponent.isUserPresent("CM Carter Mitchel"));
-        Assert.assertEquals(pendingTabComponent.getUserEmailByUserName("CM Carter Mitchel"), "Carter01_admin@yopmail.com", "User email is incorrect");
+        Assert.assertTrue(inviteUserModal.isAddAndUpdateInviteUserToastDisplayed(), "Toast message does not displayed");
+        Assert.assertTrue(pendingTabComponent.isUserPresent(user.getDisplayedName()), "User is not present in the tab");
+        Assert.assertEquals(pendingTabComponent.getUserEmailByUserName(user.getDisplayedName()), user.getEmail(), "User email is incorrect");
 
     }
 
     @Test(description = "Verify inviting user with already email exist in pending tab")
     public void verifyErrorMessageOnDuplicateEmail(){
-        headerPage.clickOnManageTeam();
-        inviteUserModal.clickOnInviteUser();
-
+        openInviteUserModal();
         inviteUserModal.selectUserRole("Branch Admin");
 
         inviteUserModal.fillBasicDetails("Carter", "Mitchel", "Carter01_admin@yopmail.com","+91", "7321984989");
@@ -161,8 +151,7 @@ public class InviteUserTest extends BaseTest {
     @Test(description = "Verify error message by inviting user with already register email")
     public void verifyInvitingUserWithAlreadyRegisterEmail(){
 
-        headerPage.clickOnManageTeam();
-        inviteUserModal.clickOnInviteUser();
+        openInviteUserModal();
 
         inviteUserModal.selectUserRole("Branch Admin");
 
@@ -176,9 +165,7 @@ public class InviteUserTest extends BaseTest {
 
     @Test(description = "Verify inviting user with invalid phone")
     public void verifyErrorMessageOnPhone(){
-        headerPage.clickOnManageTeam();
-        inviteUserModal.clickOnInviteUser();
-
+        openInviteUserModal();
         inviteUserModal.selectUserRole("Branch Admin");
 
         inviteUserModal.fillBasicDetails("Carter", "Mitchel", "Carter02_admin@yopmail.com","+91", "784");
@@ -190,9 +177,7 @@ public class InviteUserTest extends BaseTest {
 
     @Test(description = "Verify inviting user with already phone number exist in pending tab")
     public void verifyErrorMessageOnDuplicatePhone(){
-        headerPage.clickOnManageTeam();
-        inviteUserModal.clickOnInviteUser();
-
+        openInviteUserModal();
         inviteUserModal.selectUserRole("Branch Admin");
 
         inviteUserModal.fillBasicDetails("Carter", "Mitchel", "Carter02_admin@yopmail.com","+91", "7849849899");
@@ -204,9 +189,7 @@ public class InviteUserTest extends BaseTest {
 
     @Test(description = "Verify inviting user with already register phone number")
     public void VerifyErrorMessageOnAlreadyRegisterNumber(){
-
-        headerPage.clickOnManageTeam();
-        inviteUserModal.clickOnInviteUser();
+        openInviteUserModal();
 
         inviteUserModal.selectUserRole("Branch Admin");
 
@@ -222,8 +205,7 @@ public class InviteUserTest extends BaseTest {
     @Test(description = "Verify After inviting a user On Re-invite correct User data is displayed")
     public void VerifyOnReInviteUserInfoDetailsCorrectlyDisplayed(){
 
-        headerPage.clickOnManageTeam();
-        inviteUserModal.clickOnInviteUser();
+        openInviteUserModal();
 
         inviteUserModal.selectUserRole("Branch Admin");
 
@@ -255,8 +237,7 @@ public class InviteUserTest extends BaseTest {
 
     @Test(description = "Verify click on invite user without updating user then user update successfully")
     public void verifyToastMessageDisplayedOnUpdateInviteUser (){
-        headerPage.clickOnManageTeam();
-        manageTeamPage.clickOnPendingTab();
+        openInviteUserModal();
 
         manageTeamPage.waitForLoaderToDisappear();
         pendingTabComponent = new PendingTabComponent(actionDriver);
@@ -267,7 +248,7 @@ public class InviteUserTest extends BaseTest {
 
         inviteUserModal.clickOnInvite();
 
-        Assert.assertTrue(inviteUserModal.isUpdateInviteUserToastDisplayed(), "Toast on update invite user is not displayed");
+        Assert.assertTrue(inviteUserModal.isAddAndUpdateInviteUserToastDisplayed(), "Toast on update invite user is not displayed");
     }
 
 
@@ -291,7 +272,7 @@ public class InviteUserTest extends BaseTest {
         inviteUserModal.setInpEmail("Craig10_admin@yopmail.com");
         inviteUserModal.clickOnInvite();
 
-        Assert.assertTrue(inviteUserModal.isUpdateInviteUserToastDisplayed(), "Toast on update invite user is not displayed");
+        Assert.assertTrue(inviteUserModal.isAddAndUpdateInviteUserToastDisplayed(), "Toast on update invite user is not displayed");
         manageTeamPage.waitForLoaderToDisappear();
         Assert.assertEquals(pendingTabComponent.getUserEmailByUserName("CM Craig Mitchel"), "Craig10_admin@yopmail.com", "Email does not updated");
 
@@ -366,10 +347,10 @@ public class InviteUserTest extends BaseTest {
         manageTeamPage.waitForLoaderToDisappear();
         pendingTabComponent = new PendingTabComponent(actionDriver);
 
-        pendingTabComponent.clickOnDeleteInvitation("MM Madhumkcg MK");
+        pendingTabComponent.clickOnDeleteInvitation("OM Owen Mitchel");
 
         Assert.assertTrue(pendingTabComponent.isDeleteInviteUserToastDisplayed(), " Delete user toast does not displayed");
-        Assert.assertFalse(pendingTabComponent.isUserPresent(""), "User is present in the pending tab ");
+        Assert.assertFalse(pendingTabComponent.isUserPresent("OM Owen Mitchel"), "User is present in the pending tab ");
 
     }
 

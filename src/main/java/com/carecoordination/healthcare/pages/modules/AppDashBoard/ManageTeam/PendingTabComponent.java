@@ -29,7 +29,6 @@ public class PendingTabComponent {
     private final By lastName = By.xpath("//div[@id='viewUserMangeTeam']//div[@class='subText2 subTextCapitalize view-last-name']");
     private final By emailUser = By.xpath("//div[@id='viewUserMangeTeam']//div[@class='subText2 view-email']");
     private final By phoneNumber = By.xpath("//div[@id='viewUserMangeTeam']//div[@class='subText2 view-phone']");
-    private final By editButton = By.id("editInfoTeam");
     private final By confirmAndReinvite = By.id("editInfoTeam");
     private final By editModalTitle = By.xpath("//div[@id='inviteUserManageTeamModal']//h6[contains(text(),'Edit info & Re-invite')]");
 
@@ -39,8 +38,6 @@ public class PendingTabComponent {
     private final By deleteConfirmationNo = By.xpath("//div[@class='manageTeamConfirmationSection1 text-center']//button[contains(text(),'No')]");
 
     private final By inviteDeleteToastMessage = By.xpath("//div[contains(@class,'iziToast')]//p[contains(@class,'iziToast-message')]");
-
-
 
     public boolean isUserPresent(String username) {
         actionDriver.waitForPageLoad();
