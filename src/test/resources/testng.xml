@@ -8,7 +8,7 @@
 
     <test name="CareCoordination">
         <classes>
-            <class name="com.carecoordination.healthcare.testpages.LoginPageTest"/>
+            <class name="com.carecoordination.healthcare.test.LoginPageTest"/>
         </classes>
     </test>
 </suite>

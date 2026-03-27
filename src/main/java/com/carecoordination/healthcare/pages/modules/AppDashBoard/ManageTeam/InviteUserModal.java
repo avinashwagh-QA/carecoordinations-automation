@@ -110,6 +110,7 @@ public class InviteUserModal {
 
     public void setInpFirstName(String firstName){
         actionDriver.enterText(inpFirstName, firstName);
+        logger.info("Inserted user first name as : {}", firstName);
     }
 
     public void setInpMiddleName(String middleName){
@@ -118,20 +119,21 @@ public class InviteUserModal {
 
     public void setInpLastName(String lastName){
         actionDriver.enterText(inpLastName, lastName);
+        logger.info("Inserted user last name as : {}", lastName);
     }
 
     public void setInpEmail(String email){
         actionDriver.enterText(inpEmail, email);
+        logger.info("Inserted email is : {}", email);
     }
 
     public void setInpPhone(String countryName, String number){
         actionDriver.selectCustomDropdown(drpCountryCode, getDrpCountryCodeOption, countryName);
-        actionDriver.enterText(inpPhone, number);
-        logger.info("Phone :- countryCode:{} - Phone:{}",countryName, number);
+        actionDriver.enterMaskedText(inpPhone, number);
+        logger.info("Inserted Phone :- countryCode:{} - Phone:{}",countryName, number);
     }
 
-    // method to set the user data using invite user factory and datautil
-
+    // method to set the user data using invite user factory and data util
     public void inviteUser(InviteUserData user){
 
         selectUserRole(user.getRole());
@@ -150,10 +152,6 @@ public class InviteUserModal {
 
         clickOnInvite();
     }
-
-
-
-
 
 
     public void clickOnInvite(){

@@ -75,6 +75,20 @@ public class TestDataProvider {
         };
     }
 
+    @DataProvider(name = "userRoles")
+    public Object[][] userRoles() {
+        return new Object[][]{
+                {UserRole.SYSTEM_ADMIN},
+                {UserRole.BRANCH_ADMIN},
+                {UserRole.MANAGER_SUPERVISOR},
+                {UserRole.CLERICAL_STAFF},
+                {UserRole.FIELD_CLINICIAN},
+                {UserRole.TRIAGE_STAFF},
+                {UserRole.EXTERNAL_VENDOR}
+        };
+    }
+
+
     @DataProvider(name = "personaMatrix")
     public Object[][] personaMatrix() {
         return new Object[][]{

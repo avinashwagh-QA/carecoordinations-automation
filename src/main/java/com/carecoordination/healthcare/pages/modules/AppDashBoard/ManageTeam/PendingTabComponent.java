@@ -65,8 +65,24 @@ public class PendingTabComponent {
         String branch = actionDriver.getText(branchName);
         String firstname = actionDriver.getText(firstName);
         String lastname = actionDriver.getText(lastName);
+        logger.info("Retrieved user is :{} {}", firstname, lastname);
         String email = actionDriver.getText(emailUser);
-        String phoneNum = actionDriver.getText(phoneNumber);
+        logger.info("Retrieved Email is :{} ", email);
+
+        String phoneText = actionDriver.getText(phoneNumber);
+
+        // Example: "+91 (961) 806-5169"
+        //  Extract country code
+        String countryCode = phoneText.substring(0, phoneText.indexOf(" ")); //+91
+
+        //Remove all non-digits
+        String phoneNum = phoneText.replaceAll("\\D", ""); // 919618065169
+
+        //remove country code it works for only +91 as we used only +91 format to invite user
+        if(phoneNum.startsWith("91") && phoneNum.length()>10){
+            phoneNum = phoneNum.substring(2); //remove first 2 digit
+        }
+        logger.info("Retrieved Phone is :{} ", phoneNum);
 
         return new InviteUserData(role, branch, firstname, lastname, email, phoneNum);
     }

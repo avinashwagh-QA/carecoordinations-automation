@@ -14,6 +14,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import utilities.TestDataProvider;
 
@@ -40,6 +41,7 @@ public class InviteUserTest extends BaseTest {
     //use this method to open invite user modal
     private void openInviteUserModal() {
         headerPage.clickOnManageTeam();
+        manageTeamPage.selectBranch("Sigma Hospice NYC Branch");
         inviteUserModal.clickOnInviteUser();
     }
 
@@ -136,6 +138,34 @@ public class InviteUserTest extends BaseTest {
 
     }
 
+    @Test(description = "Verify system admin can invite all user with valid data",
+            dataProvider = "userRoles", dataProviderClass = TestDataProvider.class)
+    public void verifyInvitingAllUserWithValidDetails(UserRole role){
+
+
+        openInviteUserModal();
+
+        InviteUserData user = new InviteUserFactory().createUser(role);
+        // ✅ Branch only for non-system admin
+        if (!role.equals(UserRole.SYSTEM_ADMIN)) {
+            inviteUserModal.selectUserBranch("Sigma Hospice NYC Branch");
+        }
+        inviteUserModal.inviteUser(user);
+
+        manageTeamPage.clickOnPendingTab();
+        manageTeamPage.waitForLoaderToDisappear();
+
+        pendingTabComponent = new PendingTabComponent(actionDriver);
+
+        Assert.assertTrue(inviteUserModal.isAddAndUpdateInviteUserToastDisplayed(), "Toast message does not displayed");
+        Assert.assertTrue(pendingTabComponent.isUserPresent(user.getDisplayedName()), "User is not present in the tab");
+        Assert.assertEquals(pendingTabComponent.getUserEmailByUserName(user.getDisplayedName()), user.getEmail(), "User email is incorrect");
+
+    }
+
+
+
+
     @Test(description = "Verify inviting user with already email exist in pending tab")
     public void verifyErrorMessageOnDuplicateEmail(){
         openInviteUserModal();
@@ -144,8 +174,8 @@ public class InviteUserTest extends BaseTest {
         inviteUserModal.selectUserRole("Branch Admin");
 
         user.setEmail("kimbra_branchadmin@yopmail.com");
-
         inviteUserModal.inviteUser(user);
+
         Assert.assertTrue(inviteUserModal.isDuplicateInviteEmailMessageIsDisplayed(), "Duplicate email message format does not match");
     }
 
@@ -193,7 +223,7 @@ public class InviteUserTest extends BaseTest {
         InviteUserData user = new InviteUserFactory().createUser(UserRole.BRANCH_ADMIN);
         inviteUserModal.selectUserRole("Branch Admin");
 
-        user.setPhoneNumber("(309) 090-4995");
+        user.setPhoneNumber("(998) 877-0104");
         inviteUserModal.inviteUser(user);
 
         Assert.assertTrue(inviteUserModal.isDuplicateInvitePhoneMessageIsDisplayed(), "Duplicate Phone number message format does not match");
@@ -244,7 +274,7 @@ public class InviteUserTest extends BaseTest {
     }
 
 
-    @Test(description = "Verify updating user email from pending tab then email gets updated ")
+    @Test(description = "Verify updating user email from pending tab then email gets updated")
     public void verifyUpdatingUserEmailForAlreadyInvitedUser() {
 
         headerPage.clickOnManageTeam();
@@ -347,7 +377,7 @@ public class InviteUserTest extends BaseTest {
     }
 
     @Test(description = "Verify Delete confirmation popup displayed correct user name and role")
-    public void VerifyUserNameAndCorrectUserRoleIsDisplayed(){
+    public void VerifyUserNameAndCorrectUserRoleIsDisplayedInDeleteModal(){
 
         headerPage.clickOnManageTeam();
         manageTeamPage.clickOnPendingTab();
@@ -364,7 +394,6 @@ public class InviteUserTest extends BaseTest {
 
         Assert.assertTrue(pendingTabComponent.isDeleteInviteUserToastDisplayed(), " Delete user toast does not displayed");
         Assert.assertFalse(pendingTabComponent.isUserPresent("CM Craig Mitchel"), "User is present in the pending tab ");
-
 
     }
 

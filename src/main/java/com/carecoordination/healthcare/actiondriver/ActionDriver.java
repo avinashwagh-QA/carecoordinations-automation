@@ -100,7 +100,6 @@ public class ActionDriver {
         }
     }
 
-
     // Wait for element to be Present in the Dom
     public WebElement waitForElementToBePresent(By locator) {
         try {
@@ -212,6 +211,20 @@ public class ActionDriver {
             logger.error("Unable to enter text in: {}", locator, e);
             throw new RuntimeException("Not able to send the keys " + locator + e.getMessage());
         }
+    }
+
+    //method to enter the text on task field input
+    public void enterMaskedText(By locator, String value){
+
+        WebElement element = waitForElementToVisible(locator);
+        element.clear(); //clear value
+
+        //set value using javascript
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].value='" + value +"';", element);
+
+        //Trigger blur event
+        element.sendKeys(Keys.TAB);
     }
 
     //Method to get the value for element
